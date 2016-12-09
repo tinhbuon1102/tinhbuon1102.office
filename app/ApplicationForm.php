@@ -21,4 +21,8 @@ class ApplicationForm extends Model
 			'NameOfCompany',
 			'BusinessType'
 	];
+	
+	public function abc() {
+	     
+	}
 }

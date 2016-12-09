@@ -13,11 +13,8 @@ class Bookedspace extends Model
 		return $this->hasMany('App\Spaceimage',  'ShareSpaceID', 'SpaceID');
 	}
 
-	public function abc() {
-	    
-	}
 	public function spaceAvailable()
-	{  
+	{
 		return $this->hasMany('App\Bookedspaceslot',  'SpaceID', 'SpaceID');
 	}
 

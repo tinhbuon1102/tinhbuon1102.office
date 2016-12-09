@@ -14,7 +14,7 @@ class Bookedspace extends Model
 	}
 
 	public function spaceAvailable()
-	{
+	{  
 		return $this->hasMany('App\Bookedspaceslot',  'SpaceID', 'SpaceID');
 	}
 

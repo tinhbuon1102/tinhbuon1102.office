@@ -1,0 +1,440 @@
+
+<?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header_beforelogin.php'); ?>
+@include('pages.header_beforelogin')
+<link rel="stylesheet" type='text/css' href="<?php echo SITE_URL?>css/select2.min.css">
+<style>
+#skill_chosen {display: none !important;}
+</style>
+<!--/head-->
+<body class="selectPage">
+	<div class="viewport">
+		<div class="header_wrapper primary-navigation-section">
+			<header id="header">
+<div class="header_container dark">
+<div class="logo_container"><a class="logo" href="{{url('/')}}">Offispo</a></div>
+</div>
+</header>
+		</div>
+        <div id="stepArea">
+<ol class="cd-breadcrumb triangle custom-icons">
+<li>
+<span><span class="round-number">&#9312;</span>メールアドレス登録</span>
+</li>
+<li class="current">
+<span><span class="round-number">&#9313;</span>基本情報入力</span>
+</li>
+<li>
+<span><span class="round-number">&#9314;</span>仮登録完了</span>
+</li>
+</ol>
+</div>
+		<div class="main-container">
+			<div id="main" class="container">
+				<h1 class="page-title">基本情報を入力</h1>
+				<p class="sub-title">アカウント作成のための基本情報を入力して下さい。</p>
+				<div class="form-container">
+					@if($errors->has()) @foreach ($errors->all() as $error)
+					<div>{{ $error }}</div>
+					@endforeach @endif
+					<form id="basicinfo" name="BasicInfo" method="post" action="{{ url('RentUser/BasicInfo') }}" class="fl-form ">
+						{{ csrf_field() }}
+						<fieldset>
+							<div class="Signup-sectionHeader">
+								<legend class="signup-sectionTitle">お名前</legend>
+							</div>
+							<div class="form-field two-inputs">
+								<div class="input-container input-half">
+									<label for="last_name">
+										<span class="require-mark">*</span>
+										姓
+									</label>
+									<input name="LastName" id="LastName" value="" ng-model="signup.last_name" type="text" class="validate[required]" aria-invalid="true" placeholder="佐藤">
+									@if($errors->first('LastName'))
+									<div ng-show="LastNameError" class="input-error">
+										<span class="label label-warning ng-binding">{{ $errors->first('LastName') }}</span>
+									</div>
+									@endif
+								</div>
+								<div class="input-container input-half">
+									<label for="last_name">
+										<span class="require-mark">*</span>
+										名
+									</label>
+									<input name="FirstName" id="FirstName" value="" ng-model="signup.first_name" type="text" class="validate[required]" aria-invalid="true" placeholder="太郎">
+									@if($errors->first('FirstName'))
+									<div ng-show="FirstNameError" class="input-error">
+										<span class="label label-warning ng-binding">{{ $errors->first('FirstName') }}</span>
+									</div>
+									@endif
+								</div>
+							</div>
+							<!--/form-field-->
+							<div class="form-field two-inputs">
+								<div class="input-container input-half">
+									<label for="last_name">
+										<span class="require-mark">*</span>
+										姓(ふりがな)
+									</label>
+									<input name="LastNameKana" id="LastNameKana" value="" ng-model="signup.last_name_kana" type="text" class="validate[required]" aria-invalid="true" placeholder="さとう">
+									@if($errors->first('LastNameKana'))
+									<div ng-show="LastNameError" class="input-error">
+										<span class="label label-warning ng-binding">{{ $errors->first('LastName') }}</span>
+									</div>
+									@endif
+								</div>
+								<div class="input-container input-half">
+									<label for="last_name">
+										<span class="require-mark">*</span>
+										名(ふりがな)
+									</label>
+									<input name="FirstNameKana" id="FirstNameKana" value="" ng-model="signup.first_name_kana" type="text" class="validate[required]" aria-invalid="true" placeholder="たろう">
+									@if($errors->first('FirstNameKana'))
+									<div ng-show="FirstNameError" class="input-error">
+										<span class="label label-warning ng-binding">{{ $errors->first('FirstNameKana') }}</span>
+									</div>
+									@endif
+								</div>
+							</div>
+							<!--/form-field-->
+						</fieldset>
+						<div class="hr"></div>
+						<fieldset>
+							<div class="Signup-sectionHeader">
+								<legend class="signup-sectionTitle">生年月日・性別</legend>
+							</div>
+							<div class="form-field two-inputs">
+								<div class="input-container input-half">
+									<label for="last_name">
+										<span class="require-mark">*</span>
+										生年月日
+									</label>
+									<select name="BirthYear" class="wd-auto validate[required]">
+										<?php
+										$now = date("Y");
+for($i = 1950; $i<= $now; $i++):?>
+										<option value="<?php echo $i;?>">
+											<?php echo $i;?>
+										</option>
+										<?php endfor;?>
+									</select>
+									年
+									<select name="BirthMonth" class="wd-auto validate[required]">
+										<?php
+for($i = 1; $i<=12; $i++):?>
+										<option value="<?php echo $i;?>">
+											<?php echo $i;?>
+										</option>
+										<?php endfor;?>
+									</select>
+									月
+									<select name="BirthDay" class="wd-auto validate[required]">
+										<?php 
+for($i = 1; $i<=31; $i++):?>
+										<option value="<?php echo $i;?>">
+											<?php echo $i;?>
+										</option>
+										<?php endfor;?>
+									</select>
+									日
+								</div>
+								<div class="input-container input-half">
+									<label for="sex">
+										<span class="require-mark">*</span>
+										性別
+									</label>
+									<select name="Sex" class="wd-80 validate[required]">
+										<option value="男性" selected>男性</option>
+										<option value="女性">女性</option>
+									</select>
+								</div>
+							</div>
+							<!--/form-field-->
+						</fieldset>
+						<div class="hr"></div>
+						<fieldset>
+							<div class="Signup-sectionHeader">
+								<legend class="signup-sectionTitle">電話番号</legend>
+							</div>
+							<div class="form-field two-inputs">
+								<div class="input-container input-half">
+									<label for="phoneNumber">
+										<span class="require-mark">*</span>
+										電話番号
+									</label>
+									<input name="Tel" id="Tel" type="text" class="validate[required,custom[phone]]">
+								</div>
+							</div>
+							<!--/form-field-->
+						</fieldset>
+						<div class="hr"></div>
+						<fieldset>
+							<div class="Signup-sectionHeader">
+								<legend class="signup-sectionTitle">住所</legend>
+							</div>
+							<div class="form-field two-inputs">
+								<div class="input-container input-half">
+									<label for="zip">
+										<span class="require-mark">*</span>
+										郵便番号<span class="help">郵便番号はハイフンを抜いて入力してください。</span>
+									</label>
+									<input name="PostalCode" id="zip" type="text" class="validate[required,custom[zip]]">
+								</div>
+							</div>
+							<!--/form-field-->
+							<div class="form-field two-inputs">
+								<div class="input-container input-half">
+									<label for="prefecture">
+										<span class="require-mark">*</span>
+										都道府県
+									</label>
+									<input name="Prefecture" id="prefecture" type="text" class="validate[required]" placeholder="都道府県">
+								</div>
+								<div class="input-container input-half">
+									<label for="district">
+										<span class="require-mark">*</span>
+										市区町村
+									</label>
+									<input name="City" id="district" type="text" class="validate[required]" placeholder="市区町村">
+								</div>
+							</div>
+							<!--/form-field-->
+							<div class="form-field">
+								<div class="input-container">
+									<label for="addr">
+										<span class="require-mark">*</span>
+										番地等
+									</label>
+									<input name="Address1" id="Addr" value="" ng-model="signup.addr" type="text" class="validate[required]" placeholder="番地等">
+								</div>
+							</div>
+							<!--/form-field-->
+						</fieldset>
+						<div class="hr"></div>
+						<fieldset>
+							<div class="Signup-sectionHeader">
+								<legend class="signup-sectionTitle">
+									個人事業・法人情報
+									<!--個人事業・法人情報-->
+								</legend>
+							</div>
+							<div class="form-field two-inputs">
+								<div class="input-container input-half">
+									<label for="typeOrg">
+										<span class="require-mark">*</span>
+										事業主種類
+										<!--事業主種類-->
+									</label>
+									<select id="UserType" name="UserType" class="old_ui_selector validate[required]">
+										<? /* <option value="個人事業主" selected="">Individual</option>
+      <option value="法人">Company</option> */ ?>
+										<option value="個人事業主" selected>個人事業主</option>
+										<option value="法人">法人</option>
+									</select>
+								</div>
+								<div class="input-container input-half">
+									<label for="typeBusiness">
+										<span class="require-mark">*</span>
+										事業のタイプ
+										<!--事業のタイプ-->
+									</label>
+									<select id="BusinessType" name="BusinessType" class="old_ui_selector validate[required]">
+										<option value="" selected="">事業タイプを選択</option>
+										<!--カテゴリを選択-->
+										<option value="インターネット・ソフトウェア">インターネット・ソフトウェア</option>
+										<option value="コンサルティング・ビジネスサービス">コンサルティング・ビジネスサービス</option>
+										<option value="コンピュータ・テクノロジー">コンピュータ・テクノロジー</option>
+										<option value="メディア/ニュース/出版">メディア/ニュース/出版</option>
+										<option value="園芸・農業">園芸・農業</option>
+										<option value="化学">化学</option>
+										<option value="教育">教育</option>
+										<option value="金融機関">金融機関</option>
+										<option value="健康・医療・製薬">健康・医療・製薬</option>
+										<option value="健康・美容">健康・美容</option>
+										<option value="工学・建設">工学・建設</option>
+										<option value="工業">工業</option>
+										<option value="小売・消費者商品">小売・消費者商品</option>
+										<option value="食品・飲料">食品・飲料</option>
+										<option value="政治団体">政治団体</option>
+										<option value="地域団体">地域団体</option>
+										<option value="電気通信">電気通信</option>
+										<option value="保険会社">保険会社</option>
+										<option value="法律">法律</option>
+										<option value="輸送・運輸">輸送・運輸</option>
+										<option value="旅行・レジャー">旅行・レジャー</option>
+										<option value="デザイン">デザイン</option>
+										<option value="写真">写真</option>
+										<option value="映像">映像</option>
+										<option value="その他">その他</option>
+									</select>
+								</div>
+                                </div>
+							<!--/form-field-->
+								
+								<div class="input-container form-field" id="company_wraper" style="display: none; clear:both;">
+									<div class="input-container">
+										<label for="NameOfCompany">
+											<span class="require-mark">*</span>
+											会社名
+										</label>
+										<input name="NameOfCompany" value="" id="NameOfCompany" class="validate[required]" type="text" placeholder="株式会社Offispo">
+									</div>
+								</div>
+								<div class="form-field two-inputs">
+								<div class="input-container input-half">
+									<label for="welcome_business_kind">スキル</label>
+									<select data-placeholder="スキルを選択" class="chosen-select" name="Skills[]" id="skill" multiple>
+										<option value=""></option>
+										<optgroup label="制作用ツール、DTPソフト">
+											<option value="Photoshop">Photoshop</option>
+											<option value="Illustrator">Illustrator</option>
+											<option value="Dreamweaver">Dreamweaver</option>
+											<option value="Wordpress">Wordpress</option>
+											<option value="Flash">Flash</option>
+										</optgroup>
+										<optgroup label="デザイン技術">
+											<option value="Webデザイン">Webデザイン</option>
+											<option value="グラフィックデザイン">グラフィックデザイン</option>
+											<option value="3Dデザイン">3Dデザイン</option>
+										</optgroup>
+										<optgroup label="開発技術">
+											<option value="IT・Web系技術">IT・Web系技術</option>
+											<option value="アプリケーション開発技術">アプリケーション開発技術</option>
+										</optgroup>
+										<optgroup label="基本事務ソフト">
+											<option value="Excel">Excel</option>
+											<option value="Power Point">Power Point</option>
+											<option value="Words">Words</option>
+										</optgroup>
+										<optgroup label="ビジネススキル">
+											<option value="事務スキル">事務スキル</option>
+											<option value="事務スキル">事務スキル</option>
+											<option value="営業スキル">営業スキル</option>
+											<option value="コンサルティング">コンサルティングスキル</option>
+											<option value="経営スキル">経営スキル</option>
+											<option value="企画力">企画力</option>
+											<option value="交渉力">交渉力</option>
+											<option value="マーケティング">マーケティング力</option>
+											<option value="プレゼンテーション">プレゼンテーション力</option>
+											<option value="プロジェクト・マネージメント">プロジェクト・マネージメント</option>
+											<option value="情報収集力">情報収集力</option>
+										</optgroup>
+										<optgroup label="語学">
+											<option value="英語">英語</option>
+											<option value="中国語">中国語</option>
+											<option value="韓国語">韓国語</option>
+											<option value="フランス語">フランス語</option>
+											<option value="フランス語">イタリア語</option>
+											<option value="スペイン語">スペイン語</option>
+										</optgroup>
+									</select>
+								</div>
+							</div>
+							<!--/form-field-->
+						</fieldset>
+						<div class="hr"></div>
+						<div class="btn-next-step">
+							<button id="saveBasicInfo" class="btn btn-info input-basicinfo-button" type="submit">登録する</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!--footer-->
+		@include('pages.signup_footer')
+		<!--/footer-->
+	</div>
+	<!--/viewport-->
+	<script src="<?php echo SITE_URL?>js/typeahead.tagging.js"></script>
+	<script src="<?php echo SITE_URL?>/js/select2.full.min.js" type="text/javascript"></script>
+	<script>
+jQuery(document).ready(function(){
+        // The source of the tags for autocompletion
+        var tagsource = [
+        ]
+        // Turn the input into the tagging input
+        //jQuery('#input_skills').tagging(tagsource);
+        jQuery('#skill').select2({
+                    multiple:true
+    	});
+    });
+    </script>
+    <script src="{{ URL::asset('js/jquery.validationEngine.js') }}"></script>
+<script src="{{ URL::asset('js/jquery.validationEngine-ja.js') }}"></script>
+<link rel="stylesheet" href="{{ URL::asset('css/validationEngine.jquery.css') }}">
+<script>
+  jQuery(function(){
+    jQuery("#basicinfo").validationEngine();
+  });
+</script>
+	<!--<script src="{{ URL::asset('js/jquery.validate.js?v=1') }}"></script>-->
+	<script src="{{ URL::asset('js/KanaMaker.js') }}"></script>
+	<script src="{{ URL::asset('js/kana.js') }}"></script>
+	<script src="{{ URL::asset('js/chosen/chosen.jquery.js') }}" type="text/javascript"></script>
+	<script src="{{ URL::asset('js/assets/custom_edit_form.js') }}" type="text/javascript"></script>
+	<!--<script>
+		$("#basicinfo").validate({
+				  	errorPlacement: function(label, element) { 
+						label.addClass('form-error');
+						label.insertAfter(element);
+			},
+			rules: {
+			    
+			  }
+			});
+			
+			
+			 
+		</script>-->
+	<script>
+jQuery(function($){    
+    var convertor = null;
+    $("#LastName").click(function(e){
+        convertor = new KanaMaker();
+    });
+    
+    $("#LastName").keyup(function(e){
+        if(convertor != null){
+            convertor.eval(e);
+            $("#LastNameKana").val(convertor.Hira());
+          
+            
+        }else if($("#LastName").val() == ""){
+            convertor = new KanaMaker(); //reset
+        }
+    });
+	
+	var convertor1 = null;
+    $("#FirstName").click(function(e){
+        convertor1 = new KanaMaker();
+    });
+    
+    $("#FirstName").keyup(function(e){
+        if(convertor1 != null){
+            convertor1.eval(e);
+            $("#FirstNameKana").val(convertor1.Hira());
+          
+            
+        }else if($("#FirstName").val() == ""){
+            convertor1 = new KanaMaker(); //reset
+        }
+    });
+
+    function showHideNameOfCompany(){
+		if ($('#UserType').val() == '法人')
+		{
+			$('#company_wraper').show();
+		}
+		else {
+			$('#NameOfCompany').val('');
+			$('#company_wraper').hide();
+		}
+	}
+	$('body').on('change', '#UserType', function(){
+		showHideNameOfCompany();
+	});
+
+	showHideNameOfCompany();
+});
+		</script>
+</body>
+</html>

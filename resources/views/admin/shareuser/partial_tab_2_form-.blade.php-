@@ -1,0 +1,551 @@
+<h2 class="page-title">提供するオフィススペースについて</h2>
+<p class="sub-title">提供するオフィススペース情報を入力して下さい。</p>
+<div class="form-container">
+	<form id="shareinfo" name="ShareInfo" method="post" action="" class="fl-form " novalidate="novalidate">
+{{ csrf_field() }}
+	<fieldset>
+			<div class="Signup-sectionHeader">
+				<legend class="signup-sectionTitle"> 基本情報 </legend>
+			</div>
+
+
+			<div class="form-field">
+				<label for="SpaceTitle">
+					<span class="require-mark">*</span>
+					タイトル
+					<span class="help">*サイトの掲載されるスペースの名前をご入力ください。</span>
+				</label>
+				<div class="input-container">
+					<input name="Title" id="SpaceTitle" value="{{$space->Title}}" required="" ng-model="setting.space_title" type="text" class="ng-invalid" aria-invalid="true" placeholder="4人~6人用オープンデスク" aria-required="true">
+				</div>
+			</div>
+
+			<div class="form-field share-locate">
+				<label for="require-place">
+					<span class="require-mark">*</span>
+					住所
+					<span class="help">*提供するスペースが会社の住所と異なる場合のみご変更ください。</span>
+				</label>
+
+				<div class="form-field two-inputs nopd no-btm-border">
+					<div class="input-container input-half withrightlabel">
+						<label class="post-mark inline">〒</label>
+						<input name="PostalCode" value="{{$space->PostalCode}}" required="" id="zip" type="text" 　class="ng-pristine ng-untouched ng-invalid-required" aria-required="true">
+					</div>
+				</div>
+				<!--/form-field-->
+				<div class="form-field two-inputs nopd no-btm-border">
+
+					<div class="input-container input-half">
+						<select id="prefecture" required="" name="Prefecture" data-label="都道府県を選択" aria-required="true">
+							<option value="北海道">北海道</option>
+							<option value="青森県">青森県</option>
+							<option value="岩手県">岩手県</option>
+							<option value="宮城県">宮城県</option>
+							<option value="秋田県">秋田県</option>
+							<option value="山形県">山形県</option>
+							<option value="福島県">福島県</option>
+							<option value="茨城県">茨城県</option>
+							<option value="栃木県">栃木県</option>
+							<option value="群馬県">群馬県</option>
+							<option value="埼玉県">埼玉県</option>
+							<option value="千葉県">千葉県</option>
+							<option value="東京都">東京都</option>
+							<option value="神奈川県">神奈川県</option>
+							<option value="新潟県">新潟県</option>
+							<option value="富山県">富山県</option>
+							<option value="石川県">石川県</option>
+							<option value="福井県">福井県</option>
+							<option value="山梨県">山梨県</option>
+							<option value="長野県">長野県</option>
+							<option value="岐阜県">岐阜県</option>
+							<option value="静岡県">静岡県</option>
+							<option value="愛知県">愛知県</option>
+							<option value="三重県">三重県</option>
+							<option value="滋賀県">滋賀県</option>
+							<option value="京都府">京都府</option>
+							<option value="大阪府">大阪府</option>
+							<option value="兵庫県">兵庫県</option>
+							<option value="奈良県">奈良県</option>
+							<option value="和歌山県">和歌山県</option>
+							<option value="鳥取県">鳥取県</option>
+							<option value="島根県">島根県</option>
+							<option value="岡山県">岡山県</option>
+							<option value="広島県">広島県</option>
+							<option value="山口県">山口県</option>
+							<option value="徳島県">徳島県</option>
+							<option value="香川県">香川県</option>
+							<option value="愛媛県">愛媛県</option>
+							<option value="高知県">高知県</option>
+							<option value="福岡県">福岡県</option>
+							<option value="佐賀県">佐賀県</option>
+							<option value="長崎県">長崎県</option>
+							<option value="熊本県">熊本県</option>
+							<option value="大分県">大分県</option>
+							<option value="宮崎県">宮崎県</option>
+							<option value="鹿児島県">鹿児島県</option>
+							<option value="沖縄県">沖縄県</option>
+						</select>
+						<!--select prefecture-->
+					</div>
+					<div class="input-container input-half">
+						<input name="District" required="" value="{{$space->District}}" id="district" type="text" class="ng-pristine ng-untouched ng-invalid-required" aria-required="true" placeholder="市区町村">
+						<!--select districts-->
+					</div>
+				</div>
+				<!--/form-field-->
+				<div class="form-field two-inputs nopd no-btm-border">
+					<div class="input-container input-half">
+						<input name="Address1" required="" id="SpaceAddr" value="{{$space->Address1}}" ng-model="signup.addr" type="text" class="ng-pristine ng-untouched ng-invalid-required" aria-required="true" placeholder="番地">
+						<!--select towns-->
+					</div>
+					<div class="input-container input-half">
+						<input name="Address2" id="SpaceAddr2" value="{{$space->Address1}}" ng-model="signup.addr2" type="text" class="ng-pristine ng-untouched" placeholder="建物名・階・部屋番号">
+					</div>
+				</div>
+				<!--/form-field-->
+			</div>
+			<!--/form-field-->
+			<div class="form-field col3_wrapper">
+				<label for="SpaceTitle">
+					<span class="require-mark">*</span>
+					スペースタイプと利用可能人数
+				</label>
+				<div class="input-container input-col3">
+					<select id="choose_per_type" name="FeeType" required="" aria-required="true">
+						@foreach(Config::get('lp.budgetType') as $bud => $ar )
+							<option data-group="{{ $ar['type'] }}" data-fee-group="{{ $ar['fee'] }}" value="{{ $ar['id'] }}">{{ $ar['display'] }}</option>
+						@endforeach
+						</select>
+				</div>
+				<div class="input-container input-col3">
+					<select id="choose_type_of_office" required="" name="Type" data-label="スペースタイプを選択" aria-required="true">
+						<option value="" selected="">スペースタイプを選択</option>
+						<option value="コアワーキング">コアワーキング</option>
+						<option data-room-group="room-group-a" value="オープンデスク">オープンデスク</option>
+						<option data-room-group="room-group-a" value="シェアデスク">シェアデスク</option>
+						<!--Monthly-->
+						<!--Weekly-->
+						<option data-group="type-group-b" data-room-group="room-group-a" value="プライベートオフィス" style="display: none;">プライベートオフィス</option>
+						<option data-group="type-group-b" data-room-group="room-group-a" value="チームオフィス" style="display: none;">チームオフィス</option>
+						<option data-group="type-group-b" value="オフィス" style="display: none;">オフィス</option>
+						<!--Hourly-->
+						<option data-group="type-group-c" value="会議室" style="display: block;">会議室</option>
+						<option data-group="type-group-c" value="セミナースペース" style="display: block;">セミナースペース</option>
+					</select>
+				</div>
+				<div class="input-container input-col3" id="capacity_people_wraper">
+					<div class="input_withunit">
+						<input type="number" required="" value="{{$space->Capacity}}" name="Capacity" min="1" max="100" id="ty3" aria-required="true">
+						人
+					</div>
+				</div>
+			</div>
+
+			<div class="form-field two-inputs space-area-wraper type-group-sub" data-group="type-group-b" style="display: none;">
+				<div class="input-container input-half">
+					<label for="space_area">スペース面積 </label>
+					<div class="input_withunit">
+						<input type="number" required="" value="{{$space->Area}}" name="Area" min="1" max="100" id="ty3" aria-required="true">
+						m²
+					</div>
+				</div>
+
+			</div>
+			<!--/form-field-->
+			<div class="form-field nopd no-btm-border">
+				<label for="SpaceDesc">
+					<span class="require-mark">*</span>
+					スペース説明文
+				</label>
+				<textarea required="" cols="20" name="Details" id="WorkspaceData_ShortDescription" rows="5" class="space-desc-textarea ng-pristine ng-untouched ng-invalid ng-invalid-required" aria-required="true">{{$space->Details}}</textarea>
+				<div class="text-length-counter">
+					<span>0</span>
+					<span>/4000</span>
+				</div>
+			</div>
+		</fieldset>
+		<div class="hr"></div>
+
+		<fieldset>
+			<div class="Signup-sectionHeader">
+				<legend class="signup-sectionTitle"> 写真 </legend>
+			</div>
+		<section class="space-photo-upload">
+
+														<div class="space-setting-content">
+															<div class="form-container">
+																<div class="form-field two-inputs nopd no-btm-border">
+																	<div class="input-container input-half">
+																		<label for="SpaceMainPhoto">
+																			<span class="require-mark">*</span>
+																			メイン写真
+																		</label>
+																		<div class="edit-gallery-wrapper">
+																			<div class="edit-gallery-thumbnails edit-main-picture edit-gallery-thumbnails-placeholder">
+																				<?php 
+																				$main="";
+																				$main_id="";
+																				$thumb_1="";
+																				$thumb_1_id="";
+																				$thumb_2="";
+																				$thumb_2_id="";
+																				$thumb_3="";
+																				$thumb_3_id="";
+																				$thumb_4="";
+																				$thumb_4_id="";
+																				$thumb_5="";
+																				$thumb_5_id="";
+																				$k=1;
+																				if($IsEdit=="True")
+																				{
+																					$spaceImg= $space->spaceImage->all();
+																					;
+																					foreach($spaceImg as $im)
+																					{
+																						if($im->Main==1)
+																						{
+																							$main=$im->ThumbPath;
+																							$main_id=$im->id;
+																						}
+																						else{
+																		${
+"thumb_".$k} = $im->SThumbPath;
+																		${
+"thumb_".$k."_id"}=$im->id;
+																		$k++;
+																	}
+																					}
+																				}
+																					
+																				?>
+																				<div class="edit-gallery-thumbnail-wrapper" image-type="main" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#popover_content_wrapper" style=<?php if(Session::get('space_image')) echo 'background-image:url("'. (Session::get('space_image')) .'?t='. time() .'")'?> <?php if(!empty($main)) echo 'background-image:url("'.($main).'")'?>>
+																					<input type="hidden" name="dataimage[main]" id="image_main" value="" />
+																					<?php if($IsEdit=="True"){ ?>
+																					<input type="hidden" name="dataimage[main_id]" value="<?=$main_id?>" />
+																					<?php } ?>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="edit-gallery-buttons" data-toggle="modal" image-type="main" data-target="#popover_content_wrapper">
+																			<button class="upload-button btn ui-button-text-only yellow-button" role="button" aria-disabled="false">
+																				<span class="ui-button-text">アップロード</span>
+																			</button>
+																			<button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false" style="display: none;">
+																				<span class="ui-button-text">Edit selected</span>
+																			</button>
+																		</div>
+																	</div>
+																	<!--/input-container-->
+
+																	<label for="SpacePhotos">メイン写真 </label>
+																	<div class="input-container input-half">
+																		<div class="edit-gallery-wrapper">
+																			<div class="edit-gallery-thumbnails edit-gallery-thumbnails-placeholder">
+																				<?php for($i=1; $i<6; $i++) {?>
+																				<?php $timg=${
+"thumb_".$i}; ?>
+																				<div class="edit-gallery-thumbnail-wrapper" image-type="thumb_<?php echo $i?>" data-toggle="modal" data-backdrop="static" data-keyboard="false"  data-target="#popover_content_wrapper" style=<?php if(!empty($timg)) echo 'background-image:url("'.($timg).'")'?>>
+																					<input type="hidden" name="dataimage[thumb_<?php echo $i?>]" value="" id="image_thumb_<?php echo $i?>" />
+																					<?php if($IsEdit=="True"){ ?>
+																					<input type="hidden" name="dataimage[thumb_<?php echo $i?>_id]" value="<?=${"thumb_".$i."_id"}?>" />
+																					<?php } ?>
+																				</div>
+																				<?php }?>
+																			</div>
+																		</div>
+																		<div class="edit-gallery-buttons" data-toggle="modal" image-type="thumb_<?=$k?>" isbutton="yes" data-target="#popover_content_wrapper">
+																			<button class="upload-button btn ui-button-text-only yellow-button" role="button" aria-disabled="false">
+																				<span class="ui-button-text">アップロード</span>
+																			</button>
+																			<button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false" style="display: none;">
+																				<span class="ui-button-text">Edit selected</span>
+																			</button>
+																		</div>
+																	</div>
+																	<!--/input-container-->
+																</div>
+															</div>
+															<!--/form-container-->
+														</div>
+														<!--/space-setting-content-->
+													</section>
+											</fieldset>
+		<div class="hr"></div>
+
+		<fieldset>
+			<div class="Signup-sectionHeader">
+				<legend class="signup-sectionTitle"> 金額と期間 </legend>
+			</div>
+
+
+			<!--Hourly-->
+			<div class="form-field two-inputs fee-group-sub nopd no-btm-border" data-fee-group="fee-group-a" style="display: block;">
+				<div class="input-container input-half">
+					<div class="field_col">
+						<div class="input_withunit space_price_term" id="choose_fee_per">
+							<label class="label_left">1時間あたり </label>
+							<input required="" value="{{$space->HourFee}}" data-value="{{$space->HourFee}}" name="HourFee" id="FeePerHour" ng-model="signup.fee_price_per_hour" type="text" class="ng-invalid" aria-invalid="true" placeholder="" aria-required="true">
+							円
+						</div>
+					</div>
+					<!--/field_col-->
+				</div>
+				<!--/input-half-->
+				<div class="input-container input-half">
+					<div class="field_col">
+						<div class="input_withunit space_min_term">
+							<label class="label_left">最低利用時間</label>
+							<select required="" data-bind="value: MinimumBookingLength" data-val="true" data-val-number="The field MinimumBookingLength must be a number." data-val-required="The MinimumBookingLength field is required." id="HourMinTerm" name="HourMinTerm" aria-required="true">
+								<option selected="selected" value="1">1時間</option>
+								<option value="2">2時間</option>
+								<option value="3">3時間</option>
+								<option value="4">4時間</option>
+							</select>
+						</div>
+					</div>
+					<!--/field_col-->
+				</div>
+				<!--/input-half-->
+			</div>
+			<!--/form-field-->
+
+			<!--Daily-->
+			<div class="form-field two-inputs fee-group-sub" data-fee-group="fee-group-b" style="display: none;">
+				<div class="input-container input-half">
+					<div class="field_col">
+						<div class="input_withunit space_price_term" id="choose_fee_per_day">
+							<label class="label_left">1日あたり</label>
+							<input required="" name="DayFee" id="FeePerDay" data-value="{{$space->DayFee}}" value="{{$space->DayFee}}" ng-model="signup.fee_price_per_day" type="text" class="ng-invalid" aria-invalid="true" placeholder="" aria-required="true">
+							円
+						</div>
+					</div>
+					<!--/field_col-->
+				</div>
+				<!--/input-half-->
+				<div class="input-container input-half">
+					<div class="field_col"></div>
+					<!--/field_col-->
+				</div>
+				<!--/input-half-->
+			</div>
+			<!--/form-field-->
+
+
+			<!--Weekly-->
+			<div class="form-field two-inputs fee-group-sub" data-fee-group="fee-group-c" style="display: none;">
+				<div class="input-container input-half">
+					<div class="field_col">
+						<div class="input_withunit space_price_term" id="choose_fee_per_week">
+							<label class="label_left">1週間あたり</label>
+							<input required="" name="WeekFee" id="FeePerWeek" value="{{$space->WeekFee}}" data-value="{{$space->WeekFee}}" ng-model="signup.fee_price_per_week" type="text" class="ng-invalid" aria-invalid="true" placeholder="" aria-required="true">
+							円
+						</div>
+					</div>
+					<!--/field_col-->
+				</div>
+				<!--/input-half-->
+				<div class="input-container input-half">
+					<div class="field_col">
+						<div class="input_withunit space_min_term">
+							<label class="label_left">最低利用期間</label>
+							<select data-bind="value: MinimumBookingLength" required="" data-val="true" data-val-number="The field MinimumBookingLength must be a number." data-val-required="The MinimumBookingLength field is required." id="WeekMinTerm" name="WeekMinTerm" aria-required="true">
+								<option selected="selected" value="1">1週間</option>
+								<option value="2">2週間</option>
+							</select>
+						</div>
+					</div>
+					<!--/field_col-->
+				</div>
+				<!--/input-half-->
+			</div>
+			<!--/form-field-->
+
+			<!--Monthly-->
+			<div class="form-field two-inputs no-btm-border fee-group-sub" data-fee-group="fee-group-d" style="display: none;">
+				<div class="input-container input-half">
+					<div class="field_col">
+						<div class="input_withunit space_price_term" id="choose_fee_per_month">
+							<label class="label_left">1ヶ月あたり</label>
+							<input required="" name="MonthFee" id="FeePerMonth" value="{{$space->MonthFee}}" data-value="{{$space->MonthFee}}"  ng-model="signup.fee_price_per_month" type="text" class="ng-invalid" aria-invalid="true" placeholder="" aria-required="true">
+							円
+						</div>
+					</div>
+					<!--/field_col-->
+				</div>
+				<!--/input-half-->
+				<div class="input-container input-half">
+					<div class="field_col">
+						<div class="input_withunit space_min_term">
+							<label class="label_left">最低利用期間</label>
+							<select required="" data-bind="value: MinimumBookingLength" data-val="true" data-val-number="The field MinimumBookingLength must be a number." data-val-required="The MinimumBookingLength field is required." id="MonthMinTerm" name="MonthMinTerm" aria-required="true">
+								<option selected="selected" value="1">1ヶ月</option>
+								<option value="3">3ヶ月</option>
+								<option value="6">6ヶ月</option>
+								<option value="12">12ヶ月</option>
+							</select>
+						</div>
+					</div>
+					<!--/field_col-->
+				</div>
+				<!--/input-half-->
+			</div>
+			<!--/form-field-->
+
+		</fieldset>
+		<div class="hr"></div>
+
+			<fieldset>
+													<div class="Signup-sectionHeader">
+														<legend class="signup-sectionTitle"> 基本利用可能時間帯 </legend>
+													</div>
+													<div class="form-field time-to-use-signup no-btm-border">
+														<div class="input-container">
+															<div class="space-setting-content">
+																<div class="form-container">
+																	<div class="form-field nopd">
+																		<table class="time-slot-table">
+																			<thead>
+																				<tr>
+																					<th>曜日</th>
+																					<th colspan="3">時間帯</th>
+																				</tr>
+																			</thead>
+																			<tbody>
+																				<?php 
+																				for($i = 1; $i <= 7; $i++)
+																				{
+																					$date = strftime('%A', strtotime("Sunday + $i Days"));
+																					$day_name = date('l', strtotime("Sunday + $i Days"));
+																					?>
+																				<tr data-date="<?php echo ($day_name)?>" class="date-row">
+																					<td class="daystring">{{Config::get("lp.daystring.$date")}}</td>
+																					<td class="inplaceedit">
+																						<?php $col1=$date."StartTime";
+																	$col2=$date."EndTime"; ?>
+																						<div class="display hour-column">@if($IsEdit=="True") {{$space->$col1}}-{{$space->$col2}} @else 9:00 AM - 5:00 PM @endif</div>
+																						<div class="edit">
+																							<span class="edit-hour-block" style="display: none;"> </span>
+																							<span class="edit-closed-text" style="display: none;"> 終日利用不可 </span>
+																							<span class="edit-open-text" style="display: none;"> 24時間利用可能 </span>
+																						</div>
+																					</td>
+																					<td class="checkbutton-cell edit-closed">
+																						終日利用不可
+																						<span class="checkmark"></span>
+																						<input type="checkbox" value="Yes" name="isClosed<?php echo $day_name?>" style="display: none" />
+																					</td>
+																					<td class="checkbutton-cell edit-open">
+																						24時間利用可能
+																						<span class="checkmark"></span>
+																						<input type="checkbox" value="Yes" name="isOpen24<?php echo $day_name?>" style="display: none" />
+																					</td>
+																				</tr>
+																				<?php
+																				}
+																				?>
+
+
+																			</tbody>
+																		</table>
+																	</div>
+																	<!--/form-field-->
+																</div>
+																<!--/form-container-->
+															</div>
+															<!--/space-setting-content-->
+														</div>
+														<!--/input-container-->
+													</div>
+
+													<!--/form-field-->
+												</fieldset>
+											<div class="hr"></div>
+		<fieldset>
+			<div class="Signup-sectionHeader">
+				<legend class="signup-sectionTitle"> スペースシェアに含まれる設備 </legend>
+			</div>
+			<div class="form-field quater-inputs space-fac">
+				<div class="input-container input-quater">
+					<label for="num-desk">デスク </label>
+					<span class="field-number-input-withunit">
+						<input type="number" value="{{$space->NumOfDesk==0 ? '':$space->NumOfDesk}}" name="NumOfDesk" min="1" max="50">
+						台
+					</span>
+				</div>
+				<div class="input-container input-quater">
+					<label for="num-chair">イス </label>
+					<span class="field-number-input-withunit">
+						<input type="number" name="NumOfChair" value="{{$space->NumOfChair==0 ? '':$space->NumOfChair}}" min="1" max="50">
+						脚
+					</span>
+				</div>
+				<div class="input-container input-quater">
+					<label for="num-board">ボード </label>
+					<span class="field-number-input-withunit">
+						<input type="number" name="NumOfBoard" value="{{$space->NumOfBoard==0 ? '':$space->NumOfBoard}}" min="1" max="50">
+						台
+					</span>
+				</div>
+				<div class="input-container input-quater">
+					<label for="num-largedesk">複数人用デスク </label>
+					<span class="field-number-input-withunit">
+						<input type="number" name="NumOfTable" value="{{$space->NumOfTable==0 ? '':$space->NumOfTable}}" min="1" max="50">
+						台
+					</span>
+				</div>
+			</div>
+			<!--/form-field-->
+			<div class="form-field no-btm-border no-btm-pad space-other-fac">
+														<div class="input-container">
+															<label for="OtherFac">その他設備 </label>
+															<div class="checkbox-array">
+																<span class="checkbox">
+																	<input type="checkbox" name="OtherFacilities[]" class="custom-checkbox" value="wi-fi" <?php if (strpos($space->OtherFacilities, 'wi-fi') !== false) { echo 'checked';}  ?> data-labelauty="Wifi|Wifi">
+																</span>
+																<span class="checkbox">
+																	<input type="checkbox" class="custom-checkbox" <?php if (strpos($space->OtherFacilities, 'プリンター') !== false) { echo 'checked';}  ?> name="OtherFacilities[]" value="プリンター" data-labelauty="プリンター|プリンター">
+																</span>
+																<span class="checkbox">
+																	<input type="checkbox" class="custom-checkbox" <?php if (strpos($space->OtherFacilities, 'プロジェクター') !== false) { echo 'checked';}  ?> name="OtherFacilities[]" value="プロジェクター" data-labelauty="プロジェクター|プロジェクター">
+																</span>
+																<span class="checkbox">
+																	<input type="checkbox" class="custom-checkbox" <?php if (strpos($space->OtherFacilities, '自動販売機') !== false) { echo 'checked';}  ?> name="OtherFacilities[]" value="自動販売機" data-labelauty="自動販売機|自動販売機">
+																</span>
+																<span class="checkbox">
+																	<input type="checkbox" class="custom-checkbox" <?php if (strpos($space->OtherFacilities, '男女別トイレ') !== false) { echo 'checked';}  ?> name="OtherFacilities[]" value="男女別トイレ" data-labelauty="男女別トイレ|男女別トイレ">
+																</span>
+																<span class="checkbox">
+																	<input type="checkbox" class="custom-checkbox" <?php if (strpos($space->OtherFacilities, '喫煙所') !== false) { echo 'checked';}  ?> name="OtherFacilities[]" value="喫煙所" data-labelauty="喫煙所|喫煙所">
+																</span>
+															</div>
+															<!--/checkbox-array-->
+														</div>
+													</div>
+													<!--/form-field-->
+		<div class="form-field no-btm-border no-btm-pad space-bld-fac">
+														<div class="input-container">
+															<label for="OtherBldFac">
+																ビル設備
+																<span class="help">*駐車場は利用可能な場合のみご選択ください。</span>
+															</label>
+															<div class="checkbox-array">
+																<span class="checkbox">
+																	<input type="checkbox" class="custom-checkbox" name="OtherFacilities[]" value="駐車場" <?php if (strpos($space->OtherFacilities, '駐車場') !== false) { echo 'checked';}  ?> data-labelauty="駐車場|駐車場">
+																</span>
+																<span class="checkbox">
+																	<input type="checkbox" class="custom-checkbox" name="OtherFacilities[]" value="エレベーター" <?php if (strpos($space->OtherFacilities, 'エレベーター') !== false) { echo 'checked';}  ?> data-labelauty="エレベーター|エレベーター">
+																</span>
+															</div>
+														</div>
+													</div>
+													<!--/form-field-->
+		</fieldset>
+		<div class="hr"></div>
+		<div class="btn-next-step">
+			<button id="saveBasicInfo" type="submit" class="btn yellow-button input-basicinfo-button">保存する</button>
+			<button id="cancelBasicInfo" type="button" class="btn yellow-button input-basicinfo-button">キャンセル</button>
+		</div>
+	</form>
+
+</div>

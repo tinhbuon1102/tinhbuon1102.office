@@ -1,0 +1,32 @@
+<?php
+
+return [
+
+	'booking_list' => 'Booking List',
+	'customer_name' => 'Customer Name',
+	'space_name' => 'Space Name',
+	'booked_date' => 'Booked Date',
+	'startuse_date' => 'Start Date',
+	'duration' => 'Duration',
+	'total_amount' => 'Total amount',
+	'pay_price' => 'Payment',
+	'payment_status' => 'Payment Status',
+	'booking_status' => 'Status',
+	'action' => 'Action',
+	'時間' => 'hour(s)',
+	'日' => 'day(s)',
+	'週間' => 'week(s)',
+	'ヶ月' => 'month(s)',
+	'仮売上' => 'Pre-sale',
+	'本売上' => 'Real-sale',
+	'受取拒否' => 'Rejected',
+	'返金済' => 'Refunded',
+	'refund_action' => 'Refund',
+	'reject_action' => 'Reject',
+	'in_use' => 'In-Use',
+	'pending' => 'Pending',
+	'reserved' => 'Reserved',
+	'completed' => 'Completed',
+	'cancel' => 'Cancel',
+	'view' => 'View',
+];

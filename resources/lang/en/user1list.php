@@ -1,0 +1,38 @@
+<?php
+
+return [
+
+	'space_image' => 'Image',
+	'space_type' => 'Space Type / Occupancy',
+	'space_amount' => 'Amount of money',
+	'space_status' => 'status',
+	'space_config' => 'Configuration',
+	'公開' =>'Public',
+	'非公開' =>'Private',
+	'edit' =>'Edit',
+	'preview' =>'Preview',
+	'duplicate' =>'Duplicate',
+	'delete' =>'Delete',
+	'コワーキング' =>'co-working',
+	'オープンデスク' =>'open desk',
+	'専用デスク' =>'dedicated desk',
+	'会議室' =>'meeting room',
+	'セミナースペース' =>'Seminar Space',
+	'プライベートオフィス' =>'private office',
+	'チームオフィス' =>'team office',
+	'オフィス' =>'office',
+	'add_space_now' =>'ADD SPACE NOW',
+	'add_space' =>'Add Space',
+	'space' =>'Space',
+	'時間' =>'Hour',
+	'日間' =>'Day',
+	'週間' =>'Week',
+	'ヶ月' =>'Month',
+	'upload_photos' =>'Upload Photos',
+	'set_as_main_image' =>'Set as Main Image',
+	'change_image' =>'Change image',
+	'upload_file' =>'Upload file',//YMS
+	'people' =>'people',
+	'NO SPACE ADDED' =>'NO SPACE ADDED',
+	'' =>'',
+];

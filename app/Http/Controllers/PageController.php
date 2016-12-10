@@ -538,9 +538,9 @@ class PageController extends Controller
 				sendEmailCustom ([
 						'applicationForm' => $user1,
 						'applicationFormMapper' => $applicationFormMapper,
-						'sendTo' => $from['address'],
+						'sendTo' => $user1->Email,
 						'template' => 'pages.emails.application_form_user',
-						'subject' => trans('common.One user has been sent a application form')]
+						'subject' => trans('common.Your Application was successfully sent, we will check and reply to you soon')]
 						);
 				
 				Session::flash('success', trans('common.Your Application was successfully sent, we will check and reply to you soon'));

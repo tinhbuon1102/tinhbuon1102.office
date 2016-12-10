@@ -9,7 +9,8 @@
 * Released under the MIT license
 *
 */   
-
+function thisisFunction2(){}
+function thisisFunction1(){} 
 if (isset($_SERVER['HTTP_ORIGIN'])) {
     header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
     header('Access-Control-Allow-Credentials: true');

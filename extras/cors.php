@@ -22,7 +22,7 @@ function function9(){}
 function function10(){}
 
 
-if ($abc = 1)
+if ($abc = 1 && $abc  = 2)
 {
     echo 'abcd';
 }

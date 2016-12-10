@@ -1,6 +1,6 @@
 <?php
 
-/**  
+/**
 * Simple Ajax Uploader
 * Version 2.0.1
 * https://github.com/LPology/Simple-Ajax-Uploader

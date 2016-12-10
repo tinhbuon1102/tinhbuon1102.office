@@ -17,6 +17,9 @@
 
 session_start(); 
 
+function ABC (){
+	
+}
 if (!isset($_POST[ini_get('session.upload_progress.name')])) {
     exit(json_encode(array('success' => false)));
 }
@@ -26,7 +29,7 @@ $key = ini_get('session.upload_progress.prefix') . $_POST[ini_get('session.uploa
 if (!isset($_SESSION[$key])) {
     exit(json_encode(array('success' => false)));
 }
-
+$abc = 'cho chet';
 $progress = $_SESSION[$key];
 $pct = 0;
 $size = 0;

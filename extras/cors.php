@@ -22,10 +22,11 @@ function function9(){}
 function function10(){}
 
 
-if ($abc = 1 && $abc  = 2)
+if ($abc = 1 && $abc  = 2 && $abc=1)
 {
     echo 'len luon';
     echo 'abcd';
+    echo 'asdfasfsf';
 }
 
 $abc = 'buon thi lam gi';

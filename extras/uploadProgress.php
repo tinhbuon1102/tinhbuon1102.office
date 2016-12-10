@@ -1,6 +1,6 @@
 <?php
 
-/**  
+/**
 * Simple Ajax Uploader
 * Version 2.0.1
 * https://github.com/LPology/Simple-Ajax-Uploader
@@ -26,7 +26,9 @@ if (isset($_REQUEST['progresskey'])) {
 } else {
     exit(json_encode(array('success' => false)));
 }
-
+function abc(){
+    return '';
+}
 $pct = 0;
 $size = 0;
 

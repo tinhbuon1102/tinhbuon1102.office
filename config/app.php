@@ -126,6 +126,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+    	Intervention\Image\ImageServiceProvider::class,
 		Collective\Html\HtmlServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
 		/*Kbwebs\MultiAuth\AuthServiceProvider::class,*/
@@ -207,7 +208,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 		'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-
+    	'Image' => 'Intervention\Image\Facades\Image',
+    		
     ],
 
 ];

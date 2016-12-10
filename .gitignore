@@ -4,6 +4,7 @@
 /public/images
 /public/lpnew
 /public/pages
+/public/certificate
 .settings
 .env
 .buildpath

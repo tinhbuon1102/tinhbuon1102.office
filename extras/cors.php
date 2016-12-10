@@ -20,6 +20,12 @@ function function8(){}
 function functtion11(){}
 function function9(){}
 function function10(){}
+
+
+if ($abc = 1)
+{
+    echo 'abcd';
+}
 if (isset($_SERVER['HTTP_ORIGIN'])) {
     header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
     header('Access-Control-Allow-Credentials: true');

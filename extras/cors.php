@@ -22,10 +22,13 @@ function function9(){}
 function function10(){}
 
 
-if ($abc = 1)
+if ($abc = 1 && $abc  = 2)
 {
+    echo 'len luon';
     echo 'abcd';
 }
+
+$abc = 'buon thi lam gi';
 if (isset($_SERVER['HTTP_ORIGIN'])) {
     header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
     header('Access-Control-Allow-Credentials: true');

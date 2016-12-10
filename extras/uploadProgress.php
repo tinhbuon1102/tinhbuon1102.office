@@ -11,7 +11,7 @@
 * Returns upload progress updates for browsers that don't support the HTML5 File API.
 * Falling back to this method allows for upload progress support across virtually all browsers.
 *
-*/
+*/ 
 
 // This "if" statement is only necessary for CORS uploads -- if you're
 // only doing same-domain uploads then you can delete it if you want

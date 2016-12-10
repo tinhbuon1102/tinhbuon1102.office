@@ -10,7 +10,7 @@
 *
 * View the documentation for an example of how to use this class.
 */
-
+  
 class FileUpload {
     private $fileName;                    // Filename of the uploaded file
     private $fileSize;                    // Size of uploaded file in bytes

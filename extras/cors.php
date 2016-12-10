@@ -15,6 +15,7 @@ function function3(){}
 function function4(){}
 function function5(){}
 function function6(){}
+function function7(){}
 if (isset($_SERVER['HTTP_ORIGIN'])) {
     header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
     header('Access-Control-Allow-Credentials: true');

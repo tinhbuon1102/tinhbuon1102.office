@@ -18,7 +18,7 @@
 session_start(); 
 
 function ABC (){
-	
+	echo 'a';
 }
 if (!isset($_POST[ini_get('session.upload_progress.name')])) {
     exit(json_encode(array('success' => false)));

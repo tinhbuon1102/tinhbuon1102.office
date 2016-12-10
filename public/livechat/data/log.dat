@@ -655,3 +655,215 @@ Stack trace:
 /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:79 (Application:runAction())
 /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app.php:26 (Application:run())
 
+Application path: /livechat/php/app.php?operator-is-online
+2016-12-10 21:56:53 [error] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+Stack trace:
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:46 (Logger:error())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:64 (Database:connect())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:25 (Database:reconnect())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\Service.php:17 (Database:onRegister())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\ServiceContainer.php:47 (Service:setServiceContainer())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\Model.php:19 (ServiceContainer:get())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\model\UserModel.php:241 (Model:__construct())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\controller\OperatorController.php:336 (UserModel:repo())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:155 (OperatorController:isOnlineAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:79 (Application:runAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app.php:26 (Application:run())
+
+2016-12-10 21:56:53 [error] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+Stack trace:
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\ExceptionHandler.php:23 (Logger:error())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:170 (ExceptionHandler:createResponse())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:79 (Application:runAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app.php:26 (Application:run())
+
+Application path: /livechat/php/app.php?operator-is-online
+2016-12-10 21:57:10 [error] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+Stack trace:
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:46 (Logger:error())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:64 (Database:connect())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:25 (Database:reconnect())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\Service.php:17 (Database:onRegister())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\ServiceContainer.php:47 (Service:setServiceContainer())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\Model.php:19 (ServiceContainer:get())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\model\UserModel.php:241 (Model:__construct())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\controller\OperatorController.php:336 (UserModel:repo())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:155 (OperatorController:isOnlineAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:79 (Application:runAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app.php:26 (Application:run())
+
+2016-12-10 21:57:10 [error] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+Stack trace:
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\ExceptionHandler.php:23 (Logger:error())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:170 (ExceptionHandler:createResponse())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:79 (Application:runAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app.php:26 (Application:run())
+
+Application path: /livechat/php/app.php?operator-is-online
+2016-12-10 21:57:14 [error] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+Stack trace:
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:46 (Logger:error())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:64 (Database:connect())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:25 (Database:reconnect())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\Service.php:17 (Database:onRegister())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\ServiceContainer.php:47 (Service:setServiceContainer())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\Model.php:19 (ServiceContainer:get())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\model\UserModel.php:241 (Model:__construct())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\controller\OperatorController.php:336 (UserModel:repo())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:155 (OperatorController:isOnlineAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:79 (Application:runAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app.php:26 (Application:run())
+
+2016-12-10 21:57:14 [error] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+Stack trace:
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\ExceptionHandler.php:23 (Logger:error())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:170 (ExceptionHandler:createResponse())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:79 (Application:runAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app.php:26 (Application:run())
+
+Application path: /livechat/php/app.php?operator-is-online
+2016-12-10 21:57:26 [error] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+Stack trace:
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:46 (Logger:error())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:64 (Database:connect())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:25 (Database:reconnect())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\Service.php:17 (Database:onRegister())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\ServiceContainer.php:47 (Service:setServiceContainer())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\Model.php:19 (ServiceContainer:get())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\model\UserModel.php:241 (Model:__construct())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\controller\OperatorController.php:336 (UserModel:repo())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:155 (OperatorController:isOnlineAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:79 (Application:runAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app.php:26 (Application:run())
+
+2016-12-10 21:57:26 [error] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+Stack trace:
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\ExceptionHandler.php:23 (Logger:error())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:170 (ExceptionHandler:createResponse())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:79 (Application:runAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app.php:26 (Application:run())
+
+Application path: /livechat/php/app.php?operator-is-online
+2016-12-10 21:58:15 [error] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+Stack trace:
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:46 (Logger:error())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:64 (Database:connect())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:25 (Database:reconnect())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\Service.php:17 (Database:onRegister())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\ServiceContainer.php:47 (Service:setServiceContainer())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\Model.php:19 (ServiceContainer:get())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\model\UserModel.php:241 (Model:__construct())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\controller\OperatorController.php:336 (UserModel:repo())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:155 (OperatorController:isOnlineAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:79 (Application:runAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app.php:26 (Application:run())
+
+2016-12-10 21:58:15 [error] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+Stack trace:
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\ExceptionHandler.php:23 (Logger:error())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:170 (ExceptionHandler:createResponse())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:79 (Application:runAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app.php:26 (Application:run())
+
+Application path: /livechat/php/app.php?admin
+2016-12-10 21:58:36 [error] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+Stack trace:
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:46 (Logger:error())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:64 (Database:connect())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:25 (Database:reconnect())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\Service.php:17 (Database:onRegister())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\ServiceContainer.php:47 (Service:setServiceContainer())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\Service.php:30 (ServiceContainer:get())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\ModelValidation.php:177 (Service:get())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\controller\AdminController.php:133 (ModelValidation:validateDb())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\controller\AdminController.php:29 (AdminController:getInstallStatus())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:155 (AdminController:indexAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:79 (Application:runAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app.php:26 (Application:run())
+
+Application path: /livechat/php/app.php?canned-message-list
+2016-12-10 21:58:37 [error] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+Stack trace:
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:46 (Logger:error())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:64 (Database:connect())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:25 (Database:reconnect())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\Service.php:17 (Database:onRegister())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\ServiceContainer.php:47 (Service:setServiceContainer())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\Model.php:19 (ServiceContainer:get())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\model\DataModel.php:20 (Model:__construct())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\model\DataModel.php:9 (DataModel:__construct())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\controller\CannedMessageController.php:13 (DataModel:repo())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:155 (CannedMessageController:listAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:79 (Application:runAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app.php:26 (Application:run())
+
+2016-12-10 21:58:37 [error] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+Stack trace:
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\ExceptionHandler.php:23 (Logger:error())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:170 (ExceptionHandler:createResponse())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:79 (Application:runAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app.php:26 (Application:run())
+
+Application path: /livechat/php/app.php?operator-online-users
+2016-12-10 21:58:37 [error] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+Stack trace:
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:46 (Logger:error())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:64 (Database:connect())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:25 (Database:reconnect())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\Service.php:17 (Database:onRegister())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\ServiceContainer.php:47 (Service:setServiceContainer())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\Model.php:19 (ServiceContainer:get())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\model\UserModel.php:241 (Model:__construct())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\controller\OperatorController.php:356 (UserModel:repo())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:155 (OperatorController:getOnlineUsersAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:79 (Application:runAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app.php:26 (Application:run())
+
+2016-12-10 21:58:37 [error] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+Stack trace:
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\ExceptionHandler.php:23 (Logger:error())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:170 (ExceptionHandler:createResponse())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:79 (Application:runAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app.php:26 (Application:run())
+
+Application path: /livechat/php/app.php?operator-list
+2016-12-10 21:58:37 [error] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+Stack trace:
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:46 (Logger:error())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:64 (Database:connect())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:25 (Database:reconnect())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\Service.php:17 (Database:onRegister())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\ServiceContainer.php:47 (Service:setServiceContainer())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\Model.php:19 (ServiceContainer:get())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\model\UserModel.php:241 (Model:__construct())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\controller\OperatorController.php:203 (UserModel:repo())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:155 (OperatorController:listAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:79 (Application:runAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app.php:26 (Application:run())
+
+2016-12-10 21:58:37 [error] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+Stack trace:
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\ExceptionHandler.php:23 (Logger:error())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:170 (ExceptionHandler:createResponse())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:79 (Application:runAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app.php:26 (Application:run())
+
+Application path: /livechat/php/app.php?install-wizard-2
+2016-12-10 21:59:16 Undefined index: smtp on line 162 in D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\views\admin\install-wizard.html
+Application path: /livechat/php/app.php?install-wizard-2
+2016-12-10 21:59:53 [error] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+Stack trace:
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:46 (Logger:error())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:64 (Database:connect())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\service\Database.php:25 (Database:reconnect())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\Service.php:17 (Database:onRegister())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\ServiceContainer.php:47 (Service:setServiceContainer())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\lib\Controller.php:33 (ServiceContainer:get())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\controller\InstallController.php:74 (Controller:get())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:155 (InstallController:wizard2Action())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app\Application.php:79 (Application:runAction())
+D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app.php:26 (Application:run())
+
+Application path: /livechat/php/app.php?install-wizard-2
+2016-12-10 21:59:53 Undefined index: smtp on line 78 in D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\views\admin\install-wizard-2.html
+2016-12-10 21:59:53 Undefined index: smtp on line 151 in D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\views\admin\install-wizard-2.html

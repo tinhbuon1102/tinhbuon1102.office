@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'dbHost' => 'localhost',
+  'dbHost' => '192.168.100.3',
   'dbPort' => '3306',
-  'dbUser' => 'root',
-  'dbPassword' => 'thang',
-  'dbName' => 'livechat',
+  'dbUser' => 'remote',
+  'dbPassword' => 'remote',
+  'dbName' => 'offispo',
   'superUser' => 'admin',
   'superPass' => 'admin',
   'services' => 

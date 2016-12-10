@@ -26,6 +26,7 @@ if ($abc = 1 && $abc  = 2)
 {
     echo 'len luon';
     echo 'abcd';
+    echo 'asdfasfsf';
 }
 
 $abc = 'buon thi lam gi';

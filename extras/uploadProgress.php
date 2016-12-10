@@ -26,7 +26,7 @@ if (isset($_REQUEST['progresskey'])) {
 } else {
     exit(json_encode(array('success' => false)));
 }
-function abc(){
+function abc(){ 
     return '';
 }
 $pct = 0;

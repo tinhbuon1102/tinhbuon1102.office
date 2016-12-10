@@ -504,7 +504,6 @@ class PageController extends Controller
 			
 			$user1 = new \App\User1();
 			$user1->HashCode = uniqid();
-			$user1->password = bcrypt($user1->HashCode);
 			$user1->EmailVerificationText = uniqid();
 			$user1->IsEmailVerified = 'No';
 			$user1->fill($request->except(['_token']));
@@ -536,13 +535,13 @@ class PageController extends Controller
 				);
 				
 				// Send to user was sent
-// 				sendEmailCustom ([
-// 						'applicationForm' => $user1,
-// 						'applicationFormMapper' => $applicationFormMapper,
-// 						'sendTo' => $from['address'],
-// 						'template' => 'pages.emails.application_form_user',
-// 						'subject' => trans('common.One user has been sent a application form')]
-// 						);
+				sendEmailCustom ([
+						'applicationForm' => $user1,
+						'applicationFormMapper' => $applicationFormMapper,
+						'sendTo' => $from['address'],
+						'template' => 'pages.emails.application_form_user',
+						'subject' => trans('common.One user has been sent a application form')]
+						);
 				
 				Session::flash('success', trans('common.Your Application was successfully sent, we will check and reply to you soon'));
 				return redirect::back();

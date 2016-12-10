@@ -1,0 +1,657 @@
+Application path: /livechat/php/app.php?install-wizard-2
+2016-11-28 16:47:31 [error] SQLSTATE[HY000] [2002] Connection refused
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php:46 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php:64 (Database:connect())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php:25 (Database:reconnect())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/lib/Service.php:17 (Database:onRegister())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/lib/ServiceContainer.php:47 (Service:setServiceContainer())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/lib/Controller.php:33 (ServiceContainer:get())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/controller/InstallController.php:74 (Controller:get())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/app/Application.php:155 (InstallController:wizard2Action())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/app.php:26 (Application:run())
+
+2016-11-28 16:47:31 [error] SQLSTATE[HY000] [2002] Connection refused
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php:46 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/controller/InstallController.php:74 (Database:connect())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/app/Application.php:155 (InstallController:wizard2Action())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/app.php:26 (Application:run())
+
+Application path: /livechat/php/app.php?install-wizard-2
+2016-11-28 16:47:31 Undefined index: smtp on line 162 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/views/admin/install-wizard.html
+Application path: /livechat/php/app.php?install-wizard-2
+2016-11-28 16:47:40 Undefined index: smtp on line 162 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/views/admin/install-wizard.html
+Application path: /livechat/php/app.php?install-wizard-2
+2016-11-28 16:47:57 [error] SQLSTATE[HY000] [2002] Connection refused
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php:46 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php:64 (Database:connect())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php:25 (Database:reconnect())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/lib/Service.php:17 (Database:onRegister())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/lib/ServiceContainer.php:47 (Service:setServiceContainer())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/lib/Controller.php:33 (ServiceContainer:get())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/controller/InstallController.php:74 (Controller:get())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/app/Application.php:155 (InstallController:wizard2Action())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/app.php:26 (Application:run())
+
+Application path: /livechat/php/app.php?install-wizard-2
+2016-11-28 16:47:57 Undefined index: smtp on line 78 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/views/admin/install-wizard-2.html
+2016-11-28 16:47:57 Undefined index: smtp on line 151 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/views/admin/install-wizard-2.html
+Application path: /livechat/php/app.php?operator-get-typing-status
+2016-11-28 16:54:36 parse_ini_file(/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Memory.php
+Application path: /livechat/php/app.php?operator-get-typing-status
+2016-11-28 16:54:41 parse_ini_file(/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Memory.php
+Application path: /livechat/php/app.php?operator-get-typing-status
+2016-11-28 16:54:46 parse_ini_file(/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Memory.php
+Application path: /livechat/php/app.php?operator-get-typing-status
+2016-11-28 16:54:51 parse_ini_file(/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Memory.php
+Application path: /livechat/php/app.php?operator-get-typing-status
+2016-11-28 16:54:56 parse_ini_file(/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Memory.php
+Application path: /livechat/php/app.php?operator-get-typing-status
+2016-11-28 16:55:01 parse_ini_file(/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Memory.php
+Application path: /livechat/php/app.php?operator-update-typing-status
+2016-11-28 16:55:04 parse_ini_file(/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Memory.php
+2016-11-28 16:55:04 parse_ini_file(/Volumes/DATA/MyWorks/Documents/scripts/livechat/php/../data/memory.dat): failed to open stream: No such file or directory on line 97 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Memory.php
+2016-11-28 16:55:04 array_merge(): Argument #1 is not an array on line 102 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Memory.php
+2016-11-28 16:55:04 array_keys() expects parameter 1 to be array, boolean given on line 104 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Memory.php
+2016-11-28 16:55:04 Invalid argument supplied for foreach() on line 104 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Memory.php
+2016-11-28 16:55:04 Invalid argument supplied for foreach() on line 79 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Memory.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:42:52 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-stay-alive
+2016-11-28 18:42:54 Undefined variable: result on line 89 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?message-operator-get-new
+2016-11-28 18:42:54 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+2016-11-28 18:42:54 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:42:54 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:42:57 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?message-operator-get-new
+2016-11-28 18:42:59 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+2016-11-28 18:42:59 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-stay-alive
+2016-11-28 18:42:59 Undefined variable: result on line 89 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:42:59 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:02 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-stay-alive
+2016-11-28 18:43:04 Undefined variable: result on line 89 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?message-operator-get-new
+2016-11-28 18:43:04 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+2016-11-28 18:43:04 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:04 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:07 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-stay-alive
+2016-11-28 18:43:09 Undefined variable: result on line 89 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?message-operator-get-new
+2016-11-28 18:43:09 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+2016-11-28 18:43:09 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:09 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:12 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?message-operator-get-new
+2016-11-28 18:43:14 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+2016-11-28 18:43:14 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-stay-alive
+2016-11-28 18:43:14 Undefined variable: result on line 89 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:14 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:17 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-stay-alive
+2016-11-28 18:43:19 Undefined variable: result on line 89 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?message-operator-get-new
+2016-11-28 18:43:19 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+2016-11-28 18:43:19 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:19 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:22 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-stay-alive
+2016-11-28 18:43:24 Undefined variable: result on line 89 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?message-operator-get-new
+2016-11-28 18:43:24 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+2016-11-28 18:43:24 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:24 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:27 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-stay-alive
+2016-11-28 18:43:29 Undefined variable: result on line 89 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?message-operator-get-new
+2016-11-28 18:43:29 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+2016-11-28 18:43:29 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:29 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:32 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?message-operator-get-new
+2016-11-28 18:43:34 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+2016-11-28 18:43:34 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-stay-alive
+2016-11-28 18:43:34 Undefined variable: result on line 89 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:34 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:37 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?message-operator-get-new
+2016-11-28 18:43:39 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+2016-11-28 18:43:39 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-stay-alive
+2016-11-28 18:43:39 Undefined variable: result on line 89 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:39 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:42 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-stay-alive
+2016-11-28 18:43:44 Undefined variable: result on line 89 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?message-operator-get-new
+2016-11-28 18:43:44 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+2016-11-28 18:43:44 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:44 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:47 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?message-operator-get-new
+2016-11-28 18:43:49 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+2016-11-28 18:43:49 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-stay-alive
+2016-11-28 18:43:49 Undefined variable: result on line 89 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:49 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 18:43:52 Undefined variable: result on line 127 in /Volumes/DATA/MyWorks/Documents/scripts/livechat/php/service/Database.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 20:36:51 Trying to get property of non-object on line 21 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 20:36:51 Trying to get property of non-object on line 26 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 20:36:51 Trying to get property of non-object on line 27 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 20:37:17 Trying to get property of non-object on line 21 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 20:41:48 Trying to get property of non-object on line 21 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 20:41:48 Trying to get property of non-object on line 26 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 20:41:48 Trying to get property of non-object on line 27 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 20:42:17 Trying to get property of non-object on line 21 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 20:42:17 Trying to get property of non-object on line 26 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 20:42:17 Trying to get property of non-object on line 27 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 20:42:23 Trying to get property of non-object on line 21 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 20:42:23 Trying to get property of non-object on line 27 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 20:42:52 Undefined index: $user on line 21 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 20:42:52 Undefined index: mail on line 27 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?operator-is-online
+2016-11-28 20:43:49 Undefined index: mail on line 26 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 20:54:33 Undefined index: id on line 47 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 20:54:51 Undefined index: id on line 47 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 20:55:13 Undefined index: id on line 47 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 20:58:08 Undefined index: id on line 47 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 20:58:08 Undefined variable: lastActivityTime on line 57 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 20:59:05 Undefined index: id on line 47 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 20:59:09 Undefined index: id on line 47 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 20:59:26 Undefined index: id on line 47 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 20:59:58 Undefined index: id on line 47 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 21:06:50 Undefined index: id on line 47 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?operator-is-online
+2016-11-28 21:06:59 Undefined index: id on line 47 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?operator-is-online
+2016-11-28 21:07:15 Undefined index: id on line 47 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:18:13 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 2 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:18:18 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 2 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:18:23 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 2 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 21:18:27 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 2 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:18:28 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 2 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:18:33 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 2 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:18:38 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 2 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 21:18:40 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 2 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:18:43 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 2 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:18:48 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 2 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:18:53 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 2 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:18:58 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 2 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:19:03 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 2 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:19:08 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 2 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:19:13 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 2 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:19:18 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 2 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:19:23 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 2 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:19:28 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 2 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:19:33 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 2 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:23:00 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 3 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 14:23:07 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:23:07 date_default_timezone_get(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 19 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 14:23:10 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:23:10 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:23:10 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 14:23:12 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:23:12 date_default_timezone_get(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 19 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 14:23:15 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:23:15 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:23:15 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 14:23:21 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:23:21 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:23:21 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 14:23:26 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:23:26 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:23:26 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 14:23:31 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:23:31 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:23:31 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 14:23:36 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:23:36 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:23:36 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 14:23:41 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:23:41 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:23:41 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 21:23:45 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:23:45 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 23 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:23:45 date_default_timezone_get(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 19 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:23:46 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:23:46 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 23 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:23:46 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:23:46 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 21:23:46 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:23:46 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 23 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:23:46 date_default_timezone_get(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 19 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:23:51 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:23:51 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 23 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:23:51 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:23:51 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:23:56 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:23:56 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 23 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:23:56 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:23:56 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:24:01 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:01 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 23 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:01 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:24:01 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:24:06 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:06 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 23 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:06 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:24:06 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:24:11 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:11 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 23 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:11 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:24:11 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 21:24:15 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 19 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 14:24:15 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 20 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 14:24:15 date(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:24:16 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:16 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 23 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:16 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:24:16 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:24:21 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:21 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 23 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:21 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:24:21 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:24:26 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:26 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 23 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:26 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:24:26 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:24:31 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:31 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 23 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:31 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:24:31 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:24:36 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:36 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 23 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:36 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:24:36 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:24:41 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:41 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 23 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:41 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:24:41 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:24:46 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:46 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 23 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:46 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:24:46 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:24:51 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:51 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 23 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:51 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:24:51 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:24:56 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:56 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 23 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:24:56 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:24:56 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:25:01 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:25:01 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 23 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:25:01 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:25:01 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:25:06 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:25:06 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 23 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:25:06 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:25:06 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?operator-online-users
+2016-11-28 21:25:11 date_default_timezone_set(): Timezone ID 'Japan/Tokyo' is invalid on line 22 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:25:11 ini_set(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier.  on line 23 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/timezone.php
+2016-11-28 14:25:11 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+2016-11-28 14:25:11 strtotime(): Invalid date.timezone value 'Japan/Tokyo', we selected the timezone 'UTC' for now. on line 184 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:27:32 Undefined index: id on line 49 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:27:32 Undefined index: id on line 49 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:27:33 Undefined index: id on line 49 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:27:33 Undefined index: id on line 49 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:27:33 Undefined index: id on line 49 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:27:34 Undefined index: id on line 49 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:36:13 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:36:14 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:36:38 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:36:40 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:36:50 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:36:50 Undefined variable: lastActivityTime on line 57 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:36:50 Undefined variable: lastActivityTime on line 58 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:36:52 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:36:52 Undefined variable: lastActivityTime on line 57 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:36:52 Undefined variable: lastActivityTime on line 58 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:36:53 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:36:53 Undefined variable: lastActivityTime on line 57 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:36:53 Undefined variable: lastActivityTime on line 58 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:36:54 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:36:54 Undefined variable: lastActivityTime on line 57 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:36:54 Undefined variable: lastActivityTime on line 58 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:36:54 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:36:54 Undefined variable: lastActivityTime on line 57 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:36:54 Undefined variable: lastActivityTime on line 58 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:36:55 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:36:55 Undefined variable: lastActivityTime on line 57 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:36:55 Undefined variable: lastActivityTime on line 58 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:36:55 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:36:55 Undefined variable: lastActivityTime on line 57 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:36:55 Undefined variable: lastActivityTime on line 58 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:36:55 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:36:55 Undefined variable: lastActivityTime on line 57 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:36:55 Undefined variable: lastActivityTime on line 58 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:37:09 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:37:11 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:37:12 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:37:12 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:37:12 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:37:13 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:37:14 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:37:40 Undefined index: last_activity on line 29 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:37:40 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:38:15 Undefined index: last_activity on line 29 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:38:15 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?operator-is-online
+2016-11-28 23:38:22 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:38:24 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:41:02 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:41:06 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:41:06 Use of undefined constant last_activity - assumed 'last_activity' on line 56 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:41:06 Use of undefined constant last_activity - assumed 'last_activity' on line 57 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:41:38 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:41:42 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:41:42 Undefined variable: lastActivityTime on line 58 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:41:42 Undefined variable: lastActivityTime on line 59 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:41:45 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:41:45 Undefined variable: lastActivityTime on line 58 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:41:45 Undefined variable: lastActivityTime on line 59 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:41:46 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:41:46 Undefined variable: lastActivityTime on line 58 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:41:46 Undefined variable: lastActivityTime on line 59 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:41:47 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:41:47 Undefined variable: lastActivityTime on line 58 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:41:47 Undefined variable: lastActivityTime on line 59 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:42:00 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:42:00 Undefined variable: lastActivityTime on line 58 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:42:00 Undefined variable: lastActivityTime on line 59 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:42:00 Undefined variable: lastActivityTime on line 60 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:42:12 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:42:12 Undefined variable: lastActivityTime on line 60 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:42:12 Undefined variable: lastActivityTime on line 61 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:42:12 Undefined variable: lastActivityTime on line 62 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:42:14 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:42:14 Undefined variable: lastActivityTime on line 60 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:42:14 Undefined variable: lastActivityTime on line 61 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+2016-11-28 23:42:14 Undefined variable: lastActivityTime on line 62 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:43:52 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:44:19 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:44:35 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:44:47 Undefined index: id on line 46 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Guest.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:49:14 Undefined property: UserModel::$image on line 28 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/controller/AuthenticationController.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:50:11 Undefined property: UserModel::$image on line 28 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/controller/AuthenticationController.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:50:25 Undefined property: UserModel::$image on line 28 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/controller/AuthenticationController.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-28 23:50:51 Undefined property: UserModel::$image on line 28 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/controller/AuthenticationController.php
+Application path: /livechat/php/app.php?is-guest-logged-in
+2016-11-29 00:06:08 Trying to get property of non-object on line 44 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/controller/AuthenticationController.php
+Application path: /livechat/php/app.php?install-wizard-2
+2016-11-29 02:56:41 Undefined index: smtp on line 162 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/views/admin/install-wizard.html
+Application path: /livechat/php/app.php?install-wizard-2
+2016-11-29 02:56:48 Undefined index: smtp on line 78 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/views/admin/install-wizard-2.html
+2016-11-29 02:56:48 Undefined index: smtp on line 151 in /Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/views/admin/install-wizard-2.html
+Application path: /livechat/php/app.php?operator-online-users
+2016-12-01 21:59:01 [error] SQLSTATE[HY000] [2002] Operation timed out
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Database.php:46 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Database.php:64 (Database:connect())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Database.php:25 (Database:reconnect())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/Service.php:17 (Database:onRegister())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/ServiceContainer.php:47 (Service:setServiceContainer())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/Model.php:19 (ServiceContainer:get())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php:241 (Model:__construct())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/controller/OperatorController.php:356 (UserModel:repo())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:155 (OperatorController:getOnlineUsersAction())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app.php:26 (Application:run())
+
+2016-12-01 21:59:01 [error] SQLSTATE[HY000] [2002] Operation timed out
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/ExceptionHandler.php:23 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:170 (ExceptionHandler:createResponse())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app.php:26 (Application:run())
+
+Application path: /livechat/php/app.php?operator-online-users
+2016-12-01 22:00:01 [error] SQLSTATE[HY000] [2002] Operation timed out
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Database.php:46 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Database.php:64 (Database:connect())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Database.php:25 (Database:reconnect())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/Service.php:17 (Database:onRegister())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/ServiceContainer.php:47 (Service:setServiceContainer())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/Model.php:19 (ServiceContainer:get())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php:241 (Model:__construct())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/controller/OperatorController.php:356 (UserModel:repo())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:155 (OperatorController:getOnlineUsersAction())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app.php:26 (Application:run())
+
+2016-12-01 22:00:01 [error] SQLSTATE[HY000] [2002] Operation timed out
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/ExceptionHandler.php:23 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:170 (ExceptionHandler:createResponse())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app.php:26 (Application:run())
+
+Application path: /livechat/php/app.php?operator-is-online
+2016-12-01 22:00:55 [error] SQLSTATE[HY000] [2002] Operation timed out
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Database.php:46 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Database.php:64 (Database:connect())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Database.php:25 (Database:reconnect())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/Service.php:17 (Database:onRegister())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/ServiceContainer.php:47 (Service:setServiceContainer())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/Model.php:19 (ServiceContainer:get())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php:241 (Model:__construct())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/controller/OperatorController.php:336 (UserModel:repo())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:155 (OperatorController:isOnlineAction())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app.php:26 (Application:run())
+
+2016-12-01 22:00:55 [error] SQLSTATE[HY000] [2002] Operation timed out
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/ExceptionHandler.php:23 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:170 (ExceptionHandler:createResponse())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app.php:26 (Application:run())
+
+Application path: /livechat/php/app.php?admin
+2016-12-01 22:01:01 [error] SQLSTATE[HY000] [2002] Operation timed out
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Database.php:46 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Database.php:64 (Database:connect())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Database.php:25 (Database:reconnect())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/Service.php:17 (Database:onRegister())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/ServiceContainer.php:47 (Service:setServiceContainer())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/Service.php:30 (ServiceContainer:get())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/ModelValidation.php:177 (Service:get())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/controller/AdminController.php:133 (ModelValidation:validateDb())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/controller/AdminController.php:29 (AdminController:getInstallStatus())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:155 (AdminController:indexAction())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app.php:26 (Application:run())
+
+Application path: /livechat/php/app.php?operator-online-users
+2016-12-01 22:02:01 [error] SQLSTATE[HY000] [2002] Operation timed out
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Database.php:46 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Database.php:64 (Database:connect())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Database.php:25 (Database:reconnect())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/Service.php:17 (Database:onRegister())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/ServiceContainer.php:47 (Service:setServiceContainer())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/Model.php:19 (ServiceContainer:get())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php:241 (Model:__construct())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/controller/OperatorController.php:356 (UserModel:repo())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:155 (OperatorController:getOnlineUsersAction())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app.php:26 (Application:run())
+
+2016-12-01 22:02:01 [error] SQLSTATE[HY000] [2002] Operation timed out
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/ExceptionHandler.php:23 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:170 (ExceptionHandler:createResponse())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app.php:26 (Application:run())
+
+Application path: /livechat/php/app.php?operator-is-online
+2016-12-01 22:03:20 [error] SQLSTATE[HY000] [2002] Operation timed out
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Database.php:46 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Database.php:64 (Database:connect())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/Database.php:25 (Database:reconnect())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/Service.php:17 (Database:onRegister())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/ServiceContainer.php:47 (Service:setServiceContainer())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/lib/Model.php:19 (ServiceContainer:get())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/model/UserModel.php:241 (Model:__construct())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/controller/OperatorController.php:336 (UserModel:repo())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:155 (OperatorController:isOnlineAction())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app.php:26 (Application:run())
+
+2016-12-01 22:03:20 [error] SQLSTATE[HY000] [2002] Operation timed out
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/service/ExceptionHandler.php:23 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:170 (ExceptionHandler:createResponse())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/scripts/office-spot.com/public/livechat/php/app.php:26 (Application:run())
+

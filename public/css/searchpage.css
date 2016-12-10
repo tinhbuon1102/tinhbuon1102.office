@@ -1,0 +1,6 @@
+/* CSS Document */
+.select2-container--default .select2-selection--multiple .select2-selection__rendered {
+	height: 42px;
+	/* border: 1px solid #BBB; */
+}
+#filter_district {opacity: 0;}

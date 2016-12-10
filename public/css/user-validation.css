@@ -1,0 +1,43 @@
+@charset "UTF-8";
+/* CSS Document */
+.VerificationsList {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0 20px 20px;
+	color: #555555;
+}
+.VerificationsList-item {
+	font-size: 14px;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
+    -js-display: flex; display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #DEDEDE;
+}
+.VerificationsList-label {
+    position: relative;
+}
+.VerificationsList-label-icon {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+section.profile-side-verifications.feed-box {
+    padding: 0;
+}
+.VerificationsList-label-icon .fa {
+    margin: 0;
+    font-size: 19px;
+}
+.VerificationsList .is-VerificationsList-verified .Icon .fa {
+	color:rgba(255, 204, 0, 1);
+}

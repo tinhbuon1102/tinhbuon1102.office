@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<link href='../fullcalendar.css' rel='stylesheet' />
+<link href='../fullcalendar.print.css' rel='stylesheet' media='print' />
+<link href="http://office-spot.com/admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href='../datepicker/css/datepicker.css' rel='stylesheet' />
+<link href='../datepicker/css/timepicker.css' rel='stylesheet' />
+<script src='../lib/moment.min.js'></script>
+<script src='../lib/jquery.min.js'></script>
+<script src='../fullcalendar.js'></script>
+<script src='../../design/js/bootstrap.min.js'></script>
+<script src='../datepicker/js/bootstrap-datepicker.js'></script>
+<script src='../datepicker/js/timepicker.min.js'></script>
+<script src='../datepicker/js/datepair.js'></script>
+<script src='../datepicker/js/jquery.datepair.js'></script>
+<script src='../validator.js'></script>
+<script src='../custom.js'></script>
+<style>
+
+	body {
+		margin: 40px 10px;
+		padding: 0;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		font-size: 14px;
+	}
+
+	#calendar {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.datepicker {z-index: 999999;}
+</style>
+</head>
+<body>
+
+<div class="bd-example">
+  <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="bookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="bookingModalLabel">Complete the Booking</h4>
+        </div>
+        <div class="modal-body">
+          <form id="booking_form" data-toggle="validator" role="form">
+            <div class="form-group">
+              <label for="booking_date" class="form-control-label">DATE:</label>
+              <input type="text" id="booking_date" class="form-control date-control  hasDatepicker" data-error="Please fill out this field." required>
+            </div>
+            
+            <div class="form-group">
+              <label for="booking_time_start" class="form-control-label">START:</label>
+              <input type="text" id="booking_time_start" class="time start booking-time form-control hasTimepicker " data-error="Please fill out this field." required>
+            </div>
+            
+            <div class="form-group">
+              <label for="booking_time_end" class="form-control-label">END:</label>
+              <input type="text" id="booking_time_end" class="time end booking-time form-control hasTimepicker " data-error="Please fill out this field." required>
+            </div>
+            
+            <div class="form-group">
+            	<div>
+            		<span class="price-label">Duration</span>
+            		<span id="booking_duration"></span>
+            	</div>
+            	<div>
+            		<span id="price_duration_label"></span>
+            		<span id="booking_price"></span>
+            	</div>
+            </div>
+            
+            <input type="hidden" value="$" id="booking_currency"/>
+            <input type="hidden" value="" id="booking_event_id"/>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" id="booking_button" class="btn btn-primary">Save</button>
+          <button type="button" id="booking_button_remove" class="btn btn-danger">Remove Booking</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+	<div id='calendar'></div>
+
+</body>
+</html>

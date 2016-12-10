@@ -1,0 +1,27 @@
+
+.crop_preview_box_big{
+	width: 400px;
+	height: 300px;
+	border:1px solid #b6b6b6;
+	background-color: #f7f7f7;
+	margin-bottom: 20px;
+}
+
+.crop_preview_box_big img{
+	max-width: 400px;
+	max-height: 300px;
+}
+
+
+.crop_preview_box_small{
+	width:260px;
+	height: 260px;
+	position: relative;
+    overflow: hidden;
+}
+.crop_preview_box_small img {
+	max-width: inherit;
+}
+
+form.uploadform {margin-top: 20px; margin-bottom: 10px;}
+.crop_preview_submit, form.uploadform  {text-align: center;}

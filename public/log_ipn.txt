@@ -1,0 +1,123 @@
+mc_gross : 85536
+protection_eligibility : Eligible
+address_status : unconfirmed
+payer_id : FUY9ZDFLAN2DG
+tax : 0
+address_street : Nishi+4-chome%2C+Kita+55-jo%2C+Kita-ku
+payment_date : 03%3A42%3A16+Oct+04%2C+2016+PDT
+payment_status : Completed
+charset : windows-1252
+address_zip : 150-0002
+first_name : Kyoko
+mc_fee : 3376
+address_country_code : JP
+address_name : yen+Kyoko
+notify_version : 3.8
+custom : 
+payer_status : verified
+business : jagseer_bussiness%40gmail.com
+address_country : Japan
+address_city : Shibuya-ku
+quantity : 1
+verify_sign : AYmoKoL1EaJzuQx8NBSxUQG9ufWBAdqpwj4G8178q4edhz54P52J8Vyj
+payer_email : kyoko-buyer%40gmail.com
+txn_id : 6MM74548W7690941W
+payment_type : instant
+last_name : yen
+address_state : Tokyo
+receiver_email : jagseer_bussiness%40gmail.com
+payment_fee : 
+receiver_id : P8B3PLTDTF3NW
+txn_type : web_accept
+item_name : Daily+office+space01
+mc_currency : JPY
+item_number : 339%3B340%3B341%3B343%3B344%3B345
+residence_country : JP
+test_ipn : 1
+handling_amount : 0
+transaction_subject : 
+payment_gross : 
+shipping : 0
+ipn_track_id : 65fe6ddbc2612
+mc_gross : 99792
+protection_eligibility : Eligible
+address_status : unconfirmed
+payer_id : FUY9ZDFLAN2DG
+tax : 0
+address_street : Nishi+4-chome%2C+Kita+55-jo%2C+Kita-ku
+payment_date : 03%3A48%3A04+Oct+04%2C+2016+PDT
+payment_status : Completed
+charset : windows-1252
+address_zip : 150-0002
+first_name : Kyoko
+mc_fee : 3932
+address_country_code : JP
+address_name : yen+Kyoko
+notify_version : 3.8
+custom : 
+payer_status : verified
+business : jagseer_bussiness%40gmail.com
+address_country : Japan
+address_city : Shibuya-ku
+quantity : 1
+verify_sign : AwD4sJJmdrzDKNGw7KMAMuZSx1AHAXMekCIDpsyf7BJhSdB6XLIwfO4F
+payer_email : kyoko-buyer%40gmail.com
+txn_id : 49P65886EL264845F
+payment_type : instant
+last_name : yen
+address_state : Tokyo
+receiver_email : jagseer_bussiness%40gmail.com
+payment_fee : 
+receiver_id : P8B3PLTDTF3NW
+txn_type : web_accept
+item_name : Daily+office+space01
+mc_currency : JPY
+item_number : 339%3B340%3B341%3B343%3B344%3B345%3B344%3B345%3B346%3B341%3B340%3B339
+residence_country : JP
+test_ipn : 1
+handling_amount : 0
+transaction_subject : 
+payment_gross : 
+shipping : 0
+ipn_track_id : b8089d06a6e71
+mc_gross : 85536
+protection_eligibility : Eligible
+address_status : unconfirmed
+payer_id : FUY9ZDFLAN2DG
+tax : 0
+address_street : Nishi+4-chome%2C+Kita+55-jo%2C+Kita-ku
+payment_date : 03%3A33%3A03+Oct+04%2C+2016+PDT
+payment_status : Completed
+charset : windows-1252
+address_zip : 150-0002
+first_name : Kyoko
+mc_fee : 3376
+address_country_code : JP
+address_name : yen+Kyoko
+notify_version : 3.8
+custom : 
+payer_status : verified
+business : jagseer_bussiness%40gmail.com
+address_country : Japan
+address_city : Shibuya-ku
+quantity : 1
+verify_sign : AjNG4H.j9XP5JDmRSY54-UnKMFtBAtXcYnombDiWMRNzwEWVyXnSbN.h
+payer_email : kyoko-buyer%40gmail.com
+txn_id : 55S319950E555223V
+payment_type : instant
+last_name : yen
+address_state : Tokyo
+receiver_email : jagseer_bussiness%40gmail.com
+payment_fee : 
+receiver_id : P8B3PLTDTF3NW
+txn_type : web_accept
+item_name : Daily+office+space01
+mc_currency : JPY
+item_number : 339%3B340%3B341%3B343%3B344%3B345
+residence_country : JP
+test_ipn : 1
+handling_amount : 0
+transaction_subject : 
+payment_gross : 
+shipping : 0
+ipn_track_id : 3e429e49d6b12

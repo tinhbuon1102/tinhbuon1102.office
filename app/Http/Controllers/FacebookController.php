@@ -34,7 +34,6 @@ class FacebookController extends Controller
 				'avatar_original' => 'https://graph.facebook.com/v2.6/1405654046112329/picture?width=1920'
 		);
 		
-		pr($object);die;
 		return Socialite::driver('facebook')->redirect();
 	}
 

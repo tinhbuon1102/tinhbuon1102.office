@@ -1,4 +1,9 @@
-/public
+/public/admin
+/public/backup
+/public/dataAddress
+/public/images
+/public/lpnew
+/public/pages
 .settings
 .env
 .buildpath

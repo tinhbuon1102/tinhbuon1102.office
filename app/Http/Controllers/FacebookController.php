@@ -16,24 +16,8 @@ use Config;
 class FacebookController extends Controller
 {
 	//
-	public function redirect ( Request $request )
+	public function redirect(Request $request)
 	{
-		$object = (object)array(
-				'id' => 1405654046112329,
-				'name' => 'Quốc Thắng Trần',
-				'email' => 'quocthang_2001@yahoo.com',
-				'avatar' => 'https://graph.facebook.com/v2.6/1405654046112329/picture?type=normal',
-				'user' => Array(
-						'name' => 'Quốc Thắng Trần',
-						'email' => 'quocthang_2001@yahoo.com',
-						'gender' => 'male',
-						'verified' => 1,
-						'id' => '1405654046112329'
-				),
-				
-				'avatar_original' => 'https://graph.facebook.com/v2.6/1405654046112329/picture?width=1920'
-		);
-		
 		return Socialite::driver('facebook')->redirect();
 	}
 

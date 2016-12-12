@@ -504,6 +504,7 @@ class PageController extends Controller
 			
 			$user1 = new \App\User1();
 			$user1->HashCode = uniqid();
+			$user1->password = bcrypt($user1->HashCode);
 			$user1->EmailVerificationText = uniqid();
 			$user1->IsEmailVerified = 'No';
 			$user1->fill($request->except(['_token']));
@@ -520,7 +521,7 @@ class PageController extends Controller
 						'NameOfCompany' => "会社名",
 						'Department' => "部署",
 						'Tel' => "電話番号",
-						'HashCode' => "パスワード",
+// 						'HashCode' => "パスワード",
 				];
 				
 				// Send email

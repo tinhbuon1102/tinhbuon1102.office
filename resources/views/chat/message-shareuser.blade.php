@@ -1,5 +1,5 @@
 @include('pages.header')
-<body class="mypage shareuser">
+<body class="mypage shareuser chatpage">
 	<style>
 		.chat_box, .msg_container {display: none;}
 	</style>
@@ -141,7 +141,10 @@
 					
 					
 					
-
+<?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/common_footer.php'); ?>
+		@include('pages.common_footer')
+		
+		<!--/footer-->
 				</div>
 				<!--/feed-->
 
@@ -149,10 +152,7 @@
 		</div>
 		
 		<!--/main-container-->
-		<?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/common_footer.php'); ?>
-		@include('pages.common_footer')
 		
-		<!--/footer-->
 	</div>
 	<!--/viewport-->
 	<script type="javascript/text">

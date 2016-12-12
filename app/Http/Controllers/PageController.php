@@ -473,6 +473,9 @@ class PageController extends Controller
 	public function cancelPolicy() {
 		return view('pages.cancel-policy');
 	}
+	public function Contact() {
+		return view('pages.contact-us');
+	}
 	public function listService(Request $request) {
 		if($request->method() == 'POST')
 		{

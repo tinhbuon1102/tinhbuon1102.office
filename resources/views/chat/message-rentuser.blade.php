@@ -1,5 +1,5 @@
 @include('pages.header')
-<body class="mypage shareuser">
+<body class="mypage shareuser chatpage">
 	<div class="viewport">
 		@include('pages.header_nav_rentuser')
 		<div class="main-container">
@@ -13,14 +13,6 @@
 				
 				
 					<section class="feed-event recent-follow feed-box">
-						<div class="dashboard-section-heading-container">
-							<h3 class="dashboard-section-heading">
-								<a href="#">
-									Notification for you
-									<!--?????????-->
-								</a>
-							</h3>
-						</div>
 						<div class="chat-left">
 							<div class="head">
 								<span>メッセージ履歴</span>

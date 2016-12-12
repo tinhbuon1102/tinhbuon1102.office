@@ -29,6 +29,7 @@
 				<div id="samewidth" class="right_side">
 					<div id="page-wrapper" class="has_fixed_title">
 						<div class="page-header header-fixed">
+                        <div class="container-fixed">
 							<div class="container-fluid">
 								<div class="row">
 									<div class="col-xs-6 col-md-6 col-sm-8 clearfix">
@@ -40,12 +41,13 @@
 									<div class="col-xs-6 col-md-6 col-sm-4 clearfix pb15 text-right">
 										<button id="SubmitBtn" type="submit" class="btn btn-default mt15 dblk-button" data-bind="jqButton: { disabled: !isDirty() }, click: save" role="button">
 											<i class="fa fa-floppy-o"></i>
-											<span class="hidden-sm hidden-xs"> 更新</span>
+											<span class=""> 更新</span>
 										</button>
 									</div>
 									<!--/col-xs-6-->
 								</div>
 							</div>
+                            </div>
 						</div>
 						<!--/page-header header-fixed-->
 						<div id="feed">

@@ -4,6 +4,34 @@ function pr($data)
 	echo '<pre>'; print_r($data); echo '</pre>';
 }
 
+function getNestedParentUrl(){
+	$currentUrl = Request::url();
+	$aUrl = explode('/', $currentUrl);
+	if (!empty($aUrl))
+	{
+		unset($aUrl[count($aUrl) - 1]);
+		return implode('/', $aUrl);
+	}
+	return $currentUrl;
+}
+
+function getH1OfFile($fileName)
+{
+	if (file_exists($fileName))
+	{
+		$contents = File::get($fileName);
+		$pattern = "/<h1 ?.*>(.*)<\/h1>/";
+		preg_match($pattern, $contents, $matches);
+		$pageName = @$matches[1];
+		$pageName = $pageName ? $pageName : 'Missing H1';
+	}
+	else {
+		$pageName = 'Missing H1';
+	}
+	
+	return $pageName;
+}
+
 function redirectToDashBoard() {
 	if ((Auth::guard('user1')->check()))
 		return redirect('/ShareUser/Dashboard');

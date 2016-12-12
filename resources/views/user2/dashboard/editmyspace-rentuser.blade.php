@@ -6,7 +6,7 @@
  @include('pages.header')
 <!--/head-->
 <link rel="stylesheet" href="http://office-spot.com/design/js/chosen/chosen.min.css">
-<body class="mypage">
+<body class="mypage rentuser myspace">
 	<div class="viewport">
 		<?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header_nav_shareuser.php'); ?>
 		 @include('pages.header_nav_rentuser')
@@ -29,7 +29,7 @@
 <h1 class="pull-left"><i class="fa fa-cogs" aria-hidden="true"></i> {{ trans('edit_myspace.スペースの希望条件') }}</h1>
 </div>
 <div class="col-xs-6 col-md-6 col-sm-4 clearfix pb15 text-right">
-<button id="SubmitBtn" type="submit" class="btn btn-default mt15 dblk-button" data-bind="jqButton: { disabled: !isDirty() }, click: save" role="button"><i class="fa fa-floppy-o"></i><span class="hidden-sm hidden-xs">{{ trans('edit_myspace.save') }}</span></button>
+<button id="SubmitBtn" type="submit" class="btn btn-default mt15 dblk-button" data-bind="jqButton: { disabled: !isDirty() }, click: save" role="button"><i class="fa fa-floppy-o"></i><span class="">{{ trans('edit_myspace.save') }}</span></button>
 </div><!--/col-xs-6-->
 </div>
 </div>

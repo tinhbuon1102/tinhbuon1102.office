@@ -96,7 +96,7 @@ use App\Spaceslot;
 												</a>
 											</li>
 										</ul>
-										<div id="example_wrapper" class="dataTables_wrapper no-footer">
+										<div id="example_wrapper" class="dataTables_wrapper no-footer booking-list-table">
 											<div class="dataTables_length wrapper_dataTables">
 												<div class="tablenav top">
 													<div class="alignleft actions">
@@ -113,14 +113,14 @@ use App\Spaceslot;
 														<tr role="row">
 															<th class="sorting th-no">#</th>
 															<th class="sorting th-space">スペース名</th>
-															<th class="sorting_desc th-bdate">予約日</th>
-															<th class="sorting_desc th-rdate">利用開始日</th>
-															<th class="sorting th-duration">期間</th>
-															<th class="sorting th-fee">金額</th>
-															<th class="sorting th-payment">支払状況</th>
+															<th class="sorting_desc th-bdate mb-none">予約日</th>
+															<th class="sorting_desc th-rdate mb-none">利用開始日</th>
+															<th class="sorting th-duration mb-none">期間</th>
+															<th class="sorting th-fee mb-none">金額</th>
+															<th class="sorting th-payment mb-none">支払状況</th>
 															<th class="sorting th-status">予約状況</th>
 															<th class="sorting th-view"></th>
-															<th class="sorting th-cancel">アクション</th>
+															<th class="sorting th-cancel mb-none">アクション</th>
 														</tr>
 													</thead>
 													<tbody>
@@ -128,15 +128,15 @@ use App\Spaceslot;
 														<tr role="row" class="odd">
 															<td tabindex="0">{!!$rent->id!!}</td>
 															<td>{!!$rent->bookedSpace->Title!!}</td>
-															<td class="sorting_1">{!!$rent->created_at!!}</td>
-															<td class="sorting_1">
+															<td class="sorting_1 mb-none">{!!$rent->created_at!!}</td>
+															<td class="sorting_1 mb-none">
 																<?php 
 																$isDisplayTime = in_array($rent->SpaceType, array(SPACE_FEE_TYPE_HOURLY, SPACE_FEE_TYPE_DAYLY)) ? true  : false;
 																echo renderJapaneseDate($rent->charge_start_date, $isDisplayTime)?>
 															</td>
 															</td>
-															<td>{{$rent->DurationText}}</td>
-															<td>
+															<td class="mb-none">{{$rent->DurationText}}</td>
+															<td class="mb-none">
 																<span>
 																	@if($rent->Duration>5 && $rent->bookedSpace->FeeType==4) ¥{!!priceConvert(($rent['bookedSpace']['MonthFee']*2*0.08)+(($rent['bookedSpace']['MonthFee']*2*0.08)+($rent['bookedSpace']['MonthFee']*2))*0.10+$rent['bookedSpace']['MonthFee']*2)!!}
 																	<br />
@@ -147,7 +147,7 @@ use App\Spaceslot;
 																	@endif
 																</span>
 															</td>
-															<td>
+															<td class="mb-none">
 																<?php echo getBookingPaymentStatus($rent, true)?>
 															</td>
 															<td>
@@ -156,7 +156,7 @@ use App\Spaceslot;
 															<td>
 																<a href="/RentUser/Dashboard/Reservation/View/{!!$rent->id!!}" class="btn btn-primary btn-xs">詳細</a>
 															</td>
-															<td>
+															<td class="mb-none">
 																@if(($rent->status==1 || $rent->status==2) && ($rent->in_use==0)) @if($rent->status==1)
 																<form action='/RentUser/Dashboard/cancelPayment' method='post'>
 																	<input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />

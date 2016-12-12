@@ -98,6 +98,7 @@ use App\Spaceslot;
 												</a>
 											</li>
 										</ul>
+                                        <div class="booking-list-table">
 										<div class="tablenav top">
 											<div class="alignleft actions">
 												<?php 
@@ -108,6 +109,7 @@ use App\Spaceslot;
 															'onchange' => 'location = "'. getFullUrl(Request::except(['filter_month'])) .'" + (this.value ? "&filter_month=" + this.value : "")']);?>
 											</div>
 										</div>
+                                        
 										<table class="table table-striped table-bordered book-list-table" id="example" cellspacing="0" width="100%">
 											<thead>
 												<tr role="row">
@@ -308,6 +310,7 @@ use App\Spaceslot;
 										<div class="dashboard-pagination" id="dashboard-pagination">
 											<div class="ns_pagination">{{ $rent_datas->links() }}</div>
 										</div>
+                                        </div>
 									</div>
 								</div>
 							</div>

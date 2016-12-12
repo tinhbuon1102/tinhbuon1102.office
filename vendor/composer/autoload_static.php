@@ -95,6 +95,7 @@ class ComposerStaticInit0997d0a31e979b45e67ac313e8593d15
         array (
             'Dotenv\\' => 7,
             'Doctrine\\Instantiator\\' => 22,
+            'DaveJamesMiller\\Breadcrumbs\\' => 28,
         ),
         'C' => 
         array (
@@ -258,6 +259,10 @@ class ComposerStaticInit0997d0a31e979b45e67ac313e8593d15
         'Doctrine\\Instantiator\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
+        ),
+        'DaveJamesMiller\\Breadcrumbs\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/davejamesmiller/laravel-breadcrumbs/src',
         ),
         'Collective\\Html\\' => 
         array (

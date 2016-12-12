@@ -12,10 +12,7 @@
 */
 
 /* STATIC PAGES */
-Route::get('/', function () {
-    return 'Coming Soon ....';
-});
-Route::get('/', 'PublicController@landingPage');
+Route::get('/', ['as' => 'home', 'uses' => 'PublicController@landingPage']);
 
 Route::get('/how-it-works', function () {
     return view('pages.howitwork');
@@ -32,12 +29,10 @@ Route::get('/TermCondition/ShareUser', function () {
     return view('pages.term_condition_shareuser');
 });
 
-Route::get('/help', function () {
-    return view('pages.help');
-});
-Route::any('/help/rentuser/{subUrl?}', "PageController@helpUser");
-Route::any('/help/shareuser/{subUrl?}', "PageController@helpUser");
-Route::any('/help/guest/{subUrl?}', "PageController@helpUser");
+Route::get('/help', ['as' => 'help', 'uses' => function () { return view('pages.help');}]);
+Route::any('/help/rentuser/{subUrl?}', ['as' => 'rent-user', 'uses' => "PageController@helpUser"]);
+Route::any('/help/shareuser/{subUrl?}', ['as' => 'share-user', 'uses' => "PageController@helpUser"]);
+Route::any('/help/guest/{subUrl?}', ['as' => 'guest', 'uses' => "PageController@helpUser"]);
 
 
 Route::get('/how-it-works/find-space', function () {
@@ -56,6 +51,7 @@ Route::get('PrivacyPolicy', "PageController@privacyPolicy");
 Route::get('cookie-policy', "PageController@cookiePolicy");
 Route::any('list-service', "PageController@listService");
 Route::get('cancel-policy', "PageController@cancelPolicy");
+Route::get('contact-us', "PageController@Contact");
 
 
 /*Route::get('myAdmin', function () {

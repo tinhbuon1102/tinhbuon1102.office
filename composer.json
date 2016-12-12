@@ -11,7 +11,8 @@
 	"pusher/pusher-php-server": "~2.2.1",
 	"webpay/webpay": "2.2.2",
 	"laravel/socialite": "~2.0",
-	"laravelcollective/html": "^5.2.0"
+	"laravelcollective/html": "^5.2.0",
+    "davejamesmiller/laravel-breadcrumbs": "^3.0"
 	},
 	
     "require-dev": {

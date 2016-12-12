@@ -81,6 +81,7 @@
 </ul>
 </div>
 <div class="col_half col_right">
+<div class="intro-anime"><img src="images/intro-anime.gif" /></div>
 </div>
 </div><!--/container-->
 </section>

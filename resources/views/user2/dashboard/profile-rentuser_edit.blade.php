@@ -356,6 +356,678 @@ $description_area = trim(str_ireplace($breaks, "\r\n", $description));
 				</div>
 			</section>
 			<!--end of profile section-->
+            <!--mobile tab-->
+            
+            <div class="PageNav pc-none">
+            <ul class="PageNav-list tab-nav">
+            <li class="PageNav-item select"><a href="#" class="PageNav-link">プロフィール</a></li>
+            <li class="PageNav-item"><a href="#" class="PageNav-link">実績</a></li>
+            <li class="PageNav-item"><a href="#" class="PageNav-link">レビュー</a></li>
+            </ul>
+            </div>
+            <!--/mobile tab-->
+            <div class="tab-con pc-none">
+            <ul class="content">
+            <li class="tabli details-con">
+            <section class="profile-user-requirement">
+				<div class="section-inner">
+					<div class="row">
+                    <div class="profile-require-main col-md-9">
+                    <div class="profile-require-basic js-matchHeight feed-box" id="basic-requirement">
+                    <h2 class="section-title">自己紹介文</h2>
+                    <div class="require-table-box editable-block-wraper"> 
+												<div class="profile-about-description editable-block">
+													<span class="edit-content"> {{$user->BusinessSummary}}
+													</span>
+                                                    <a style="display: none" class="profile-job-btn job-desc-edit-btn" href="javascript:void(0);">
+                                                    紹介文を記入してください
+                                                    <span class="profile-job-btn-wraper"><span class="fa fa-pencil awesome-icon"></span>
+													</a>
+													</span>
+												</div>
+
+												<!--job-->
+												<div class="editable-block editting-block editting-description" style="display: none">
+													<textarea name="job-description" placeholder="自己紹介文を記入しましょう。" class="profile-textarea profiles-description"><?php echo trim(str_ireplace($breaks, "\r\n", $user->BusinessSummary))?></textarea>
+													<div class="btn-wrapper">
+														<button class="btnSaveBSummary toggle_button save-button btn ui-button-text-only yellow-button" role="button" bind-toggle=".profile-about-description, .editting-description">
+															<span class="ui-button-text">保存</span>
+														</button>
+														<button class="toggle_button cancel-button btn ui-button-text-only" role="button" bind-toggle=".profile-about-description, .editting-description">
+															<span class="ui-button-text">キャンセル</span>
+														</button>
+													</div>
+												</div>
+											</div>
+                   </div>
+					<!--/profile-require-basic-->
+                   </div>
+						<!--/profile-require-main-->
+                        
+                        <div class="profile-require-main col-md-9">
+                    <div class="profile-require-basic js-matchHeight feed-box" id="basic-requirement">
+                    <h2 class="section-title">スキル</h2>
+                    <div class="require-table-box editable-block-wraper"> 
+                    
+											<div class="profile-skills editable-block">
+											
+											<ul class="skill-list withstar" id="SkillList">
+											</ul>
+											<a style="display: none" class="profile-job-btn job-skill-edit-btn" href="javascript:void(0);">
+                                                スキルを選択してください
+                                                <span class="profile-job-btn-wraper" style="display:inline-block;"><span class="fa fa-pencil awesome-icon"></span>
+													</span></a>
+											</div>
+											<div class="editable-block editting-block editting-skills" style="display: none;">
+                      <select data-placeholder="スキルを選択" class="chosen-select" id="profile-skills"  multiple="multiple" aria-hidden="true" tabindex="-1">
+									<optgroup label="制作用ツール、DTPソフト">
+										<option value="Photoshop">Photoshop</option>
+										<option value="Illustrator">Illustrator</option>
+										<option value="Dreamweaver">Dreamweaver</option>
+										<option value="Wordpress">Wordpress</option>
+										<option value="Flash">Flash</option>
+									</optgroup>
+									<optgroup label="デザイン技術">
+										<option value="Webデザイン">Webデザイン</option>
+										<option value="グラフィックデザイン">グラフィックデザイン</option>
+										<option value="3Dデザイン">3Dデザイン</option>
+									</optgroup>
+									<optgroup label="開発技術">
+										<option value="IT・Web系技術">IT・Web系技術</option>
+										<option value="アプリケーション開発技術">アプリケーション開発技術</option>
+									</optgroup>
+									<optgroup label="基本事務ソフト">
+										<option value="Excel">Excel</option>
+										<option value="Power Point">Power Point</option>
+										<option value="Words">Words</option>
+									</optgroup>
+									<optgroup label="ビジネススキル">
+										<option value="事務スキル">事務スキル</option>
+										<option value="事務スキル">事務スキル</option>
+										<option value="営業スキル">営業スキル</option>
+										<option value="コンサルティング">コンサルティングスキル</option>
+										<option value="経営スキル">経営スキル</option>
+										<option value="企画力">企画力</option>
+										<option value="交渉力">交渉力</option>
+										<option value="マーケティング">マーケティング力</option>
+										<option value="プレゼンテーション">プレゼンテーション力</option>
+										<option value="プロジェクト・マネージメント">プロジェクト・マネージメント</option>
+										<option value="情報収集力">情報収集力</option>
+
+									</optgroup>
+									<optgroup label="語学">
+										<option value="英語">英語</option>
+										<option value="中国語">中国語</option>
+										<option value="韓国語">韓国語</option>
+										<option value="フランス語">フランス語</option>
+										<option value="フランス語">イタリア語</option>
+										<option value="スペイン語">スペイン語</option>
+									</optgroup>
+								</select>
+
+													<div class="btn-wrapper">
+														<button id="SaveSkills" class="btnSaveBSummary toggle_button save-button btn ui-button-text-only yellow-button" role="button" bind-toggle=".profile-skills, .editting-skills">
+															<span class="ui-button-text">保存</span>
+														</button>
+														<button id="CancelSkills" class="toggle_button cancel-button btn ui-button-text-only" role="button" bind-toggle=".profile-skills, .editting-skills">
+															<span class="ui-button-text">キャンセル</span>
+														</button>
+													</div>
+												</div>
+					
+                    </div>
+                   </div>
+					<!--/profile-require-basic-->
+                   </div>
+						<!--/profile-require-main-->
+                                            
+						<div class="profile-require-main col-md-9">
+							<div class="profile-require-basic js-matchHeight feed-box" id="basic-requirement">
+								<h2 class="section-title">利用希望ワークスペース<span class="edit-workspace"><a href="{{url('RentUser/Dashboard/EditMySpace')}}" class="profile-job-btn" style="display: none;" target="_blank"><span class="fa fa-pencil awesome-icon" ></span></a></span></h2>
+								<div class="require-table-box editable-block-wraper">
+									<span style="display: none;" class="profile-job-btn-wraper"> <a style="display: none" class="profile-job-btn job-requirement-basic-btn" href="javascript:void(0);" onclick="LoadDetail()"> <span class="fa fa-pencil awesome-icon"></span>
+									</a>
+									</span>
+									<div class="require-table-box-row">
+										<div class="col_half left">
+											<table class="require-list style_basic">
+												<tbody>
+													<tr>
+														<th>スペースタイプ</th>
+														<td>
+															<div class="editable-block-wraper">
+																<div class="editable-block private-office-content">
+                                                                <span id="spancspacetype">
+                                                                @if( count($space->SpaceType) >= 4 )
+                                                                全て
+                                                                @else
+                                                                {{$space->SpaceType}}
+                                                                @endif
+                                                                </span>
+                                                                </div>
+																<div class="editable-block editting-block editting-private-office" style="display: none">
+																	<div class="clearfix">
+																		<div class="input-container input-col4 iconbutton icondesk" data-id="desk">
+																			<div class="iconbutton-icon workspace-type-icon-Desk"></div>
+																			<div class="iconbutton-name">デスク</div>
+																			<input type="checkbox" value="デスク" class="SpaceType" name="SpaceType[]" id="desk" style="display:none">
+																		</div>
+																		<!--/icon-button-->
+																		<div class="input-container input-col4 iconbutton iconbutton-metting iconmeetingspace" data-id="meetingspace">
+																			<div class="iconbutton-icon workspace-type-icon-Meeting"></div>
+																			<div class="iconbutton-name">会議室</div>
+																			<input type="checkbox" value="会議室" class="SpaceType" name="SpaceType[]" id="meetingspace" style="display:none">
+																		</div>
+																		<!--/icon-button-->
+																		<div class="input-container input-col4 iconbutton iconbutton-private-offce iconprivateoffice" data-id="privateoffice">
+																			<div class="iconbutton-icon workspace-type-icon-Office"></div>
+																			<div class="iconbutton-name">オフィス</div>
+																			<input type="checkbox" value="プライベートオフィス" class="SpaceType" name="SpaceType[]" id="privateoffice" style="display:none">
+																		</div>
+																		<!--/icon-button-->
+																		<div class="input-container input-col4 iconbutton iconbutton-semiar-space iconseminarspace" data-id="seminarspace">
+																			<div class="iconbutton-icon workspace-type-icon-Training"></div>
+																			<div class="iconbutton-name">セミナースペース</div>
+																			<input type="checkbox" value="セミナースペース" class="SpaceType" name="SpaceType[]" id="seminarspace" style="display:none">
+																		</div>
+																		<!--/icon-button-->
+																	</div>
+																</div>
+															</div>
+														</td>
+													</tr>
+													<th>希望地域</th>
+													<td>
+														<div class="editable-block-wraper">
+															<div class="editable-block location-content"><span id='spanlocation'>{{$space->DesireLocationPrefecture}},&nbsp;{{$space->DesireLocationDistricts}},&nbsp;{{$space->DesireLocationTown}}</span></div>
+															<div class="editable-block editting-block editting-location" style="display: none">
+																<div class="input-container input-col3">
+																	<select id="prefecture" data-label="都道府県を選択" class="address_select"></select>
+																	<!--select prefecture-->
+																</div>
+																<div class="input-container input-col3">
+																	<select id="district" data-label="市区町村を選択" class="address_select chosen-select" multiple></select>
+																	<!--select districts-->
+																</div>
+																<div class="input-container input-col3 last" style="display: none;">
+																	<select id="town" data-label="町域を選択" class="chosen-select address_select" multiple tabindex="16"></select>
+																	<!--select towns-->
+																</div>
+															</div>
+														</div>
+
+													</td>
+													</tr>
+													<tr>
+														<th>希望利用料</th>
+														<td>
+															<div class="editable-block-wraper">
+																<div class="editable-block location-budget"><span id='budgetType'></span></div>
+																<div class="editable-block editting-block editting-budget" style="display: none">
+																	<div class="input-container input-half">
+																		<div class=" clearfix">
+																			<div class="field_col2">
+																				<select id="choose_budget_per">
+																					<option value="">
+																						時間・日・週・月から選択
+																						<!--時間・日・週・月から選択-->
+																					</option>
+																					<option value="day" class="choose_budget_per_day" data-type="day">{{ Config::get('lp.budget.day') }}</option>
+																					<option value="week" class="choose_budget_per_week" data-type="week">{{ Config::get('lp.budget.week') }}</option>
+																					<option value="month" class="choose_budget_per_month" data-type="month">{{ Config::get('lp.budget.month') }}</option>
+																				</select>
+																			</div>
+																			<div class="field_col2">
+																				<select id="choose_budget_per_" class="" data-label="予算を選択" name="BudgetID">
+																					<option value="" selected="">予算を選択</option>
+																					 @foreach($budgets as $budget)
+																							<option value="{{ $budget->id }}" class="{{ $budget->Type }} budget-price1">{{ $budget->Display }}</option>
+																					@endforeach
+																				</select>
+																			</div>
+																		</div>
+																		<!--/clearfix-->
+																	</div>
+																</div>
+															</div>
+														</td>
+													</tr>
+													
+												</tbody>
+											</table>
+										</div>
+										<!--/half-->
+										<div class="col_half right">
+											<table class="require-list style_basic">
+												<tbody>
+                                                <tr>
+														<th>利用時間帯</th>
+														<td>
+															<div class="editable-block-wraper">
+																<div class="editable-block location-time"><span id="spntimeslot" ></span></div>
+																<div class="editable-block editting-block editting-time" style="display: none">
+																	<div class="input-container input-half">
+																		<select id="choose_timeslot" data-label="時間帯を選択">
+																			<option value="" selected="">-</option>
+																				 @foreach($timeslots as $timeslot)
+																							<option value="{{ $timeslot->id }}" >{{ $timeslot->Display }}</option>
+																					@endforeach
+																		</select>
+																	</div>
+																</div>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<th>利用人数</th>
+														<td>
+															<div class="editable-block-wraper">
+																<div class="editable-block location-numpeople"><span id="spnnumpeople" ></span></div>
+																<div class="editable-block editting-block editting-numpeople" style="display: none">
+																	<div class="input-container input-half">
+																		<select id="choose_numpeople" data-label="人数を選択">
+																			<option value="" selected="">人数を選択</option>
+																			<option value="1人">1人</option>
+																			<option value="2人">2人</option>
+																			<option value="3人">3人</option>
+																			<option value="4人~6人">4人~6人</option>
+																			<option value="6人以上">6人以上</option>
+																		</select>
+																	</div>
+																</div>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<th>スペース面積</th>
+														<td>
+															<div class="editable-block-wraper">
+																<div class="editable-block location-budget"><span id="spnSpaceArea"></span></div>
+																<div class="editable-block editting-block editting-budget" style="display: none">
+																	<div class="input-container input-half">
+																		<select id="choose_spacearea" data-label="面積を選択">
+																			<option value="" selected="">面積を選択</option>
+																			@foreach(Config::get('lp.spaceArea') as $area => $ar )
+																				<option value="{{ $ar['id'] }}">{{ $ar['display'] }}</option>
+																			@endforeach
+																			<!--<option value="10">less than 10m&sup2;</option>
+																			<option value="20">less than 20&sup2;</option>
+																			<option value="30">more than 30&sup2;</option>
+																			<option value="特になし">any size of area</option>-->
+																		</select>
+																	</div>
+																</div>
+															</div>
+														</td>
+													</tr>
+													
+												</tbody>
+											</table>
+										</div>
+										<!--/half-->
+									</div>
+									<!--/table-box-->
+									<div class="require-note clearfix">
+										<table class="require-list style_basic fl-col-table">
+											<tbody>
+                                            <tr>
+														<th>希望職場事業</th>
+														<td>
+															<div class="editable-block-wraper">
+																{{$user->BusinessType}}
+															</div>
+
+														</td>
+													</tr>
+												@if( !empty($space->notes_ideals) )	
+												<tr>
+													<th>備考</th>
+													<td>
+														<div class="editable-block-wraper">
+															{{$space->notes_ideals}}
+														</div>
+													</td>
+												</tr>
+												@endif
+											</tbody>
+										</table>
+									</div>
+									<!--require-note-->
+									<div class="editable-block editting-block editting-private-office" style="display: none">
+										<button id="btnSave" class="toggle_button save-button btn ui-button-text-only yellow-button" role="button" >
+											<span class="ui-button-text">保存</span>
+										</button>
+										<button id="btnCancel" class="toggle_button cancel-button btn ui-button-text-only" role="button" >
+											<span class="ui-button-text">キャンセル</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<!--/profile-require-basic-->
+						</div>
+						<!--/profile-require-main-->
+						<div class="profile-requirement-side col-md-3">
+							<div class="profile-side-requirement js-matchHeight feed-box editable-block-wraper form-container">
+								<h2 class="section-title">希望設備</h2>
+								<div class="require-table-box facility-require">
+									<span class="profile-job-btn-wraper" style="display: none;"> 
+										<a style="display: none" class="profile-job-btn job-requirement-basic-btn" href="javascript:void(0);"> <span class="fa fa-pencil awesome-icon"></span>
+										</a>
+									</span>
+									<table class="require-list facility-require-list style_basic">
+										<tbody>
+											<tr>
+												<th>デスク</th>
+												<td>
+													<div class="editable-block-wraper">
+														<div class="editable-block location-num-desk">
+															<strong><span id="spnDesk"></span></strong> 台
+														</div>
+														<div class="editable-block editting-block editting-num-desk" style="display: none">
+															<div class="input-container">
+																<span class="field-number-input-withunit"> <input type="number" name="num_desk" min="1" max="50" value="{{$space->NumOfDesk}}">台
+																</span>
+															</div>
+															<!--/form-field-->
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<th>イス</th>
+												<td>
+													<div class="editable-block-wraper">
+														<div class="editable-block location-num-chair">
+															<strong><span id="spnChair"></span></strong> 台
+														</div>
+														<div class="editable-block editting-block editting-num-chair" style="display: none">
+															<div class="input-container">
+																<span class="field-number-input-withunit"> <input type="number" name="num_chair" min="1" max="50" value="{{$space->NumOfChair}}">脚
+																</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<th>ボード</th>
+												<td>
+													<div class="editable-block-wraper">
+														<div class="editable-block location-num-board">
+															<strong><span id="spnBoard"></span></strong> 台
+														</div>
+														<div class="editable-block editting-block editting-num-board" style="display: none">
+															<div class="input-container">
+																<span class="field-number-input-withunit"> <input type="number" name="num_board" min="1" max="50" value="{{$space->NumOfBoard}}">台
+																</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<th>複数人用デスク&amp;イス</th>
+												<td>
+													<div class="editable-block-wraper">
+														<div class="editable-block location-num_largedesk">
+															<strong><span id="spnLargeDesk"></span></strong> 台
+														</div>
+														<div class="editable-block editting-block editting-num_largedesk" style="display: none">
+															<div class="input-container">
+																<span class="field-number-input-withunit"> <input type="number" name="num_largedesk" min="1" max="50" value="{{$space->NumOfLargeDesk}}">台
+																</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr class="other-facilities">
+												<th colspan="2">その他設備</th>
+											</tr>
+											<tr class="other-facilities">
+												<td colspan="2">
+													<div class="editable-block-wraper">
+														<div class="editable-block location-facility"><span id="spnOtherFacility"></span></div>
+														<div class="editable-block editting-block editting-facility" style="display: none">
+															<div class="input-container">
+																<span class="field-checkbox"> <input type="checkbox" name="select-other-facility[]" class="other_facilities" value="wi-fi"> <label class="nextcheckbox">wi-fi</label>
+																</span> <span class="field-checkbox"> <input type="checkbox" name="select-other-facility[]" class="other_facilities" value="プリンター"> <label class="nextcheckbox">プリンター</label>
+																</span> <span class="field-checkbox"> <input type="checkbox" name="select-other-facility[]" class="other_facilities" value="プロジェクター"> <label class="nextcheckbox">プロジェクター</label>
+																</span> <span class="field-checkbox"> <input type="checkbox" name="select-other-facility[]" class="other_facilities" value="自動販売機"> <label class="nextcheckbox">自動販売機</label>
+																</span> <span class="field-checkbox"> <input type="checkbox" name="select-other-facility[]" class="other_facilities" value="男女別トイレ"> <label class="nextcheckbox">男女別トイレ</label>
+																</span> <span class="field-checkbox"> <input type="checkbox" name="select-other-facility[]" class="other_facilities" value="喫煙所"> <label class="nextcheckbox">喫煙所</label>
+																</span> <span class="field-checkbox"> <input type="checkbox" name="select-other-facility[]" class="other_facilities" value="エレベーター"> <label class="nextcheckbox">エレベーター</label>
+																</span>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="editable-block editting-block editting-num-desk" style="display: none">
+										<button id="btnSaveEqp" class="toggle_button save-button btn ui-button-text-only yellow-button" role="button" >
+											<span class="ui-button-text">保存</span>
+										</button>
+										<button id="btnCancelEqp" class="toggle_button cancel-button btn ui-button-text-only" role="button" >
+											<span class="ui-button-text">キャンセル</span>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+                        <div class="profile-components-side col-md-3">
+							<section class="profile-side-verifications feed-box">
+								<h2 class="section-title">認証</h2>
+								<ul class="VerificationsList">
+									<li class="VerificationsList-item <?php echo $isPaymentSetup ? 'is-VerificationsList-verified' : ''?>">
+										<span class="VerificationsList-label">
+											<span class="VerificationsList-label-icon Icon">
+												<i class="fa fa-credit-card" aria-hidden="true"></i>
+											</span>
+											決済方法認証
+										</span>
+										<?php if ($isPaymentSetup) {?>
+										<span class="VerificationsList-verifiedIcon Icon">
+											<i class="fa fa-check" aria-hidden="true"></i>
+										</span>
+										<?php }else {?>
+											<div>
+												<a href="{{url('/RentUser/Dashboard/BasicInfo/Edit')}}" class="btn btn-mini">認証する</a>
+											</div>
+										<?php }?>
+									</li>
+									<li class="VerificationsList-item <?php echo $user->Tel ? 'is-VerificationsList-verified' : ''?>">
+										<span class="VerificationsList-label">
+											<span class="VerificationsList-label-icon Icon">
+												<i class="fa fa-phone" aria-hidden="true"></i>
+											</span>
+											電話番号認証
+										</span>
+										<?php if ($user->Tel) {?>
+										<span class="VerificationsList-verifiedIcon Icon">
+											<i class="fa fa-check" aria-hidden="true"></i>
+										</span>
+										<?php }else {?>
+											<div>
+												<a href="{{url('/RentUser/Dashboard/BasicInfo/Edit')}}" class="btn btn-mini">認証する</a>
+											</div>
+										<?php }?>
+									</li>
+									<li class="VerificationsList-item <?php echo $user->IsEmailVerified = 'Yes' ? 'is-VerificationsList-verified' : ''?>">
+										<span class="VerificationsList-label">
+											<span class="VerificationsList-label-icon Icon">
+												<i class="fa fa-envelope" aria-hidden="true"></i>
+											</span>
+											メールアドレス認証
+										</span>
+										<?php if ($user->IsEmailVerified = 'Yes') {?>
+										<span class="VerificationsList-verifiedIcon Icon">
+											<i class="fa fa-check" aria-hidden="true"></i>
+										</span>
+										<?php }else {?>
+											<div>
+												<a href="{{url('/RentUser/Dashboard/BasicInfo/Edit')}}" class="btn btn-mini">認証する</a>
+											</div>
+										<?php }?>
+									</li>
+									<li class="VerificationsList-item <?php echo $isProfileFullFilled ? 'is-VerificationsList-verified' : ''?>">
+										<span class="VerificationsList-label">
+											<span class="VerificationsList-label-icon Icon">
+												<i class="fa fa-user" aria-hidden="true"></i>
+											</span>
+											個人証明認証
+										</span>
+										<?php if ($isProfileFullFilled ) {?>
+										<span class="VerificationsList-verifiedIcon Icon">
+											<i class="fa fa-check" aria-hidden="true"></i>
+										</span>
+										<?php }else {?>
+											<div>
+												<a href="{{url('/RentUser/Dashboard/BasicInfo/Edit')}}" class="btn btn-mini">認証する</a>
+											</div>
+										<?php }?>
+									</li>
+								</ul>
+							</section>
+							<!--/feed-nbox-->
+
+						</div>
+						<!--/rightbox-->
+					</div>
+					<!--/row-->
+				</div>
+				<!--/section-inner-->
+			</section>
+            </li>
+            <li class="tabli work-con hideli">
+            <section class="profile-portfolio-section" id="profile-portfolio">
+				<div class="section-inner">
+                <?php if (!isset($isPublicUser) || !$isPublicUser) {?>
+                <div class="portfolio-add-item-wraper" style="display: none">
+							<a href="/RentUser/Dashboard/MyPortfolio?action=add" class="ajax-popup-link portfolio-add-item-btn non-feature btn btn-info btn-large"><span>+ 実績を追加</span> </a>
+						</div>
+                <?php }?>
+                <?php if (count($userPortfolios)) {?>
+					<div class="profile-portfolio-wrapper">
+						<h2 class="port-title-h2">
+							Our Works<span class="ja">実績一覧</span>
+						</h2>
+						
+						<ul class="profile-portfolio-items" id="profile-portfolio-items">
+							<?php foreach ($userPortfolios as $userPortfolio) {?>
+								<?php 
+								$viewUrl = '/RentUser/Dashboard/MyPortfolio?action=view&id=' . $userPortfolio['id'];
+								$editUrl = '/RentUser/Dashboard/MyPortfolio?action=edit&id=' . $userPortfolio['id'];
+								$deleteUrl = '/RentUser/Dashboard/MyProfile?action=delete_portfolio&portfolio_id=' . $userPortfolio['id'];
+								?>
+								<li class="signup-modal-trigger profile-portfolio-item" data-id="<?php echo $userPortfolio['id']?>">
+									<div class="portfolio-header" style="display: none">
+										<a href="<?php echo $editUrl?>" class="ajax-popup-link portfolio-edit-button">編集</a> 
+										<a href="<?php echo $deleteUrl?>" class="portfolio-delete-button">削除</a>
+									</div>
+									<div class="profile-portfolio-item-inner">
+										<div class="mosaic-block fade">
+											<a class="mosaic-overlay ajax-popup-link" href="<?php echo $viewUrl?>">
+												<h6 class="profile-portfolio-hover-title"><?php echo $userPortfolio['Title']?></h6>
+											</a> 
+											<?php if ($userPortfolio['Photo']) {?>
+											<a class="mosaic-backdrop profile-portfolio-thumb" href="#" style="background-image: url(<?php echo $userPortfolio['Photo']?>)"></a>
+											<?php }?>
+										</div>
+									</div>
+								</li>
+							<?php }?>
+						</ul>
+					</div>
+                    <?php }?>
+				</div>
+			</section>
+            </li>
+            <li class="tabli review-con hideli">
+            <section class="profile-components" id="resume">
+				<div class="section-inner">
+					<div class="row">
+						<div class="profile-components-main col-md-9">
+							<div class="profile-reviews feed-box" id="profile-reviews">
+								<h2 class="section-title">
+									最新レビュー
+									<button style="<?php if (count($allReviews) < LIMIT_REVIEWS ) echo 'display: none;'?>" class="signup-modal-trigger profile-reviews-btn-top" ng-click="profile.openReviewsModal()" data-qtsb-label="view_more">
+										<span ng-if="profile.user.reviews[profile.user.role].length > 0" class="ng-scope">レビューを全て見る</span>
+									</button>
+								</h2>
+								<ul class="user-reviews ng-scope">
+									<!--loop review-->
+									<?php if (count($allReviews) == 0) {?>
+									<li>まだレビューはありません。</li>
+									<?php }?>
+									<?php foreach ($allReviews as $reviewIndex => $review) {
+									?>
+									<li class="user-review ng-scope <?php if ($reviewIndex >= LIMIT_REVIEWS) echo 'hide'?>" itemprop="reviewRating" itemscope="">
+										<img class="user-review-avatar" alt="" src="<?php echo getUser1Photo($review['user1'])?>">
+										<a class="user-review-title ng-binding" href="<?php echo getSpaceUrl($review['space']['HashID'])?>"><?php echo $review['space']['Title']?></a>
+										<span class="Rating Rating--labeled" data-star_rating="<?php echo number_format($review['AverageRating'], 1)?>">
+											<span class="Rating-total">
+												<span class="Rating-progress" style="width:<?php echo showWidthRatingProgress($review['AverageRating'])?>%"></span>
+											</span>
+										</span>
+										<p itemprop="description">
+											“
+											<span ng-bind="review.get().description" class="ng-binding"><?php echo $review['Comment']?></span>
+											”
+										</p>
+										<span class="user-review-details ng-binding">
+											<a href="<?php echo getUser1ProfileUrl($review['user1'])?>">
+												<span class="user-review-name ng-binding"><?php echo $review['user1']['NameOfCompany']?></span>
+											</a>
+											<span class="thedate"><?php echo renderHumanTime($review['created_at']) ?></span>
+										</span>
+										<ul class="user-rating-info">
+											<li class="place ng-scope">
+												<span class="user-rating-info-item ng-binding">
+													<i class="fa fa-map-marker" aria-hidden="true"></i>
+													<?php echo $review['space']['Prefecture'].$review['space']['District'].$review['space']['Address1']?>
+												</span>
+											</li>
+											<!-- end place that rating user has office at -->
+											<li class="space-type ng-scope">
+												<span class="user-rating-info-item ng-binding">
+													<i class="fa fa-building" aria-hidden="true"></i>
+													<?php echo $review['space']['Type']?>
+												</span>
+											</li>
+											<!-- end space type -->
+											<li class="space-price ng-scope">
+												<span class="user-rating-info-item ng-binding">
+													<i class="fa fa-jpy" aria-hidden="true"></i>
+													<?php echo priceConvert($review['booking']['amount'])?>
+												</span>
+											</li>
+											<!-- end space price type -->
+										</ul>
+									</li>
+									<?php }?>
+									<!--/loop review-->
+								</ul>
+								<button id="view_more_reviews_btn" style="<?php if (count($allReviews) < LIMIT_REVIEWS ) echo 'display: none;'?>" class="profile-widget-expand signup-modal-trigger ng-scope" data-qtsb-label="view_more">レビューを全て見る</button>
+							</div>
+							<!--/#profile-reviews-->
+						</div>
+						<!--/profile-components-main-->
+						
+					</div>
+					<!--/row-->
+				</div>
+				<!--/section-inner-->
+			</section>
+            </li>
+            </ul>
+            <div style="display:none;">
+    
+    </div>
+    
+            </div>
+            <div class="mb-none">
 			<section class="profile-user-requirement">
 				<div class="section-inner">
 					<div class="row">
@@ -895,6 +1567,9 @@ $description_area = trim(str_ireplace($breaks, "\r\n", $description));
 				</div>
 				<!--/section-inner-->
 			</section>
+           </div>
+            
+            
 		</div>
 		<!--footer-->
 		<?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/common_footer.php'); ?>
@@ -911,7 +1586,29 @@ $description_area = trim(str_ireplace($breaks, "\r\n", $description));
 	<script src="<?php echo SITE_URL?>js/address_select.js" type="text/javascript"></script>
 
 	<script type="text/javascript" src="<?php echo SITE_URL?>js/cropimage/js/jquery.form.js"></script>
+<script>
+jQuery(document).ready(function($) {
+	//クリックしたときのファンクションをまとめて指定
+	$('.tab-nav li').click(function() {
 
+		//.index()を使いクリックされたタブが何番目かを調べ、
+		//indexという変数に代入します。
+		var index = $('.tab-nav li').index(this);
+
+		//コンテンツを一度すべて非表示にし、
+		$('.tab-con .content li.tabli').css('display','none');
+
+		//クリックされたタブと同じ順番のコンテンツを表示します。
+		$('.tab-con .content li.tabli').eq(index).css('display','block');
+
+		//一度タブについているクラスselectを消し、
+		$('.tab-nav li').removeClass('select');
+
+		//クリックされたタブのみにクラスselectをつけます。
+		$(this).addClass('select')
+	});
+});
+</script>
 	<script type="text/javascript">
     jQuery(document).ready(function($) {
       $("#profile-skills").select2();

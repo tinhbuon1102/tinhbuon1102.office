@@ -1,3 +1,19 @@
+<?php 
+$user = isset($user) ? $user : Auth::guard('user2')->user();
+?>
+<li class="pc-none side-panel-item">
+                                        <div class="side-panel-btn side-panel-btn-active">
+                                        <a id="bt-ms0" href="{{url('RentUser/Dashboard')}}" class="content-navigation">
+                                        <img src="{{getUser2Photo($user)}}" class="img-icon media-circle" />
+                                        ダッシュボード
+                                        </a>
+                                        <div class="user-controls">
+                                            <a class="text-link" title="Logout" href="/User2/Logout">
+                                            <i class="fa fa-power-off" aria-hidden="true"></i>
+                                            </a>
+                                            </div>
+                                        </div>
+                                        </li>
 <li>
 						<a id="bt-ms1" href="{{url('RentUser/Dashboard/MyPage')}}" class="content-navigation">
 							<i class="fa fa-user" aria-hidden="true"></i>

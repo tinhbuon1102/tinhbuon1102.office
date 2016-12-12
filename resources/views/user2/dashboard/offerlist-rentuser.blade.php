@@ -2,7 +2,7 @@
 <?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header.php'); ?>
 @include('pages.header')
 <!--/head-->
-<body class="mypage">
+<body class="mypage rentuser offer">
 	<div class="viewport">
 		<?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header_nav_shareuser.php'); ?>
 		@include('pages.header_nav_rentuser')
@@ -26,7 +26,7 @@
 						<!--/page-header header-fixed-->
 						<div id="feed">
 							<section class="feed-event recent-follow feed-box">
-								<ul id="news-feed-list">
+								<ul id="news-feed-list" class="offered-list">
 									<!--loop give allow to rent-->
 									<?php if (isset($user->notifications) && count($user->notifications)) {
 										foreach ($user->notifications as $timeCreated => $notifications) {

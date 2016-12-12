@@ -1,7 +1,7 @@
 @include('pages.header_beforelogin')
 <body class="home">
-<div class="viewport">
-<!--nav-->
+	<div class="viewport">
+		<!--nav-->
 
             <?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header_nav_shareuser.php'); ?>
   @if(Auth::check())
@@ -14,45 +14,70 @@
   @endif
 
 <!--/nav-->
-<div class="hero-article hero-hiw-page ng-scope">
-<div class="hero-article-content">
-<h1 class="hero-article-title"><strong>ヘルプ</strong></h1>
-</div>
-<div class="parallax-container"></div>
-</div>
-
-<div class="home-top">
-<section id="howitwork" class="white">
-<div class="container">
-<div class="row flex-wrapper">
-<div class="col-md-3 left-menu">
-<div class="scroll-leftbar">
-
-@if(Request::is('help/shareuser') || Request::is('help/shareuser/*'))
-	@include('pages.shareuser.help-shareuser-leftbar')
-@elseif(Request::is('help/rentuser') || Request::is('help/rentuser/*'))
-	@include('pages.rentuser.help-rentuser-leftbar')
-@elseif(Request::is('help/guest') || Request::is('help/guest/*'))
-	@include('pages.guest.help-guest-leftbar')
-@endif
-</div>
-</div>
-<div class="col-md-8 help-content">
-<!--main content here-->
+		<div class="hero-article hero-hiw-page ng-scope">
+			<div class="hero-article-content">
+				<h1 class="hero-article-title">
+					<strong>ヘルプ</strong>
+				</h1>
+			</div>
+			<div class="parallax-container"></div>
+		</div>
+		<div class="home-top">
+			<?php 
+			$currentUrl = Request::url();
+			$currentUrl = str_replace(url('/') . '/', '', $currentUrl);
+			$aUrl = explode('/', $currentUrl);
+			switch (count($aUrl))
+			{
+				case 1:
+					
+					break;
+				case 2:
+					$categoryName = $aUrl[1];
+					$categoryFileName = base_path() . '/resources/views/pages/'. $categoryName .'/' . ($aUrl[0] . '-' . $aUrl[1]) . '.blade.php';
+					$CategoryTitle = getH1OfFile($categoryFileName);
+					echo Breadcrumbs::render('category', ['title' => $CategoryTitle, 'url' => Request::url()]);
+					break;
+					
+					break;
+				case 3:
+					$categoryName = $aUrl[1];
+					$categoryFileName = base_path() . '/resources/views/pages/'. $categoryName .'/' . ($aUrl[0] . '-' . $aUrl[1]) . '.blade.php';
+					$CategoryTitle = getH1OfFile($categoryFileName);
+					
+					$fileName = base_path() . '/resources/views/pages/'. $categoryName .'/' . str_replace('/', '-', $currentUrl) . '.blade.php';
+					$pageTitle = getH1OfFile($fileName);
+					echo Breadcrumbs::render('page', ['category' => ['title' => $CategoryTitle, 'url' => getNestedParentUrl()], 'title' => $pageTitle, 'url' => Request::url()]);
+					break;
+			}
+			
+			?>
+			
+			<section id="howitwork" class="white">
+				<div class="container">
+					<div class="row flex-wrapper">
+						<div class="col-md-3 left-menu">
+							<div class="scroll-leftbar">@if(Request::is('help/shareuser') || Request::is('help/shareuser/*')) @include('pages.shareuser.help-shareuser-leftbar') @elseif(Request::is('help/rentuser') || Request::is('help/rentuser/*')) @include('pages.rentuser.help-rentuser-leftbar') @elseif(Request::is('help/guest') || Request::is('help/guest/*')) @include('pages.guest.help-guest-leftbar') @endif</div>
+						</div>
+						<div class="col-md-8 help-content">
+							<!--main content here-->
 <?php echo isset($subView) ? $subView : ''?>
 </div>
-</div><!--/row-->
-</div><!--/container-->
-</section>
-</div><!--/hometop-->
-<!--footer-->
+					</div>
+					<!--/row-->
+				</div>
+				<!--/container-->
+			</section>
+		</div>
+		<!--/hometop-->
+		<!--footer-->
 <?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/common_footer.php'); ?>
 		@include('pages.common_footer')
 
 <!--/footer-->
-
-</div><!--/viewport-->
-<script>
+	</div>
+	<!--/viewport-->
+	<script>
 $(document).ready(function(){
     $('.tree-click').click(function(){
         $(this).next('.sub-tree').stop(true, true).slideToggle();
@@ -60,7 +85,7 @@ $(document).ready(function(){
     });
 });
 </script>
-<script>
+	<script>
   jQuery('a.cboxElement').colorbox({
     inline:true,
     maxWidth:"642px",

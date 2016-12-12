@@ -127,10 +127,16 @@ $count = count($rent_data->bookedSlots);
 																</div>
 															</div>
 															<!--/side_list-->
-                                                            <a href="#!" class="chat-link">
+                                                            <a href="#!" class="chat-link mb-none">
 																<i class="fa fa-commenting" aria-hidden="true"></i> {{ trans('booking_details.chat') }}
 																<!--チャット-->
 															</a>
+															
+															
+															<a href="/ShareUser/Dashboard/Message/<?php echo $user1Obj->HashCode;?>" class="chat-link pc-none">
+																<i class="fa fa-commenting" aria-hidden="true"></i> {{ trans('booking_details.chat') }}
+                                                                </a>
+																<!--チャット-->
 														</div>
 													</div>
 													<!--/form-row-->

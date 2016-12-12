@@ -158,7 +158,7 @@
 															<?php echo count($groupPrice);?>
 															日
 														</td>
-														<td class="td_right price">
+														<td class="td_right price mb_left">
 															<?php echo priceConvert($groupPriceTotal, true);?>
 														</td>
 														<td class="pd_20"></td>
@@ -184,7 +184,7 @@
 															echo priceConvert($price, true);?>
 														</td>
 														<td>{{$booking->DurationText}}</td>
-														<td class="td_right price">{{priceConvert($booking->SubTotal, true)}}</td>
+														<td class="td_right price mb_left">{{priceConvert($booking->SubTotal, true)}}</td>
 														<td class="pd_20"></td>
 													</tr>
 													<?php
@@ -204,7 +204,7 @@
 															echo priceConvert($price, true);
 															?>
 														</td>
-														<td>2months</td>
+														<td>2ヶ月</td>
 														<td class="td_right price">
 															¥
 															<?php echo priceConvert($booking->SubTotal);?>
@@ -219,22 +219,22 @@
 													<!--stard subtotal-->
 													<tr class="subtotal-row">
 														<td class="pd_20"></td>
-														<td>&nbsp;</td>
-														<td colspan="3">
+														<td class="mb-none">&nbsp;</td>
+														<td colspan="3" class="mb-none">
 															<p class="rpt-smy align-right">{{ trans('booking_details.subtotal') }}</p>
 														</td>
-														<td class="td_right price">{{priceConvert($booking->SubTotal, true)}}</td>
+														<td class="td_right price td_subtotal">{{priceConvert($booking->SubTotal, true)}}</td>
 														<td class="pd_20"></td>
 													</tr>
 													<!--end subtotal-->
 													<!--stard tax-->
 													<tr class="subtotal-row">
 														<td class="pd_20"></td>
-														<td>&nbsp;</td>
-														<td colspan="3">
+														<td class="mb-none">&nbsp;</td>
+														<td colspan="3" class="pd_20">
 															<p class="rpt-smy align-right">{{ trans('booking_details.tax') }}</p>
 														</td>
-														<td class="td_right price">{{priceConvert($booking->Tax, true)}}</td>
+														<td class="td_right price td_tax">{{priceConvert($booking->Tax, true)}}</td>
 														<td class="pd_20"></td>
 													</tr>
 													<!--end tax-->
@@ -373,6 +373,9 @@
 							</div>
 							<!--/invoice-conteiner--> </page>
 						</div>
+                        <!--footer-->
+						@include('pages.dashboard_user1_footer')
+						<!--/footer-->
 					</div>
 				</div>
 				<!--/right_side-->

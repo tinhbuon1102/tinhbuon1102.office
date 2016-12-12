@@ -18,7 +18,7 @@ $rentBooking = new \App\Rentbookingsave();
 	        	</div>
 	
 			@endif
-            <div class="row">
+            <div class="row flex-wrapper">
 				<div id="feed" class="col-xs-8">
 				<?php if (!\App\User2::isProfileFullFill($user) ||  !$user->Logo || !$user->BusinessSummary) {?>
                 	<section class="messenger-null-state-message feed-box">

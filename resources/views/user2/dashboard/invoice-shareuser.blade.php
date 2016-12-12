@@ -35,7 +35,7 @@
 										<thead>
 											<tr role="row">
 												<th class="sorting_asc th01 mb-none">請求書番号</th>
-												<th class="sorting th02">日付</th>
+												<th class="sorting th02 mb-none">日付</th>
 												<!--<th class="sorting th03">顧客名</th>-->
 												<th class="sorting th04 mb-none">予約番号</th>
 												<th class="sorting th05">利用スペース</th>
@@ -57,7 +57,7 @@
 											<td class="sorting_1 mb-none">
 												<a href="{{url('/RentUser/Dashboard/InvoiceList/Detail')}}/{{$invoice->InvoiceID}}">{{$invoice->InvoiceID}}</a>
 											</td>
-											<td>{{$invoice->created_at}}</td>
+											<td class="mb-none">{{$invoice->created_at}}</td>
 											<!--<td><a href="{{getUser2ProfileUrl($invoice->rentUser)}}">{{getUserName($invoice->rentUser)}}</a></td>-->
 											<td class="mb-none">{{$invoice->id}}</td>
 											<td>{{$invoice->bookedSpace->Title}}</td>
@@ -93,7 +93,7 @@
 										</tbody>
 									</table>
 									
-									<div class="rentuser-content-inner">
+									<div class="pagenation-inner">
 										<div class="ns_pagination">{{ $invoices->links() }}</div>
 			                        	<span class="result-amount">表示結果: {{$invoices->total()}}</span>
 			                    	</div>

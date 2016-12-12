@@ -10,9 +10,9 @@
 					<div class="col_4">
 						<h3>About</h3>
 						<ul class="ft-nav">
-							<li>
+							<!--<li>
 								<a href="#">Offispoとは？</a>
-							</li>
+							</li>-->
 							<li>
 								<a href="{{url('how-it-works')}}">ご利用ガイド</a>
 							</li>
@@ -26,9 +26,9 @@
 					<div class="col_4">
 						<h3>Support</h3>
 						<ul class="ft-nav">
-							<li>
+							<!--<li>
 								<a href="#">FAQ</a>
-							</li>
+							</li>-->
 							<li>
 								<a href="{{url('help')}}">HELP</a>
 							</li>

@@ -36,13 +36,13 @@
 											<div class="news-feed-inner">
 												<div class="profile-pic-wrapper">
 													<span class="profile-pic">
-														<a href="#">
+														<a href="<?php echo getUser1ProfileUrl($notifications[0]['user1Send'])?>">
 															<img src="<?php echo $notifications[0]['user1Send']['Logo'] ? $notifications[0]['user1Send']['Logo'] : '';?>" class="profile-pic" />
 														</a>
 													</span>
 												</div>
 												<h2>
-													<a class="font-bold" href="#">
+													<a class="font-bold" href="<?php echo getUser1ProfileUrl($notifications[0]['user1Send'])?>">
 														<?php echo $notifications[0]['user1Send']['NameOfCompany'];?>
 													</a>
 													から

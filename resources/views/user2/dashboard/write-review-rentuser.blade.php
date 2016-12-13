@@ -43,6 +43,7 @@
 											</span>
 										</div>
 									</div>
+                                    <div class="tb-wpp">
 									<div class="row-fluid">
 										<label class="span3">
 											清潔さ
@@ -233,6 +234,7 @@
 											</div>
 										</div>
 									</div>
+                                    </div>
 
 
 									<label class="exceptional-project-inquiry">

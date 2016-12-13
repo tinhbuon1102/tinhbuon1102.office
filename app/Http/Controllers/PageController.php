@@ -491,7 +491,7 @@ class PageController extends Controller
 			$validator = $this->validate($request, $rules);
 			
 			$applicationFormMapper = [
-				'contactSort' => "Contact Sort",
+				'contactSort' => "問い合わせ種別",
 				'LastName'=> "姓",
 				'FirstName' => "名",
 				'LastNameKana' => "姓(ふりがな)",
@@ -500,7 +500,7 @@ class PageController extends Controller
 				'NameOfCompany' => "会社名",
 				'Department' => "部署",
 				'Tel' => "電話番号",
-				'Message' => "Message",
+				'Message' => "問い合わせ内容",
 			];
 			
 			$from = Config::get('mail.from');
@@ -519,7 +519,7 @@ class PageController extends Controller
 				'applicationFormMapper' => $applicationFormMapper,
 				'sendTo' => $request->Email,
 				'template' => 'pages.emails.contact_user',
-				'subject' => trans('common.Thank you for contacting us, we will reply to you soon')]
+				'subject' => trans('common.Contact Confirmation | Offispo')]
 					);
 			Session::flash('success', trans('common.Thank you for contacting us, we will reply to you soon'));
 			return redirect::back();

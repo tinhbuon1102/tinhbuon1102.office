@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 </head>
 <body>
-<p>{{$applicationForm->LastName}} {{$applicationForm->FirstName}}様</p>
+<p>お名前:{{$applicationForm->LastName}} {{$applicationForm->FirstName}} ({{$applicationForm->LastNameKana}} {{$applicationForm->FirstNameKana}})</p>
 <p>この度はお問い合わせいただき、誠にありがとうございます。</p>
 <p>改めて、担当者よりご連絡させて頂きます。</p>
 <p>お問い合わせ内容-------------------------------</p>

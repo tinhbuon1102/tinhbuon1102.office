@@ -580,21 +580,6 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
 										<tbody>
 											<tr>
 												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; vertical-align: top; color: #888888;">
-													<!--<table class="icon_holder icon_secondary" width="80" border="0" align="center" cellpadding="0" cellspacing="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 48px; margin-left: auto; margin-right: auto; clear: both;">
-														<tbody>
-															<tr>
-																<td class="hspace" style="padding: 0; font-size: 0; height: 8px; overflow: hidden;">&nbsp;</td>
-															</tr>
-															<tr>
-																<td class="icon_cell" style="padding: 8px; font-size: 0; line-height: 1; height: 48px; background-color: #e1e3e7; border-color: #ebebeb;">
-																	<img src="{{getUser1Photo($user)}}" width="48" height="48" alt="" style="-webkit-border-radius: 80px; border-radius: 80px; line-height: 1; outline: none; border: 0; text-decoration: none; -ms-interpolation-mode: bicubic; mso-line-height-rule: exactly;">
-																</td>
-															</tr>
-															<tr>
-																<td class="hspace" style="padding: 0; font-size: 0; height: 8px; overflow: hidden;">&nbsp;</td>
-															</tr>
-														</tbody>
-													</table>-->
 													<!-- /.icon_holder:icon_secondary -->
 													<h4 style="font-family: Helvetica, Arial, sans-serif; margin-left: 0; margin-right: 0; margin-top: 16px; margin-bottom: 8px; padding: 0; font-size: 22px; line-height: 30px; font-weight: bold; color: #383d42;">シェア会員登録申し込み完了のお知らせ</h4>
 													<p class="lead" style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; margin-top: 16px; margin-bottom: 16px;">

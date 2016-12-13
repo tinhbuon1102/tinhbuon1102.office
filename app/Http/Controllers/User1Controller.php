@@ -255,6 +255,7 @@ class User1Controller extends Controller
 		Mail::send('user1.emails.admin',
 		[
 		'NameOfCompany' => $request->NameOfCompany,
+		'UserName' => $user1->UserName,
 		'LastName' => $request->LastName,
 		'FirstName' => $request->FirstName,
 		'Email' => $request->Email,
@@ -276,6 +277,7 @@ class User1Controller extends Controller
 		Mail::send('user1.emails.register',
 		[
 		'NameOfCompany' => $request->NameOfCompany,
+		'UserName' => $user1->UserName,
 		'LastName' => $request->LastName,
 		'FirstName' => $request->FirstName,
 		'Email' => $request->Email,
@@ -777,7 +779,7 @@ class User1Controller extends Controller
 		}
 		
 		// Save nearest Station;
-		$address = $request->Prefecture . $request->Prefecture . $request->Town . $request->Address1 . $request->Address2 . ',' . $request->PostalCode;
+		$address = $request->Prefecture . $request->District . $request->Town . $request->Address1;
 		$nearestStation = 	new \App\Library\NearestStation;
 		$aStations = $nearestStation->getNearestStations($address);
 		$request->merge(array('NearestStations' => json_encode($aStations)));
@@ -1049,7 +1051,7 @@ class User1Controller extends Controller
 		}
 
 		// Save nearest Station;
-		$address = $space->Prefecture . $space->Prefecture . $space->Town . $space->Address1 . $space->Address2 . ',' . $space->PostalCode;
+		$address = $space->Prefecture . $space->District . $space->Town . $space->Address1;
 		$nearestStation = 	new \App\Library\NearestStation;
 		$aStations = $nearestStation->getNearestStations($address);
 		$space->NearestStations = json_encode($aStations);
@@ -1547,10 +1549,11 @@ class User1Controller extends Controller
 		if (IsAdminApprovedUser($user))
 		{
 			// Find User 2 matched with Disired Person fields (Business Type, Skills...)
+			$aSex = getUserSexMapper();
 			$conditions = array(
 					'BusinessKindWelcome' => array($user->BusinessKindWelcome),
 					'Skills' => explode(',', $user->Skills),
-					'Sex' => array(getUserSexMapper()[$user->DisiredSex]),
+					'Sex' => array(isset($aSex[$user->DisiredSex]) ? $aSex[$user->DisiredSex] : $aSex[USER_SEX_MALE]),
 					'BirthYear' => $user->DisiredAge,
 			);
 			$user2s = \App\User2::getMatchedRentUser($conditions);

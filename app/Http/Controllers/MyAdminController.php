@@ -143,31 +143,31 @@ class MyAdminController extends Controller
 	
 	public function sendUser1EmailVerify(User1 $user){
 		$from = Config::get('mail.from');
-		Mail::send('user1.emails.user1_verifyemail',
+		Mail::send('admin.emails.user1_verifyemail',
 		[
 			'EmailVerificationText' => $user->EmailVerificationText,
 		],
 		function ($message) use ($user, $from){
 			$message->from($from['address'], $from['name']);
 			$mails = [$user->Email];
-			$message->to($mails)->subject('office spot Email Verification Text');
+			$message->to($mails)->subject('メール認証のご確認 | Offispo');
 		});
-		session()->flash('suc', 'Email Verification has been sent');
+		session()->flash('suc', 'メール認証の確認メールが送信されました。');
 		return back();
 	}
 	
 	public function sendUser2EmailVerify(User2 $user){
 		$from = Config::get('mail.from');
-		Mail::send('user2.emails.user2_verifyemail',
+		Mail::send('admin.emails.user2_verifyemail',
 		[
 			'EmailVerificationText' => $user->EmailVerificationText,
 		],
 		function ($message) use ($user, $from){
 			$message->from($from['address'], $from['name']);
 			$mails = [$user->Email];
-			$message->to($mails)->subject('office spot Email Verification Text');
+			$message->to($mails)->subject('メール認証のご確認 | Offispo');
 		});
-		session()->flash('suc', 'Email Verification has been sent');
+		session()->flash('suc', 'メール認証の確認メールが送信されました。');
 		return back();
 	}
 	

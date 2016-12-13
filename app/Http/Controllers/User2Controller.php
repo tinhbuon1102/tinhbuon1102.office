@@ -2322,7 +2322,7 @@ class User2Controller extends Controller
 			catch(\Exception $e)
 			{
 				return redirect(url('ShareUser/Dashboard/BookingPayment'))
-					->withErrors($e->getMessage())
+					->withErrors(trans('common.Error occured, Please try again'))
 					->withInput();
 			}
 		}
@@ -2363,7 +2363,7 @@ class User2Controller extends Controller
 			
 			$PayPalResult = $PayPal->DoReferenceTransaction($PayPalRequestData);
 			
-			if ($PayPalResult['ACK'] == PAYPAL_RESPONSE_STATUS_SUCCESS)
+			if (isset($PayPalResult['ACK']) && $PayPalResult['ACK'] == PAYPAL_RESPONSE_STATUS_SUCCESS)
 			{
 				$rent_data->transaction_id = $PayPalResult['TRANSACTIONID'];
 				$rent_data->save();
@@ -2405,7 +2405,7 @@ class User2Controller extends Controller
 				{
 					// Make Recursion for booking over 6 months
 					$PayPalExpress = $userBilling->token ? $PayPal->GetExpressCheckoutDetails($userBilling->token) : array();
-					if (count($PayPalExpress) && $PayPalExpress['ACK'] == PAYPAL_RESPONSE_STATUS_SUCCESS && false)
+					if (count($PayPalExpress) && isset($PayPalExpress['ACK']) && $PayPalExpress['ACK'] == PAYPAL_RESPONSE_STATUS_SUCCESS && false)
 					{
 						return Redirect::action('User2Controller@doPaypalRecurring', array('token' => $userBilling->token));
 					}

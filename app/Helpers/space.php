@@ -178,9 +178,37 @@ function renderNearestStations($space)
 {
 	$stations = json_decode($space['NearestStations']);
 	$html = '';
+	if (empty($stations))
+	{
+		$address = $space->Prefecture . $space->District . $space->Town . $space->Address1;
+		$nearestStation = 	new \App\Library\NearestStation;
+		$aStations = $nearestStation->getNearestStations($address);
+		
+		// Save Neareast Station
+		\App\Station::where('SpaceID', $space->id)->delete();
+		foreach ($aStations as $station)
+		{
+			$oStation = new \App\Station;
+			$oStation->SpaceId = $space->id;
+			$oStation->Name = $station['name'];
+			$oStation->Line = $station['line'];
+			$oStation->Postal = $station['postal'];
+			$oStation->Prefecture = $station['prefecture'];
+			$oStation->Distance = $station['distance'];
+			$oStation->Lat = $station['y'];
+			$oStation->Long = $station['x'];
+			$oStation->save();
+		}
+		
+		$stations = $aStations;
+		$space->NearestStations = json_encode($aStations);
+		$space->save();
+	}
+		
 	foreach ($stations as $station) {
-		$minute = ceil($station->distance / 80);
-		$html .= '<div class="station">'. $station->name . '駅 '. $minute . '分</div>';
+		$station = (array)$station;
+		$minute = ceil($station['distance'] / 80);
+		$html .= '<div class="station">'. $station['name'] . '駅 '. $minute . '分</div>';
 	}
 	return $html;
 }

@@ -473,6 +473,12 @@ class PageController extends Controller
 	public function cancelPolicy() {
 		return view('pages.cancel-policy');
 	}
+	public function companyInfo() {
+		return view('pages.company-info');
+	}
+	public function supportCenter() {
+		return view('pages.support-center');
+	}
 	public function Contact(Request $request) {
 		if ($request->method() == 'POST')
 		{

@@ -64,6 +64,7 @@
 									?>
 									
 									<li class="user-review ng-scope">
+                                    <div class="tb-wp">
 										<div class="col-sm-2">
 											<a href="{{getUser2ProfileUrl($user2)}}">
 												<img src="{{getUser2Photo($user2)}}" class="user-review-space-img" />
@@ -100,6 +101,7 @@
 											</p>
 											<?php }?>
 										</div>
+                                        </div>
 										
 										<div class="col-sm-2">
 											@if($review->Status == 0 || $review instanceof App\Rentbookingsave)

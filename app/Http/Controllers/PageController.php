@@ -490,12 +490,10 @@ class PageController extends Controller
 				
 			$validator = $this->validate($request, $rules);
 			
+			$request->merge(array('Name' => $request->LastName . $request->FirstName . ' (' . $request->LastNameKana . $request->FirstNameKana . ')'));
 			$applicationFormMapper = [
 				'contactSort' => "問い合わせ種別",
-				'LastName'=> "姓",
-				'FirstName' => "名",
-				'LastNameKana' => "姓(ふりがな)",
-				'FirstNameKana' => "名(ふりがな)",
+				'Name' => 'お名前',
 				'Email' => "メールアドレス",
 				'NameOfCompany' => "会社名",
 				'Department' => "部署",

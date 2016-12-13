@@ -594,7 +594,7 @@ class PageController extends Controller
 						'applicationFormMapper' => $applicationFormMapper,
 						'sendTo' => $user1->Email,
 						'template' => 'pages.emails.application_form_user',
-						'subject' => trans('common.Your Application was successfully sent, we will check and reply to you soon')]
+						'subject' => trans('common.Application Confirmation | Offispo')]
 						);
 				
 				Session::flash('success', trans('common.Your Application was successfully sent, we will check and reply to you soon'));

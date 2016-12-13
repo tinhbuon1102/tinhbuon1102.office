@@ -473,7 +473,57 @@ class PageController extends Controller
 	public function cancelPolicy() {
 		return view('pages.cancel-policy');
 	}
-	public function Contact() {
+	public function Contact(Request $request) {
+		if ($request->method() == 'POST')
+		{
+			$input = $request->all();
+			$rules = [
+				'contactSort' => 'required',
+				'LastName'=> 'required' ,
+				'FirstName' => 'required',
+				'LastNameKana' => 'required',
+				'FirstNameKana' => 'required',
+				'Email' => 'required|email',
+				'Tel' => 'required',
+				'Message' => 'required',
+			];
+				
+			$validator = $this->validate($request, $rules);
+			
+			$applicationFormMapper = [
+				'contactSort' => "Contact Sort",
+				'LastName'=> "姓",
+				'FirstName' => "名",
+				'LastNameKana' => "姓(ふりがな)",
+				'FirstNameKana' => "名(ふりがな)",
+				'Email' => "メールアドレス",
+				'NameOfCompany' => "会社名",
+				'Department' => "部署",
+				'Tel' => "電話番号",
+				'Message' => "Message",
+			];
+			
+			$from = Config::get('mail.from');
+			// Send to admin
+			sendEmailCustom ([
+				'applicationForm' => $request,
+				'applicationFormMapper' => $applicationFormMapper,
+				'sendTo' => $from['address'],
+				'template' => 'pages.emails.contact_admin',
+				'subject' => trans('common.One user has been sent a message via contact form')]
+					);
+			
+			// Send to user was sent
+			sendEmailCustom ([
+				'applicationForm' => $request,
+				'applicationFormMapper' => $applicationFormMapper,
+				'sendTo' => $request->Email,
+				'template' => 'pages.emails.contact_user',
+				'subject' => trans('common.Thank you for contacting us, we will reply to you soon')]
+					);
+			Session::flash('success', trans('common.Thank you for contacting us, we will reply to you soon'));
+			return redirect::back();
+		}
 		return view('pages.contact-us');
 	}
 	public function listService(Request $request) {

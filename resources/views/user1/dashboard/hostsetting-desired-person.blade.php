@@ -47,25 +47,25 @@
                                             <!--start add new field-- -->
                                             <div class="form-field">
 													<label for="age">
-														 Sex
+														 性別
 													</label>
 													<div class="input-container">
 														<?php echo Form::select('DisiredSex',
 																getUserSexMapper(), 
 																$user->DisiredSex, 
-																['id' => 'DisiredSex', 'placeholder' => 'Choose Disired Sex', 'class' => 'old_ui_selector chosen-select']);
+																['id' => 'DisiredSex', 'placeholder' => '性別を選択', 'class' => 'old_ui_selector chosen-select']);
 														?>
 													</div>
 												</div>
                                             <div class="form-field">
 													<label for="age">
-														 Age
+														 年齢
 													</label>
 													<div class="input-container">
 														<?php echo Form::select('DisiredAge',
 																getUserAgeMapper(), 
 																$user->DisiredAge, 
-																['id' => 'DisiredAge', 'placeholder' => 'Choose Disired Age', 'class' => 'old_ui_selector chosen-select']);
+																['id' => 'DisiredAge', 'placeholder' => '年代を選択', 'class' => 'old_ui_selector chosen-select']);
 														?>
 													</div>
 												</div>
@@ -79,7 +79,7 @@
 													<?php echo Form::select('BusinessKindWelcome',
 															getBusinessTypes(), 
 															$user->BusinessKindWelcome, 
-															['id' => 'BusinessKind_welcome', 'placeholder' => 'Choose business type', 'class' => 'old_ui_selector chosen-select']);
+															['id' => 'BusinessKind_welcome', 'placeholder' => '職種を選択', 'class' => 'old_ui_selector chosen-select']);
 													?>
 													</div>
 												</div>

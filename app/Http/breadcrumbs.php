@@ -3,7 +3,7 @@
 // Home
 Breadcrumbs::register('home', function($breadcrumbs)
 {
-    $breadcrumbs->push('Home', route('home'));
+    $breadcrumbs->push('ホーム', route('home'));
 });
 
 
@@ -11,7 +11,7 @@ Breadcrumbs::register('home', function($breadcrumbs)
 Breadcrumbs::register('help', function($breadcrumbs)
 {
 	$breadcrumbs->parent('home');
-	$breadcrumbs->push('Help', route('help'));
+	$breadcrumbs->push('ヘルプ', route('help'));
 });
 
 

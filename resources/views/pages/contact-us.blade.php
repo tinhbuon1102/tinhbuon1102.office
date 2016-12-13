@@ -1,14 +1,12 @@
 
-<?php 
+<?php
 // include( $_SERVER['DOCUMENT_ROOT'] . '/design/header_beforelogin.php');
 ?>
  @include('pages.header_beforelogin')
 <!--/head-->
 <body class="home">
 	<div class="viewport">
-	
-		
-					<!--nav-->
+		<!--nav-->
 
             <?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header_nav_shareuser.php'); ?>
   @if(Auth::check())
@@ -21,7 +19,6 @@
   @endif
 
 <!--/nav-->
-				
 		<div class="hero-article hero-hiw-page ng-scope">
 			<div class="hero-article-content">
 				<h1 class="hero-article-title">
@@ -33,7 +30,7 @@
 		<div class="home-top">
 			<section id="howitwork" class="white">
 				<div class="container">
-					
+					<?php renderErrorSuccessHtml($errors);?>
 					<div class="layout-story-header ng-scope">
 						<h3 class="story-title text-center">お問い合わせフォーム</h3>
 						<div class="hiwn-hiwp-copy">
@@ -42,10 +39,10 @@
 							個々の予約またはスペースについてのお問合せは、スペース紹介ページの「メッセージを送る」ボタンからオーナーまでお問合せください。
 						</div>
 					</div>
-                    <div class="service-form">
+					<div class="service-form">
 						<form id="contactInfo" name="contactInfo" method="post" action="" class="HomepageAuth-form fl-form large-form">
 							<ol>
-                            <li class="control-group returning-user form-step">
+								<li class="control-group returning-user form-step">
 									<div class="row">
 										<div class="col-md-3">
 											<label for="last_name">
@@ -55,23 +52,13 @@
 										</div>
 										<div class="col-md-9">
 											<span class="fl-icon-user input-icon">
-										<select name="contactSort">
-                                        <option value="1">
-                                        登録・ログイン・予約等の操作について
-                                        </option>
-                                        <option value="2">
-                                        スペース掲載のご相談
-                                        </option>
-                                        <option value="3">
-                                        掲載・予約システムについて
-                                        </option>
-                                        <option value="4">
-                                        サイトの改善希望・ご意見
-                                        </option>
-                                        <option value="5">
-                                        その他の問合せ
-                                        </option>
-                                        </select>
+												<select name="contactSort" class="validate[required]" aria-invalid="true">
+													<option value="登録・ログイン・予約等の操作について">登録・ログイン・予約等の操作について</option>
+													<option value="スペース掲載のご相談">スペース掲載のご相談</option>
+													<option value="掲載・予約システムについて">掲載・予約システムについて</option>
+													<option value="サイトの改善希望・ご意見">サイトの改善希望・ご意見</option>
+													<option value="その他の問合せ">その他の問合せ</option>
+												</select>
 											</span>
 										</div>
 									</div>
@@ -115,7 +102,6 @@
 									</div>
 									<!--/row-->
 								</li>
-								
 								<li class="control-group returning-user form-step">
 									<div class="row">
 										<div class="col-md-3">
@@ -175,7 +161,7 @@
 									</div>
 									<!--/row-->
 								</li>
-                                <li class="control-group returning-user form-step">
+								<li class="control-group returning-user form-step">
 									<div class="row">
 										<div class="col-md-3">
 											<label for="last_name">
@@ -184,7 +170,7 @@
 											</label>
 										</div>
 										<div class="col-md-9">
-										<textarea name="msg" cols="40" rows="10" id="msg"></textarea>
+											<textarea name="Message" cols="40" class="validate[required]" aria-invalid="true" rows="10" id="Message"></textarea>
 										</div>
 									</div>
 									<!--/row-->
@@ -197,7 +183,6 @@
 							{{ csrf_field() }}
 						</form>
 					</div>
-					
 				</div>
 				<!--/container-->
 			</section>
@@ -219,7 +204,7 @@
 	<!--<script src="{{ URL::asset('js/assets/custom_edit_form.js') }}" type="text/javascript"></script>-->
 	<script>
   jQuery(function(){
-	    jQuery("#daikobasicinfo").validationEngine();
+	    jQuery("#contactInfo").validationEngine();
   });
 </script>
 	<!--<script>

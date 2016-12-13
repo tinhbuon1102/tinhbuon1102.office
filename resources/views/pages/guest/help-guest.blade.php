@@ -1,4 +1,4 @@
-<h1 style="display: none">Guest</h1>
+<h1 style="display: none">ゲスト</h1>
 <div class="row tile-inner">
 	<div class="col-md-4">
 		<a href="{{url('help/guest/aboutrentuser')}}">

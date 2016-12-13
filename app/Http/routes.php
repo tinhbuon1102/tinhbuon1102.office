@@ -51,7 +51,7 @@ Route::get('PrivacyPolicy', "PageController@privacyPolicy");
 Route::get('cookie-policy', "PageController@cookiePolicy");
 Route::any('list-service', "PageController@listService");
 Route::get('cancel-policy', "PageController@cancelPolicy");
-Route::get('contact-us', "PageController@Contact");
+Route::any('contact-us', "PageController@Contact");
 
 
 /*Route::get('myAdmin', function () {

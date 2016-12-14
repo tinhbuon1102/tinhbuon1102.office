@@ -507,15 +507,16 @@ class PublicController extends Controller
 			$user1=User1::find(Auth::guard('user1')->user()->id);
 			$spaces=User1sharespace::with('spaceImage')->whereIn('id', $spaceIds)->get();
 			$from = Config::get('mail.from');
-			Mail::send('user2.emails.space-notifications',['user1' => $user1, 'user2' => $user2, 'spaces' => $spaces],
-			function ($message) {
-				global $request, $from, $user2; 
-				$message->from($from['address'], $from['name']);
-				//$mails = [$user2['Email']];
-				$mails = ['quocthang.2001@gmail.com'];
-				$message->cc('kyoko@heart-hunger.com', 'Kyoko');
-				$message->to($mails)->subject('Notifications');
-			});
+			
+			sendEmailCustom ([
+				'user1' => $user1, 
+				'user2' => $user2, 
+				'spaces' => $spaces,
+				'sendTo' => $user2['Email'],
+				'template' => 'user2.emails.space-notifications',
+				'subject' => 'Notifications']
+					);
+			
 		}
 		
 		return json_encode(array('success' => $success, 'message' => 'オファーが送られました。'));

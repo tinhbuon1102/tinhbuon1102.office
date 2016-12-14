@@ -5,6 +5,10 @@
 		<td>{{getUserName($user)}}</td>
 	</tr>
 	<tr>
+		<td>メールアドレス</td>
+		<td>{{$user->Email}}</td>
+	</tr>
+	<tr>
 		<td>事業主種別</td>
 		<td>{{ $user->UserType }}</td>
 	</tr>

@@ -252,49 +252,42 @@ class User1Controller extends Controller
 		$from = Config::get('mail.from');
 
 		// Send email to admin
-		Mail::send('user1.emails.admin',
-		[
-		'NameOfCompany' => $request->NameOfCompany,
-		'UserName' => $user1->UserName,
-		'LastName' => $request->LastName,
-		'FirstName' => $request->FirstName,
-		'Email' => $request->Email,
-		'WebUrl' => $request->WebUrl,
-		'isweb' => isset($request->isweb)? $request->isweb : '',
-		'Address' => getUserAddress($request),
-		'PostalCode' => $request->PostalCode,
-		'Telephone' => $request->Tel,
-		'Newsletter' => $request->Newsletter,
-		], function ($message) {
-			global $request, $from;
-			$message->from($from['address'], $from['name']);
-			$message->cc('kyoko@heart-hunger.com', 'Kyoko');
-			$mails = [$from['address']];
-			$message->to($mails)->subject('OFFISPOでシェアユーザーが新規登録されました');
-		});
-
-
-		Mail::send('user1.emails.register',
-		[
-		'NameOfCompany' => $request->NameOfCompany,
-		'UserName' => $user1->UserName,
-		'LastName' => $request->LastName,
-		'FirstName' => $request->FirstName,
-		'Email' => $request->Email,
-		'WebUrl' => $request->WebUrl,
-		'isweb' => isset($request->isweb)? $request->isweb : '',
-		'Address' => getUserAddress($request),
-		'PostalCode' => $request->PostalCode,
-		'Telephone' => $request->Tel,
-		'Newsletter' => $request->Newsletter,
-		'EmailVerificationText' => $request->EmailVerificationText,
-		],
-		function ($message) {
-			global $request, $from;
-			$message->from($from['address'], $from['name']);
-			$mails = [$request->Email];
-			$message->to($mails)->subject('仮会員登録完了のお知らせ | OFFISPO');
-		});
+		sendEmailCustom ([
+			'NameOfCompany' => $request->NameOfCompany,
+			'UserName' => $user1->UserName,
+			'LastName' => $request->LastName,
+			'FirstName' => $request->FirstName,
+			'Email' => $request->Email,
+			'WebUrl' => $request->WebUrl,
+			'isweb' => isset($request->isweb)? $request->isweb : '',
+			'Address' => getUserAddress($request),
+			'PostalCode' => $request->PostalCode,
+			'Telephone' => $request->Tel,
+			'Newsletter' => $request->Newsletter,
+			'sendTo' => $from['address'],
+			'template' => 'user1.emails.admin',
+			'subject' => 'OFFISPOでシェアユーザーが新規登録されました']
+				);
+		
+		// Send email to user
+		sendEmailCustom ([
+			'NameOfCompany' => $request->NameOfCompany,
+			'UserName' => $user1->UserName,
+			'LastName' => $request->LastName,
+			'FirstName' => $request->FirstName,
+			'Email' => $request->Email,
+			'WebUrl' => $request->WebUrl,
+			'isweb' => isset($request->isweb)? $request->isweb : '',
+			'Address' => getUserAddress($request),
+			'PostalCode' => $request->PostalCode,
+			'Telephone' => $request->Tel,
+			'Newsletter' => $request->Newsletter,
+			'EmailVerificationText' => $request->EmailVerificationText,
+			'sendTo' => $request->Email,
+			'template' => 'user1.emails.register',
+			'subject' => '仮会員登録完了のお知らせ | OFFISPO']
+				);
+		
 
 		Session::flush();
 		return redirect('Register-ShareUser/ThankYou');

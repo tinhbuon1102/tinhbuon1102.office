@@ -169,25 +169,22 @@ class User2Controller extends Controller
 		global $from;
 		$from = Config::get('mail.from');
 
-		Mail::send('user2.emails.admin',
-		['user' => $request],
-		function ($message) {
-			global $request, $from;
-			$message->from($from['address'], $from['name']);
-			$message->cc('kyoko@heart-hunger.com', 'Kyoko');
-			$mails = [$from['address']];
-			$message->to($mails)->subject('OFFISPOでレントユーザーが新規登録されました');
-		});
-
-		Mail::send('user2.emails.register',
-		['user' => $request],
-		function ($message) {
-			global $request, $from;
-			$message->from($from['address'], $from['name']);
-			$mails = [$request->Email];
-			$message->to($mails)->subject('仮会員登録完了のお知らせ | OFFISPO');
-		});
-
+		// Send email to admin
+		sendEmailCustom ([
+			'user' => $request,
+			'sendTo' => $from['address'],
+			'template' => 'user2.emails.admin',
+			'subject' => 'OFFISPOでレントユーザーが新規登録されました']
+				);
+		
+		// Send email to user
+		sendEmailCustom ([
+			'user' => $request,
+			'sendTo' => $request->Email,
+			'template' => 'user2.emails.register',
+			'subject' => '仮会員登録完了のお知らせ | OFFISPO']
+				);
+		
 		Session::flush();
 		return redirect('Register-RentUser/ThankYou');
 	}

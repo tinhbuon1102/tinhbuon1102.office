@@ -145,7 +145,9 @@
 								<!--/feed-->
 							</div>
 						</form>
-                        
+                        <!--footer-->
+						@include('pages.dashboard_user1_footer')
+						<!--/footer-->
 					</div>
 					<!--/#page-wrapper-->
                    

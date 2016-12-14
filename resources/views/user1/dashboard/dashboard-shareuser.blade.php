@@ -143,13 +143,16 @@ $rentBooking = new \App\Rentbookingsave();
 							</div>
 							<ul id="news-feed-list" class="transitions-enabled infinite-scroll">
 								<!--loop when payment is pre-sale alert-->
-								@if( empty($bank['BankName']) OR !count($user->certificates)) 
+								@if( empty($bank['BankName']) OR !count($user->certificates) OR !\App\User1::isProfileFullFill($user)) 
                                 <li class="feed">
 	<div class="news-feed-wrapper">
 		<div class="first-notice">
         <h2><i class="fa fa-wrench" aria-hidden="true"></i>アカウントをセットアップしましょう</h2>
         <p class="intro">あなたのアカウント制限を外すには、以下の設定が必要です。アカウントが制限されている間は、スペース掲載、チャット機能、オファー機能が使えません。今すぐセットアップを完了させましょう！</p>
         <ol class="feed-steps">
+        <?php if (!\App\User1::isProfileFullFill($user)){?>
+        <li><strong>アカウント情報設定</strong><br/><span>必須のアカウント情報がまだ設定されていません。</span><a href="{{url('ShareUser/Dashboard/HostSetting')}}" class="btn-info btn">アカウント設定</a></li>
+        <?php }?>
 	@if( empty($bank['BankName']) ) 
 		<li><strong>振込先情報の登録</strong><br/><span>売上の受取先となる口座情報を登録してください。</span><a href="{{url('ShareUser/Dashboard/HostSetting#BankLink')}}" class="btn-info btn">口座情報登録</a></li>@endif
 	@if( !count($user->certificates) )
@@ -229,6 +232,12 @@ $rentBooking = new \App\Rentbookingsave();
 												<a href="#">メールアドレス認証</a>
 											</p>
 											@endif
+                                            <?php if (!\App\User1::isProfileFullFill($user)){?>
+                                            <p class="user-profile-progress-suggestion must-alert">
+											<a href="{{url('ShareUser/Dashboard/HostSetting')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>アカウント情報設定</a>
+											</p>
+                                            <?php }?>
+
 											<!--show if document is not send-->
 											@if( !count($user->certificates) )
 											<p class="user-profile-progress-suggestion must-alert">

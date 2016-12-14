@@ -14,7 +14,7 @@
 							<input type="hidden" name="returnURL" value="{{ url('ShareUser/Dashboard/DesiredPerson') }}"/>
 							{{ csrf_field() }}
 							<div class="page-header header-fixed">
-								<div class="container-fluid">
+								<div class="container-fluid mb_half">
 									<div class="row">
 										<div class="col-xs-6 col-md-6 col-sm-8 clearfix">
 											<h1 class="pull-left">
@@ -39,7 +39,7 @@
 									<section class="feed-first-row feed-box" id="desiredperson">
 										<div class="dashboard-section-heading-container">
 											<h3 class="dashboard-section-heading">
-												出会いたい人材
+												出会いたい人材の特徴を設定
 											</h3>
 										</div>
 										<div class="space-setting-content">
@@ -109,6 +109,9 @@
 								<!--/feed-->
 							</div>
 						</form>
+                        <!--footer-->
+						@include('pages.dashboard_user1_footer')
+						<!--/footer-->
 					</div>
 					<!--/#page-wrapper-->
 				</div>

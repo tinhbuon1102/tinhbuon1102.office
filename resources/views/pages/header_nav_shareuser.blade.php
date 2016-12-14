@@ -8,9 +8,16 @@
             <div class="nvOpn"><span></span> <span></span> <span></span></div>
 			<nav class="primary-navigation">
 				<ul>
+                
+                <!--<li class="menu-dash">
+						<a href="{{url('ShareUser/Dashboard')}}">ダッシュボード</a>
+					</li>-->
+                
+                
 					<li class="menu-find-rentuser">
 						<a href="{{url('RentUser/list')}}">利用者を探す</a>
 					</li>
+                  
 					<li class="menu-share-space">
 						<a href="{{url('ShareUser/Dashboard/BookList')}}">予約リスト</a>
 					</li>

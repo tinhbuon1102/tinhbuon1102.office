@@ -385,7 +385,7 @@ $businessCategories = array(
 
 				if (jQuery(window ).width() <= 768)
 				{
-					<?php if (count($avaiParams)) echo 'jQuery("#mbshow").trigger("click");'?>
+					<?php if (!empty($avaiParams)) echo 'jQuery("#mbshow").trigger("click");'; ?>
 				}
         		
         	});

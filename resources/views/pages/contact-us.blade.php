@@ -47,7 +47,7 @@
 										<div class="col-md-3">
 											<label for="last_name">
 												<span class="require-mark">*</span>
-												Contact Sort
+												問い合わせ種別
 											</label>
 										</div>
 										<div class="col-md-9">
@@ -166,7 +166,7 @@
 										<div class="col-md-3">
 											<label for="last_name">
 												<span class="require-mark">*</span>
-												Message
+												問い合わせ内容
 											</label>
 										</div>
 										<div class="col-md-9">

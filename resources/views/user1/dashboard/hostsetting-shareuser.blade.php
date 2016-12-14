@@ -12,32 +12,19 @@
 				<!--/leftbox-->
 				<div class="right_side" id="samewidth">
 					<div id="page-wrapper" class="has_fixed_title">
-						<!--<div class="module-status-wrapper" id="samewidthby">
-                <div class="module-status-cube">
-                <div class="module module-status">
-                <div class="module-status-left">
-                <div class="account-status">
-                under examination
-                </div>
-                </div><!--status-left-->
-						<!--<div class="module-status-right">
-                <div data-bind="visible: autosave() &amp;&amp; venueData.Status() != Enum.VenueStatus.Launched" style="display: none;">
-                  <span class="blinker">Autosaving ...</span>
-               </div>
-               <div>
-                  <span data-bind="text: lastModifiedDate">Saved on Aug 4, 5:13 PM</span>
-               </div>
-               <div data-bind="visible: venueData.Status() == Enum.VenueStatus.New" style="display: none;">
-                  <button class="ocean-button ui-button-disabled ui-state-disabled ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" data-bind="jqButton: { disabled: venueData.Status() != Enum.VenueStatus.New }, click: submitForReview" disabled="" role="button" aria-disabled="true"><span class="ui-button-text">Submit for Review</span></button>
-               </div>
-               <div data-bind="visible: venueData.Status() != Enum.VenueStatus.New" style="">
-                  <button type="submit" class="btn yellow-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" data-bind="jqButton: { disabled: !isDirty() }, click: save" role="button" aria-disabled="false"><span class="ui-button-text">Save</span></button>
-               </div>
-                </div><!--status-right--
-                </div><!--/module-status--
-                </div>
-                </div>-->
+						
 						<div id="SettingPage" class="container-fluid">
+                   <?php 
+$user = Auth::guard('user1')->user(); 
+ if (!\App\User1::isProfileFullFill($user)){?>
+                        <div class="dashboard-warn-text">
+                        <div class="dashboard-must-validation">
+                        <i class="icon-warning-sign fa awesome"></i>
+                        <div class="warning-heading">必須のアカウント情報が設定されていません。</div>
+                        </div>
+                        </div>
+                        <?php }?>
+                        
                         <?php if ($user->IsAdminApproved == 'No') {?>
 								<div id="feed">
 									<section class="feed-first-row feed-box" id="certificate">
@@ -190,22 +177,6 @@
 													</div>
 												</div>
 												<div class="form-field address-wrapper">
-													<label for="require-place">
-														<span class="require-mark">*</span>
-														住所
-														<!--5%-->
-														<!--Address-->
-													</label>
-													<div class="input-container">
-														<div class="address-display-wrapper" data-bind="visible: !addressEdit()">
-															<a href="javascript:void(0)" class="toggle_button" bind-toggle=".address-edit-wrapper, .address-wrapper" data-bind="click: toggleAddressEdit">編集</a>
-															<input type="text" value="{{$user->PostalCode}},{{$user->Prefecture}},{{$user->District}},{{$user->Address1}},{{$user->Address2}}" data-bind="textInput: fullAddress, disable: !addressEdit()" disabled id="Address" name="Address">
-														</div>
-													</div>
-												</div>
-												<!--/form-field-->
-												<!--if you click edit link,show this-->
-												<div class="address-edit-wrapper" data-bind="visible: addressEdit" style="display: none;">
 													<div class="form-field two-inputs">
 														<div class="input-container input-half">
 															<label for="zip">
@@ -303,9 +274,9 @@
 														</div>
 													</div>
 													<!--/form-field-->
-													<a href="javascript:void(0)" class="toggle_button" bind-toggle=".address-edit-wrapper, .address-wrapper">編集をキャンセル</a>
 												</div>
-												<!--/address-edit-wrapper-->
+												<!--/form-field-->
+												
 												<div></div>
 												<!--/if you click edit link,show this-->
 												<div class="form-field two-inputs">
@@ -392,22 +363,6 @@
 										<div class="space-setting-content">
 											<div class="form-container">
 												<div class="form-field responsive-person-name-wrapper">
-													<label for="fullname-person">
-														<span class="require-mark">*</span>
-														担当者氏名
-														<!--10%-->
-														<!--Name Responsible person-->
-													</label>
-													<div class="input-container">
-														<div class="responsive-person-name-display-wrapper" data-bind="visible: !nameEdit()">
-															<a href="javascript:void(0)" class="toggle_button toggle_button_address_responsive" bind-toggle=".responsive-person-name-wrapper, .responsive-person-name-edit-wrapper" data-bind="click: toggleAddressEdit">編集</a>
-															<input type="text" value="{{getUserName($user)}}" data-bind="textInput: fullName, disable: !nameEdit()" disabled>
-														</div>
-													</div>
-												</div>
-												<!--/form-field-->
-												<!--if you click edit link,show this-->
-												<div class="responsive-person-name-edit-wrapper" data-bind="visible: addressEdit" style="display: none;">
 													<div class="form-field two-inputs">
 														<div class="input-container input-half">
 															<label for="last_name">
@@ -446,9 +401,9 @@
 														</div>
 													</div>
 													<!--/form-field-->
-													<a href="javascript:void(0)" class="toggle_button" bind-toggle=".responsive-person-name-wrapper, .responsive-person-name-edit-wrapper">編集をキャンセル</a>
 												</div>
-												<!--/if you click edit link,show this-->
+												<!--/form-field-->
+												
 												<div class="form-field two-inputs">
 													<div class="input-container input-half">
 														<label for="business_title">

@@ -1,4 +1,43 @@
 <?php
+define('ENV_PRODUCTION', 'production');
+define('ENV_LOCAL', 'local');
+
+/* ============================================ BLOCK TO EDIT - START ============================================*/
+
+if (env('APP_ENV') == ENV_PRODUCTION)
+{
+	// PRODUCTION MODE
+	// ================== PAYPAL ======================= //
+	define('PAYPAL_SANDBOX', FALSE);
+	define('PAYPAL_APP_ID', 'APP-80W284485P519543T');
+	define('PAYPAL_APP_UN', 'quocthang.2001.japan_api1.gmail.com');
+	define('PAYPAL_APP_PW', 'UA4WC9XVN7CDWRLJ');
+	define('PAYPAL_APP_SIGNATURE', 'AFcWxV21C7fd0v3bYYYRCpSSRl31AbQ5v1TJK2G5TmwZ.NqGFsN-Ru0M');
+	define('PAYPAL_MERCHANT_EMAIL', 'quocthang.2001.japan@gmail.com');
+
+	// ================== WEBPAY ======================= //
+	define('WEPAY_SECRET_API_KEY', 'test_secret_ac709mfnrcLrdGUa3r4g95WZ');
+	define('WEPAY_PUBLIC_API_KEY', 'test_public_6wsgEFg2rgz17uJgEy7V2dnr');
+
+}
+else {
+	// DEVELOPMENT MODE
+	// ================== PAYPAL ======================= //
+	define('PAYPAL_SANDBOX', TRUE);
+	define('PAYPAL_APP_ID', 'APP-80W284485P519543T');
+	define('PAYPAL_APP_UN', 'quocthang.2001.japan_api1.gmail.com');
+	define('PAYPAL_APP_PW', 'UA4WC9XVN7CDWRLJ');
+	define('PAYPAL_APP_SIGNATURE', 'AFcWxV21C7fd0v3bYYYRCpSSRl31AbQ5v1TJK2G5TmwZ.NqGFsN-Ru0M');
+	define('PAYPAL_MERCHANT_EMAIL', 'quocthang.2001.japan@gmail.com');
+
+	// ================== WEBPAY ======================= //
+	define('WEPAY_SECRET_API_KEY', 'test_secret_ac709mfnrcLrdGUa3r4g95WZ');
+	define('WEPAY_PUBLIC_API_KEY', 'test_public_6wsgEFg2rgz17uJgEy7V2dnr');
+
+}
+/* ============================================BLOCK TO EDIT - END ============================================*/
+
+
 define('SPACE_STATUS_PUBLIC', 1);
 define('SPACE_STATUS_PRIVATE', 2);
 define('SPACE_STATUS_DRAFT', 3);
@@ -28,10 +67,6 @@ define('BOOKING_IN_USE', 1);
 define('BOOKING_REFUND_NO_CHARGE', 1);
 define('BOOKING_REFUND_CHARGE_50', 2);
 define('BOOKING_REFUND_CHARGE_100', 3);
-
-// ================== WEBPAY ======================= //
-define('WEPAY_SECRET_API_KEY', 'test_secret_ac709mfnrcLrdGUa3r4g95WZ');
-define('WEPAY_PUBLIC_API_KEY', 'test_public_6wsgEFg2rgz17uJgEy7V2dnr');
 
 // ==================== UPLOAD ===================== //
 define('SITE_URL', url('/') . '/');
@@ -69,30 +104,15 @@ define('LIMIT_DASHBOARD_FEED', 15);
 define('LIMIT_SPACE_HOME', 6);
 
 // ==================== PAYPAL ===================== //
-define('PAYPAL_APP_ID', 'APP-80W284485P519543T');
-define('PAYPAL_APP_UN', 'quocthang.2001.japan_api1.gmail.com');
-define('PAYPAL_APP_PW', 'UA4WC9XVN7CDWRLJ');
-define('PAYPAL_APP_SIGNATURE', 'AFcWxV21C7fd0v3bYYYRCpSSRl31AbQ5v1TJK2G5TmwZ.NqGFsN-Ru0M');
-define('PAYPAL_SANDBOX', TRUE);
-define('PAYPAL_MERCHANT_EMAIL', 'quocthang.2001.japan@gmail.com');
 define('PAYPAL_NOTIFY_URL', url("/ShareUser/Dashboard/PaypalIpn") );
-
 define('PAYPAL_RESPONSE_STATUS_PENDING', 'Pending');
 define('PAYPAL_RESPONSE_STATUS_REJECTED', 'Voided');
 define('PAYPAL_RESPONSE_STATUS_REFUNDED', 'Refunded');
 define('PAYPAL_RESPONSE_STATUS_PARTIALLY_REFUNDED', 'PartiallyRefunded');
 define('PAYPAL_RESPONSE_STATUS_COMPLETED', 'Completed');
-
 define('PAYPAL_RESPONSE_STATUS_SUCCESS', 'Success');
 define('PAYPAL_RESPONSE_STATUS_FAILED', 'Failure');
 define('PAYPAL_RESPONSE_STATUS_CANCELLED', 'Cancelled');
-
-
-
-// Complete
-// [PAYMENTSTATUS] => Completed
-// [PENDINGREASON] => None
-// [REASONCODE] => None
 
 // ==================== Common ===================== //
 define('REVIEW_STATUS_AWAITING', 0);
@@ -108,4 +128,3 @@ define('TIME_DEFAULT_FORMAT', 'H:i:s');
 define('JS_CACHED_TIME', 10);
 
 define('REQUIRE_MESSAGE_FIELD_TEXT', 'は、必ず指定してください。');
-

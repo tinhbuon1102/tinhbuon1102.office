@@ -129,10 +129,10 @@ $(this).colorbox.resize();
                 customTopPosition = footerTop - (scrollTop + targetHeight)
                 target.css({position: "fixed", top:  customTopPosition + "px"});
             }else{
-                target.css({position: "fixed", top: "75px"});
+                target.css({position: "fixed", top: "75px", width: "20%"});
             }
         }else{
-            target.css({position: "static", top: "auto"});
+            target.css({position: "static", top: "auto", width: "100%"});
         }
     });
 });

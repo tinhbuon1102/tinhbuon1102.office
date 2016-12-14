@@ -10,7 +10,7 @@
     <script src="/js/instantchat.js?v=6" type="text/javascript"></script>
     <script src="/js/list.js?v=4" type="text/javascript"></script>
 <div class="chat_box" id="iuserlist">
-	<div class="chat_head"> Chat Box</div>
+	<div class="chat_head"> チャットリスト</div>
 	<div class="chat_body list"  > 
 	<? $ilast_activity = \Carbon\Carbon::now()->subSeconds('1500');
 		if(Auth::guard('user2')->check())

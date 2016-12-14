@@ -63,6 +63,7 @@
 											</span>
 										</div>
 									</div>
+                                    <div class="tb-wpp">
 									<div class="row-fluid">
 										<label class="span3">
 											使用清潔度
@@ -217,6 +218,7 @@
 											</div>
 										</div>
 									</div>
+                                    </div>
 
 									<label class="exceptional-project-inquiry">
 										<span class="textarea-title">このユーザーは良かったですか？</span>

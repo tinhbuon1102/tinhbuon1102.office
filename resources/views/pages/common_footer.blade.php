@@ -30,10 +30,10 @@
 								<a href="#">FAQ</a>
 							</li>-->
 							<li>
-								<a href="{{url('help')}}">HELP</a>
+								<a href="{{url('help')}}">ヘルプ</a>
 							</li>
 							<li>
-								<a href="#">サポートセンター</a>
+								<a href="{{url('/support-center/')}}">サポートセンター</a>
 							</li>
 						</ul>
 					</div>
@@ -59,10 +59,10 @@
 						<h3>Get in touch</h3>
 						<ul class="ft-nav">
 							<li>
-								<a href="#">お問い合わせ</a>
+								<a href="{{url('/contact-us/')}}">お問い合わせ</a>
 							</li>
 							<li>
-								<a href="#">会社概要</a>
+								<a href="{{url('/company-info/')}}">会社概要</a>
 							</li>
 						</ul>
 					</div>

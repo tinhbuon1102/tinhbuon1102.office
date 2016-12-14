@@ -95,10 +95,13 @@
 						</div>
 						<!--/chat left end-->
 						
-						<div class="chat-right">
-						<button style="display:none; text-align:right;" id="goback"></button>
+						<div class="chat-right flex-row fill-height">
+                        <div class="flex-cell fill-height">
+                        <div class="flex-column fill-height">
+						
+							<div class="head flex-cell-auto clearfix">
+                            <button style="display:none; text-align:right;" id="goback">戻る</button>
 						<!--input type="button" style="background:url('back_btn.png'); display:none; text-align:right;" id="goback"/-->
-							<div class="head clearfix">
 								<h2 class='chat-name'></h2>
 								<div class="chat-st isonline "></div>
 								
@@ -106,8 +109,8 @@
 								
 								</div>
 								<div style="clear: both;"></div> 
-							</div><hr>
-							<div class="chat-container">
+							</div><hr class="mb-none">
+							<div class="chat-container flex-cell scroll-container">
 								@foreach($chatusers as $cuser)
 								<?php 
 										if(Auth::check())
@@ -125,6 +128,7 @@
 								</ul>
 								@endforeach
 							</div>
+                            <div class="flex-cell-auto">
 							<div class="chat-send">
 								<input type="text" class="chat-box" id="text" placeholder="メッセージを入力" />
 								<input type="hidden" id="cid" name="cid" value="">
@@ -133,6 +137,9 @@
 								<input type="file" class="imgupload1" style="display:none;"/>
 								<button class="chat-send-btn"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
 							</div>
+                           </div>
+                            </div>
+                            </div>
 						</div>
 						<!--/chat right end-->
 						

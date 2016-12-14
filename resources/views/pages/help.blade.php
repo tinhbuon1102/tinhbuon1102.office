@@ -30,19 +30,19 @@
 <div class="row tile-inner no-btm-border">
 <div class="col-md-4">
 <a href="{{url('help/guest')}}">
-<i class="help-icons icon-guest"></i>
+<i class="help-icons-size icon-add-helps-icons_searchp"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
 <span>登録前ガイド</span>
 </a>
 </div>
 <div class="col-md-4">
 <a href="{{url('help/rentuser')}}">
-<i class="help-icons icon-ruser"></i>
+<i class="help-icons-size icon-add-helps-icons_ruser"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
 <span>レントユーザー(利用者)ガイド</span>
 </a>
 </div>
 <div class="col-md-4">
 <a href="{{url('help/shareuser')}}">
-<i class="help-icons icon-suser"></i>
+<i class="help-icons-size icon-add-helps-icons_suser"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></i>
 <span>シェアユーザー(提供者)ガイド</span>
 </a>
 </div>

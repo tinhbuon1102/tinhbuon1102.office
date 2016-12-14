@@ -23,8 +23,8 @@
 								<!--if email is not verified yet-->
 								<?php if($user->IsEmailVerified=="No"){ ?>
 								<div class="no-verify-alert">
-									<span class="not-verify-yet">あなたのメールアドレスは認証されてません。</span>
-									<a href="/MyAdmin/User1/sendUser1EmailVerify/{{$user->id}}" class="verify-now btn btn-info" id="verifyEmail" >メールアドレスを認証</a>
+									<span class="not-verify-yet">このメールアドレスは認証されてません。</span>
+									
 								</div>
 								<?php } ?>
 							</div>
@@ -339,7 +339,7 @@
 								</div>
 							</div>
 							<!--/form-field-->
-							<a href="javascript:void(0)" class="toggle_button" bind-toggle=".responsive-person-name-wrapper, .responsive-person-name-edit-wrapper">Cancel to Edit</a>
+							<a href="javascript:void(0)" class="toggle_button" bind-toggle=".responsive-person-name-wrapper, .responsive-person-name-edit-wrapper">編集をキャンセル</a>
 						</div>
 						<!--/if you click edit link,show this-->
 						<div class="form-field two-inputs">

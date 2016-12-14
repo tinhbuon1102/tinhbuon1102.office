@@ -167,10 +167,10 @@ use App\Spaceslot;
 														<div class="box-label" style="padding-bottom: 5px;">利用日・時間帯</div>
 														<div class="custom-dropdown-wrapper">
 															<div class="selectedDay">
-																<input type="text" name="datepicker" class="customdate" readonly="readonly" id="datepicker" value="<?php echo @$aBookingTimeInfoSelected['timeDefaultSelected']['StartDateConverted']?>">
+																<input type="text" name="datepicker" class="customdate" readonly id="datepicker" value="<?php echo @$aBookingTimeInfoSelected['timeDefaultSelected']['StartDateConverted']?>">
 															</div>
 														</div>
-														<div class="wlp-start-date wlp-picker-wrapper" style="width: 42%">
+														<div class="wlp-start-date wlp-picker-wrapper wrap-selecttime">
 															<input type='hidden' name='startTime' value='<?php echo @$aBookingTimeInfoSelected['timeDefaultSelected']['StartTime']?>' class='startTime' />
 															<input type='hidden' name='endTime' value='<?php echo @$aBookingTimeInfoSelected['timeDefaultSelected']['EndTime']?>' class='endTime' />
 															<div class='ajaxhourdata'>

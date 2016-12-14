@@ -672,7 +672,11 @@ function sendEmailCustom ($params){
 	// Send email to admin
 	global $from, $sendTo, $subject;
 	$sendTo = (array)@$params['sendTo'];
-	$sendTo[] = 'quocthang.2001@gmail.com';
+	if (env('APP_ENV') != ENV_PRODUCTION)
+	{
+		$sendTo[] = 'quocthang.2001@gmail.com';
+		$sendTo[] = 'kyoko@heart-hunger.com';
+	}
 	$template = @$params['template'];
 	$subject = @$params['subject'];
 	$from = Config::get('mail.from');
@@ -683,7 +687,6 @@ function sendEmailCustom ($params){
 		global $from, $sendTo, $subject;
 		$message->from($from['address'], $from['name']);
 		$mails = $sendTo;
-		$message->cc('kyoko@heart-hunger.com', 'Kyoko');
 		$message->to($mails)->subject($subject);
 	});
 }

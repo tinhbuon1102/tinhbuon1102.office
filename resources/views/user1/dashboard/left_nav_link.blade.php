@@ -61,6 +61,7 @@ $user = isset($user) ? $user : Auth::guard('user1')->user();
                                                 
 											</a>
 										</li>
+                                        <?php if (IsAdminApprovedUser($user)) {?>
 										<li>
 											<a id="bt-ms5" href="{{url('ShareUser/Dashboard/OfferList')}}" class="content-navigation">
                                             <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
@@ -69,6 +70,7 @@ $user = isset($user) ? $user : Auth::guard('user1')->user();
                                                 
 											</a>
 										</li>
+                                        <?php }?>
                                         <li>
 											<a id="bt-ms6" href="{{url('ShareUser/Dashboard/DesiredPerson')}}" class="content-navigation">
                                             <i class="fa fa-heart" aria-hidden="true"></i>
@@ -77,6 +79,7 @@ $user = isset($user) ? $user : Auth::guard('user1')->user();
                                                 
 											</a>
 										</li>
+                                        <?php if (IsAdminApprovedUser($user)) {?>
                                         <li class="pc-none">
 											<a id="bt-ms6" href="{{url('RentUser/list')}}" class="content-navigation">
                                             <i class="fa fa-search" aria-hidden="true"></i>
@@ -84,6 +87,7 @@ $user = isset($user) ? $user : Auth::guard('user1')->user();
                                                 
 											</a>
 										</li>
+                                        <?php }?>
 										<li>
 											<a id="bt-ms7" href="{{url('ShareUser/Dashboard/HostSetting')}}" class="content-navigation">
 												<i class="fa fa-cogs" aria-hidden="true"></i>

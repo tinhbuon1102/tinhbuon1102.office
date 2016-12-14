@@ -13,12 +13,18 @@
 <script src="<?php echo SITE_URL?>js/perfect-scrollbar/js/perfect-scrollbar.js"></script>
 <script src="<?php echo SITE_URL?>js/swipe-slider/slider-templates/lightbox/js/jquery.prettyPhoto.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo SITE_URL?>assets/css/main.css">
+<style>
+	.slimScrollDiv ol{
+		padding:0px !important;
+	}
+</style>
 <!-- <script type="text/javascript" src="<?php echo SITE_URL?>assets/js/jquery.min.js"></script> -->
 <script type="text/javascript" src="<?php echo SITE_URL?>assets/js/jquery-ui.min.js"></script>
 <script src="<?php echo SITE_URL?>js/datepicker-ja.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo SITE_URL?>assets/css/tab.css">
 <link rel="stylesheet" type="text/css" href="<?php echo SITE_URL?>assets/css/folio.css">
 <!-- <script type="text/javascript" src="<?php echo SITE_URL?>assets/js/CommonJs.js"></script>  -->
+
 <script src="{{ URL::asset('js/jquery.responsiveTabs.js') }}"></script>
 <!--/head-->
 <body class="profilepage host-profile common">
@@ -204,6 +210,7 @@ echo "test";
                         		7 => '月毎'
                         );
                         ?>
+						<?php if(!empty($groupedSpaces)){ ?>
 								<div id="spacetabs_wraper" class="tab_style2" style="opacity: 0">
 									<ul id="spacetabs_horizontal">
 										@foreach($groupedSpaces as $spaceType => $groupedSpace)
@@ -251,6 +258,7 @@ echo "test";
 									</div>
 									@endforeach
 								</div>
+								<? } ?>
 							</div>
 						</div>
 						<!--/space-info-row-->

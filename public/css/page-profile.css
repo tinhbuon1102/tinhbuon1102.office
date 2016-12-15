@@ -657,9 +657,12 @@ div#profile-about-description-wrapper {
 	line-height: 1.6;
 }
 
-div#profile-about-description-wrapper .job {
+div#profile-about-description-wrapper .job, div#profile-about-description-wrapper .skill {
 	font-weight: bold;
-	margin-bottom: 12px;
+}
+div#profile-about-description-wrapper .skill {
+	font-weight: bold;
+	margin-bottom: 10px;
 }
 
 div#profile-about-description-wrapper .job .job-label {

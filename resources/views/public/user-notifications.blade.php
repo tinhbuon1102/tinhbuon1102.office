@@ -4,11 +4,9 @@ foreach ($notifySpaces as $result) {
 	$userSpace = $result['user1Space'];
 	$aUserSend = $result[$userSend];
 	
-	$sptype='';
 	switch($result['Type']) {
 		case NOTIFICATION_SPACE :
 			$description = ' sent you ' .$result['CountBulk'] . ' offers';
-			$sptype='fav';
 			$spid=$result['user1Space']['HashID'];
 			break;
 		case NOTIFICATION_FAVORITE_SPACE :
@@ -18,11 +16,14 @@ foreach ($notifySpaces as $result) {
 				break;
 			}
 			$description = '['. $userSpace['Title'] .']がお気に入りに追加されました';
-			$sptype='fav';
 			$spid=$result['user1FavSpace']['SpaceId'];
 			break;
 		case NOTIFICATION_REVIEW_BOOKING :
 			$description = 'があなたへのレビューを投稿しました。予約番号#' .$result['TypeID'];
+			break;
+		case NOTIFICATION_BOOKING_PLACED :
+			$spid = $result['user1Space']['HashID'];
+			$description = 'から' .$result['user1Space']['Title'] . 'の予約(#'.$result['TypeID'].')が入りました。';
 			break;
 	}
 	if (!$isContinue) continue;
@@ -32,13 +33,19 @@ foreach ($notifySpaces as $result) {
 	<figure id="profile-figure" class="profile-img">
 		<img src="<?php echo getUser1Photo($aUserSend)?>" />
 	</figure>
-	@if($sptype=='fav')
+	@if(in_array($result['Type'], array(NOTIFICATION_SPACE, NOTIFICATION_FAVORITE_SPACE)))
 		  <a href="<?php echo getSpaceUrl($spid)?>">
-		 @endif 
+	@elseif(in_array($result['Type'], array(NOTIFICATION_REVIEW_BOOKING, NOTIFICATION_BOOKING_PLACED)))
+		@if ($result['UserReceiveType'] == 1)
+		  <a href="<?php echo getSharedBookingDetailUrl($result['TypeID'])?>">
+		@else
+			<a href="<?php echo getRentBookingDetailUrl($result['TypeID'])?>">
+		@endif
+	@endif 
 	<div class="notification-item-content">
 		<p class="notification-item-text">
 		
-			<strong><?php echo ($aUserSend['NameOfCompany'] ? $aUserSend['NameOfCompany'] : ($aUserSend['LastName'] . $aUserSend['LastName']))?></strong>
+			<strong><?php echo getUserName($aUserSend)?></strong>
 			<span class="description"><?php echo $description?></span>
 			<span class="notification-time">
 				- <?php echo renderHumanTime($result['Time'])?>
@@ -46,8 +53,8 @@ foreach ($notifySpaces as $result) {
 		
 		</p>
 	</div>
-	@if($sptype=='fav')	
-			</a>	
-		@endif 	
+	@if(in_array($result['Type'], array(NOTIFICATION_SPACE, NOTIFICATION_FAVORITE_SPACE, NOTIFICATION_REVIEW_BOOKING, NOTIFICATION_BOOKING_PLACED)))
+		</a>	
+	@endif 	
 </li>
 <?php }}?>

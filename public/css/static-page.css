@@ -133,6 +133,7 @@ table.tokusho td {
     font-size: 1.8125rem;
 }
 .hiwn-hiwp-copy {
+	font-size: 1.125rem;
 }
 h3.story-title {
     margin: 0px 20px 40px;
@@ -1047,4 +1048,23 @@ body.profilepage button.mfp-close {
 .help-content .services-grid h4 {
 	font-size: 13px;
 	line-height: 1.6;
+}
+@media (max-width: 768px) {
+.hiwp-option .col-left-120 {
+    width: 100%;
+    display: block;
+}
+.hiw-list-block .hiwp-option {
+    display: block;
+	text-align: center;
+
+}
+.hiwp-option .col-right-disc {
+    padding-left: 0;
+    display: block;
+}
+.hiwp-option-header.h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
 }

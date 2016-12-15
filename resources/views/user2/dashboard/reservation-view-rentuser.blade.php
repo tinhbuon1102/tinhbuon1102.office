@@ -133,7 +133,7 @@ $count = count($rent_data->bookedSlots);
 															</a>
 															
 															
-															<a href="/ShareUser/Dashboard/Message/<?php echo $user1Obj->HashCode;?>" class="chat-link pc-none">
+															<a href="/RentUser/Dashboard/Message/<?php echo $user1Obj->HashCode;?>" class="chat-link pc-none">
 																<i class="fa fa-commenting" aria-hidden="true"></i> {{ trans('booking_details.chat') }}
                                                                 </a>
 																<!--チャット-->
@@ -334,7 +334,7 @@ $count = count($rent_data->bookedSlots);
                                                             
                                                             </div>
                                                             <div class="mgt-10">
-                                                            <a target="_blank" class="gmap_link" href="https://www.google.co.jp/maps?q={!!$rent_data->bookedSpace->Prefecture!!}{!!$rent_data->bookedSpace->District!!}{!!$rent_data->bookedSpace->Address1!!}"><i class="fa fa-map-marker" aria-hidden="true"></i> Google Mapで見る</a>
+                                                            <a target="_blank" class="gmap_link" href="https://www.google.co.jp/maps/place/{!!$rent_data->bookedSpace->Prefecture!!}{!!$rent_data->bookedSpace->District!!}{!!$rent_data->bookedSpace->Address1!!}"><i class="fa fa-map-marker" aria-hidden="true"></i> Google Mapで見る</a>
                                                             </div>
 														</div>
 														<!--/side_list-->

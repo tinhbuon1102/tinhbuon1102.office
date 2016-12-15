@@ -524,7 +524,6 @@ class PublicController extends Controller
 	
 	public function getUserNotifications(Request $request){
 		$notifyLimit = LIMIT_NOTIFICATION;
-		$notificationTypes = getAllNotificationTypes();
 		if (isset($request->action) && $request->action == 'read')
 		{
 			$notifications = Notification::where('Time', trim($request->Time))->get();
@@ -540,6 +539,7 @@ class PublicController extends Controller
 		}
 		else
 		{
+			$userType = 0;
 			// Detect User Type
 			if (Auth::guard('user1')->check())
 			{
@@ -558,6 +558,7 @@ class PublicController extends Controller
 				$notifications = Notification::with('user1Space')->with($userSend)->where('UserSendType', 1);
 			}
 			
+			$notificationTypes = getAllNotificationTypes($userType);
 			if (isset($notifications) && $notifications)
 			{
 				// Get Space Notification
@@ -579,7 +580,17 @@ class PublicController extends Controller
 				{
 					if ($notifySpace['Type'] == NOTIFICATION_FAVORITE_SPACE)
 					{
-						$userSpace = \App\User1sharespace::where('HashID', $notifySpace['user1FavSpace']['SpaceId'])->first();
+						$userSpace = \App\User1sharespace::where('HashID', @$notifySpace['user1FavSpace']['SpaceId'])->first();
+						$notifySpaces[$notifyIndex]['user1Space'] = $userSpace;
+						if (!$userSpace)
+						{
+							unset($notifySpaces[$notifyIndex]);
+							$totalSpaces --;
+						}
+					}
+					elseif (in_array($notifySpace['Type'], array(NOTIFICATION_BOOKING_PLACED)))
+					{
+						$userSpace = \App\User1sharespace::find(@$notifySpace['booking']['user1sharespaces_id']);
 						$notifySpaces[$notifyIndex]['user1Space'] = $userSpace;
 						if (!$userSpace)
 						{

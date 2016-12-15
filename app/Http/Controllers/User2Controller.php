@@ -463,6 +463,24 @@ class User2Controller extends Controller
 
     }
 
+
+	public function editBasicInfoSubmitData(Request $request)
+	{
+		$input=$request->all();
+		$credit=new User2();
+		$user=User2::find(Auth::guard('user2')->user()->id);
+    
+
+            $user->fill($request->except(['_token','oldpassword','password','cpassword','UserName','Email']));
+            $user->save();
+		    Session::flash('success', 'You have successfully updated profile info.');
+            return redirect('/RentUser/Dashboard/BasicInfo/Edit');
+        
+
+    }
+
+
+	
     protected static $cards = array(
         // Debit cards must come first, since they have more specific patterns than their credit-card equivalents.
         'visaelectron' => array(
@@ -1117,7 +1135,7 @@ class User2Controller extends Controller
 		}
 
 		if (!User2::isProfileFullFill($user)) {
-			$userErrors['setting']['message'] = '基本ユーザー設定が完了していません。';
+			$userErrors['setting']['message'] = 'アカウント設定が完了していません。';
 			$userErrors['setting']['url'] = url('/RentUser/Dashboard/BasicInfo/Edit');
 			$userErrors['setting']['button'] = '設定する';
 		}
@@ -2986,7 +3004,7 @@ class User2Controller extends Controller
 			$user->SentToAdmin = 1;
 			$user->save();
 
-			Session::flash('senttoadmin', 'ファイルがが送信されました');
+			Session::flash('senttoadmin', 'ファイルが送信されました。審査の間(2~3営業日)、しばらくお待ち下さい。');
 
 			// Send email to admin
 			sendEmailCustom ([
@@ -3030,7 +3048,7 @@ class User2Controller extends Controller
 				}
 
 			}
-			Session::flash('success', 'File Uploaded Successfully');
+			Session::flash('success', 'ファイルのアップロードに成功しました。[書類を提出]をクリックすると、送信されます。');
 			return redirect('/RentUser/Dashboard/Identify/Upload');
 		}
 

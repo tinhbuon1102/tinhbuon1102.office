@@ -867,3 +867,69 @@ D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\php\app.php:26 (
 Application path: /livechat/php/app.php?install-wizard-2
 2016-12-10 21:59:53 Undefined index: smtp on line 78 in D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\views\admin\install-wizard-2.html
 2016-12-10 21:59:53 Undefined index: smtp on line 151 in D:\LapTrinh\Server\wamp\www\tinhbuon1102.office\public\livechat\views\admin\install-wizard-2.html
+Application path: /livechat/php/app.php?operator-is-online
+2016-12-15 12:26:54 [error] SQLSTATE[HY000] [2002] Operation timed out
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/service/Database.php:46 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/service/Database.php:64 (Database:connect())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/service/Database.php:25 (Database:reconnect())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/lib/Service.php:17 (Database:onRegister())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/lib/ServiceContainer.php:47 (Service:setServiceContainer())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/lib/Model.php:19 (ServiceContainer:get())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/model/UserModel.php:241 (Model:__construct())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/controller/OperatorController.php:336 (UserModel:repo())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app/Application.php:155 (OperatorController:isOnlineAction())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app.php:26 (Application:run())
+
+2016-12-15 12:26:54 [error] SQLSTATE[HY000] [2002] Operation timed out
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/service/ExceptionHandler.php:23 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app/Application.php:170 (ExceptionHandler:createResponse())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app.php:26 (Application:run())
+
+Application path: /livechat/php/app.php?operator-is-online
+2016-12-15 12:27:58 [error] SQLSTATE[HY000] [2002] Operation timed out
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/service/Database.php:46 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/service/Database.php:64 (Database:connect())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/service/Database.php:25 (Database:reconnect())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/lib/Service.php:17 (Database:onRegister())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/lib/ServiceContainer.php:47 (Service:setServiceContainer())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/lib/Model.php:19 (ServiceContainer:get())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/model/UserModel.php:241 (Model:__construct())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/controller/OperatorController.php:336 (UserModel:repo())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app/Application.php:155 (OperatorController:isOnlineAction())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app.php:26 (Application:run())
+
+2016-12-15 12:27:58 [error] SQLSTATE[HY000] [2002] Operation timed out
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/service/ExceptionHandler.php:23 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app/Application.php:170 (ExceptionHandler:createResponse())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app.php:26 (Application:run())
+
+Application path: /livechat/php/app.php?operator-is-online
+2016-12-15 12:29:04 [error] SQLSTATE[HY000] [2002] Operation timed out
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/service/Database.php:46 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/service/Database.php:64 (Database:connect())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/service/Database.php:25 (Database:reconnect())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/lib/Service.php:17 (Database:onRegister())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/lib/ServiceContainer.php:47 (Service:setServiceContainer())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/lib/Model.php:19 (ServiceContainer:get())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/model/UserModel.php:241 (Model:__construct())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/controller/OperatorController.php:336 (UserModel:repo())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app/Application.php:155 (OperatorController:isOnlineAction())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app.php:26 (Application:run())
+
+2016-12-15 12:29:04 [error] SQLSTATE[HY000] [2002] Operation timed out
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/service/ExceptionHandler.php:23 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app/Application.php:170 (ExceptionHandler:createResponse())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app.php:26 (Application:run())
+

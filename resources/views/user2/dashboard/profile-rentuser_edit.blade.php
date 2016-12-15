@@ -22,23 +22,12 @@ $description_area = trim(str_ireplace($breaks, "\r\n", $description));
 		@endif
 		<div id="main" class="container">
 			<form id="form_cover_image" method="post" enctype="multipart/form-data" action='/upload-image.php' name="photo">
-				<div class="profile-cover-wrapper ng-isolate-scope" style="background-size:100% !important;<?php if(!empty($user->Cover)){ ?>background:url('{{$user->Cover}}')<? } ?>">
+				<div class="profile-cover-wrapper ng-isolate-scope" style="background-size:100%;<?php if(!empty($user->Cover)){ ?>background:url('{{$user->Cover}}')<? } ?>">
 					<div class="profile-cover-mask">
 						<div class="section-inner">
 						
 							<button style="display: none;" type="button" class="cover-image-upload-trigger" title="カバー写真を編集">
-								<fl-svg> <svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="10 0 24 24" enable-background="new 10 0 24 24" xml:space="preserve" class="flicon-camera">
-								<g id="Page-2" sketch:type="MSPage">
-								<g id="Photography" transform="translate(1.000000, 1.000000)" sketch:type="MSLayerGroup">
-								<path id="Stroke-1" sketch:type="MSShapeGroup" fill="none" d="M11.9,6.6l0-1c0-0.5,0.4-1,0.9-1h0.9c0.5,0,1,0.5,1,1v1"></path>
-								<path id="Stroke-3" sketch:type="MSShapeGroup" fill="none" d="M28.1,6.6l-1-1.9c-0.3-0.5-0.8-1-1.4-1H21c-0.6,0-1.1,0.5-1.4,1
-            l-1.4,1.9h-6.2c-1.4,0-1.9,0.6-1.9,1.6v9.9c0,1,0.5,1.8,2,1.8h18c1.5,0,2-0.8,2-1.8V8.2c0-1-0.5-1.6-2-1.6H28.1L28.1,6.6z"></path>
-								<path id="Stroke-5" sketch:type="MSShapeGroup" fill="none" d="M28.6,12.8c0,2.9-2.4,5.3-5.3,5.3c-2.9,0-5.3-2.4-5.3-5.3
-            s2.4-5.3,5.3-5.3C26.3,7.5,28.6,9.9,28.6,12.8L28.6,12.8z"></path>
-								<path id="Stroke-7" sketch:type="MSShapeGroup" fill="none" d="M26.2,12.8c0,1.6-1.3,2.9-2.9,2.9c-1.6,0-2.9-1.3-2.9-2.9
-            s1.3-2.9,2.9-2.9C25,9.9,26.2,11.2,26.2,12.8L26.2,12.8z"></path>
-								<path id="Stroke-9" sketch:type="MSShapeGroup" fill="none" d="M14.8,9.9c0,0.8-0.6,1.4-1.4,1.4c-0.8,0-1.4-0.6-1.4-1.4
-            c0-0.8,0.6-1.4,1.4-1.4C14.1,8.5,14.8,9.1,14.8,9.9L14.8,9.9z"></path></g></g></svg></fl-svg>
+								<i class="fa fa-camera" aria-hidden="true"></i>
 								<span class="cover-image-upload-trigger-text" i18n-id="4d23e067684e28a583becd976fe474ee" i18n-msg="カバー写真を変更">カバー写真を変更</span>
 							</button>
 							<input type="file" name="imagefile" id="cover_image" style="display: none"> <span class="upload_cover_message_error upload_message_error" style="display: none;"></span>
@@ -279,7 +268,7 @@ $description_area = trim(str_ireplace($breaks, "\r\n", $description));
                                 <section class="profiles-user user-profile pc-none">
                                 <div class="user-profile-avatar">
                                 <figure class="profile-image">
-										<a  id="thumbviewimage" class="ImageThumbnail crop_preview_box_small background-Logo" href="javascript:void(0);" style="background-size:100% !important;<?php if(!empty($user->Logo)){ ?>background:url('{{$user->Logo}}')<? } ?>" > </a>
+										<a  id="thumbviewimage" class="ImageThumbnail crop_preview_box_small background-Logo" href="javascript:void(0);" style="background-size:cover !important;<?php if(!empty($user->Logo)){ ?>background:url('{{$user->Logo}}')<? } ?>" > </a>
 										<a style="display: none;" image-type="Logo" data-toggle="modal" data-target="#popover_content_wrapper" class="picture-upload-trigger ng-hide" id="profileImageUploader" editbtn-valign="top" ng-class="{'btn-small': editbtnSize == 'small'}" ng-style="editBtnStyle" ng-show="profile.mode === 'edit'" title="プロフィール写真を編集"> <span class="picture-upload-trigger-inner"> <svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns="http://www.w3.org/2000/svg"
 													xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="10 0 24 24" enable-background="new 10 0 24 24" xml:space="preserve" class="flicon-camera">
 											<g id="Page-2" sketch:type="MSPage">
@@ -372,23 +361,33 @@ $description_area = trim(str_ireplace($breaks, "\r\n", $description));
             <section class="profile-user-requirement">
 				<div class="section-inner">
 					<div class="row">
+                    <?php if (!isset($isPublicUser) || !$isPublicUser) {?>
+                    <div class="profile-edit-btn-wrap col-md-9">
+										<div class="profile-btn">
+											<div class="offer-btn">
+												<a class="btn btn-large profile-btn edit-profile-btn wdfull"> <span class="fa fa-pencil awesome-icon">プロフィール編集</span>
+												</a> <a class="btn btn-large profile-btn view-profile-btn wdfull" style="display: none;"> <span class="fa fa-empty awesome-icon">プロフィール表示</span>
+												</a>
+											</div>
+										</div>
+                                        </div>
+										<?php }?>
+										<!--/profile-btn-->
                     <div class="profile-require-main col-md-9">
                     <div class="profile-require-basic js-matchHeight feed-box" id="basic-requirement">
                     <h2 class="section-title">自己紹介文</h2>
                     <div class="require-table-box editable-block-wraper"> 
 												<div class="profile-about-description editable-block">
+                                                <a style="display: none" class="profile-job-btn job-desc-edit-btn mb-editbtn" href="javascript:void(0);">
+                    <span class="profile-job-btn-wraper">
+                    <span class="fa fa-pencil awesome-icon"></span>
+					</span></a>
 													<span class="edit-content"> {{$user->BusinessSummary}}
 													</span>
-                                                    <a style="display: none" class="profile-job-btn job-desc-edit-btn" href="javascript:void(0);">
-                                                    紹介文を記入してください
-                                                    <span class="profile-job-btn-wraper"><span class="fa fa-pencil awesome-icon"></span>
-													</a>
-													</span>
 												</div>
-
-												<!--job-->
+                                                <!--job-->
 												<div class="editable-block editting-block editting-description" style="display: none">
-													<textarea name="job-description" placeholder="自己紹介文を記入しましょう。" class="profile-textarea profiles-description"><?php echo trim(str_ireplace($breaks, "\r\n", $user->BusinessSummary))?></textarea>
+                                                <textarea name="job-description" placeholder="自己紹介文を記入しましょう。" class="profile-textarea profiles-description"><?php echo trim(str_ireplace($breaks, "\r\n", $user->BusinessSummary))?></textarea>
 													<div class="btn-wrapper">
 														<button class="btnSaveBSummary toggle_button save-button btn ui-button-text-only yellow-button" role="button" bind-toggle=".profile-about-description, .editting-description">
 															<span class="ui-button-text">保存</span>
@@ -410,13 +409,11 @@ $description_area = trim(str_ireplace($breaks, "\r\n", $description));
                     <div class="require-table-box editable-block-wraper"> 
                     
 											<div class="profile-skills editable-block">
-											
-											<ul class="skill-list withstar" id="SkillList">
-											</ul>
-											<a style="display: none" class="profile-job-btn job-skill-edit-btn" href="javascript:void(0);">
-                                                スキルを選択してください
+											<a style="display: none" class="profile-job-btn job-skill-edit-btn mb-editbtn" href="javascript:void(0);">
                                                 <span class="profile-job-btn-wraper" style="display:inline-block;"><span class="fa fa-pencil awesome-icon"></span>
 													</span></a>
+											<ul class="skill-list withstar" id="SkillList">
+											</ul>
 											</div>
 											<div class="editable-block editting-block editting-skills" style="display: none;">
                       <select data-placeholder="スキルを選択" class="chosen-select" id="profile-skills"  multiple="multiple" aria-hidden="true" tabindex="-1">
@@ -483,7 +480,8 @@ $description_area = trim(str_ireplace($breaks, "\r\n", $description));
                                             
 						<div class="profile-require-main col-md-9">
 							<div class="profile-require-basic js-matchHeight feed-box" id="basic-requirement">
-								<h2 class="section-title">利用希望ワークスペース<span class="edit-workspace"><a href="{{url('RentUser/Dashboard/EditMySpace')}}" class="profile-job-btn" style="display: none;" target="_blank"><span class="fa fa-pencil awesome-icon" ></span></a></span></h2>
+								<h2 class="section-title">利用希望ワークスペース<span class="edit-workspace"><a href="{{url('RentUser/Dashboard/EditMySpace')}}" class="profile-job-btn" style="display: none;" target="_blank"><span class="fa fa-pencil awesome-icon" ></span></a></span>
+                                </h2>
 								<div class="require-table-box editable-block-wraper">
 									<span style="display: none;" class="profile-job-btn-wraper"> <a style="display: none" class="profile-job-btn job-requirement-basic-btn" href="javascript:void(0);" onclick="LoadDetail()"> <span class="fa fa-pencil awesome-icon"></span>
 									</a>
@@ -905,7 +903,7 @@ $description_area = trim(str_ireplace($breaks, "\r\n", $description));
 				<div class="section-inner">
                 <?php if (!isset($isPublicUser) || !$isPublicUser) {?>
                 <div class="portfolio-add-item-wraper" style="display: none">
-							<a href="/RentUser/Dashboard/MyPortfolio?action=add" class="ajax-popup-link portfolio-add-item-btn non-feature btn btn-info btn-large"><span>+ 実績を追加</span> </a>
+							<a href="/RentUser/Dashboard/MyPortfolio?action=add" class="ajax-popup-link portfolio-add-item-btn non-feature btn btn-info btn-large wdfull"><span>+ 実績を追加</span> </a>
 						</div>
                 <?php }?>
                 <?php if (count($userPortfolios)) {?>

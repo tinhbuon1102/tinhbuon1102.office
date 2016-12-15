@@ -15,8 +15,15 @@
                 
                 
 					<li class="menu-find-rentuser">
-						<a href="{{url('RentUser/list')}}">利用者を探す</a>
-					</li>
+					<?php $user = Auth::guard('user1')->user(); 
+ if (IsAdminApprovedUser($user)) { ?>
+     <a href="{{url('RentUser/list')}}">利用者を探す</a>
+                    <?php } else {  ?>
+<a href="#" class="disable">利用者を探す</a>
+     <?php } ?>
+
+                    </li>
+                    
                   
 					<li class="menu-share-space">
 						<a href="{{url('ShareUser/Dashboard/BookList')}}">予約リスト</a>

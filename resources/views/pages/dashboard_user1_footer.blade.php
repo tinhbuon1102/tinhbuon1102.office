@@ -42,7 +42,7 @@ jQuery( function($){
 								<a href="#">FAQ</a>
 							</li>-->
 							<li>
-								<a href="{{url('help/sharesuser')}}">ヘルプ</a>
+								<a href="{{url('help/shareuser')}}">ヘルプ</a>
 							</li>
 							<li>
 								<a href="{{url('/support-center/')}}">サポートセンター</a>

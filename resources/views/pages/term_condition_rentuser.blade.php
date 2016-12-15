@@ -5,18 +5,11 @@
 <!--/head-->
 <body class="home">
 <div class="viewport">
-<div class="header_wrapper">
-<header id="header">
-<div class="header_container">
-<div class="logo_container"><a class="logo" href="index.html">Offispo</a></div>
 <!--nav-->
 <?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/before_login_nav.php');?>
 			@include('pages.before_login_nav')
 
 <!--/nav-->
-</div>
-</header>
-</div>
 <div class="hero-article hero-hiw-page ng-scope">
 <div class="hero-article-content">
 <h1 class="hero-article-title"><strong>利用者規約</strong></h1>

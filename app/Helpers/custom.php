@@ -659,13 +659,18 @@ function showWidthRatingProgress($point, $max = 5)
 	return $width;
 }
 
-function getAllNotificationTypes ()
+function getAllNotificationTypes ($userType = 0)
 {
-	return array(
+	$aType = array(
 		NOTIFICATION_SPACE,
 		NOTIFICATION_FAVORITE_SPACE,
 		NOTIFICATION_REVIEW_BOOKING,
 	);
+	if ($userType == 1)
+	{
+		$aType[] = NOTIFICATION_BOOKING_PLACED;
+	}
+	return $aType;
 }
 
 function sendEmailCustom ($params){
@@ -782,6 +787,7 @@ function cleanTempFiles($source, $pastDate)
 }
 
 function cleanTemporaryData(){
+	// Number date Before current day
 	$pastDateNumber = 1;
 	
 	$oTimeNow = \Carbon\Carbon::now();

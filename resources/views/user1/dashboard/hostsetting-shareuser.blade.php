@@ -24,6 +24,14 @@ $user = Auth::guard('user1')->user();
                         </div>
                         </div>
                         <?php }?>
+                        @if( empty($bank['BankName']) )
+                        <div class="dashboard-warn-text">
+                        <div class="dashboard-must-validation">
+                        <i class="icon-warning-sign fa awesome"></i>
+                        <div class="warning-heading">支払受取情報が設定されていません。</div>
+                        </div>
+                        </div>
+                        @endif
                         
                         <?php if ($user->IsAdminApproved == 'No') {?>
 								<div id="feed">
@@ -36,6 +44,19 @@ $user = Auth::guard('user1')->user();
 										</div>
 										<div class="space-setting-content">
 											<div class="form-container">
+                                            @if( empty($bank['BankName']) OR !\App\User1::isProfileFullFill($user) )
+                                            <div class="alert-identity-message">本人確認書類提出の前に、以下の設定を完了させてください。
+                                            <ul class="list-disc">
+                                            @if( !\App\User1::isProfileFullFill($user) )
+                                            <li>必須のアカウント情報を設定</li>
+                                            @endif
+                                            @if( empty($bank['BankName']) )
+                                            <li>支払受取情報を設定</li>
+                                            @endif
+                                            </ul>
+                                            </div>
+                                            <a href="#" class="btn ocean-btn disable">確認書類を提出</a>
+                                            @else
 												<?php if(!$user->SentToAdmin) {?>
 												<!--show this alert after doc is not send yet-->
 												<div class="alert-identity-message">本人確認書類が提出されていません。本人証明が完了後、アカウントの制限は解除されます。</div>
@@ -51,6 +72,7 @@ $user = Auth::guard('user1')->user();
 												</div>
 												<!--/show this alert after doc is send-->
 												<?php }?>
+                                                @endif
 											</div>
 											<!--/form-container-->
 										</div>

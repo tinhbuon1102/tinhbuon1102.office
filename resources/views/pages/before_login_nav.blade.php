@@ -21,8 +21,23 @@
 <h3 class="side-panel-title text-overflow">Offispo</h3>
 <ul class="side-panel-list">
 <li class="side-panel-item">
-<a href="#" class="side-panel-btn">
+<a href="{{url('help')}}" class="side-panel-btn">
 <i class="fa fa-question-circle" aria-hidden="true"></i>ヘルプ
+</a>
+</li>
+<li class="side-panel-item">
+<a href="{{url('help/guest/price')}}" class="side-panel-btn">
+<i class="icon-offispo-icon-05" aria-hidden="true"></i>ご利用料金について
+</a>
+</li>
+<li class="side-panel-item">
+<a href="{{url('/support-center/')}}" class="side-panel-btn">
+<i class="fa fa-rocket" aria-hidden="true"></i>サポートセンター
+</a>
+</li>
+<li class="side-panel-item">
+<a href="{{url('/contact-us/')}}" class="side-panel-btn">
+<i class="fa fa-envelope" aria-hidden="true"></i>お問い合わせ
 </a>
 </li>
 </ul>

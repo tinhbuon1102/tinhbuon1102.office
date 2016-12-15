@@ -77,6 +77,7 @@
 <label>種類</label>
 <select name="doctype" required>
   <option value="">選択してください</option>
+  <option value="登記簿謄本">登記簿謄本</option><!--added 1215-->
   <option value="運転免許証">運転免許証</option>
   <option value="パスポート">パスポート</option>
   <option value="住民基本台帳カード">住民基本台帳カード</option>

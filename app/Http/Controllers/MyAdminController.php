@@ -106,7 +106,7 @@ class MyAdminController extends Controller
 					});
 				}
 			}
-			session()->flash('suc', 'User Approved');
+			session()->flash('suc', 'ユーザーが承認されました。');
 		}
 		return back();
 	}
@@ -117,7 +117,7 @@ class MyAdminController extends Controller
 				'delete'=> 'required'
 				]);
 		User2::whereIn('id', $request->delete )->delete();
-		session()->flash('suc', 'User Deleted');
+		session()->flash('suc', 'ユーザーが削除されました。');
 		return back();
 	}
 
@@ -175,7 +175,7 @@ class MyAdminController extends Controller
 	{
 		$user1->IsAdminApproved="Yes";
 		$user1->save();
-		session()->flash('suc', 'User Approved');
+		session()->flash('suc', 'ユーザーが承認されました。');
 		return back();
 	}
 
@@ -183,7 +183,7 @@ class MyAdminController extends Controller
 	{
 		$user2->IsAdminApproved="Yes";
 		$user2->save();
-		session()->flash('suc', 'User Approved');
+		session()->flash('suc', 'ユーザーが承認されました。');
 		return back();
 	}
 

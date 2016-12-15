@@ -222,14 +222,22 @@ $rentBooking = new \App\Rentbookingsave();
 											<div class="progress progress-info user-profile-account-progress-bar">
 												<div class="bar" style="width: {{$userPercent}}%;"></div>
 											</div>
-											<?php if (!\App\User1::isProfileFullFill($user) || !IsAdminApprovedUser($user)) {?>
-											<p class="caution"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>以下の項目を設定していない為、現在アカウントは制限されています。</span></p>
+											<?php if (!IsAdminApprovedUser($user)) {?>
+											<p class="caution"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                                            @if( !count($user->certificates) OR empty($bank['BankName']) OR !\App\User1::isProfileFullFill($user) )
+                                            <span>以下の項目を設定していない為、現在アカウントは制限されています。</span>
+                                            @endif
+                                            <?php if($user->SentToAdmin) {?>
+                                            <span>審査中の為、現在アカウントは制限されています。</span>
+                                            <?php }?>
+                                            </p>
 											<?php }?>
 											<!--start alert for some setting-->
 											<!--show if email validation is not done-->
+                                            
 											@if( !IsEmailVerified($user))
 											<p class="user-profile-progress-suggestion">
-												<a href="#">メールアドレス認証</a>
+												<a href="{{url('ShareUser/Dashboard/HostSetting')}}">メールアドレス認証</a>
 											</p>
 											@endif
                                             <?php if (!\App\User1::isProfileFullFill($user)){?>
@@ -237,13 +245,6 @@ $rentBooking = new \App\Rentbookingsave();
 											<a href="{{url('ShareUser/Dashboard/HostSetting')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>アカウント情報設定</a>
 											</p>
                                             <?php }?>
-
-											<!--show if document is not send-->
-											@if( !count($user->certificates) )
-											<p class="user-profile-progress-suggestion must-alert">
-												<a href="{{url('ShareUser/Dashboard/HostSetting/Certificate')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>組織・個人証明書の提出</a>
-											</p>
-											@endif
 											<!--show if bank account is not set-->
 											@if( empty($bank['BankName']) )
 											<p class="user-profile-progress-suggestion must-alert">
@@ -254,6 +255,12 @@ $rentBooking = new \App\Rentbookingsave();
 											@if( $spaces->count() < 1 )
 											<p class="user-profile-progress-suggestion must-alert">
 												<a href="{{url('ShareUser/Dashboard/ShareInfo')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>スペース登録</a>
+											</p>
+											@endif
+                                            <!--show if document is not send-->
+											@if( !count($user->certificates) )
+											<p class="user-profile-progress-suggestion must-alert">
+												<a href="{{url('ShareUser/Dashboard/HostSetting/Certificate')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>組織・個人証明書の提出</a>
 											</p>
 											@endif
 											<!--end alert for some setting-->

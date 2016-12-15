@@ -1,4 +1,6 @@
-
+<?php
+$user = isset($user) ? $user : Auth::guard('user1')->user();
+?>
 @include('pages.header')
 <!--/head-->
 <body class="mypage shareuser">
@@ -45,8 +47,25 @@
 
 							<div id="SettingPage" class="container-fluid">
 								<div id="feed">
-									<section class="feed-first-row feed-box" id="desiredperson">
+									<section class="feed-first-row feed-box" id="certificate">
                                     <div class="space-setting-content">
+                                    @if( empty($bank['BankName']) || !\App\User1::isProfileFullFill($user) )
+                                    <div class="dashboard-warn-text">
+                        <div class="dashboard-must-validation">
+                        <i class="icon-warning-sign fa awesome"></i>
+                        <div class="warning-heading">本人確認書類提出の前に、以下の設定を完了させてください。
+                         <ul class="list-disc">
+                                            @if( !\App\User1::isProfileFullFill($user) )
+                                            <li>必須のアカウント情報を設定</li>
+                                            @endif
+                                            @if( empty($bank['BankName']) )
+                                            <li>支払受取情報を設定</li>
+                                            @endif
+                                            </ul>
+                        </div>
+                        </div>
+                        </div>
+                                    @endif
 									<div class="form-container">
                                     <fieldset>
 										<div class="identity-explain">
@@ -63,7 +82,7 @@
 </div>
 <div class="hr"></div>
 										
-											<div class="form-field">
+											<div class="form-field @if( empty($bank['BankName']) || !\App\User1::isProfileFullFill($user) )no-allow @endif">
 												<div class="input-container2">
 													<label>ファイル</label>
 													<input name="certificate[]" class="validate[required]" type="file" multiple />

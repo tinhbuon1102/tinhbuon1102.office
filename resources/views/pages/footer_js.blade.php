@@ -89,4 +89,11 @@ else
 		</div>
 	</div>
 </div>
+<script>
+jQuery(function(){
+	jQuery('a.disable').click(function(){
+		return false;
+	})
+});
+</script>
 

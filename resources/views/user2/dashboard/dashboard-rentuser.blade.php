@@ -102,13 +102,33 @@ $rentBooking = new \App\Rentbookingsave();
 						</div>
 						<ul id="news-feed-list" class="transitions-enabled infinite-scroll">
                         
+                        <?php if (!count($bookingHistories)) {?>
+                        <li class="feed no-border">
+                        <div class="news-feed-wrapper">
+                        <div class="first-notice no_book_notice">
+                        <div class="text-center">
+                        <h2>スペースを探しましょう</h2>
+                        <i class="icon-offispo-icon-07 icon--xl block icon--light"></i>
+                        <p class="intro">あなたのオフィススペースを探しましょう。</p>
+                        <p><a href="{{url('RentUser/Dashboard/SearchSpaces')}}" class="btn-info btn">スペースを探す</a></p>
+                        <hr>
+                        <p class="mb0"><a href="{{url('help/rentuser')}}" class="color-link">Offispoについてもっと学ぶ</a></p>
+                        </div>
+                        </div>
+                        </div>
+                        </li>
+                        <?php }?>
+                        
                       @if( empty($paypalStatus) OR !count($user->certificates)) 
                                 <li class="feed">
 	<div class="news-feed-wrapper">
 		<div class="first-notice">
         <h2><i class="fa fa-wrench" aria-hidden="true"></i>アカウントをセットアップしましょう</h2>
-        <p class="intro">あなたのアカウント制限を外すには、以下の設定が必要です。</p>
+        <p class="intro p-md">あなたのアカウント制限を外すには、以下の設定が必要です。</p>
         <ol class="feed-steps">
+       
+<?php if (!\App\User2::isProfileFullFill($user)){?>
+        <li><strong>アカウント情報の設定</strong><br/><span>必須のアカウント情報の項目が未設定です。</span><a href="{{url('RentUser/Dashboard/BasicInfo/Edit')}}" class="btn-info btn">アカウント情報設定</a></li><?php }?>
 	@if( empty($paypalStatus) )	
 		<li><strong>支払い方法の登録</strong><br/><span>予約時の決済に使用する支払い方法を登録してください。</span><a href="{{url('RentUser/Dashboard/BasicInfo/Edit')}}" class="btn-info btn">支払方法登録</a></li>@endif
 	@if( !count($user->certificates) || !$user->SentToAdmin)
@@ -122,7 +142,6 @@ $rentBooking = new \App\Rentbookingsave();
         <li><i class="fa fa-minus-circle" aria-hidden="true"></i>スペース予約</li>
         <li><i class="fa fa-minus-circle" aria-hidden="true"></i>プロフィールページの公開</li>
         <li><i class="fa fa-minus-circle" aria-hidden="true"></i>チャット機能</li>
-        <li><i class="fa fa-minus-circle" aria-hidden="true"></i>お気に入り保存</li>
         </ol>
         </div>
     </div>
@@ -182,10 +201,15 @@ $rentBooking = new \App\Rentbookingsave();
 										<?php if (!\App\User2::isProfileFullFill($user) || !IsAdminApprovedUser($user)) {?>
 											<p class="caution"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>以下の項目を設定していない為、現在アカウントは制限されています。</span></p>
 											<?php }?>
+                                            <?php if (!\App\User2::isProfileFullFill($user)){?>
+                                            <p class="user-profile-progress-suggestion must-alert">
+											<a href="{{url('RentUser/Dashboard/BasicInfo/Edit')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>アカウント情報の設定</a>
+										</p>
+                                            <?php }?>
                                         <!--show if email validation is not done-->
 										@if( !$user['IsEmailVerified'] )
 										<p class="user-profile-progress-suggestion">
-											<a href="#">メールアドレス認証</a>
+											<a href="{{url('RentUser/Dashboard/BasicInfo/Edit')}}">メールアドレス認証</a>
 										</p>
 										@endif
 										
@@ -204,7 +228,9 @@ $rentBooking = new \App\Rentbookingsave();
 										</p>
 										@endif
                                         <!--/show if payment method is not added-->
-										
+                                        @if( empty($user['Logo']) || empty($user['Cover']) || empty($user['Cover']) || empty($user['BusinessSummary']) )
+										<p class="mgt20"><a href="{{url('RentUser/Dashboard/MyProfile')}}" class="btn-info btn wdfull">プロフィールを完成させる</a></p>
+                                        @endif
 										<!--show if profile picture is not added-->
 										@if( empty($user['Logo']) )
 										<p class="user-profile-progress-suggestion">

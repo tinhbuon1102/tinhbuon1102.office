@@ -4,6 +4,12 @@
 	}	
  }
  @media only screen and (min-width:768px){
+.chatbox-inner {
+    display: table;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
 .chat_box{
 	position:fixed;
 	right:20px;
@@ -35,8 +41,7 @@
 {
 	position:fixed;
 	bottom:0px;
-	right: 290px;
-	width: 280px;
+	right: 270px;
 	text-align:right;
 		z-index:1000;
 
@@ -114,11 +119,12 @@ span.chatbox-controls.thread-actions {
     background-color: #5dc26a;
 }
 .msg_box{
-	width:100%;
-	position:relative;
+	width: 280px;
+	margin-right: 15px;
+    position: relative;
     height: 100%;
-    display: table;
-	background:white;
+    display: inline-block;
+    background: white;
 	/*border-radius:5px 5px 0px 0px;
 	margin:0 10px;
 	text-align:left;

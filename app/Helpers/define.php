@@ -94,7 +94,7 @@ define('NOTIFICATION_BOOKING_REFUND_NO_CHARGE', 'BookingRefundNoCharge');
 
 
 // ==================== LIMIT ===================== //
-define('LIMIT_NOTIFICATION', 10);
+define('LIMIT_NOTIFICATION', 50);
 define('LIMIT_OFFERS', 10);
 define('LIMIT_REVIEWS', 5);
 define('LIMIT_SPACES', 10);

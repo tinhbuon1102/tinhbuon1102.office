@@ -51,7 +51,52 @@
 						</div>
 						<!--/page-header header-fixed-->
 						<div id="feed">
+                       
 							<section class="feed-event recent-follow feed-box">
+                            <?php 
+$user = Auth::guard('user2')->user(); 
+ if (!\App\User2::isProfileFullFill($user)){?>
+                        <div class="dashboard-warn-text">
+									<div class="dashboard-must-validation">
+										<i class="icon-warning-sign fa awesome"></i>
+										<div class="warning-heading">
+                                        <ul class="list-disc">
+                                        @if( empty($user['BirthYear']) )
+                                        <li>生年月日が設定されていません</li>
+                                        @endif
+                                        @if( empty($user['Sex']) )
+                                        <li>性別が設定されていません</li>
+                                        @endif
+                                        @if( empty($user['Tel']) )
+                                        <li>電話番号が登録されていません</li>
+                                        @endif
+                                        @if( empty($user['PostalCode']) )
+                                        <li>郵便番号が登録されていません</li>
+                                        @endif
+                                        @if( empty($user['Prefecture']) )
+                                        <li>都道府県が登録されていません</li>
+                                        @endif
+                                        @if( empty($user['City']) )
+                                        <li>市区町村が登録されていません</li>
+                                        @endif
+                                        @if( empty($user['Address1']) )
+                                        <li>番地等が登録されていません</li>
+                                        @endif
+                                        </ul>
+                                        </div>
+										</div>
+								</div>
+                        <?php }?>
+                        @if(empty($user->card_name) || $paypalStatus == false )
+                        <div class="dashboard-warn-text">
+									<div class="dashboard-must-validation">
+										<i class="icon-warning-sign fa awesome"></i>
+										<div class="warning-heading">
+                                       支払方法が追加されていません
+                                        </div>
+										</div>
+								</div>
+                                @endif
 								<div class="space-setting-content">
 									@if($errors->all())
 									<div class="alert alert-danger fade in">
@@ -152,7 +197,7 @@
 												</form>
 											</fieldset>
 											<div class="hr"></div>
-											<form id="basicinfo" class="fl-form" action="{{ url('RentUser/Dashboard/BasicInfo/Edit') }}" method="post">
+											<form id="basicinfo" class="fl-form" action="{{ url('RentUser/Dashboard/BasicInfo/EditData') }}" method="post">
 												{{ csrf_field() }}
 												<fieldset>
 													<div class="Signup-sectionHeader">
@@ -417,7 +462,7 @@ echo Form::select('Prefecture', getPrefectures(), $user->Prefecture, [
 																<li class="PaymentMethods-item form-step">
 																	<div class="no-paymentmethod">
 																		<i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-																		決済方法はまだ追加されてません。
+																		支払方法はまだ追加されてません。
 																	</div>
 																</li>
 																@endif @if( empty($user->card_name) ) @else
@@ -458,7 +503,7 @@ echo Form::select('Prefecture', getPrefectures(), $user->Prefecture, [
 						</div>
 						<!--/feed-->
 						<!--footer-->
-						@include('pages.dashboard_user1_footer')
+						@include('pages.dashboard_user2_footer')
 						<!--/footer-->
 						<div id="header-payment-modal" class="remodal" data-remodal-id="modal5" data-remodal-options="hashTracking:false">
 							<div class="HomepageAuth-inner">
@@ -469,7 +514,7 @@ echo Form::select('Prefecture', getPrefectures(), $user->Prefecture, [
 									</button>
 								</div>
 								<div class="modal-body">
-									<form id="basicinfo" class="fl-form" action="{{ url('RentUser/Dashboard/BasicInfo/Edit') }}" method="post">
+									<form id="basicinfo1" class="fl-form" action="{{ url('RentUser/Dashboard/BasicInfo/Edit') }}" method="post">
 										<input type="hidden" name="_token" id="" value="{{ csrf_token() }}">
 										<div id="SelectPayment">
 											<div class="space-setting-content">
@@ -501,6 +546,7 @@ echo Form::select('Prefecture', getPrefectures(), $user->Prefecture, [
 																		<div class="input-container input_with_unit">
 																			<span class="min_selector">
 																				<select id="exp_month" name="exp_month" class="old_ui_selector">
+                                                                                    <option value="">-</option>
 																					<option value="1" @if($user->exp_month==1) @endif>1</option>
 																					<option value="2" @if($user->exp_month==2) @endif>2</option>
 																					<option value="3" @if($user->exp_month==3) @endif>3</option>
@@ -518,6 +564,7 @@ echo Form::select('Prefecture', getPrefectures(), $user->Prefecture, [
 																			</span>
 																			<span class="min_selector">
 																				<select id="exp_year" name="exp_year" class="old_ui_selector">
+                                                                                <option value="">-</option>
 																<?php for($date=date('Y');$date<date('Y')+10;$date++): ?>
 																<option value="<?php echo $date;?>" @if($user->
 																	exp_year==$date)  @endif>
@@ -577,7 +624,7 @@ echo Form::select('Prefecture', getPrefectures(), $user->Prefecture, [
 									</button>
 								</div>
 								<div class="modal-body">
-									<form id="basicinfo" class="fl-form" action="{{ url('RentUser/Dashboard/BasicInfo/Edit') }}" method="post">
+									<form id="basicinfo2" class="fl-form" action="{{ url('RentUser/Dashboard/BasicInfo/Edit') }}" method="post">
 										<input type="hidden" name="_token" id="" value="{{ csrf_token() }}">
 										<div id="SelectPayment">
 											<div class="space-setting-content">
@@ -792,6 +839,25 @@ echo Form::select('Prefecture', getPrefectures(), $user->Prefecture, [
 	jQuery(function($){    
 
 		$("#basicinfo").validate({
+		  	errorPlacement: function(label, element) { 
+				label.addClass('form-error');
+				label.insertAfter(element);
+		},
+		rules: {
+		    
+		  }
+		});
+		
+		$("#basicinfo1").validate({
+		  	errorPlacement: function(label, element) { 
+				label.addClass('form-error');
+				label.insertAfter(element);
+		},
+		rules: {
+		    
+		  }
+		});
+		$("#basicinfo2").validate({
 		  	errorPlacement: function(label, element) { 
 				label.addClass('form-error');
 				label.insertAfter(element);

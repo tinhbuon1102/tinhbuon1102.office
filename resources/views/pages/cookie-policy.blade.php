@@ -5,10 +5,6 @@
 <!--/head-->
 <body class="home">
 <div class="viewport">
-<div class="header_wrapper">
-<header id="header">
-<div class="header_container">
-<div class="logo_container"><a class="logo" href="index.html">Offispo</a></div>
 <!--nav-->
 
             <?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header_nav_shareuser.php'); ?>
@@ -22,9 +18,6 @@
   @endif
 
 <!--/nav-->
-</div>
-</header>
-</div>
 <div class="hero-article hero-hiw-page ng-scope">
 <div class="hero-article-content">
 <h1 class="hero-article-title"><strong>クッキーポリシー</strong></h1>

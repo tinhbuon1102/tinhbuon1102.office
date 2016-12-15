@@ -9,7 +9,7 @@
 				$notifTitle = 'があなたをお気に入りに追加しました。';
 				break;
 			case NOTIFICATION_REVIEW_BOOKING :
-				$notifTitle = ($notifications[0]['Status'] == 0) ? 'が以下のスペース利用を終了しました。レビューを投稿しましょう。予約番号 #' .$notifications[0]['TypeID'] : 'があなたのレビューをしました regarding booking #' .$notifications[0]['TypeID'];
+				$notifTitle = ($notifications[0]['Status'] == 0) ? 'が以下のスペース利用を終了しました。レビューを投稿しましょう。予約番号 #' .$notifications[0]['TypeID'] : 'があなたのレビューをしました。予約番号#' .$notifications[0]['TypeID'];
 				break;
 			case NOTIFICATION_BOOKING_PLACED :
 				$notifTitle = 'からスペースを予約を受付ました。予約番号: #' . $notifications[0]['TypeID'];

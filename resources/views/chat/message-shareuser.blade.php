@@ -100,7 +100,7 @@
                         <div class="flex-column fill-height">
 						
 							<div class="head flex-cell-auto clearfix">
-                            <button style="display:none; text-align:right;" id="goback">戻る</button>
+                            <button style="display:none; text-align:right;" id="goback"><i class="fa fa-chevron-left" aria-hidden="true"></i>戻る</button>
 						<!--input type="button" style="background:url('back_btn.png'); display:none; text-align:right;" id="goback"/-->
 								<h2 class='chat-name'></h2>
 								<div class="chat-st isonline "></div>
@@ -422,12 +422,14 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 $('li.user-id').on('click', function() {
 	//alert("test");
   document.getElementsByClassName('chat-left')[0].style.display = 'none';
+  document.getElementsByClassName('header_wrapper')[0].style.display = 'none';
   document.getElementById("goback").style.display = "block";
   document.getElementsByClassName('chat-right')[0].style.display = 'block';
  //document.getElementsByClassName('fotter')[0].style.display = 'block';
 });
 $("#goback").click(function(){
   document.getElementsByClassName('chat-left')[0].style.display = 'block';
+  document.getElementsByClassName('header_wrapper')[0].style.display = 'block';
   document.getElementById("goback").style.display = "none";
   document.getElementsByClassName('chat-right')[0].style.display = 'none';
   //document.getElementsByClassName('fotter')[0].style.display = 'none';

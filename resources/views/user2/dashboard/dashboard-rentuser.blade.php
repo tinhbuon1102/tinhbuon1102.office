@@ -102,23 +102,6 @@ $rentBooking = new \App\Rentbookingsave();
 						</div>
 						<ul id="news-feed-list" class="transitions-enabled infinite-scroll">
                         
-                        <?php if (!count($bookingHistories)) {?>
-                        <li class="feed no-border">
-                        <div class="news-feed-wrapper">
-                        <div class="first-notice no_book_notice">
-                        <div class="text-center">
-                        <h2>スペースを探しましょう</h2>
-                        <i class="icon-offispo-icon-07 icon--xl block icon--light"></i>
-                        <p class="intro">あなたのオフィススペースを探しましょう。</p>
-                        <p><a href="{{url('RentUser/Dashboard/SearchSpaces')}}" class="btn-info btn">スペースを探す</a></p>
-                        <hr>
-                        <p class="mb0"><a href="{{url('help/rentuser')}}" class="color-link">Offispoについてもっと学ぶ</a></p>
-                        </div>
-                        </div>
-                        </div>
-                        </li>
-                        <?php }?>
-                        
                       @if( empty($paypalStatus) OR !count($user->certificates)) 
                                 <li class="feed">
 	<div class="news-feed-wrapper">
@@ -129,7 +112,7 @@ $rentBooking = new \App\Rentbookingsave();
        
 <?php if (!\App\User2::isProfileFullFill($user)){?>
         <li><strong>アカウント情報の設定</strong><br/><span>必須のアカウント情報の項目が未設定です。</span><a href="{{url('RentUser/Dashboard/BasicInfo/Edit')}}" class="btn-info btn">アカウント情報設定</a></li><?php }?>
-	@if( empty($paypalStatus) )	
+	@if(empty($user->card_name) && empty($paypalStatus) )
 		<li><strong>支払い方法の登録</strong><br/><span>予約時の決済に使用する支払い方法を登録してください。</span><a href="{{url('RentUser/Dashboard/BasicInfo/Edit')}}" class="btn-info btn">支払方法登録</a></li>@endif
 	@if( !count($user->certificates) || !$user->SentToAdmin)
 		<li><strong>本人確認書類の提出</strong><br/><span>サービス利用の不正を防ぐため、組織・個人証明書の提出が必須です。提出後、2~3営業日にて審査が完了します。</span><a href="{{url('RentUser/Dashboard/Identify/Upload')}}" class="btn-info btn">証明書の提出</a></li>
@@ -147,6 +130,23 @@ $rentBooking = new \App\Rentbookingsave();
     </div>
         </div>
         </li>
+        @else
+        <?php if (!count($bookingHistories)) {?>
+                        <li class="feed no-border">
+                        <div class="news-feed-wrapper">
+                        <div class="first-notice no_book_notice">
+                        <div class="text-center">
+                        <h2>スペースを探しましょう</h2>
+                        <i class="icon-offispo-icon-07 icon--xl block icon--light"></i>
+                        <p class="intro">あなたのオフィススペースを探しましょう。</p>
+                        <p><a href="{{url('RentUser/Dashboard/SearchSpaces')}}" class="btn-info btn">スペースを探す</a></p>
+                        <hr>
+                        <p class="mb0"><a href="{{url('help/rentuser')}}" class="color-link">Offispoについてもっと学ぶ</a></p>
+                        </div>
+                        </div>
+                        </div>
+                        </li>
+                        <?php }?>
 @endif
                         
 							@include('user2.dashboard.dashboard-rentuser-feed')
@@ -222,7 +222,7 @@ $rentBooking = new \App\Rentbookingsave();
                                         <!--/show if document is not send-->
 										
                                         <!--show if payment method is not added-->
-										@if( empty($paypalStatus) )	
+                                        @if(empty($user->card_name) && empty($paypalStatus) )
 										<p class="user-profile-progress-suggestion must-alert">
 											<a href="{{url('RentUser/Dashboard/BasicInfo/Edit')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>支払い方法の追加</a>
 										</p>
@@ -371,9 +371,10 @@ $rentBooking = new \App\Rentbookingsave();
 			</div>
 		</div>
 		<!--/main-container-->
-		<!--footer-->
 		<?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/common_footer.php'); ?>
-		@include('pages.common_footer')
+		<!--footer-->
+						@include('pages.dashboard_user2_footer')
+						<!--/footer-->
 
 		<!--/footer-->
 	</div>

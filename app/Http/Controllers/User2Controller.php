@@ -1225,19 +1225,47 @@ class User2Controller extends Controller
 			}
 		}
 
-		$budgets= \App\Budget :: where('Type', '!=','search')->get();
-		$timeslots=\App\Timeslot :: get();
-		$user=User2::find(Auth::guard('user2')->user()->id);
-		$space= User2requirespace::firstOrNew(array('User2ID' => Auth::guard('user2')->user()->id));;
-
+		$aBudgets = \App\Budget::where('Type', '!=', 'search')->get();
+		$aTimeslots = \App\Timeslot::get();
+		$user = User2::find(Auth::guard('user2')->user()->id);
+		$space = User2requirespace::firstOrNew(array(
+			'User2ID' => Auth::guard('user2')->user()->id
+		));
+		
+		$aSpaceTypes = getSpaceTypeMapper();
+		
+		$timeslots = array();
+		$budgets = array();
+		$areas = array();
+		foreach ($aTimeslots as $timeslot)
+		{
+			$timeslots[$timeslot->id] = $timeslot->Display;
+		}
+		
+		foreach ($aBudgets as $budget)
+		{
+			$budgets[$budget->id] = $budget->Display;
+		}
+		
+		foreach(Config::get('lp.spaceArea') as $area => $ar )
+		{
+			$areas[$ar['id']] = $ar['display'];
+		}
+			
 		$userPortfolios = User2portfolio::where('User2Id', '=', Auth::guard('user2')->user()->id)->get();
 		$reviews = Userreview::avarageUser2Reviews($user->id);
 		$allReviews = Userreview::getUser2Reviews($user->id);
-
+		
 		$isPaymentSetup = User2::isPaymentSetup($user);
 		$isProfileFullFilled = User2::isProfileFullFill($user);
 
-		return view('user2.dashboard.profile-rentuser_edit',compact('user','space','budgets','timeslots', 'userPortfolios', 'reviews', 'allReviews', 'isPaymentSetup', 'isProfileFullFilled'));
+		$spaceTypes = explode(',', $space->SpaceType);
+		foreach ($spaceTypes as $indexSpaceType => $spaceType)
+		{
+			$spaceTypes[$indexSpaceType] = implode(',', @$aSpaceTypes[$spaceType]);
+		}
+		$space->SpaceType = implode(',', $spaceTypes);
+		return view('user2.dashboard.profile-rentuser_edit',compact('user','aSpaceTypes', 'space','budgets','timeslots', 'areas', 'userPortfolios', 'reviews', 'allReviews', 'isPaymentSetup', 'isProfileFullFilled'));
 	}
 	public function myProfileEditSubmit(Request $request)
 	{

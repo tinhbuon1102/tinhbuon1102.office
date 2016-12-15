@@ -87,7 +87,7 @@ $user = Auth::guard('user2')->user();
 										</div>
 								</div>
                         <?php }?>
-                        @if(empty($user->card_name) || $paypalStatus == false )
+                        @if(empty($user->card_name) && empty($paypalStatus) )
                         <div class="dashboard-warn-text">
 									<div class="dashboard-must-validation">
 										<i class="icon-warning-sign fa awesome"></i>
@@ -118,6 +118,19 @@ $user = Auth::guard('user2')->user();
 														<!--5%-->
 													</legend>
 												</div>
+                                                @if(empty($user->card_name) && empty($paypalStatus) || !\App\User2::isProfileFullFill($user) )
+                                                <div class="alert-identity-message">本人確認書類提出の前に、以下の設定を完了させてください。
+                                            <ul class="list-disc">
+                                            @if( !\App\User2::isProfileFullFill($user) )
+                                            <li>必須のアカウント情報を設定</li>
+                                            @endif
+                                            @if(empty($user->card_name) && empty($paypalStatus) )
+                                            <li>支払方法を設定</li>
+                                            @endif
+                                            </ul>
+                                            </div>
+                                            <a href="#" class="btn ocean-btn disable">確認書類を提出</a>
+                                                @else
                                                     <?php if(!$user->SentToAdmin) {?>
                                                     <div class="alert-identity-message">本人確認書類が提出されていません。本人証明が完了後、アカウントの制限は解除されます。</div>
 												<div class="btn-group">
@@ -129,6 +142,7 @@ $user = Auth::guard('user2')->user();
 													<a href="{{url('/')}}/RentUser/Dashboard/Identify/Upload" class="btn ocean-btn">確認書類を再送する</a>
 												</div>
                                                     <?php }?>
+                                                    @endif
 												</fieldset>
 											<div class="hr"></div>
                                                  <?php }?>

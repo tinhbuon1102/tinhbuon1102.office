@@ -14,6 +14,7 @@ $user = isset($user) ? $user : Auth::guard('user2')->user();
 		</div>
 	</div>
 </li>
+<?php if (IsAdminApprovedUser($user)) {?>
 <li class="pc-none">
 	<a id="bt-ms01" href="{{url('RentUser/Dashboard/Message')}}" class="content-navigation">
 		<span class="nav-link-notification-wrap">
@@ -27,6 +28,7 @@ $user = isset($user) ? $user : Auth::guard('user2')->user();
 		<!--MyPage-->
 	</a>
 </li>
+<?php }?>
 <li>
 	<a id="bt-ms1" href="{{url('RentUser/Dashboard/MyPage')}}" class="content-navigation">
 		<i class="fa fa-user" aria-hidden="true"></i>
@@ -65,6 +67,7 @@ $user = isset($user) ? $user : Auth::guard('user2')->user();
 		<!--Invoice List-->
 	</a>
 </li>
+<?php if (IsAdminApprovedUser($user)) {?>
 <li>
 	<a id="bt-ms4" href="{{url('RentUser/Dashboard/OfferList')}}" class="content-navigation">
 		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
@@ -73,6 +76,7 @@ $user = isset($user) ? $user : Auth::guard('user2')->user();
 		<!--Offer list-->
 	</a>
 </li>
+<?php }?>
 <li>
 	<a id="bt-ms5" href="{{url('RentUser/Dashboard/Favorite')}}" class="content-navigation">
 		<i class="fa fa-star" aria-hidden="true"></i>

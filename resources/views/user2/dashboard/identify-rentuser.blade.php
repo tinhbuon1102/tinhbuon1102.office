@@ -39,9 +39,26 @@
 </div>
 </div><!--/page-header header-fixed-->
 					<div id="feed">
-						<section class="feed-event recent-follow feed-box">
+						<section class="feed-event recent-follow feed-box" id="certificate">
 							
 							<div class="space-setting-content">
+                            @if(empty($user->card_name) && empty($paypalStatus) || !\App\User2::isProfileFullFill($user) )
+                            <div class="dashboard-warn-text">
+                        <div class="dashboard-must-validation">
+                        <i class="icon-warning-sign fa awesome"></i>
+                        <div class="warning-heading">本人確認書類提出の前に、以下の設定を完了させてください。
+                         <ul class="list-disc">
+                                            @if( !\App\User2::isProfileFullFill($user) )
+                                            <li>必須のアカウント情報を設定</li>
+                                            @endif
+                                            @if(empty($user->card_name) && empty($paypalStatus) )
+                                            <li><a href="{{url('RentUser/Dashboard/BasicInfo/Edit')}}">支払方法を設定</a></li>
+                                            @endif
+                                            </ul>
+                        </div>
+                        </div>
+                        </div>
+                            @endif
 									<div class="form-container">
 									<?php $error = Session::get('error'); ?>
 			<?php $message = Session::get('success'); ?>
@@ -70,9 +87,9 @@
 <p>以下のファイルアップローダーから、必要書類をアップロードし本人確認手続きをおこなってください。</p>
 </div>
 <div class="hr"></div>
-<div class="form-field">
+<div class="form-field @if(empty($user->card_name) && empty($paypalStatus) || !\App\User2::isProfileFullFill($user) )no-allow @endif">
 <div class="input-container2">
-<label>ファイル</label><input name="userfile[]" required type="file" multiple /></div>
+<label>ファイル</label><span class="btn btn-default btn-file"><i class="fa fa-file" aria-hidden="true"></i>参照<input name="userfile[]" required type="file" multiple /></span></div>
 <div class="input-container2">
 <label>種類</label>
 <select name="doctype" required>
@@ -135,7 +152,6 @@
 </div>
 
 </fieldset>
-<div class="hr"></div>
 
 </div>
 </form>
@@ -148,6 +164,9 @@
 
 					</div>
 					<!--/feed-->
+                    <!--footer-->
+						@include('pages.dashboard_user2_footer')
+						<!--/footer-->
 </div><!--/page-wrapper-->
 					
 

@@ -154,7 +154,7 @@ $user = Auth::guard('user1')->user();
 									</div>
 								</section>
 							</div>
-							<form enctype='multipart/form-data' method="post" action="{{ url('ShareUser/Dashboard/HostSetting') }}">
+							<form enctype='multipart/form-data' id="settinginfo" method="post" action="{{ url('ShareUser/Dashboard/HostSetting') }}">
 								{{ csrf_field() }}
 								<div class="page-header header-fixed">
 									<div class="container-fluid">
@@ -206,7 +206,7 @@ $user = Auth::guard('user1')->user();
 																郵便番号
 																<!--Postal code-->
 															</label>
-															<input name="PostalCode" id="zip" type="text" value="{{$user->PostalCode}}" 　class="ng-pristine ng-untouched ng-invalid-required" aria-required="true">
+															<input name="PostalCode" id="zip" type="text" value="{{$user->PostalCode}}" required=""　class="ng-pristine ng-untouched ng-invalid-required" aria-required="true">
 														</div>
 													</div>
 													<!--/form-field-->
@@ -217,7 +217,7 @@ $user = Auth::guard('user1')->user();
 																都道府県
 																<!--Prefecture-->
 															</label>
-															<select id="Prefecture" name="Prefecture" class="confidential">
+															<select id="Prefecture" name="Prefecture" class="confidential" required="">
 																<option value=""></option>
 																<option value="北海道">北海道</option>
 																<option value="青森県">青森県</option>
@@ -1064,6 +1064,7 @@ $(window).scroll(function() {
 		</script>
 	<link rel="stylesheet" href="{{ URL::asset('js/chosen/chosen.css') }}">
 	<script src="{{ URL::asset('js/jquery.validate.js?v=1') }}"></script>
+    
 	<script src="{{ URL::asset('js/chosen/chosen.jquery.js') }}" type="text/javascript"></script>
 	<script src="{{ URL::asset('js/assets/custom_edit_form.js') }}"></script>
 	<script>

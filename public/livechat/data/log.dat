@@ -1021,3 +1021,19 @@ Stack trace:
 /Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app/Application.php:79 (Application:runAction())
 /Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app.php:26 (Application:run())
 
+Application path: /livechat/php/app.php?admin
+2016-12-15 12:39:52 [error] SQLSTATE[HY000] [2002] Operation timed out
+Stack trace:
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/service/Database.php:46 (Logger:error())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/service/Database.php:64 (Database:connect())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/service/Database.php:25 (Database:reconnect())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/lib/Service.php:17 (Database:onRegister())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/lib/ServiceContainer.php:47 (Service:setServiceContainer())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/lib/Service.php:30 (ServiceContainer:get())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/service/ModelValidation.php:177 (Service:get())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/controller/AdminController.php:133 (ModelValidation:validateDb())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/controller/AdminController.php:29 (AdminController:getInstallStatus())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app/Application.php:155 (AdminController:indexAction())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app/Application.php:79 (Application:runAction())
+/Volumes/DATA/MyWorks/Documents/tinhbuon1102.office/public/livechat/php/app.php:26 (Application:run())
+

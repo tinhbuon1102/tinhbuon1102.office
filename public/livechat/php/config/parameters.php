@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'dbHost' => '192.168.100.3',
+  'dbHost' => '192.168.100.101',
   'dbPort' => '3306',
   'dbUser' => 'remote',
   'dbPassword' => 'remote',

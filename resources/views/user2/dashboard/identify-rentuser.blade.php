@@ -89,7 +89,17 @@
 <div class="hr"></div>
 <div class="form-field @if(empty($user->card_name) && empty($paypalStatus) || !\App\User2::isProfileFullFill($user) )no-allow @endif">
 <div class="input-container2">
-<label>ファイル</label><span class="btn btn-default btn-file"><i class="fa fa-file" aria-hidden="true"></i>参照<input name="userfile[]" required type="file" multiple /></span></div>
+<label>ファイル</label>
+<div class="col-inlineb">
+<div class="input-group">
+<label class="input-group-btn">
+<span class="btn btn-default btn-file"><i class="fa fa-file" aria-hidden="true"></i>参照<input name="userfile[]" required type="file" multiple /></span>
+</label>
+<input type="text" class="form-control" readonly>
+</div>
+</div>
+
+</div>
 <div class="input-container2">
 <label>種類</label>
 <select name="doctype" required>
@@ -210,6 +220,33 @@ $(document).ready(function() {
 		$('form#basicinfo').submit();
 	});
 	
+});
+$(function() {
+
+  // We can attach the `fileselect` event to all file inputs on the page
+  $(document).on('change', ':file', function() {
+    var input = $(this),
+        numFiles = input.get(0).files ? input.get(0).files.length : 1,
+        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [numFiles, label]);
+  });
+
+  // We can watch for our custom `fileselect` event like this
+  $(document).ready( function() {
+      $(':file').on('fileselect', function(event, numFiles, label) {
+
+          var input = $(this).parents('.input-group').find(':text'),
+              log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+          if( input.length ) {
+              input.val(log);
+          } else {
+              if( log ) alert(log);
+          }
+
+      });
+  });
+  
 });
 </script>	
 </body>

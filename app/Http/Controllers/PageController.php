@@ -81,7 +81,7 @@ class PageController extends Controller
 
 			return Response::json(array(
 					'success' => true,
-					'next' => "ShareUser/BasicInfo"
+					'next' => url("ShareUser/BasicInfo")
 			));
 		}
 		else if($formFields['looking_for']=="RentUser")
@@ -104,7 +104,7 @@ class PageController extends Controller
 
 			return Response::json(array(
 					'success' => true,
-					'next' => "RentUser/BasicInfo"
+					'next' => url("RentUser/BasicInfo")
 			));
 		}
 	}
@@ -364,7 +364,7 @@ class PageController extends Controller
 			});
 			return Response::json(array(
 					'success' => true,
-					'next' => ""
+					'next' => url('')
 			));
 		}
 
@@ -387,7 +387,7 @@ class PageController extends Controller
 			});
 			return Response::json(array(
 					'success' => true,
-					'next' => ""
+					'next' => url('')
 			));
 		}
 

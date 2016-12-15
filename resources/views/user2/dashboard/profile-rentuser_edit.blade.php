@@ -592,7 +592,7 @@ $description_area = trim(str_ireplace($breaks, "\r\n", $description));
 																	<td>
 																		<div class="editable-block-wraper">
 																			<div class="editable-block location-budget">
-																				<span>{{$areas[$space->SpaceArea]}}</span>
+																				<span>{{@$areas[$space->SpaceArea]}}</span>
 																			</div>
 																		</div>
 																	</td>
@@ -1013,7 +1013,7 @@ foreach ( $allReviews as $reviewIndex => $review )
 															<td>
 																<div class="editable-block-wraper">
 																	<div class="editable-block location-budget">
-																		<span>{{$areas[$space->SpaceArea]}}</span>
+																		<span>{{@$areas[$space->SpaceArea]}}</span>
 																	</div>
 																</div>
 															</td>

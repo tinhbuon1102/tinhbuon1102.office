@@ -134,8 +134,6 @@
 														<i class="fa fa-envelope"></i>
 														{{readCountTotal(Auth::guard('user1')->user()->HashCode,'User1ID')}}
 													</div>
-													<i class="fa fa-clock-o"></i>
-													<small>2016-09-25 3:19pm</small>
 												</div>
 												<!--/col-xs-9-->
 											</div>
@@ -365,6 +363,17 @@
 			],
 		    container: "body",
 		    smartPlacement: true,
+		    template: "<div class='popover tour'>" + 
+	        "<div class='arrow'></div>" +
+	        "<h3 class='popover-title'></h3>" +
+	        "<div class='popover-content'></div>" +
+	        "<div class='popover-navigation'> " +
+		        "<div class='btn-group'> " +
+			        "<button class='btn btn-sm btn-default disabled' data-role='prev' disabled='' tabindex='-1'>« 前へ</button>" + 
+			        "<button class='btn btn-sm btn-default' data-role='next'>次へ »</button>  " +
+		        "</div> " +
+		        "<button class='btn btn-sm btn-default' data-role='end'>ガイドを終了</button>" + 
+	        "</div>",
 		});
 
 		tour.addStep({

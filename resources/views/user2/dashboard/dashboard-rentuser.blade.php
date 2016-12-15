@@ -102,7 +102,7 @@ $rentBooking = new \App\Rentbookingsave();
 						</div>
 						<ul id="news-feed-list" class="transitions-enabled infinite-scroll">
                         
-                      @if( empty($paypalStatus) OR !count($user->certificates)) 
+                      @if( empty($user->card_name) && empty($paypalStatus) || !count($user->certificates)) 
                                 <li class="feed">
 	<div class="news-feed-wrapper">
 		<div class="first-notice">
@@ -198,8 +198,15 @@ $rentBooking = new \App\Rentbookingsave();
 												
 											</div>
 										</div>
-										<?php if (!\App\User2::isProfileFullFill($user) || !IsAdminApprovedUser($user)) {?>
-											<p class="caution"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>以下の項目を設定していない為、現在アカウントは制限されています。</span></p>
+                                        <?php if($user->SentToAdmin && !IsAdminApprovedUser($user) ) {?>
+                                         <p class="caution"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                                            <span>審査中の為、現在アカウントは制限されています。</span>
+                                            </p>
+                                            <?php }?>
+										<?php if (!\App\User2::isProfileFullFill($user) || !count($user->certificates) || !$user->SentToAdmin || empty($user->card_name) && empty($paypalStatus)) {?>
+											<p class="caution"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                                            <span>以下の項目を設定していない為、現在アカウントは制限されています。</span>
+                                            </p>
 											<?php }?>
                                             <?php if (!\App\User2::isProfileFullFill($user)){?>
                                             <p class="user-profile-progress-suggestion must-alert">

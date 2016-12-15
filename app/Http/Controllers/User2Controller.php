@@ -1262,7 +1262,10 @@ class User2Controller extends Controller
 		$spaceTypes = explode(',', $space->SpaceType);
 		foreach ($spaceTypes as $indexSpaceType => $spaceType)
 		{
-			$spaceTypes[$indexSpaceType] = implode(',', @$aSpaceTypes[$spaceType]);
+			if (isset($aSpaceTypes[$spaceType]) && is_array($aSpaceTypes[$spaceType]))
+			{
+				$spaceTypes[$indexSpaceType] = implode(',', @$aSpaceTypes[$spaceType]);
+			}
 		}
 		$space->SpaceType = implode(',', $spaceTypes);
 		return view('user2.dashboard.profile-rentuser_edit',compact('user','aSpaceTypes', 'space','budgets','timeslots', 'areas', 'userPortfolios', 'reviews', 'allReviews', 'isPaymentSetup', 'isProfileFullFilled'));

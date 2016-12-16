@@ -86,6 +86,9 @@ return [
 	'Booked Price:' => '金額:',
 	'Booking Status:' => '予約状況:',
 	'Capacity:' => '空き:',
+	'office spot Email Verification Text' => 'メール認証のご確認 | Offispo',
+	'office spot - Your password changed' => 'パスワードが変更されました | Offispo',
+	'office spot - Your UserName changed' => 'ユーザーネームが変更されました | Offispo',
 	'Your Session is expired, please try again.' => 'セッションがきれました。再度お試しください。',
 	'recurring_paypal_description' => '月々引き落とし :monthly_price /月',
 	'Error occured, Please try again' => 'エラーが起こりました。再度お試しください。',
@@ -98,4 +101,5 @@ return [
 	'Thank you for contacting us, we will reply to you soon' => 'お問い合わせいただき、ありがとうございます。担当者から後日連絡させていただきます。',
 	'One user has been sent a message via contact form' => 'Offispoからお問い合わせがありました。| Offispo',
 	'Contact Confirmation | Offispo' => 'お問い合わせを承りました。(自動返信メール)| Offispo',
+	'You must login as Rent User to make a booking, Redirect to Rent user login page ?' => '予約を行うには、レント(利用者)ユーザーとしてログインする必要があります。ログインページへ推移しますか？',
  ];

@@ -1,11 +1,11 @@
 <?php 
-//define('SITE_URL', 'http://office-spot.com/design/')
+//define('SITE_URL', '{{url('/')}}/design/')
 ?>
 
 <?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header.php'); ?>
  @include('pages.header')
 <!--/head-->
-<link rel="stylesheet" href="http://office-spot.com/design/js/chosen/chosen.min.css">
+<link rel="stylesheet" href="{{url('/')}}/design/js/chosen/chosen.min.css">
 <body class="mypage rentuser myspace">
 	<div class="viewport">
 		<?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header_nav_shareuser.php'); ?>

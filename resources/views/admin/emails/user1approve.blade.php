@@ -3,7 +3,7 @@
 お客様のご登録が完了いたしましたのでご連絡申し上げます。<br/><br/>
 
 以下のURLをクリックし、メールアドレス認証を行ってください。<br/>
-<a href="http://office-spot.com/Register-ShareUser/VerifyEmail/{{ $user->EmailVerificationText }}">http://office-spot.com/Register-ShareUser/VerifyEmail/{{ $user->EmailVerificationText }}</a> 
+<a href="{{url('/')}}/Register-ShareUser/VerifyEmail/{{ $user->EmailVerificationText }}">{{url('/')}}/Register-ShareUser/VerifyEmail/{{ $user->EmailVerificationText }}</a> 
 <br/><br/>
 
 <table style="width:500px;">

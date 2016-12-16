@@ -6,7 +6,7 @@
 <body>
 <div style="width:100%;display:block; max-width:100%;margin:0 auto;box-sizing:border-box;">
 	<div style="width:100%;text-align:center;">
-<img src="{{url('/')}}/images/logo.png" />
+<img src='{{url('/')}}/images/logo.png' />
     </div>
     <div style="display:block;border:1px solid #000;box-sizing:border-box;float:left;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;">
         <div style="padding: 10px 10px 10px 10px;border-bottom:1px solid #000;width: 100%;float: left;box-sizing: border-box;">

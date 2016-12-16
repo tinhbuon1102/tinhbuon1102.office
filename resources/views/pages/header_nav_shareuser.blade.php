@@ -127,8 +127,13 @@
 				<li class="menu-mypage">
 					<a href="{{url('ShareUser/Dashboard/MyPage')}}">マイページ</a>
 				</li>
-				<li class="menu-message">
-					<a href="{{url('ShareUser/Dashboard/Message')}}">メッセージ</a>
+                <li class="menu-message">
+                <?php $user = Auth::guard('user1')->user(); 
+				if (IsAdminApprovedUser($user)) { ?>
+                <a href="{{url('ShareUser/Dashboard/Message')}}">メッセージ</a>
+                <?php } else {  ?>
+                <a href="#" class="disable">メッセージ</a>
+				<?php } ?>
 				</li>
 				<li class="menu-signup">
 					<a href="{{url('ShareUser/Dashboard/Review')}}">レビュー</a>

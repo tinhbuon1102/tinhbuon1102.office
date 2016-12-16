@@ -116,7 +116,12 @@
 					<a href="{{url('RentUser/Dashboard/MyPage')}}">マイページ</a>
 				</li>
 				<li class="menu-message">
+                <?php $user = Auth::guard('user2')->user(); 
+				if (IsAdminApprovedUser($user)) { ?>
 					<a href="{{url('RentUser/Dashboard/Message')}}">メッセージ</a>
+                <?php } else {  ?>
+                <a href="#" class="disable">メッセージ</a>
+				<?php } ?>
 				</li>
 				<li class="menu-signup">
 					<a href="{{url('RentUser/Dashboard/Review')}}">レビュー</a>

@@ -167,7 +167,7 @@
 <img src="{{ URL::asset('lpnew/rentuser/images/logo-wht.png') }}" />
 <p class="copy">&copy;2016 AVENTURES INC.</p>
 </div><!--/f-logo-->
-<div class="middle-link"><a class="company-link ja" href="http://office-spot.com/lp/public/company">運営会社</a>|<a class="contact-btn" href="http://office-spot.com/lp/public/contact">お問い合わせ</a></div>
+<div class="middle-link"><a class="company-link ja" href="{{url('/')}}/lp/public/company">運営会社</a>|<a class="contact-btn" href="{{url('/')}}/lp/public/contact">お問い合わせ</a></div>
 <div class="social">
 <a href="https://twitter.com/_9337943632122" target="_blank" class="icon-sns-icon-twi"></a>
 <a href="https://www.facebook.com/Japanproperties/?ref=tn_tnmn" target="_blank" class="icon-sns-icon-fb"></a>

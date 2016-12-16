@@ -32,7 +32,7 @@
 									<div class="row">
 										<div class="col-md-4 logo">
 											<h1>
-												<img src="http://www.office-spot.com/images/logo-blk.png" />
+												<img src="{{url('/')}}/images/logo-blk.png" />
 											</h1>
 										</div>
 										<div class="col-md-4 tcenter">
@@ -40,7 +40,7 @@
 										</div>
 										<div class="col-md-4 tright">
 											<div class="t-box">
-												<p>www.office-spot.com</p>
+												<p>{{url('/')}}</p>
 											</div>
 										</div>
 									</div>

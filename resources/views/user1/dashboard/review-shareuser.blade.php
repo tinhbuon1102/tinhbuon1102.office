@@ -3,7 +3,7 @@
 @include('pages.header')
 
 <!--/head-->
-<link rel="stylesheet" href="http://office-spot.com/design/js/chosen/chosen.min.css">
+<link rel="stylesheet" href="{{url('/')}}/design/js/chosen/chosen.min.css">
 <link rel="stylesheet" type='text/css' href="<?php echo SITE_URL?>css/select2.min.css">
 <script src="{{ URL::asset('js/jquery.responsiveTabs.js') }}"></script>
 <body class="mypage">

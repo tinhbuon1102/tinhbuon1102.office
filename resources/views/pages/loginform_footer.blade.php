@@ -1,5 +1,5 @@
 <div id="footerArea" class="loginform_footer">
-<p id="copyright"><a href="http://aventures.jp/" target="_blank"><img src="http://www.office-spot.com/images/logo-blk.png" alt="Offispo" width="90" height="auto"></a>Copyright © Aventures, Inc. All Rights Reserved.</p>
+<p id="copyright"><a href="http://aventures.jp/" target="_blank"><img src="{{url('/')}}/images/logo-blk.png" alt="Offispo" width="90" height="auto"></a>Copyright © Aventures, Inc. All Rights Reserved.</p>
 </div>
 </div>
 	<script src="{{ URL::asset('js/jquery.validate.js?v=1') }}"></script>

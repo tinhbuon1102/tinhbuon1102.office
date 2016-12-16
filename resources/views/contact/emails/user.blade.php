@@ -46,7 +46,7 @@
 <p>TEL：03-3470-2770</p>
 <p>MAIL:info@office-spot.com</p>
 <br />
-<p>http://office-spot.com/</p>
+<p>{{url('/')}}/</p>
 ==========================================
 </body>
 </html>

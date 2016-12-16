@@ -87,23 +87,23 @@ if (!defined('SITE_URL')) define('SITE_URL', url('/') . '/');
 	
 	
 	
-<script src="http://www.office-spot.com/js/jquery.webui-popover.js" ></script>
+<script src="{{url('/')}}/js/jquery.webui-popover.js" ></script>
 
-<script class="rs-file" src="http://www.office-spot.com/js/assets/royalslider/jquery.royalslider.min.js"></script>
-<link class="rs-file" href="http://www.office-spot.com/js/assets/royalslider/royalslider.css" rel="stylesheet">
-<script class="rs-file" src="http://www.office-spot.com/js/assets/royalslider/jquery.easing-1.3.js"></script>
-<script src="http://www.office-spot.com/js/labeluty/jquery-labelauty.js"></script>
+<script class="rs-file" src="{{url('/')}}/js/assets/royalslider/jquery.royalslider.min.js"></script>
+<link class="rs-file" href="{{url('/')}}/js/assets/royalslider/royalslider.css" rel="stylesheet">
+<script class="rs-file" src="{{url('/')}}/js/assets/royalslider/jquery.easing-1.3.js"></script>
+<script src="{{url('/')}}/js/labeluty/jquery-labelauty.js"></script>
 <!-- syntax highlighter -->
-<script src="http://www.office-spot.com/js/assets/preview-assets/js/highlight.pack.js"></script>
+<script src="{{url('/')}}/js/assets/preview-assets/js/highlight.pack.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script> hljs.initHighlightingOnLoad();</script>
 <!-- preview-related stylesheets -->
-<link href="http://www.office-spot.com/js/assets/preview-assets/css/reset.css" rel="stylesheet">
-<link href="http://www.office-spot.com/js/assets/preview-assets/css/smoothness/jquery-ui-1.8.22.custom.css" rel="stylesheet">
-<link href="http://www.office-spot.com/js/assets/preview-assets/css/github.css" rel="stylesheet">
+<link href="{{url('/')}}/js/assets/preview-assets/css/reset.css" rel="stylesheet">
+<link href="{{url('/')}}/js/assets/preview-assets/css/smoothness/jquery-ui-1.8.22.custom.css" rel="stylesheet">
+<link href="{{url('/')}}/js/assets/preview-assets/css/github.css" rel="stylesheet">
 
-<script src="http://www.office-spot.com/js/perfect-scrollbar/js/jquery.mousewheel.min.js" type="text/javascript"></script>
-<script src="http://www.office-spot.com/js/perfect-scrollbar/js/perfect-scrollbar.js" type="text/javascript"></script>
+<script src="{{url('/')}}/js/perfect-scrollbar/js/jquery.mousewheel.min.js" type="text/javascript"></script>
+<script src="{{url('/')}}/js/perfect-scrollbar/js/perfect-scrollbar.js" type="text/javascript"></script>
 <script src="{{ URL::asset('js/calendar/loadingoverlay.js') }}"></script>
 	@yield('head')
 	<script type="text/javascript">

@@ -4,10 +4,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="index,follow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:url" content="http://office-spot.com/" />
+<meta property="og:url" content="{{url('/')}}/" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="offispo | オフィスポ" />
-<meta property="og:image" content="http://office-spot.com/lpnew/images/office-spot.jpg" />
+<meta property="og:image" content="{{url('/')}}/lpnew/images/office-spot.jpg" />
 <meta property="og:image:width" content="600" />
 <meta property="og:image:height" content="315" />
 <meta property="fb:app_id" content="121741681580900" />
@@ -15,22 +15,22 @@
 <meta name="Keywords" content="offispo,オフィスポ,オフィススペース,レンタルオフィス,短期,オフィス" />
 <meta name="description" content="offispoであなたのオフィススペースを収益化しませんか？好きな時間、価格で、フリーデスク、会議室から個室まで、様々な種類のオフィスが掲載できるマッチングサイト。" />
 <title>offispo | オフィスポ</title>
-<link rel="apple-touch-icon" sizes="57x57" href="http://office-spot.com/lpnew/images/favicon/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="http://office-spot.com/lpnew/images/favicon/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="http://office-spot.com/lpnew/images/favicon/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="http://office-spot.com/lpnew/images/favicon/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="http://office-spot.com/lpnew/images/favicon/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="http://office-spot.com/lpnew/images/favicon/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="http://office-spot.com/lpnew/images/favicon/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="http://office-spot.com/lpnew/images/favicon/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="http://office-spot.com/lpnew/images/favicon/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="http://office-spot.com/lpnew/images/favicon/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://office-spot.com/lpnew/images/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="http://office-spot.com/lpnew/images/favicon/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="http://office-spot.com/lpnew/images/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="57x57" href="{{url('/')}}/lpnew/images/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="{{url('/')}}/lpnew/images/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="{{url('/')}}/lpnew/images/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="{{url('/')}}/lpnew/images/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="{{url('/')}}/lpnew/images/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="{{url('/')}}/lpnew/images/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="{{url('/')}}/lpnew/images/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="{{url('/')}}/lpnew/images/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="{{url('/')}}/lpnew/images/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="{{url('/')}}/lpnew/images/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="{{url('/')}}/lpnew/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="{{url('/')}}/lpnew/images/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{{url('/')}}/lpnew/images/favicon/favicon-16x16.png">
 <link rel="manifest" href="/manifest.json">
 <meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="http://office-spot.com/lpnew/images/favicon/ms-icon-144x144.png">
+<meta name="msapplication-TileImage" content="{{url('/')}}/lpnew/images/favicon/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
 <link rel="stylesheet" href="{{ URL::asset('lpnew/style.css') }}" media="screen">
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -42,13 +42,13 @@
 <section class="hero anim active">
 <div class="hero-animation">
 <div class="nav">
-<div class="logo_container"><a class="logo" href="http://office-spot.com/"></a></div>
-<div class="contact-link"><a class="contact-btn" href="http://office-spot.com/contact">お問い合わせ</a></div>
+<div class="logo_container"><a class="logo" href="{{url('/')}}/"></a></div>
+<div class="contact-link"><a class="contact-btn" href="{{url('/')}}/contact">お問い合わせ</a></div>
 </div>
 <div class="hero-copy">
 <div class="invert-copy">
 <h1>MONETIZE YOUR SPACE</h1>
-<img src="http://office-spot.com/lpnew/images/office-spot.jpg" style="display:none"/>
+<img src="{{url('/')}}/lpnew/images/office-spot.jpg" style="display:none"/>
 <p>あなたのオフィススペースを収益化へ</p>
 <a class="button yellow_btn" data-link-action="Sign Up" data-link-label="Hero Section" href="{{ url('Register-ShareUser') }}">シェア会員先行登録</a>
 </div>
@@ -206,7 +206,7 @@
 <img src="{{ URL::asset('lpnew/images/logo-wht.png') }}" />
 <p class="copy">&copy;2016 AVENTURES INC.</p>
 </div><!--/f-logo-->
-<div class="middle-link"><a class="company-link ja" href="http://office-spot.com/company">運営会社</a>|<a class="contact-btn" href="http://office-spot.com/contact">お問い合わせ</a></div>
+<div class="middle-link"><a class="company-link ja" href="{{url('/')}}/company">運営会社</a>|<a class="contact-btn" href="{{url('/')}}/contact">お問い合わせ</a></div>
 <div class="social">
 <a href="https://mobile.twitter.com/offispo10" target="_blank" class="icon-sns-icon-twi"></a>
 <a href="https://www.facebook.com/offispo" target="_blank" class="icon-sns-icon-fb"></a>

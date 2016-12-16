@@ -11,13 +11,6 @@ $allDatas = \App\Rentbookingsave::select('rentbookingsaves.*')
 	
 $totalCountStatus = $allDatas->get()->count();
 ?>
-<!--<li>
-											<a href="http://office-spot.com/ShareUser/Dashboard/MyPage" class="content-navigation selected">
-												<i class="fa fa-user" aria-hidden="true"></i>
-												My Page
-												<!--マイページ-->
-<!--</a>
-										</li>-->
 <li class="pc-none side-panel-item">
 	<div class="side-panel-btn side-panel-btn-active">
 		<a id="bt-ms0" href="{{url('ShareUser/Dashboard')}}" class="content-navigation">

@@ -7,10 +7,10 @@
 					<div class="col_full">
 						<ul class="ft-nav">
 							<li>
-								<a href="http://office-spot.com/lp/public/contact">お問い合わせ</a>
+								<a href="{{url('/')}}/lp/public/contact">お問い合わせ</a>
 							</li>
 							<li>
-								<a href="http://office-spot.com/lp/public/company">会社概要</a>
+								<a href="{{url('/')}}/lp/public/company">会社概要</a>
 							</li>
 						</ul>
 					</div>

@@ -98,7 +98,7 @@ use App\Spaceslot;
 <tbody>
 <tr class="t-caption"><th colspan="2">予約詳細</th></tr>
 <tr class="ver-top pad">
-@if(isset($rent_data->spaceID->spaceImage[0]))<td><a href='ShareUser/ShareInfo/View/{!!$rent_data->spaceID->HashID!!}'><img src="http://office-spot.com/{!!$rent_data->spaceID->spaceImage[0]->ThumbPath!!}" class="space-thum" /> </td>@endif
+@if(isset($rent_data->spaceID->spaceImage[0]))<td><a href='ShareUser/ShareInfo/View/{!!$rent_data->spaceID->HashID!!}'><img src="{{url('/')}}/{!!$rent_data->spaceID->spaceImage[0]->ThumbPath!!}" class="space-thum" /> </td>@endif
 <td>
 <?php 
 $slots_id=explode(';',$rent_data['spaceslots_id']);

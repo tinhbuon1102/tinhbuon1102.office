@@ -218,21 +218,6 @@ class User1ChatController extends Controller
 		global $from;
 		$from = Config::get('mail.from');
 
-		// Send email to admin
-	/*	Mail::send('chat.email.newchatmsg',
-		[
-		'name' => $name,
-		'msg' => $request->text,
-		'date' => $datetime,
-		'link' => 'http://www.office-spot.com/RentUser/Dashboard/Message/'.Auth::user()->HashCode,
-
-		], function ($message)  use ($eml){
-			global $request, $from;
-			$message->from($from['address'], $from['name']);
-			$message->to($eml)->subject('office spot New Chat Message');
-		});*/
-
-
 		Chatmessage::where('ChatID',  $chat->id)->where('User1ID',  '')->update(['IsRead' => 'Yes']);
 		Chat::where('id',  $chat->id)->update(['LastMsgDateTime' => date('Y-m-d H:i:s')]);
 		if(!empty(Auth::user()->Logo))

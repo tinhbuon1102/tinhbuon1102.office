@@ -41,7 +41,7 @@ include (dirname(dirname(__FILE__)) . '/config.php');
 					</li>
 					<li class="divider"></li>
 					<li>
-						<a href="http://office-spot.com/MyAdmin/Logout">
+						<a href="{{url('/')}}/MyAdmin/Logout">
 							<i class="fa fa-sign-out fa-fw"></i>
 							Logout
 						</a>
@@ -58,7 +58,7 @@ include (dirname(dirname(__FILE__)) . '/config.php');
 				<ul class="nav in" id="side-menu">
 
 					<li>
-						<a href="http://office-spot.com/MyAdmin/Dashboard">
+						<a href="{{url('/')}}/MyAdmin/Dashboard">
 							<i class="fa fa-dashboard fa-fw"></i>
 							Dashboard
 						</a>
@@ -75,13 +75,13 @@ include (dirname(dirname(__FILE__)) . '/config.php');
                             </ul>
                         </li>-->
 					<li>
-						<a href="http://office-spot.com/MyAdmin/User1">
+						<a href="{{url('/')}}/MyAdmin/User1">
 							<i class="fa fa-dashboard fa-fw"></i>
 							シェア会員(貸す側)
 						</a>
 					</li>
 					<li>
-						<a href="http://office-spot.com/MyAdmin/User2">
+						<a href="{{url('/')}}/MyAdmin/User2">
 							<i class="fa fa-dashboard fa-fw"></i>
 							レント会員(借りる側)
 						</a>

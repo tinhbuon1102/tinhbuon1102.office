@@ -99,11 +99,14 @@ class MyAdminController extends Controller
 					$user1->IsAdminApproved="Yes";
 					$user1-> EmailVerificationText=uniqid();
 					$user1->save();
-					Mail::send('admin.emails.user1approve', ['user' => $user1], function ($m) use ($user1) {
-						$m->from('info@office-spot.com', 'Office Spot');
-
-						$m->to($user1->Email)->subject('offispo 会員登録完了のお知らせ');
-					});
+					
+					sendEmailCustom ([
+						'user' => $user1,
+						'sendTo' => $user1->Email,
+						'template' => 'admin.emails.user1approve',
+						'subject' => 'offispo 会員登録完了のお知らせ']
+							);
+					
 				}
 			}
 			session()->flash('suc', 'ユーザーが承認されました。');
@@ -189,11 +192,12 @@ class MyAdminController extends Controller
 
 	public function sendmail(User1 $user1)
 	{
-		Mail::send('admin.emails.user1approve', ['user' => $user1], function ($m) use ($user1) {
-			$m->from('info@office-spot.com', 'Office Spot');
-
-			$m->to($user1->Email)->subject('offispo 会員登録完了のお知らせ');
-		});
+		sendEmailCustom ([
+			'user' => $user1,
+			'sendTo' => $user1->Email,
+			'template' => 'admin.emails.user1approve',
+			'subject' => 'offispo 会員登録完了のお知らせ']
+				);
 	}
 	public function validateMyAdmin(Request $request, Useradmin $useradmin)
 	{

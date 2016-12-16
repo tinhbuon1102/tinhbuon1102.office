@@ -10,29 +10,29 @@
 
 
 <!-- Bootstrap Core CSS -->
-<link href="http://office-spot.com/admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="{{url('/')}}/admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- MetisMenu CSS -->
-<link href="http://office-spot.com/admin/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+<link href="{{url('/')}}/admin/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 
 <!-- DataTables CSS -->
-<link href="http://office-spot.com/admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+<link href="{{url('/')}}/admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
 
 <!-- DataTables Responsive CSS -->
-<link href="http://office-spot.com/admin/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+<link href="{{url('/')}}/admin/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
 
 
 <!-- Timeline CSS -->
-<link href="http://office-spot.com/admin/dist/css/timeline.css" rel="stylesheet">
+<link href="{{url('/')}}/admin/dist/css/timeline.css" rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="http://office-spot.com/admin/dist/css/sb-admin-2.css" rel="stylesheet">
+<link href="{{url('/')}}/admin/dist/css/sb-admin-2.css" rel="stylesheet">
 
 <!-- Morris Charts CSS -->
-<link href="http://office-spot.com/admin/bower_components/morrisjs/morris.css" rel="stylesheet">
+<link href="{{url('/')}}/admin/bower_components/morrisjs/morris.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
-<link href="http://office-spot.com/admin/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="{{url('/')}}/admin/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 <!--new css--->
 <link href="<?php echo SITE_URL?>admin/css/myadmin.css" rel="stylesheet">

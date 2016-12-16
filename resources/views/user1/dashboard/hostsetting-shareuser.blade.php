@@ -840,7 +840,7 @@ $user = Auth::guard('user1')->user();
 									<div class="space-setting-content">
 										<p class="exp">Offispoの利用規約となります。</p>
 										<div class="view_terms_use">
-											<a href="http://www.office-spot.com/TermCondition/ShareUser" class="color-link" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i>貸主利用規約を見る</a>
+											<a href="{{url('/')}}/TermCondition/ShareUser" class="color-link" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i>貸主利用規約を見る</a>
 										</div>
 										<form id="TermsUse">
 											<div class="form-container">

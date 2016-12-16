@@ -45,21 +45,30 @@ class CompanyController extends Controller
 		Session::put("message",$request->message);
 		
 		// Send email to admin
-		Mail::send('company.emails.admin', ['company_name' => $request->company_name, 'name' => $request->name, 'tel' => $request->tel, 'email' => $request->email, 'company_message' => $request->message], function ($message) {
-			global $request;
-			$message->from('info@office-spot.com', 'Office Spot');
-			$mails = ['info@office-spot.com'];
-			$message->to($mails)->subject('offispo お問い合わせを承りました');
-		});
+		sendEmailCustom ([
+			'company_name' => $request->company_name, 
+			'name' => $request->name, 
+			'tel' => $request->tel, 
+			'email' => $request->email, 
+			'company_message' => $request->message,
+			'sendTo' => $from['address'],
+			'template' => 'company.emails.admin',
+			'subject' => 'offispo お問い合わせを承りました']
+				);
+		
 		
 		// Send email to user
-		Mail::send('company.emails.user', ['company_name' => $request->company_name, 'name' => $request->name, 'tel' => $request->tel, 'email' => $request->email, 'company_message' => $request->message], function ($message) {
-			global $request;
-			$message->from('info@office-spot.com', 'Office Spot');
-			$mails = [$request->email];
-			$message->to($mails)->subject('offispo お問い合わせを承りました');
-		});
-			
+		sendEmailCustom ([
+			'company_name' => $request->company_name, 
+			'name' => $request->name, 
+			'tel' => $request->tel, 
+			'email' => $request->email, 
+			'company_message' => $request->message,
+			'sendTo' => $request->email,
+			'template' => 'company.emails.user',
+			'subject' => 'offispo お問い合わせを承りました']
+				);
+		
 		return redirect('company/thankyou');
 	}
 

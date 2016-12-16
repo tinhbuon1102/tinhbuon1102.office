@@ -424,7 +424,7 @@ class PageController extends Controller
 				[
 				'name' => $name,
 				'msgs' =>$user1Chats,
-				'link' => 'http://www.office-spot.com/RentUser/Dashboard/Message/'.$chat->user2->HashCode,
+				'link' => url('/RentUser/Dashboard/Message/'.$chat->user2->HashCode),
 
 				], function ($message)  use ($eml){
 					global $request, $from;
@@ -449,7 +449,7 @@ class PageController extends Controller
 				[
 				'name' => $name,
 				'msgs' =>$user2Chats,
-				'link' => 'http://www.office-spot.com/ShareUser/Dashboard/Message/'.$chat->user1->HashCode,
+				'link' => url('ShareUser/Dashboard/Message/'.$chat->user1->HashCode),
 
 				], function ($message)  use ($eml){
 					global $request, $from;

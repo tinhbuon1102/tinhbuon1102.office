@@ -764,7 +764,7 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
 														<tbody>
 															<tr>
 																<td class="font_default" style="padding: 12px 24px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; mso-line-height-rule: exactly; text-align: center; vertical-align: middle; -webkit-border-radius: 4px; border-radius: 4px; background-color: #1f1f1f;">
-																	<a href="http://www.office-spot.com/RentUser/Dashboard" style="display: block; text-decoration: none; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-weight: bold; text-align: center;">
+																	<a href="{{url('/')}}/RentUser/Dashboard" style="display: block; text-decoration: none; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-weight: bold; text-align: center;">
 																		<span style="text-decoration: none; color: #ffffff; text-align: center; display: block;">View Offer</span>
 																	</a>
 																</td>

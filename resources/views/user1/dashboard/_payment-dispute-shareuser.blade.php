@@ -1,4 +1,5 @@
 <?php 
+//define('SITE_URL', '{{url('/')}}/design/')
 ?>@include('pages.header')
 
 <?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header.php'); ?>

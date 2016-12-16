@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'office-spot.com'),
+    'host' => env('MAIL_HOST', 'houroffice.jp'),
 
     /*
     |--------------------------------------------------------------------------

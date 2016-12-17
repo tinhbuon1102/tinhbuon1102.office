@@ -336,7 +336,7 @@ $rentBooking = new \App\Rentbookingsave();
 											<!--start if booking is reserved-->
 											<li>
 												<p class="trunc">
-													<a href="{{getRentBookingDetailUrl($bookingHistory->id)}}">予約番号: #{{$bookingHistory->id}} - {{$bookingHistory->bookedSpace->Title}}</a>
+													<a href="{{getSharedBookingDetailUrl($bookingHistory->id)}}">予約番号: #{{$bookingHistory->id}} - {{$bookingHistory->bookedSpace->Title}}</a>
 													<!--name of office space-->
 												</p>
 												<p>

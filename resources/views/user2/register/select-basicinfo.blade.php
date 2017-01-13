@@ -361,16 +361,17 @@ jQuery(document).ready(function(){
     <script src="{{ URL::asset('js/jquery.validationEngine.js') }}"></script>
 <script src="{{ URL::asset('js/jquery.validationEngine-ja.js') }}"></script>
 <link rel="stylesheet" href="{{ URL::asset('css/validationEngine.jquery.css') }}">
-<script>
-  jQuery(function(){
-    jQuery("#basicinfo").validationEngine();
-  });
-</script>
+
 	<!--<script src="{{ URL::asset('js/jquery.validate.js?v=1') }}"></script>-->
 	<script src="{{ URL::asset('js/KanaMaker.js') }}"></script>
 	<script src="{{ URL::asset('js/kana.js') }}"></script>
 	<script src="{{ URL::asset('js/chosen/chosen.jquery.js') }}" type="text/javascript"></script>
 	<script src="{{ URL::asset('js/assets/custom_edit_form.js') }}" type="text/javascript"></script>
+    <script>
+  jQuery(function(){
+    jQuery("#basicinfo").validationEngine();
+  });
+</script>
 	<!--<script>
 		$("#basicinfo").validate({
 				  	errorPlacement: function(label, element) { 

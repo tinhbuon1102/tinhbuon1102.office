@@ -54,7 +54,7 @@
 																}
 																	
 																?>
-																<a data-favorited="Favorited" data-favorite="Favorite" data-tooltip="お気に入り取り消し" href="#" class="gry-btn added_fav button-favorite" id="fav-btn" onclick="return false;">
+																<a data-favorited="Favorited" data-favorite="Favorite" data-favspaceid="{{@$favrt->SpaceId}}" data-tooltip="お気に入り取り消し" href="#" class="gry-btn added_fav button-favorite" id="fav-btn" onclick="return false;">
 																	<i class="fa fa-star" aria-hidden="true"></i>
 																	お気に入り追加済
 																</a>
@@ -115,7 +115,8 @@
 		placement: 'auto-bottom',
 		trigger:'hover',
 		content:function() {          
-            return '<a href="javascript:void(0);" data-favspaceid="{{@$favrt->SpaceId}}" data-toggle="modal" data-target="#modalConfirmDelete">お気に入り取り消し</a>';
+			var spaceID = $(this).data('favspaceid');     
+            return '<a href="javascript:void(0);" data-favspaceid="'+ spaceID +'" data-toggle="modal" data-target="#modalConfirmDelete">お気に入り取り消し</a>';
         }
 	});
 	
@@ -135,14 +136,14 @@
                 		$('#modalConfirmDelete #yms_message').html('<div class="alert alert-success"><?=trans("common.delete_success")?></div>');
                 		setTimeout(function(){ 
 	                       location.reload();
-	                    }, 4000);
+	                    }, 1200);
                 	}else {
                 		$('#modalConfirmDelete #yms_message').html('<div class="alert alert-danger"><?=trans("common.delete_error")?></div>');
                 		$('.confirm_yms_remove_fav').prop('disabled',false);
                 	}
                     setTimeout(function(){ 
                         $('.yms_message').html('');
-                    }, 4000);
+                    }, 1200);
                 },
                 error: function() {                                       
                     alert('An error occurred. Please try again!');

@@ -125,5 +125,6 @@ define('DATE_TIME_DEFAULT_FORMAT', 'Y-m-d H:i:s');
 define('DATE_DEFAULT_FORMAT', 'Y-m-d');
 define('TIME_DEFAULT_FORMAT', 'H:i:s');
 define('JS_CACHED_TIME', 10);
+define('NOTIFICATION_STR_LIMIT', 32);
 
 define('REQUIRE_MESSAGE_FIELD_TEXT', 'は、必ず指定してください。');

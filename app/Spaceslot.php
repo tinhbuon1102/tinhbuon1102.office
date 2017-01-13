@@ -71,7 +71,7 @@ class Spaceslot extends Model
 			{
 				$slots = $slots->where(function ($query) use($startDateAvailable, $startTimeAvailable){
 					$query = $query->orWhere(function ($query) use ($startDateAvailable, $startTimeAvailable){
-						$query->where('StartDate', '>=', $startDateAvailable);
+						$query->where('StartDate', '>', $startDateAvailable);
 					});
 							
 						$query = $query->orWhere(function ($query) use ($startDateAvailable, $startTimeAvailable){
@@ -286,7 +286,7 @@ class Spaceslot extends Model
 			{
 				$aAvailableSlots = $aAvailableSlots->where(function ($query) use($startDateAvailable, $startTimeAvailable){
 					$query = $query->orWhere(function ($query) use ($startDateAvailable, $startTimeAvailable){
-						$query->where('StartDate', '>=', $startDateAvailable);
+						$query->where('StartDate', '>', $startDateAvailable);
 					});
 					
 					$query = $query->orWhere(function ($query) use ($startDateAvailable, $startTimeAvailable){
@@ -518,7 +518,7 @@ class Spaceslot extends Model
 					{
 						$aAvailableSlots = $aAvailableSlots->where(function ($query) use($startDateAvailable, $startTimeAvailable){
 							$query = $query->orWhere(function ($query) use ($startDateAvailable, $startTimeAvailable){
-								$query->where('StartDate', '>=', $startDateAvailable);
+								$query->where('StartDate', '>', $startDateAvailable);
 							});
 							
 							$query = $query->orWhere(function ($query) use ($startDateAvailable, $startTimeAvailable){

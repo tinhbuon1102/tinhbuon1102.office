@@ -79,7 +79,7 @@ class Notification extends Model
 			$deleteNotification = $deleteNotification->where('Type', $type);
 		}
 		
-		$deleteNotification->delete();
+// 		$deleteNotification->delete();
 			
 		// Save notification
 		$notification = new \App\Notification();

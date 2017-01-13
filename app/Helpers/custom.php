@@ -187,7 +187,7 @@ function getUser1ChatNotification(\App\Chatmessage $ch)
 			'.$ch->user2->LastName.' '.$ch->user2->FirstName.'
 			<span class="online-status online" data-size="medium"></span>
 			</h4>
-			<p class="notification-item-text">'.$ch->Message.'</p>
+			<p class="notification-item-text">'.str_limit(strip_tags($ch->Message), NOTIFICATION_STR_LIMIT).'</p>
 			<div class="notification-item-status">
 			<time class="timestamp">'.renderHumanTime($ch->created_at).'</time>
 			</div>
@@ -208,7 +208,7 @@ function getUser2ChatNotification(\App\Chatmessage $ch)
 			'.$ch->user1->LastName.' '.$ch->user1->FirstName.'
 			<span class="online-status online" data-size="medium"></span>
 			</h4>
-			<p class="notification-item-text">'.$ch->Message.'</p>
+			<p class="notification-item-text">'.str_limit(strip_tags($ch->Message), NOTIFICATION_STR_LIMIT).'</p>
 			<div class="notification-item-status">
 			<time class="timestamp">'.renderHumanTime($ch->created_at).'</time>
 			</div>

@@ -241,7 +241,7 @@ class User1ChatController extends Controller
 			
 		$nm = getUserName(Auth::guard('user1')->user());
 		event (new NewChatMessage($request->id,$Chatmessage->Message,$logo,Auth::user()->HashCode,$nm,'user2',$chat->id));
-		event(new NewChatNotificaion($request->id,Auth::user()->HashCode,$nm,$Chatmessage->Message,$Chatmessage->created_at->diffForHumans(),$logo));
+		event(new NewChatNotificaion($request->id,Auth::user()->HashCode,$nm,str_limit(strip_tags($Chatmessage->Message), NOTIFICATION_STR_LIMIT),$Chatmessage->created_at->diffForHumans(),$logo));
 		Cache::forget('chatNotification-'.$request->id);
 		return('true');
 

@@ -331,7 +331,7 @@ class User2Controller extends Controller
 		function ($message) use ($user, $from){
 			$message->from($from['address'], $from['name']);
 			$mails = [$user->Email];
-			$message->to($mails)->subject('メールアドレスの認証 | OFFISPO');
+			$message->to($mails)->subject('メールアドレスの認証 | hOur Office');
 		});
 		return Response::json(array(
 				'success' => true,

@@ -234,7 +234,7 @@ class User2ChatController extends Controller
 			$logo='/images/man-avatar.png';
 		$nm = getUserName(Auth::guard('user2')->user());
 		event(new NewChatMessage($request->id,$Chatmessage->Message,$logo,Auth::guard('user2')->user()->HashCode,$nm,'user1',$chat->id));
-		event(new NewChatNotificaion($request->id,Auth::guard('user2')->user()->HashCode,$nm,$Chatmessage->Message,$Chatmessage->created_at->diffForHumans(),$logo));
+		event(new NewChatNotificaion($request->id,Auth::guard('user2')->user()->HashCode,$nm,str_limit(strip_tags($Chatmessage->Message), NOTIFICATION_STR_LIMIT),$Chatmessage->created_at->diffForHumans(),$logo));
 		Cache::forget('chatNotification-'.$request->id);
 		return('true');
 

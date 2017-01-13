@@ -984,8 +984,8 @@
 					var placeholder    = $.trim( field.attr("placeholder")                 );
 					if (
 						   ( !field_val                                    )
-						|| ( dv_placeholder && field_val == dv_placeholder )
-						|| ( placeholder    && field_val == placeholder    )
+//						|| ( dv_placeholder && field_val == dv_placeholder )
+//						|| ( placeholder    && field_val == placeholder    )
 					) {
 						return options.allrules[rules[i]].alertText;
 					}

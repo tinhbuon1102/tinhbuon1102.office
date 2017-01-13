@@ -28,7 +28,7 @@
 <div class="help-shot"><img src="/images/help/setting/addp3.jpg" /></div>
 <p>Paypalのサイトへ推移します。Paypalのアカウントをお持ちの方はログイン、そうでない方はPaypalアカウントを作成し、Paypalサイトの手順にて進めて下さい。</p>
 <div class="help-shot"><img src="/images/help/setting/addp5.jpg" /></div>
-<p>設定が完了すると、オフィスポページへ戻り、以下の様に表示されます。</p>
+<p>設定が完了すると、アワーオフィスページへ戻り、以下の様に表示されます。</p>
 <div class="help-shot"><img src="/images/help/setting/addp6.jpg" /></div>
 </div>
 </div>

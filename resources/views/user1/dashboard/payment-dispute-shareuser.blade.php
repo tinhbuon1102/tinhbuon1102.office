@@ -3,7 +3,7 @@
 
 <?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header.php'); ?>
 <!--/head-->
-<link rel="stylesheet" href="{{url('/')}}/design/js/chosen/chosen.min.css">
+<link rel="stylesheet" href="{{url('/')}}/js/chosen/chosen.min.css">
 <link rel="stylesheet" type='text/css' href="<?php echo SITE_URL?>css/select2.min.css">
 <body class="mypage">
 	<div class="viewport">

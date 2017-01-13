@@ -25,56 +25,11 @@
 									<img src="@if(!empty($cuser->user1->Logo)){{$cuser->user1->Logo}}@elseif($cuser->user1->Sex=='女性'){{'//images/woman-avatar.png'}}@else{{'//images/man-avatar.png'}}@endif" class="chat-pic" /><div class="chat-count" >7</div>
 									<h2>{{$cuser->user1->LastName}} {{$cuser->user1->FirstName}}</h2><div class="chat-st"></div>
 									<p>@if($cuser->latestChat()!=null)
-										{{str_limit($cuser->latestChat()->Message,35)}}
+										{{str_limit(strip_tags($cuser->latestChat()->Message),35)}}
 									@endif &nbsp;
 									</p><div class="chat-time">{{renderHumanTime($cuser->latestChat()->created_at)}}</div>
 								</li>
 								@endforeach
-								<li>
-									<img src="/images/man-avatar.png" class="chat-pic" /><div class="chat-count" >7</div>
-									<h2>Faraz Abbas</h2><div class="chat-st"></div>
-									<p>This is my msg kindly appreciate it...</p><div class="chat-time">7 min</div>
-								</li>
-								<li>
-									<img src="/images/man-avatar.png" class="chat-pic" /><div class="chat-count" >7</div>
-									<h2>Faraz Abbas</h2><div class="chat-st active"></div>
-									<p>This is my msg kindly appreciate it...</p><div class="chat-time">2 min</div>
-								</li>
-								<li class="active">
-									<img src="/images/man-avatar.png" class="chat-pic" /><div class="chat-count" >7</div>
-									<h2>Faraz Abbas</h2><div class="chat-st active"></div>
-									<p>This is my msg kindly appreciate it...</p><div class="chat-time">12 min</div>
-								</li>
-								<li>
-									<img src="/images/man-avatar.png" class="chat-pic" /><div class="chat-count" >7</div>
-									<h2>Faraz Abbas</h2><div class="chat-st"></div>
-									<p>This is my msg kindly appreciate it...</p><div class="chat-time">12 min</div>
-								</li>
-								<li>
-									<img src="/images/man-avatar.png" class="chat-pic" /><div class="chat-count" >7</div>
-									<h2>Faraz Abbas</h2><div class="chat-st active"></div>
-									<p>This is my msg kindly appreciate it...</p><div class="chat-time">12 min</div>
-								</li>
-								<li>
-									<img src="/images/man-avatar.png" class="chat-pic" /><div class="chat-count" >7</div>
-									<h2>Faraz Abbas</h2><div class="chat-st"></div>
-									<p>This is my msg kindly appreciate it...</p><div class="chat-time">12 min</div>
-								</li>
-								<li>
-									<img src="/images/man-avatar.png" class="chat-pic" /><div class="chat-count" >7</div>
-									<h2>Faraz Abbas</h2><div class="chat-st active"></div>
-									<p>This is my msg kindly appreciate it...</p><div class="chat-time">12 min</div>
-								</li>
-								<li>
-									<img src="/images/man-avatar.png" class="chat-pic" /><div class="chat-count" >7</div>
-									<h2>Faraz Abbas</h2><div class="chat-st"></div>
-									<p>This is my msg kindly appreciate it...</p><div class="chat-time">12 min</div>
-								</li>
-								<li>
-									<img src="/images/man-avatar.png" class="chat-pic" /><div class="chat-count" >7</div>
-									<h2>Faraz Abbas</h2><div class="chat-st active"></div>
-									<p>This is my msg kindly appreciate it...</p><div class="chat-time">12 min</div>
-								</li>
 							</ul>
 						</div>
 						<!--/chat left end-->

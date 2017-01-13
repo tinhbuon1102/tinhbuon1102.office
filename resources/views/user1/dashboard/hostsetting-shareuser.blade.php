@@ -195,7 +195,7 @@ $user = Auth::guard('user1')->user();
 														<!--Company Name-->
 													</label>
 													<div class="input-container">
-														<input name="NameOfCompany" id="NameOfCompany" value="{{$user->NameOfCompany}}" required="" ng-model="setting.space_title" type="text" class="ng-invalid" aria-invalid="true" placeholder="株式会社オフィスポ">
+														<input name="NameOfCompany" id="NameOfCompany" value="{{$user->NameOfCompany}}" required="" ng-model="setting.space_title" type="text" class="ng-invalid" aria-invalid="true" placeholder="株式会社アワーオフィス">
 													</div>
 												</div>
 												<div class="form-field address-wrapper">
@@ -292,7 +292,7 @@ $user = Auth::guard('user1')->user();
 																建物名・階・部屋番号
 																<!--Buidling name,room number-->
 															</label>
-															<input name="Address2" id="Addr2" value="{{$user->Address2}}" ng-model="signup.addr2" type="text" class="ng-pristine ng-untouched" placeholder="オフィスポビル1024">
+															<input name="Address2" id="Addr2" value="{{$user->Address2}}" ng-model="signup.addr2" type="text" class="ng-pristine ng-untouched" placeholder="アワーオフィスビル1024">
 														</div>
 													</div>
 													<!--/form-field-->
@@ -838,7 +838,7 @@ $user = Auth::guard('user1')->user();
 										</h3>
 									</div>
 									<div class="space-setting-content">
-										<p class="exp">Offispoの利用規約となります。</p>
+										<p class="exp">hOur Officeの利用規約となります。</p>
 										<div class="view_terms_use">
 											<a href="{{url('/')}}/TermCondition/ShareUser" class="color-link" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i>貸主利用規約を見る</a>
 										</div>
@@ -1236,7 +1236,7 @@ $("#chgemail").validate({
 
 
     		if(x1=="" || y1=="" || x2=="" || y2=="" || w=="" || h==""){
-    			alert("Please Make a Selection First");
+    			alert("<?php echo trans('common.Please make a selection first')?>");
     		}
 			else{
 

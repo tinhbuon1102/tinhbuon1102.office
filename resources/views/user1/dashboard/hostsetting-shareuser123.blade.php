@@ -156,7 +156,7 @@
 												<!--会社名-->
 											</label>
 											<div class="input-container">
-												<input name="NameOfCompany" id="NameOfCompany" value="" required="" ng-model="setting.space_title" type="text" class="ng-invalid" aria-invalid="true" placeholder="株式会社オフィスポ">
+												<input name="NameOfCompany" id="NameOfCompany" value="" required="" ng-model="setting.space_title" type="text" class="ng-invalid" aria-invalid="true" placeholder="株式会社アワーオフィス">
 											</div>
 										</div>
 
@@ -269,7 +269,7 @@
 														Buidling name,room number
 														<!--建物名・階・部屋番号-->
 													</label>
-													<input name="BuildingNumber" id="BuildingNumber" value="" required="" ng-model="signup.addr2" type="text" class="ng-pristine ng-untouched" placeholder="オフィスポビル1024">
+													<input name="BuildingNumber" id="BuildingNumber" value="" required="" ng-model="signup.addr2" type="text" class="ng-pristine ng-untouched" placeholder="アワーオフィスビル1024">
 												</div>
 											</div>
 											<!--/form-field-->
@@ -621,7 +621,7 @@
 												<!--銀行口座の名義-->
 												:
 											</label>
-											カ)オフィスポ
+											カ)アワーオフィス
 										</div>
 										<div class="saved-value">
 											<label>
@@ -839,7 +839,7 @@
 								</h3>
 							</div>
 							<div class="space-setting-content">
-								<p class="exp">Here's Terms for using Offispo.</p>
+								<p class="exp">Here's Terms for using hOur Office.</p>
 								<div class="view_terms_use">
 									<a href="#" target="_blank">View Terms of use</a>
 								</div>

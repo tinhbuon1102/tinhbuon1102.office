@@ -11,7 +11,7 @@
 		<div class="header_wrapper primary-navigation-section">
 			<header id="header">
 <div class="header_container dark">
-<div class="logo_container"><a class="logo" href="{{url('/')}}">Offispo</a></div>
+<div class="logo_container"><a class="logo" href="{{url('/')}}">hOur Office</a></div>
 </div>
 </header>
 		</div>
@@ -276,7 +276,7 @@ for($i = 1; $i<=31; $i++):?>
 											<span class="require-mark">*</span>
 											会社名
 										</label>
-										<input name="NameOfCompany" value="" id="NameOfCompany" class="validate[required]" type="text" placeholder="株式会社Offispo">
+										<input name="NameOfCompany" value="" id="NameOfCompany" class="validate[required]" type="text" placeholder="株式会社hOur Office">
 									</div>
 								</div>
 								<div class="form-field two-inputs">

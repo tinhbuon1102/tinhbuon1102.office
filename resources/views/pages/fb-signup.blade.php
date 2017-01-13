@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
-<title>offispo | オフィスポ</title>
+<title>offispo | アワーオフィス</title>
 <link rel="stylesheet" href="<?php echo SITE_URL?>css/font-awesome/css/font-awesome.min.css">
 
 <link rel="stylesheet" href="<?php echo SITE_URL?>css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">

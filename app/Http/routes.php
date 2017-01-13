@@ -52,6 +52,8 @@ Route::get('cookie-policy', "PageController@cookiePolicy");
 Route::any('list-service', "PageController@listService");
 Route::get('cancel-policy', "PageController@cancelPolicy");
 Route::any('contact-us', "PageController@Contact");
+Route::get('company-info', "PageController@companyInfo");
+Route::get('support-center', "PageController@supportCenter");
 
 
 /*Route::get('myAdmin', function () {
@@ -371,6 +373,7 @@ Route::post('RentUser/Dashboard/MyProfile/CoverUpload', "User2Controller@myProfi
 Route::get('RentUser/Dashboard/EditMySpace', "User2Controller@editMySpace");
 Route::get('RentUser/Dashboard/BasicInfo/Edit', "User2Controller@editBasicInfo");
 Route::post('RentUser/Dashboard/BasicInfo/Edit', "User2Controller@editBasicInfoSubmit");
+Route::post('RentUser/Dashboard/BasicInfo/EditData', "User2Controller@editBasicInfoSubmitData");
 
 //Route::post('RentUser/Dashboard/MyProfile/Edit', "User2Controller@ShareuserDashboardPortfolio");
 

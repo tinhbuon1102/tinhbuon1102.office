@@ -9,30 +9,29 @@ if (env('APP_ENV') == ENV_PRODUCTION)
 	// PRODUCTION MODE
 	// ================== PAYPAL ======================= //
 	define('PAYPAL_SANDBOX', FALSE);
-	define('PAYPAL_APP_ID', 'APP-80W284485P519543T');
-	define('PAYPAL_APP_UN', 'quocthang.2001.japan_api1.gmail.com');
-	define('PAYPAL_APP_PW', 'UA4WC9XVN7CDWRLJ');
-	define('PAYPAL_APP_SIGNATURE', 'AFcWxV21C7fd0v3bYYYRCpSSRl31AbQ5v1TJK2G5TmwZ.NqGFsN-Ru0M');
-	define('PAYPAL_MERCHANT_EMAIL', 'quocthang.2001.japan@gmail.com');
+	define('PAYPAL_APP_ID', config('booking.PaypalLive.PAYPAL_APP_ID'));
+	define('PAYPAL_APP_UN', config('booking.PaypalLive.PAYPAL_APP_UN'));
+	define('PAYPAL_APP_PW', config('booking.PaypalLive.PAYPAL_APP_PW'));
+	define('PAYPAL_APP_SIGNATURE', config('booking.PaypalLive.PAYPAL_APP_SIGNATURE'));
+	define('PAYPAL_MERCHANT_EMAIL', config('booking.PaypalLive.PAYPAL_MERCHANT_EMAIL'));
 
 	// ================== WEBPAY ======================= //
-	define('WEPAY_SECRET_API_KEY', 'test_secret_ac709mfnrcLrdGUa3r4g95WZ');
-	define('WEPAY_PUBLIC_API_KEY', 'test_public_6wsgEFg2rgz17uJgEy7V2dnr');
-
+	define('WEPAY_SECRET_API_KEY', config('booking.WebpayLive.WEPAY_SECRET_API_KEY'));
+	define('WEPAY_PUBLIC_API_KEY', config('booking.WebpayLive.WEPAY_PUBLIC_API_KEY'));
 }
 else {
 	// DEVELOPMENT MODE
 	// ================== PAYPAL ======================= //
 	define('PAYPAL_SANDBOX', TRUE);
-	define('PAYPAL_APP_ID', 'APP-80W284485P519543T');
-	define('PAYPAL_APP_UN', 'quocthang.2001.japan_api1.gmail.com');
-	define('PAYPAL_APP_PW', 'UA4WC9XVN7CDWRLJ');
-	define('PAYPAL_APP_SIGNATURE', 'AFcWxV21C7fd0v3bYYYRCpSSRl31AbQ5v1TJK2G5TmwZ.NqGFsN-Ru0M');
-	define('PAYPAL_MERCHANT_EMAIL', 'quocthang.2001.japan@gmail.com');
-
+	define('PAYPAL_APP_ID', config('booking.PaypalTest.PAYPAL_APP_ID'));
+	define('PAYPAL_APP_UN', config('booking.PaypalTest.PAYPAL_APP_UN'));
+	define('PAYPAL_APP_PW', config('booking.PaypalTest.PAYPAL_APP_PW'));
+	define('PAYPAL_APP_SIGNATURE', config('booking.PaypalTest.PAYPAL_APP_SIGNATURE'));
+	define('PAYPAL_MERCHANT_EMAIL', config('booking.PaypalTest.PAYPAL_MERCHANT_EMAIL'));
+	
 	// ================== WEBPAY ======================= //
-	define('WEPAY_SECRET_API_KEY', 'test_secret_ac709mfnrcLrdGUa3r4g95WZ');
-	define('WEPAY_PUBLIC_API_KEY', 'test_public_6wsgEFg2rgz17uJgEy7V2dnr');
+	define('WEPAY_SECRET_API_KEY', config('booking.WebpayTest.WEPAY_SECRET_API_KEY'));
+	define('WEPAY_PUBLIC_API_KEY', config('booking.WebpayTest.WEPAY_PUBLIC_API_KEY'));
 
 }
 /* ============================================BLOCK TO EDIT - END ============================================*/

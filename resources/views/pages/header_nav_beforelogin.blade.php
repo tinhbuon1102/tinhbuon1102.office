@@ -2,7 +2,7 @@
 	<header id="header">
 		<div class="header_container dark">
 			<div class="logo_container">
-				<a class="logo" href="{{url('/')}}">Offispo</a>
+				<a class="logo" href="{{url('/')}}">hOur Office</a>
 			</div>
             
 			<!--nav-->
@@ -20,7 +20,7 @@
 </ul>
 </div>
 <div class="flex-cell-auto side-panel-bottom-row pc-none">
-<h3 class="side-panel-title text-overflow">Offispo</h3>
+<h3 class="side-panel-title text-overflow">hOur Office</h3>
 <ul class="side-panel-list">
 <li class="side-panel-item">
 <a href="{{url('help')}}" class="side-panel-btn">

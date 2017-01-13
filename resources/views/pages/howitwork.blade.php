@@ -31,7 +31,7 @@
 <section id="howitwork" class="white">
 <div class="container">
 <div class="layout-story-header ng-scope">
-<h3 class="story-title text-center">Offispoのご利用方法</h3>
+<h3 class="story-title text-center">hOur Officeのご利用方法</h3>
 <div class="hiwn-hiwp-copy">各種カテゴリーからご利用方法をご参照ください。</div>
 </div>
 <div class="hiw-media-block">
@@ -82,7 +82,7 @@
 <section id="hiw-feature" class="gray">
 <div class="container">
 <div class="layout-story-header ng-scope">
-<h3 class="story-title text-center">Offispoの利用メリット</h3>
+<h3 class="story-title text-center">hOur Officeの利用メリット</h3>
 </div>
 <div class="ofsp-benefit">
 <div class="row">
@@ -90,7 +90,7 @@
   <div class="hiwn-benefit-icon hiwn-benefit-icon-connect"><span class="icon-offispo-icon-07"></span></div>
   <div class="hiwn-benefit-content">
 <div class="hiwn-benefit-header h4">月、週、日毎に利用できるオフィス</div>
-<div class="hiwn-benefit-copy">一日毎、一月だけ使いたい！貸したい！などの希望もOffispoなら可能。時間単位、日単位、週単位、月単位での利用、提供ができます。</div>
+<div class="hiwn-benefit-copy">一日毎、一月だけ使いたい！貸したい！などの希望もhOur Officeなら可能。時間単位、日単位、週単位、月単位での利用、提供ができます。</div>
 </div>
   </div>
   <div class="col-md-6 hiwn-benefit">
@@ -129,7 +129,7 @@
   <div class="hiwn-benefit-icon hiwn-benefit-icon-connect"><span class="icon-offispo-icon-08"></span></div>
   <div class="hiwn-benefit-content">
 <div class="hiwn-benefit-header h4">安心かんたん利用規約</div>
-<div class="hiwn-benefit-copy">煩わしい契約書は無く、Offispoで用意した利用規約を用意しております。双方ユーザーはその<a href="#">利用規約</a>のもと、利用、提供を行うので安心です。</div>
+<div class="hiwn-benefit-copy">煩わしい契約書は無く、hOur Officeで用意した利用規約を用意しております。双方ユーザーはその<a href="#">利用規約</a>のもと、利用、提供を行うので安心です。</div>
 </div>
   </div>
 </div>

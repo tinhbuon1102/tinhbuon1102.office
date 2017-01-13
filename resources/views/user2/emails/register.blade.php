@@ -598,7 +598,7 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
 													<!-- /.icon_holder:icon_secondary -->
 													<h4 style="font-family: Helvetica, Arial, sans-serif; margin-left: 0; margin-right: 0; margin-top: 16px; margin-bottom: 8px; padding: 0; font-size: 22px; line-height: 30px; font-weight: bold; color: #383d42;">レント会員登録申し込み完了のお知らせ</h4>
 													<p class="lead" style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; margin-top: 16px; margin-bottom: 16px;">
-														Offispo会員登録にお申込み頂きありがとうございます。
+														hOur Office会員登録にお申込み頂きありがとうございます。
 														<br />
 														以下のリンクをクリックし、メール認証を完了させてください。
 													</p>
@@ -746,7 +746,7 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
 										<tbody>
 											<tr>
 												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; vertical-align: top; color: #b3b3b5; padding-bottom: 0; padding-top: 16px;">
-													<strong>Offispo</strong>
+													<strong>hOur Office</strong>
 													<br>
 													<small style="font-size: 86%; font-weight: normal;">このメールは自動送信の為、本メールへの返信はできませんのでご了承下さい。 </small>
 												</td>

@@ -717,7 +717,7 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
 										<tbody>
 											<tr>
 												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; vertical-align: top; color: #b3b3b5; padding-bottom: 0; padding-top: 16px;">
-													<strong>Offispo</strong>
+													<strong>hOur Office</strong>
 													<br>
 													<small style="font-size: 86%; font-weight: normal;">このメールは自動送信の為、本メールへの返信はできませんのでご了承下さい。 </small>
 												</td>

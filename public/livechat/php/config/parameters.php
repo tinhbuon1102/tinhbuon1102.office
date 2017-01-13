@@ -1,10 +1,10 @@
 <?php
 
 return array (
-  'dbHost' => '192.168.100.101',
+  'dbHost' => '127.0.0.1',
   'dbPort' => '3306',
-  'dbUser' => 'remote',
-  'dbPassword' => 'remote',
+  'dbUser' => 'root',
+  'dbPassword' => 'thang',
   'dbName' => 'offispo',
   'superUser' => 'admin',
   'superPass' => 'admin',

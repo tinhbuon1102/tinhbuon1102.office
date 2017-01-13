@@ -3,7 +3,7 @@
 @include('pages.header')
 
 <!--/head-->
-<link rel="stylesheet" href="{{url('/')}}/design/js/chosen/chosen.min.css">
+<link rel="stylesheet" href="{{url('/')}}/js/chosen/chosen.min.css">
 <link rel="stylesheet" type='text/css' href="<?php echo SITE_URL?>css/select2.min.css">
 <script src="{{ URL::asset('js/jquery.responsiveTabs.js') }}"></script>
 <body class="mypage">
@@ -30,6 +30,7 @@
 </div>
 </div>
 				<div id="feed">
+					<?php echo renderErrorSuccessHtml($errors);?>
 					<section class="review-content feed-box">
 						<?php if (count($groupedReviews)) {?>
 						<div id="reviews_tabs_wraper" style="opacity: 0;">
@@ -93,8 +94,8 @@
 											</div>
 											<?php if ($review instanceof App\Userreview) {?>
 											<p class="review-comment">
-												@if($review->Status == 0)
-													<a href="{{getUser1ProfileUrl($review->user1)}}"><span class="no-review">{{getUserName($user2)}} has left a feedback to you !</span></a>
+												@if($review->Status == 0 && $review->ReviewedBy == 'User2')
+													<a href="{{getUser2ProfileUrl($user2)}}"><span class="no-review">{{getUserName($user2)}} has left a feedback to you !</span></a>
 												@elseif($review->Status == 1)
 													<span class="no-review">{{$review->Comment}}</span>
 												@endif
@@ -104,7 +105,7 @@
                                         </div>
 										
 										<div class="col-sm-2">
-											@if($review->Status == 0 || $review instanceof App\Rentbookingsave)
+											@if(($review->Status == 0 && $review->ReviewedBy == 'User2') || $review instanceof App\Rentbookingsave)
 											<a href="<?php echo url('/ShareUser/Dashboard/Review/Write/' . $booking['id'])?>" class="btn yellow-button review-btn">
 												<i class="fa fa-pencil" aria-hidden="true"></i>
 												レビューを書く

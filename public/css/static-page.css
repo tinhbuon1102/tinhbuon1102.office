@@ -453,6 +453,7 @@ ol.cd-breadcrumb.triangle.custom-icons {
 }
 div .fa {
     line-height: inherit;
+	vertical-align: middle;
 }
 i.help-icons {
     display: block;

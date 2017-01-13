@@ -14,7 +14,7 @@
 <div id="main" class="container">
 <section class="steps-banner">
 <h3 class="steps-banner-title"> Your 3 Steps to Success</h3>
-<p class="steps-banner-explanation">A big warm welcome to Offispo! Here's how it works in 3 easy steps:</p>
+<p class="steps-banner-explanation">A big warm welcome to hOur Office! Here's how it works in 3 easy steps:</p>
 <ul class="steps-banner-list">
               <li class="steps-banner-item">
                   <span class="steps-banner-item-image"></span>

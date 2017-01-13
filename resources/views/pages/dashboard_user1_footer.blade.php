@@ -23,7 +23,7 @@ jQuery( function($){
 						<h3>About</h3>
 						<ul class="ft-nav">
 							<!--<li>
-								<a href="#">Offispoとは？</a>
+								<a href="#">hOur Officeとは？</a>
 							</li>-->
 							<li>
 								<a href="{{url('how-it-works')}}">ご利用ガイド</a>

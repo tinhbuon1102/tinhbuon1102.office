@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:url" content="{{url('/')}}/" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="offispo | オフィスポ" />
+<meta property="og:title" content="offispo | アワーオフィス" />
 <meta property="og:image" content="{{url('/')}}/lpnew/images/office-spot.jpg" />
 <meta property="og:image:width" content="600" />
 <meta property="og:image:height" content="315" />
 <meta property="fb:app_id" content="121741681580900" />
 <meta property="og:description" content="offispoであなたのオフィススペースを収益化しませんか？好きな時間、価格で、フリーデスク、会議室から個室まで、様々な種類のオフィスが掲載できるマッチングサイト。" />
-<meta name="Keywords" content="offispo,オフィスポ,オフィススペース,レンタルオフィス,短期,オフィス" />
+<meta name="Keywords" content="offispo,アワーオフィス,オフィススペース,レンタルオフィス,短期,オフィス" />
 <meta name="description" content="offispoであなたのオフィススペースを収益化しませんか？好きな時間、価格で、フリーデスク、会議室から個室まで、様々な種類のオフィスが掲載できるマッチングサイト。" />
-<title>offispo | オフィスポ</title>
+<title>offispo | アワーオフィス</title>
 <link rel="apple-touch-icon" sizes="57x57" href="{{url('/')}}/lpnew/images/favicon/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="{{url('/')}}/lpnew/images/favicon/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="{{url('/')}}/lpnew/images/favicon/apple-icon-72x72.png">
@@ -65,7 +65,7 @@
             <h2>あなたの使っていないオフィススペース<br>シェアしませんか？</h2>
             <p>
 新会社法の施行・働き方の多様化などにより、スタートアップ企業や<br>フリーランサーが年々増加しています。それに伴い、<br>「低コストでワークスペースを利用したい」という需要が増えています。<br>
-オフィスポはその様な人々、企業に向けて、あなたのオフィスの一部を<br>収益化するお手伝いをさせて頂きます。<br>
+アワーオフィスはその様な人々、企業に向けて、あなたのオフィスの一部を<br>収益化するお手伝いをさせて頂きます。<br>
 フリーデスク、会議室から個室まで、様々な種類のオフィスが掲載できます。<br>
 日、週、月というショートタームで、あなたの使用していない<br>
 オフィススペースを簡単にシェア、コンスタントに収益化が可能です。
@@ -81,7 +81,7 @@
         <div class="content">
             <h2>魅力は、収益化+新たな人材との出会い</h2>
             <p>
-オフィスポの最大の特徴は利用する側のユーザープロフィールを見ることができることです。さらに、業種やフリーランサー又は企業の人材スキルなどの詳細検索が可能。登録ユーザーは本人認証などをクリアしているユーザーですので、安心して、シェアをご提供して頂くことができます。<br>
+アワーオフィスの最大の特徴は利用する側のユーザープロフィールを見ることができることです。さらに、業種やフリーランサー又は企業の人材スキルなどの詳細検索が可能。登録ユーザーは本人認証などをクリアしているユーザーですので、安心して、シェアをご提供して頂くことができます。<br>
 もし、シェアしてあげたい、出会ってみたい人材、企業がいましたら、貴社からオファーもできます。<br>
 余っているスペースのシェアで収益化だけではなく、ビジネスシーンでのチャンス、人材の発見にも繋がります。<br>
             </p>
@@ -90,7 +90,7 @@
     </div>
 </section>
 <section class="three">
-<h2>オフィスポの特徴</h2>
+<h2>アワーオフィスの特徴</h2>
 <div class="section_clear container">
 <div class="services-grid fst clear">
 <div class="services-list"><div class="icon_wrapper"><span class="icon-offispo-icon-07"></span></div><h4>貸したい時にだけ選べる</h4><p>日、週、月で、<br>
@@ -135,7 +135,7 @@
         <div class="content">
             <div class="how"><h2>シェアする期間、時間帯、料金を設定</h2>
             <p>
-オフィスポはいつでも、スペースシェアが可能な期間、時間帯、料金の設定変更が可能です。<br/>
+アワーオフィスはいつでも、スペースシェアが可能な期間、時間帯、料金の設定変更が可能です。<br/>
 シェア可能なデスク、会議室、個室などを選び、ユーザーが柔軟に予約できるように、可能な期間と時間帯、料金を設定しましょう。
             </p></div>
             <span>02</span>
@@ -148,7 +148,7 @@
             <div class="how"><h2>申し込みしたユーザーを確認</h2>
             <p>
 オフィススペースというのは、パーソナルスペースでもあります。<br>
-そこで、オフィスポはユーザーと直接やり取りができる、<br>ダイレクトメール機能を用意しております。<br>
+そこで、アワーオフィスはユーザーと直接やり取りができる、<br>ダイレクトメール機能を用意しております。<br>
 予約リクエストを承認する前に、ユーザーのプロフィールと希望スケジュールを確認し、承認してください。<br>
 もちろん、リクエストを断ることもできます。
             </p></div>
@@ -176,7 +176,7 @@
             <p>
 通常の契約書を結ぶとなると、貴社がすぐにスペースシェアをする上で、<br>
 細かい事項が多く、複雑です。<br>
-そこで、オフィスポは、スペースシェアご利用の為の、簡潔且つ、<br>
+そこで、アワーオフィスは、スペースシェアご利用の為の、簡潔且つ、<br>
 わかりやすいシンプルな利用規約同意書を用意しております。<br>
 わかりやすく、シンプルに要点を押さえた利用規約で、手間や煩わしさのない、<br>
 スムーズな同意が可能となっております。

@@ -8,7 +8,7 @@
 <!--<div class="header_wrapper">
 <header id="header">
 <div class="header_container">
-<div class="logo_container"><a class="logo" href="{{url('/')}}">Offispo</a></div>
+<div class="logo_container"><a class="logo" href="{{url('/')}}">hOur Office</a></div>
 <!--nav-->
 
             <?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header_nav_shareuser.php'); ?>
@@ -64,12 +64,12 @@
 <section id="intro" class="white">
 <div class="container">
 <div class="col_half col_left">
-<h2 class="sec-title left-align"><span class="gray">What's</span> Offispo?</h2>
-<p class="sec-subtitle left-align">オフィスポとは？</p>
+<h2 class="sec-title left-align"><span class="gray">What's</span> hOur Office?</h2>
+<p class="sec-subtitle left-align">アワーオフィスとは？</p>
 <p class="disc">
 期間にとらわれず低コストでオフィスを利用したい。<br/>
 そんなスタートアップオフィスをお探しの企業やワークスペースをお探しの個人事業の方へ。<br/>
-オフィスポはあなたにぴったりのワークスペース探しをお手伝い致します。
+アワーオフィスはあなたにぴったりのワークスペース探しをお手伝い致します。
 フリーデスクから会議室、プライベートオフィスまで、様々な種類のオフィスが見つかります。
 もちろん、敷金、礼金、年単位での契約期間も無く、ワンクリックで、すぐにあなたのワークスペースが見つかります。
 </p>
@@ -138,8 +138,8 @@
 </div><!--/container-->
 </section>
 <section id="three-point" class="white">
-<div class="title-head"><h2 class="sec-title">Offispo offers</h2>
-<p class="sec-subtitle">オフィスポのサービスについて</p></div>
+<div class="title-head"><h2 class="sec-title">hOur Office offers</h2>
+<p class="sec-subtitle">アワーオフィスのサービスについて</p></div>
 <div class="container center">
 <div class="offer-grid grd3-flex-row grd3-flex-lg">
 <div class="grd3-flex-cell"><div class="icon_wrapper"><span class="icon-offispo-icon-07"></span></div><h4>オンライン予約・決済</h4><p>オフィス、ワークスペースをサイトにて予約・決済して、いつでも利用が可能です。</p></div>
@@ -152,12 +152,12 @@
 <section id="howitworks" class="blk-txt">
 <div class="container center">
 <h2 class="sec-title">How it works?</h2>
-<p class="sec-subtitle">オフィスポの使い方</p>
+<p class="sec-subtitle">アワーオフィスの使い方</p>
 <div class="intro-txt">
-オフィスポはあなたにぴったりのワークスペース探しをお手伝い致します。<br/>
-今すぐオフィスポでオフィススペースを見つけましょう。
+アワーオフィスはあなたにぴったりのワークスペース探しをお手伝い致します。<br/>
+今すぐアワーオフィスでオフィススペースを見つけましょう。
 </div>
-<div class="center"><a href="{{url('how-it-works')}}" class="button blk-border-button">オフィスポについて学ぶ</a></div>
+<div class="center"><a href="{{url('how-it-works')}}" class="button blk-border-button">アワーオフィスについて学ぶ</a></div>
 </div><!--/container-->
 </section>
 <section id="haveshare" class="gray">

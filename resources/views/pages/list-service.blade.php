@@ -10,7 +10,7 @@
 			<header id="header">
 				<div class="header_container">
 					<div class="logo_container">
-						<a class="logo" href="{{url('/')}}">Offispo</a>
+						<a class="logo" href="{{url('/')}}">hOur Office</a>
 					</div>
 					<!--nav-->
 
@@ -44,7 +44,7 @@
 					<div class="layout-story-header ng-scope">
 						<h3 class="story-title text-center">掲載代行サービスとは？</h3>
 						<div class="hiwn-hiwp-copy">
-							掲載代行サービスとは、Offispo運営会社があなたに代わり、
+							掲載代行サービスとは、hOur Office運営会社があなたに代わり、
 							<br class="sp-none">
 							セットアップからスペースの掲載まで代行で行うサービスです。
 						</div>

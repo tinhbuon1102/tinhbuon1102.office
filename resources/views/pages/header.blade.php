@@ -8,7 +8,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 <?php if (isset($space)) {?>
-<title>{{getSpaceTitle($space)}} | offispo | オフィスポ</title>
+<title>{{getSpaceTitle($space)}} | hOur Office | アワーオフィス</title>
 <meta name="description" content="{{getSpaceDescription($space, 160)}}"/>
 <meta property="og:url"                content="{{getSpaceUrl($space->HashID)}}"/>
 <meta property="og:type"               content="company"/>
@@ -18,7 +18,7 @@
 <meta property="og:image:width" content="450"/>
 <meta property="og:image:height" content="298"/>
 <?php }else {?>
-<title>offispo | オフィスポ</title>
+<title>hOur Office | アワーオフィス</title>
 <?php	}?>
 <link rel="apple-touch-icon" sizes="57x57" href="{{url('/')}}/lpnew/images/favicon/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="{{url('/')}}/lpnew/images/favicon/apple-icon-60x60.png">
@@ -104,7 +104,7 @@
 <script type="text/javascript" src="{{ URL::asset('js/bootstrap-filestyle.min.js') }}"></script>
 	
 	<script src="{{ URL::asset('js/labeluty/jquery-labelauty.js') }}"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+	<script src="{{ URL::asset('js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ URL::asset('js/mosaic/js/mosaic.1.0.1.min.js') }}" type="text/javascript"></script>
 
 <script src="{{ URL::asset('js/jquery.matchHeight.js') }}" type="text/javascript"></script>
@@ -302,83 +302,94 @@ jQuery(function() {
 
 
 <style>
-.remodal-close
-{
-	z-index:500;
-}
-.mm {
-    display:none;  
+.remodal-close {
+	z-index: 500;
 }
 
-.nvOpn { 
-    display:none;   
-	width: 46px;
-    height: auto;
-    position: relative;
-    float: left;
-    padding: 20px 12px;
+.mm {
+	display: none;
 }
+
+.nvOpn {
+	display: none;
+	width: 46px;
+	height: auto;
+	position: relative;
+	float: left;
+	padding: 20px 12px;
+}
+
 .nvOpn span {
 	display: inline-block;
-    height: 3px;
-    background: #000;
-    width: 100%;
-    margin: 0 0 4px 0;
-	transition:ALL ease-in-out 0.4s;
+	height: 3px;
+	background: #000;
+	width: 100%;
+	margin: 0 0 4px 0;
+	transition: ALL ease-in-out 0.4s;
 }
+
 .nvOpn.actv span:nth-child(1) {
 	-ms-transform: rotate(135deg); /* IE 9 */
-    -webkit-transform: rotate(135deg); /* Chrome, Safari, Opera */
-    transform: rotate(135deg);
+	-webkit-transform: rotate(135deg); /* Chrome, Safari, Opera */
+	transform: rotate(135deg);
 	position: absolute;
-    top: 25px;
-    left: 10px;
-	}
+	top: 25px;
+	left: 10px;
+}
+
 .nvOpn.actv span:nth-child(2) {
 	-ms-transform: rotate(45deg); /* IE 9 */
-    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-    transform: rotate(45deg);
+	-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+	transform: rotate(45deg);
 	top: 25px;
-    left: 10px;
-    position: absolute;
+	left: 10px;
+	position: absolute;
 }
-.nvOpn.actv span:nth-child(3) {
-	opacity:0;
-	}
-.nvOpn.actv span {
-    width: 30px;
-}
-@media screen and (max-width:767px) { /* 640 px */
 
-.mm {
-    display:block;  
+.nvOpn.actv span:nth-child(3) {
+	opacity: 0;
 }
-nav:not(.footer-site-nav):not(.sidebar-nav) {    
-display:none;
-	background: rgba(44, 50, 53, 0.96);
-    width: 250px;
-    left: 0;
-    position: fixed;
-    bottom: 0;
-    top: 60px;
-    min-height: 360px;
-    z-index: 8997;
+
+.nvOpn.actv span {
+	width: 30px;
+}
+
+@media screen and (max-width:768px) { /* 640 px */
+	.mm {
+		display: none;
 	}
-.header_wrapper .nvOpn { 
-    display:block;
+	nav:not (.footer-site-nav ):not (.sidebar-nav ) {
+		display: none;
+		background: rgba(44, 50, 53, 0.96);
+		width: 250px;
+		left: 0;
+		position: fixed;
+		bottom: 0;
+		top: 60px;
+		min-height: 360px;
+		z-index: 8997;
+	}
+	.header_wrapper .nvOpn {
+		display: block;
+	}
+	header nav>ul>li a:before {
+		margin: 0 14px 0 0;
+	}
+	header nav>ul>li {
+		width: 100%;
+	}
 }
-	header nav>ul>li a:before {margin:0 14px 0 0;}
-	header nav>ul>li {width:100%;}
-	
-}
+
 header nav>ul>li {
-    float: left !important;
+	float: left !important;
 }
+
 body.navon .nvOpn {
-    display: none;
+	display: none;
 }
+
 body.navon .nvOpn.actv {
-    display: block;
+	display: block;
 }
 </style>
 

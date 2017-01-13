@@ -11,13 +11,7 @@ $rentBooking = new \App\Rentbookingsave();
 		@include('pages.header_nav_rentuser')
 		<div class="main-container">
 			<div id="main" class="container">
-			@if(session()->has('error'))
-				<div class="alert alert-danger alert-dismissable">
-		            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					{{ session()->get('error') }}
-	        	</div>
-	
-			@endif
+			<?php echo renderErrorSuccessHtml(@$errors);?>
             <div class="row flex-wrapper">
 				<div id="feed" class="col-xs-8">
 				<?php if (!\App\User2::isProfileFullFill($user) ||  !$user->Logo || !$user->BusinessSummary) {?>
@@ -27,7 +21,7 @@ $rentBooking = new \App\Rentbookingsave();
 							<span data-bind="text: CompanyName">
 								{{getUserName($user)}}
 							</span>
-							様、Offispoへようこそ。
+							様、hOur Officeへようこそ。
 							<br />
 							以下の3ステップでオフィススペースの利用を始めましょう。
 						</p>
@@ -141,7 +135,7 @@ $rentBooking = new \App\Rentbookingsave();
                         <p class="intro">あなたのオフィススペースを探しましょう。</p>
                         <p><a href="{{url('RentUser/Dashboard/SearchSpaces')}}" class="btn-info btn">スペースを探す</a></p>
                         <hr>
-                        <p class="mb0"><a href="{{url('help/rentuser')}}" class="color-link">Offispoについてもっと学ぶ</a></p>
+                        <p class="mb0"><a href="{{url('help/rentuser')}}" class="color-link">hOur Officeについてもっと学ぶ</a></p>
                         </div>
                         </div>
                         </div>

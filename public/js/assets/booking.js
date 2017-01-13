@@ -210,6 +210,7 @@ jQuery(function($){
 	         var curr_date = d.getDate() + "";
 	         curr_date = curr_date.length == 1 ? "0" + curr_date : curr_date;
 	         var curr_month = (d.getMonth() + 1) + "";
+	         curr_month = curr_month.length == 1 ? "0" + curr_month : curr_month;
 	         var curr_year = d.getFullYear() + "";
 	         var formattedDate = curr_year + '-' + curr_month + '-' + curr_date;
 

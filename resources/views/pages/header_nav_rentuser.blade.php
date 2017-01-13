@@ -2,7 +2,7 @@
 	<header id="header">
 		<div class="header_container dark">
 			<div class="logo_container">
-				<a class="logo" href="{{url('/')}}">Offispo</a>
+				<a class="logo" href="{{url('/')}}">hOur Office</a>
 			</div>
 			<!--nav-->
             <div class="nvOpn"><span></span> <span></span> <span></span></div>
@@ -144,7 +144,7 @@
 		<div class="user-sidebar-info">
 			<figure class="ImageThumbnail ImageThumbnail--xlarge">
 
-				<a class="ImageThumbnail-link" href="/me/" title="View Profile">
+				<a class="ImageThumbnail-link" href="{{url('RentUser/Dashboard/MyProfile')}}" title="View Profile">
 					<img class="ImageThumbnail-image" src="{{getUser2Photo(Auth::guard('user2')->user()->HashCode)}}" alt="Profile Picture">
 				</a>
 
@@ -208,36 +208,6 @@
 				PlaySound();
 			} );
 		jQuery(function() {
-		
-		 jQuery(".nvOpn").click( function(e){
-			e.preventDefault();
-			e.stopPropagation();
-			jQuery(this).toggleClass("actv");
-			jQuery(".primary-navigation").toggle();
-			jQuery("nav").toggle();
-			jQuery("body, #left-box").toggleClass("navon");
-			jQuery(".header_wrapper").toggleClass("navonh");
-		});
-		
-		jQuery(".navonin").click( function(){
-			jQuery("nav").hide();
-			jQuery(".nvOpn").click();
-			jQuery("body, #left-box").removeClass("navon");
-			jQuery(".header_wrapper").removeClass("navonh");
-		}); 
-		
-		/*jQuery(".nvOpn").click( function(e){
-			e.preventDefault();
-			e.stopPropagation();
-			jQuery(this).toggleClass("actv");
-			jQuery(".mm").toggle();
-			jQuery("body, #left-box, .page-header").toggleClass("navon");
-		});
-		
-		jQuery(".navonin").click( function(){
-			jQuery(".nvOpn").click();
-			jQuery("body, #left-box").removeClass("navon");
-		});*/
 		
 		jQuery(".switcher").change(function() {
 				window.location.href = "/lang/" + jQuery(this).val();

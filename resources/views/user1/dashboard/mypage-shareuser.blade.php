@@ -249,7 +249,7 @@
 										<div class="panel-footer data-summary">
 											<div class="pane-data msg-count unread">
 												<span class="pull-left">New</span>
-												<span class="pull-right count-big">4</span>
+												<span class="pull-right count-big">{{$newFav}}</span>
 												<div class="clearfix"></div>
 											</div>
 										</div>

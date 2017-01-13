@@ -48,6 +48,7 @@ class User2Controller extends Controller
 				//return Article::all();
 			});
 		}
+		return parent::__construct();
 	}
 	//
 	public function registerUser()
@@ -1433,11 +1434,11 @@ class User2Controller extends Controller
 			$user2ID = Auth::guard('user2')->user()->id;
 			$reviewList= new \App\Userreview();
 			$groupedReviews = array();
-			$allReviewsTmp = $reviewList->where('ReviewedBy', 'User1')->where('user2ID', $user2ID)->orderBy('created_at', 'DESC')->get();
+			$allReviewsTmp = $reviewList->where('user2ID', $user2ID)->orderBy('created_at', 'DESC')->get();
 			$allReviews = array();
 			foreach ($allReviewsTmp as &$review)
 			{
-				$slots_data=\App\Bookedspaceslot::where('id', $review['booking']['id'])->orderBy('StartDate','asc')->get();
+				$slots_data=\App\Bookedspaceslot::where('BookedID', $review['booking']['id'])->orderBy('StartDate','asc')->get();
 				if (count($slots_data))
 				{
 					$review['booking']['slotID'] = $slots_data;
@@ -1445,7 +1446,11 @@ class User2Controller extends Controller
 				}
 			}
 
-			$waitingReviews = Rentbookingsave::where('user_id', $user2ID)->where('status', BOOKING_STATUS_COMPLETED)->orderBy('created_at', 'DESC')->get();
+			$waitingReviews = Rentbookingsave::select('rentbookingsaves.*')->join('user1sharespaces', 'rentbookingsaves.user1sharespaces_id', '=' ,'user1sharespaces.id')
+			->where('rentbookingsaves.status', BOOKING_STATUS_COMPLETED)->orderBy('rentbookingsaves.created_at', 'DESC')
+			->where('rentbookingsaves.user_id', $user2ID)
+// 			->whereRaw(DB::raw('rentbookingsaves.id NOT IN (SELECT BookingID From userreviews WHERE User2ID = ' . $user2ID . ' AND ReviewedBy = "User2")'))
+			->get();
 
 			foreach ($waitingReviews as $waitingReview)
 			{
@@ -1461,23 +1466,33 @@ class User2Controller extends Controller
 				if ($isWaiting)
 				{
 					$slots_id=explode(';', $waitingReview['spaceslots_id']);
-					$slots_data=Spaceslot::whereIn('id', array_filter(array_unique($slots_id)))->orderBy('StartDate','asc')->get();
-					if (count($slots_data))
-					{
-						$waitingReview['slotID'] = $slots_data;
-						$groupedReviews[0][] = $waitingReview;
-						$groupedReviews[-1][] = $waitingReview;
-					}
+					$slots_data=\App\Bookedspaceslot::whereIn('SlotID', array_filter(array_unique($slots_id)))->orderBy('StartDate','asc')->get();
+					$waitingReview['slotID'] = $slots_data;
+					$waitingReview['reviewed'] = 0;
+					$groupedReviews[0][] = $waitingReview;
+					$groupedReviews[-1][] = $waitingReview;
 				}
 			}
 
 			foreach ($allReviews as $review)
 			{
-				$groupedReviews[$review['Status']][] = $review;
-				$groupedReviews[-1][] = $review;;
+				if ($review['ReviewedBy'] == 'User1' || ($review['ReviewedBy'] == 'User2' && $review['Status'] == 0))
+				{
+					if ($review['ReviewedBy'] == 'User2' && $review['Status'] == 0)
+					{
+						$waitingReview['reviewed'] = 1;
+					}
+					$groupedReviews[$review['Status']][] = $review;
+					$groupedReviews[-1][] = $review;;
+				}
 			}
 
 			ksort($groupedReviews);
+			if (isset($groupedReviews[0]))
+			{
+				$groupedReviews[0] = msort($groupedReviews[0], array('reviewed'));
+			}	
+			
 			return $groupedReviews;
 		}
 		public function review(Request $request)
@@ -1493,7 +1508,7 @@ class User2Controller extends Controller
 			$success = Session::has('success') ? Session::get('success') : '';
 			$booking = Rentbookingsave::where('id', $bookingID)->where('status', BOOKING_STATUS_COMPLETED)->where('user_id', $user2ID)->first();
 
-			if (!$error && !$success)
+			if (!$error)
 			{
 				if ($booking)
 				{
@@ -1516,10 +1531,10 @@ class User2Controller extends Controller
 		}
 		public function reviewSave($bookingID, Request $request)
 		{
-			if (!$request->Comment) {
-				Session::flash('submitFailed', trans('reviews.review_empty_comment'));
-				return redirect('ShareUser/Dashboard/Review/Write/'.$bookingID);
-			}
+// 			if (!$request->Comment) {
+// 				Session::flash('submitFailed', trans('reviews.review_empty_comment'));
+// 				return redirect('RentUser/Dashboard/Review/Write/'.$bookingID);
+// 			}
 
 			$user2ID = Auth::guard('user2')->user()->id;
 			$booking = Rentbookingsave::where('id', $bookingID)->where('status', BOOKING_STATUS_COMPLETED)->where('user_id', $user2ID)->first();
@@ -1535,7 +1550,7 @@ class User2Controller extends Controller
 					return redirect('RentUser/Dashboard/Review/Write/'.$bookingID);
 				}
 
-				$avgRating = round((($request->Cleaniness + $request->Kindness + $request->Polite + $request->Budget+$request->Repeat)/5) * 2) / 2;
+				$avgRating = round((($request->Cleaniness)/1) * 2) / 2;
 				$request->merge(array('User1ID' => $user1ID));
 				$request->merge(array('User2ID' => $user2ID));
 				$request->merge(array('SpaceID' => $booking->user1sharespaces_id));
@@ -1571,11 +1586,11 @@ class User2Controller extends Controller
 					$status = Userreview::updateStatusBookingReview($bookingID, $booking->user1sharespaces_id, $user1ID, $user2ID);
 				}
 				Session::flash('success', trans('reviews.review_left_feedback_successfully'));
-				return redirect('RentUser/Dashboard/Review/Write/'.$bookingID);
+				return redirect('RentUser/Dashboard');
 			}
 			else {
 				Session::flash('error', trans('reviews.review_booking_not_exists'));
-				return redirect('RentUser/Dashboard/Review/Write/'.$bookingID);
+				return redirect('RentUser/Dashboard');
 			}
 		}
 

@@ -11,6 +11,14 @@ function getSharedFeedbackUrl($bookingID) {
 	return url('/ShareUser/Dashboard/Review/Write/' . $bookingID);
 }
 
+function getRentReviewListUrl() {
+	return url('/RentUser/Dashboard/Review/');
+}
+
+function getShareReviewListUrl() {
+	return url('/ShareUser/Dashboard/Review/');
+}
+
 function getSharedBookingDetailUrl($bookingID) {
 	return url('/ShareUser/Dashboard/EditBook/' . $bookingID);
 }
@@ -48,7 +56,7 @@ function getHostMemberPhoto($user)
 	if(!empty($user->HostPhoto) && file_exists(public_path() . '/' . $user->HostPhoto))
 		$logo = $user->HostPhoto;
 	else
-		$logo = '/images/man-avatar.png';
+		$logo = '/images/HostPhoto.png';
 
 	return $logo;
 }

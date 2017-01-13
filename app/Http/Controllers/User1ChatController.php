@@ -201,11 +201,24 @@ class User1ChatController extends Controller
 				'User1ID' => Auth::user()->HashCode,
 				'User2ID' => $request->id,
 				]);
+		
 		$Chatmessage=new Chatmessage();
 		$Chatmessage->ChatID=$chat->id;
 		$Chatmessage->Message=$request->text;
 		$Chatmessage->Sender="User1";
 		$Chatmessage->User1ID=Auth::user()->HashCode;
+		
+		$aMessage = explode(' ', $Chatmessage->Message);
+		foreach ($aMessage as $message)
+		{
+			$isUrl = detectWebUrl($message);
+			if ($isUrl) {
+				$message = str_replace('https://', '', $message);
+				$message = str_replace('http://', '', $message);
+				$Chatmessage->Message = str_replace($message, '<a target="_blank" href="http://'. $message .'">'. $message .'</a>', $Chatmessage->Message);
+			}
+		}
+		
 		$Chatmessage->save();
 
 		$user=User2::firstOrNew([
@@ -227,8 +240,8 @@ class User1ChatController extends Controller
 
 			
 		$nm = getUserName(Auth::guard('user1')->user());
-		event (new NewChatMessage($request->id,$request->text,$logo,Auth::user()->HashCode,$nm,'user2',$chat->id));
-		event(new NewChatNotificaion($request->id,Auth::user()->HashCode,$nm,$request->text,$Chatmessage->created_at->diffForHumans(),$logo));
+		event (new NewChatMessage($request->id,$Chatmessage->Message,$logo,Auth::user()->HashCode,$nm,'user2',$chat->id));
+		event(new NewChatNotificaion($request->id,Auth::user()->HashCode,$nm,$Chatmessage->Message,$Chatmessage->created_at->diffForHumans(),$logo));
 		Cache::forget('chatNotification-'.$request->id);
 		return('true');
 

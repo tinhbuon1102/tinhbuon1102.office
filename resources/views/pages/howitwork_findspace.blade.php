@@ -29,7 +29,7 @@
 <div class="container">
 <div class="layout-story-header ng-scope">
 <h3 class="story-title text-center">スペース検索・ご利用方法</h3>
-<div class="hiwn-hiwp-copy">あなたの探しているオフィスをOffispoでスマート検索。</div>
+<div class="hiwn-hiwp-copy">あなたの探しているオフィスをhOur Officeでスマート検索。</div>
 </div>
 <div class="hiw-list-block">
 <div class="hiwp-option">
@@ -38,7 +38,7 @@
   <div class="hiwp-option-header h4">スマート検索</div>
   <div class="hiwp-option-copy">
   3時間から1年間まで、あなたの探しているオフィススペースの規模や、利用人数、設備など細かいあなたのニーズに合わせて検索が可能。<br/>
-  あなたにとってベストのオフィススペースがOffispoの検索機能で見つかります。
+  あなたにとってベストのオフィススペースがhOur Officeの検索機能で見つかります。
 <br/><a href="{{url('RentUser/Dashboard/SearchSpaces')}}" class="link-to"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 今すぐ検索</a>
                </div>
   </div>
@@ -48,7 +48,7 @@
   <div class="col-right-disc">
   <div class="hiwp-option-header h4">利用したい時にすぐに探せる</div>
   <div class="hiwp-option-copy">
- Offispoではリアルタイムでの予約可能時間が検索可能。
+ hOur Officeではリアルタイムでの予約可能時間が検索可能。
  会議室を明日に利用したい、オフィスが決まるまでの1週間だけワークスペースが欲しい、来月から月ごとでオフィススペースを借りたいなど、急なオフィス探しにも困りません。
 <br/><a href="{{url('help/guest/searchspace')}}" class="link-to"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 検索方法はこちら</a>
                </div>
@@ -59,7 +59,7 @@
   <div class="col-right-disc">
   <div class="hiwp-option-header h4">気になったオフィススペースはお気に入り保存</div>
   <div class="hiwp-option-copy">
- Offispoでは気になるオフィスをお気に入り機能で保存可能。
+ hOur Officeでは気になるオフィスをお気に入り機能で保存可能。
  ゆっくり見る時間がない時や、気になるオフィススペースがたくさんある場合は、お気に入り追加をして、あとでゆっくり見ることができます。
  <br/><a href="{{url('help/rentuser/favourite')}}" class="link-to"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 操作方法はこちら</a>              
                </div>
@@ -70,7 +70,7 @@
   <div class="col-right-disc">
   <div class="hiwp-option-header h4">検索条件が保存可能</div>
   <div class="hiwp-option-copy">
- Offispoではあなたの希望するオフィスの条件が保存可能。
+ hOur Officeではあなたの希望するオフィスの条件が保存可能。
  また一から検索をしなおす必要もなく、少しの時間ですぐにあなたの希望オフィスが閲覧可能です。
  <br/><a href="{{url('help/rentuser/edit-myspace')}}" class="link-to"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 操作方法はこちら</a>          
                </div>
@@ -82,7 +82,7 @@
   <div class="hiwp-option-header h4">簡単予約</div>
   <div class="hiwp-option-copy">
 オフィススペースを利用できる準備はできましたか？<br/>
-Offispoでの予約は利用したい日にちや時間を選択し、"予約する"をクリック。
+hOur Officeでの予約は利用したい日にちや時間を選択し、"予約する"をクリック。
 その後は、予約の詳細、料金を確認し、あなたの登録済みの決済方法にて決済するだけ。<br/>
 <a href="{{url('/cancel-policy/')}}" class="link-to">キャンセルポリシー</a>に基づき、キャンセル可能な期間内なら、キャンセルもワンクリックで完了できます。
 <br/><a href="{{url('help/rentuser/booking')}}" class="link-to"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 操作方法はこちら</a> 
@@ -96,7 +96,7 @@ Offispoでの予約は利用したい日にちや時間を選択し、"予約す
 <section id="hiw-feature" class="gray">
 <div class="container">
 <div class="layout-story-header ng-scope">
-<h3 class="story-title text-center">Offispoの利用方法</h3>
+<h3 class="story-title text-center">hOur Officeの利用方法</h3>
 </div>
 <div class="hiw-media-block">
 <div class="row">

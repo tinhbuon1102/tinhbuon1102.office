@@ -6,7 +6,7 @@
 <div class="header_wrapper primary-navigation-section">
 <header id="header">
 <div class="header_container dark">
-<div class="logo_container"><a class="logo" href="{{url('/')}}">Offispo</a></div>
+<div class="logo_container"><a class="logo" href="{{url('/')}}">hOur Office</a></div>
 </div>
 </header>
 </div>
@@ -33,11 +33,11 @@
                 <div class="center_big_icon"><i class="fa fa-check-circle" aria-hidden="true"></i></div>
                 <h2 class="ja">仮登録が完了しました。</h2>
 				<p class="ja">
-				ご登録ありがとうございます。Offispo会員仮登録が完了しました。<br/>
+				ご登録ありがとうございます。hOur Office会員仮登録が完了しました。<br/>
                 ご登録頂いたメールアドレス宛に、仮登録完了メールをお送りしました。<br/>
                 メールをご確認頂き、メール認証を完了させてください。
 				</p>
-                <p class="ja notice">※メール受信設定によっては、オフィスポからのメールが届かない場合があります。受信設定をご確認のうえ、「迷惑メール」フォルダーに振り分けられていないかもご確認ください。</p>
+                <p class="ja notice">※メール受信設定によっては、アワーオフィスからのメールが届かない場合があります。受信設定をご確認のうえ、「迷惑メール」フォルダーに振り分けられていないかもご確認ください。</p>
 				</div>
                 <!--<div class="close-btn"><a href="/ShareUser/ShareInfo">サイトに戻る</a></div>-->
 @if(count($errors))					

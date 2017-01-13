@@ -83,7 +83,7 @@
 <section id="hiw-feature" class="gray">
 <div class="container">
 <div class="layout-story-header ng-scope">
-<h3 class="story-title text-center">Offispoの利用方法</h3>
+<h3 class="story-title text-center">hOur Officeの利用方法</h3>
 </div>
 <div class="hiw-media-block">
 <div class="row">

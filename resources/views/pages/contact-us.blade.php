@@ -34,7 +34,7 @@
 					<div class="layout-story-header ng-scope">
 						<h3 class="story-title text-center">お問い合わせフォーム</h3>
 						<div class="hiwn-hiwp-copy">
-							当サービスについてのご質問、リクエスト等はオフィスポまでお問合せください。
+							当サービスについてのご質問、リクエスト等はアワーオフィスまでお問合せください。
 							<br class="sp-none">
 							個々の予約またはスペースについてのお問合せは、スペース紹介ページの「メッセージを送る」ボタンからオーナーまでお問合せください。
 						</div>

@@ -36,7 +36,7 @@
 							<!--/col-sm-7-->
 							<div class="col-sm-5 hidden-xs">
 								<div itemprop="breadcrumb" class="breadcrumb clearfix">
-									<a href="#" title="Offispo">Home</a>
+									<a href="#" title="hOur Office">Home</a>
 									<a href="#" title="Booking">予約</a>
 									<a href="#" title="Details">予約詳細</a>
 									<a href="#" title="Summary">予約確認</a>

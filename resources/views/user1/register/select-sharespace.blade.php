@@ -115,7 +115,7 @@
 			<header id="header">
 				<div class="header_container dark">
 					<div class="logo_container">
-						<a class="logo" href="index.html">Offispo</a>
+						<a class="logo" href="index.html">hOur Office</a>
 					</div>
 				</div>
 			</header>
@@ -856,7 +856,7 @@ jQuery(function($){
 			
 			
     		if(x1=="" || y1=="" || x2=="" || y2=="" || w=="" || h==""){
-    			alert("Please Make a Selection First");
+    			alert("<?php echo trans('common.Please make a selection first')?>");
     		}
 			else{
 

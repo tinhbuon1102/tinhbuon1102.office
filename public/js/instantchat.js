@@ -23,16 +23,15 @@ jQuery(document).ready(function(){
 	});
 	
 	jQuery('.user').click(function(){
-		//jQuery('.msg_wrap').show();
-		//jQuery('.msg_box').show();
-		
+		var userElement = jQuery(this);
 		var id=jQuery(this).data('id');
 		var name=jQuery(this).data('name');
 		var cid=jQuery(this).data('cid');
 		var whichuser=jQuery(this).data('whichuser');
 		var online=jQuery(this).data('online');
 		
-		if(jQuery("#msg_box_" + id).length == 0) {
+		if(jQuery("#msg_box_" + id).length == 0 && !userElement.hasClass('clicking')) {
+			userElement.addClass('clicking');
 			if(whichuser=='user1')
 			{
 					var url='/ShareUser/Dashboard/GetInstantMessage/'+cid;
@@ -48,7 +47,7 @@ jQuery(document).ready(function(){
 					function(data) {
 					jQuery(".msg-scroll").append(getChat(id,name,data,whichuser,online));
 					jQuery("#msg_box_" + id +" .msg_body").scrollTop(jQuery("#msg_box_" + id +" .msg_body")[0].scrollHeight);
-
+					userElement.removeClass('clicking');
 			}
 					
 				);
@@ -66,7 +65,7 @@ jQuery(document).ready(function(){
 
         if (e.keyCode == 13) {
             e.preventDefault();
-            var msg = jQuery(this).val();
+            var msg = urlify(jQuery(this).val());
 			jQuery(this).val('');
 			var id=jQuery(this).data('id');
 			var whichuser=jQuery(this).data('whichuser');
@@ -166,7 +165,7 @@ function getChat(id,name,data,whichuser,online)
 
 				}
 			
-			var a='<div class="msg_box" id="msg_box_'+id+'"><div class="msg_head"><div class="msg_head_inner"><span class="chatbox-contact-status online-status" data-size="large" data-status="'+online+'"></span><div class="chatbox-header-content"><a class="chatbox-contact-username">'+name+'</a><span class="chatbox-controls thread-actions"><span class="chatbox-controls-inner"><button class="chatbox-controls-button chat_close"><i class="fa fa-times" aria-hidden="true"></i></button><button class="chatbox-controls-button has-settings-icon" data-toggle="dropdown"><i class="fa fa-ellipsis-v" aria-hidden="true"  ></i></button><ul class="dropdown-menu"> <li><a href="'+url+'" style="text-align:left;">View Inbox</a></li></ul></span></span></div></div></div><div class="msg_wrap"><div class="msg_body">'+data+'	<div class="msg_push"></div></div><div class="msg_footer"><textarea class="msg_input" rows="4" data-id="'+id+'" data-whichuser="'+whichuser+'"></textarea><i class="fa fa-paperclip iattach" aria-hidden="true"></i><input type="file" class="imgupload" style="display:none;"/><img src="/chatajax.gif" style="display:none" class="iloader"></div></div></div>';
+			var a='<div class="msg_box" id="msg_box_'+id+'"><div class="chatbox-inner"><div class="msg_head"><div class="msg_head_inner"><span class="chatbox-contact-status online-status" data-size="large" data-status="'+online+'"></span><div class="chatbox-header-content"><a class="chatbox-contact-username">'+name+'</a><span class="chatbox-controls thread-actions"><span class="chatbox-controls-inner"><button class="chatbox-controls-button chat_close"><i class="fa fa-times" aria-hidden="true"></i></button><button class="chatbox-controls-button has-settings-icon" data-toggle="dropdown"><i class="fa fa-ellipsis-v" aria-hidden="true"  ></i></button><ul class="dropdown-menu"> <li><a href="'+url+'" style="text-align:left;">メッセージボックスを開く</a></li></ul></span></span></div></div></div><div class="msg_wrap"><div class="msg_body">'+data+'	<div class="msg_push"></div></div><div class="msg_footer"><textarea class="msg_input" rows="4" data-id="'+id+'" data-whichuser="'+whichuser+'"></textarea><i class="fa fa-paperclip iattach" aria-hidden="true"></i><input type="file" class="imgupload" style="display:none;"/><img src="/chatajax.gif" style="display:none" class="iloader"></div></div></div></div>';
 					jQuery(".has-settings-icon").dropdown();
 			return(a);
 			

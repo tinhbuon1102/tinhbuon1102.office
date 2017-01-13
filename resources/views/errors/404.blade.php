@@ -22,7 +22,7 @@
         <div class="error-404-message">
         <h1>お探しのページが見つかりません。</h1>
         <p>お探しのページは一時的にアクセスできない状況にあるか、<br class="mb-none">移動、もうしくは削除された可能性があります。<br/>
-        お手数ですが、オフィスポのトップページ、または各コンテンツからお探し下さい。</p>
+        お手数ですが、アワーオフィスのトップページ、または各コンテンツからお探し下さい。</p>
         </div>
         <div class="links">
         <a href="{{url('/')}}"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>トップページに戻る</a>

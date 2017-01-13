@@ -12,7 +12,7 @@
 	color:red;
 	}
 </style>
-<link rel="stylesheet" href="{{url('/')}}/design/js/chosen/chosen.min.css">
+<link rel="stylesheet" href="{{url('/')}}/js/chosen/chosen.min.css">
 <body class="mypage">
 	<div class="viewport">
 		<?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header_nav_shareuser.php'); ?>

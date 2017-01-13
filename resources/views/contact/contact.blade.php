@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us- Offispo | オフィスポ</title>
+<title>Contact Us- hOur Office | アワーオフィス</title>
 <link rel="apple-touch-icon" sizes="57x57" href="{{url('/')}}/lpnew/images/favicon/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="{{url('/')}}/lpnew/images/favicon/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="{{url('/')}}/lpnew/images/favicon/apple-icon-72x72.png">
@@ -27,7 +27,7 @@
 
 <meta property="og:url" content="{{url('/')}}/lp/public/contact" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Contact Us- Offispo | オフィスポ" />
+<meta property="og:title" content="Contact Us- hOur Office | アワーオフィス" />
 <meta property="og:image" content="{{url('/')}}/lpnew/images/fb-thum.jpg" />
 <meta property="og:description" content="offispoについてご相談、ご質問がある方は以下のフォームからお問い合わせ下さい。" />
 

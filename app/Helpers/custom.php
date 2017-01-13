@@ -4,6 +4,53 @@ function pr($data)
 	echo '<pre>'; print_r($data); echo '</pre>';
 }
 
+function detectWebUrl($url) {
+	$regex = '((https?|ftp)://)?'; // SCHEME
+	$regex .= '([a-z0-9+!*(),;?&=$_.-]+(:[a-z0-9+!*(),;?&=$_.-]+)?@)?'; // User and Pass
+	$regex .= '([a-z0-9-.]*)\.([a-z]{2,4})'; // Host or IP
+	$regex .= '(:[0-9]{2,5})?'; // Port
+	$regex .= '(/([a-z0-9+$_%-]\.?)+)*/?'; // Path
+	$regex .= '(\?[a-z+&\$_.-][a-z0-9;:@&%=+/$_.-]*)?'; // GET Query
+	$regex .= '(#[a-z_.-][a-z0-9+$%_.-]*)?'; // Anchor
+	
+	if(preg_match("~^$regex$~i", $url, $m))
+	{
+		return true;
+	}
+	return false;
+}
+
+
+function msort($array, $key, $sort_flags = SORT_REGULAR) {
+	if (is_array($array) && count($array) > 0) {
+		if (!empty($key)) {
+			$mapping = array();
+			foreach ($array as $k => $v) {
+				$sort_key = '';
+				if (!is_array($key)) {
+					$sort_key = $v[$key];
+				} else {
+					// @TODO This should be fixed, now it will be sorted as string
+					foreach ($key as $key_key) {
+						$sort_key .= $v[$key_key];
+					}
+					$sort_flags = SORT_STRING;
+				}
+				$mapping[$k] = $sort_key;
+			}
+			asort($mapping, $sort_flags);
+			$sorted = array();
+			foreach ($mapping as $k => $v) {
+				$sorted[] = $array[$k];
+			}
+			return $sorted;
+		}
+	}
+	return $array;
+}
+
+
+
 function getNestedParentUrl(){
 	$currentUrl = Request::url();
 	$aUrl = explode('/', $currentUrl);
@@ -881,4 +928,54 @@ function renderErrorSuccessHtml(Illuminate\Support\ViewErrorBag $errors)
 	</div>
 	<?php }?>
 <?php
+}
+
+function forceUserReview() {
+	// Check the completed booking, if has go to write review page
+	$currentAction = Route::currentRouteAction();
+	
+	if ( (Auth::guard('user1')->check() || Auth::guard('user2')->check()) && 
+			Request::method() == 'GET' &&
+			! Request::ajax() && 
+			! in_array($currentAction, array(
+				'App\Http\Controllers\User2Controller@review',
+				'App\Http\Controllers\User2Controller@writeReview',
+				'App\Http\Controllers\User1Controller@review',
+				'App\Http\Controllers\User1Controller@writeReview',
+	)))
+	{
+		$user = Auth::guard('user1')->check() ? Auth::guard('user1')->user() : Auth::guard('user2')->user();
+		$szUserID = Auth::guard('user1')->check() ? 'User1ID' : 'user_id';
+		$szUser = Auth::guard('user1')->check() ? 'User1' : 'User2';
+		
+		$oWaitingReview = new \App\Rentbookingsave();
+		$oWaitingReview = $oWaitingReview->select('rentbookingsaves.id');
+		$oWaitingReview = $oWaitingReview->join('user1sharespaces', 'rentbookingsaves.user1sharespaces_id', '=', 'user1sharespaces.id');
+		$oWaitingReview = $oWaitingReview->where('rentbookingsaves.status', BOOKING_STATUS_COMPLETED)->where("rentbookingsaves.$szUserID", $user->id);
+		$oWaitingReview = $oWaitingReview->whereRaw(DB::raw('rentbookingsaves.id NOT IN (SELECT BookingID From userreviews WHERE '.$szUserID.' = ' . $user->id . ' AND ReviewedBy="'.$szUser.'")'));
+		$waitingReviews = $oWaitingReview->get();
+		
+		if ( count($waitingReviews) >= 1 )
+		{
+			if ( count($waitingReviews) == 1 )
+			{
+				// Go to Write review page with number booking ID
+				Session::flash('success', trans('common.Please complete the reviews before browse other pages'));
+				if (Auth::guard('user1')->check())
+					Redirect::to(getSharedFeedbackUrl($waitingReviews[0]['id']))->send();
+				else
+					Redirect::to(getRentFeedbackUrl($waitingReviews[0]['id']))->send();
+			}
+			else
+			{
+				// Go to Review list page
+				Session::flash('success', trans('common.Please complete the reviews before browse other pages'));
+				if (Auth::guard('user1')->check())
+					Redirect::to(getShareReviewListUrl())->send();
+				else
+					Redirect::to(getRentReviewListUrl())->send();
+			}
+		}
+	}
+	return false;
 }

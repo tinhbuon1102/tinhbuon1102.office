@@ -5,7 +5,7 @@
 <?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header.php'); ?>
 @include('pages.header')
 <!--/head-->
-<link rel="stylesheet" href="{{url('/')}}/design/js/chosen/chosen.min.css">
+<link rel="stylesheet" href="{{url('/')}}/js/chosen/chosen.min.css">
 <script src="{{ URL::asset('js/assets/custom_edit_form.js') }}" type="text/javascript"></script>
 <body class="mypage">
 	<div class="viewport">

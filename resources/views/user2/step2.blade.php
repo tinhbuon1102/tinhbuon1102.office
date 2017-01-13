@@ -1,6 +1,6 @@
 @extends('user2Layout')
 @section('title')
-	先行シェア会員登録- Offispo | オフィスポ
+	先行シェア会員登録- hOur Office | アワーオフィス
 @stop
 @section('head')
 <link rel="stylesheet" href="{{ URL::asset('lpnew/rentuser/signup/style.css') }}">

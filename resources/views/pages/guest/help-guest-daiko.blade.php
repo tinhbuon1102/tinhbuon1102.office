@@ -2,7 +2,7 @@
 <h1>掲載代行サービスについて</h1>
 </div>
 <div class="help_body_content">
-<p class="mgb-30">掲載代行サービスとは、Offispo運営会社があなたに代わり、セットアップからスペースの掲載まで代行で行うサービスです。</p>
+<p class="mgb-30">掲載代行サービスとは、hOur Office運営会社があなたに代わり、セットアップからスペースの掲載まで代行で行うサービスです。</p>
 <ul class="list-daiko">
 <li>
 <div class="hiwn-benefit-icon hiwn-benefit-icon-connect"><span class="icon-add-service-icons-setup"></span></div>

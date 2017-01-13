@@ -6,7 +6,7 @@
 <div class="header_wrapper primary-navigation-section">
 <header id="header">
 <div class="header_container dark">
-<div class="logo_container"><a class="logo" href="{{url('/')}}">Offispo</a></div>
+<div class="logo_container"><a class="logo" href="{{url('/')}}">hOur Office</a></div>
 </div>
 </header>
 </div>

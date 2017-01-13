@@ -147,7 +147,7 @@
 												<div class="clearfix"></div>
 											</div>
 										</div>
-										<a href="#">
+										<a href="{{url('RentUser/Dashboard/Message')}}">
 											<div class="panel-footer">
 												<span class="pull-left">詳細</span>
 												<span class="pull-right">

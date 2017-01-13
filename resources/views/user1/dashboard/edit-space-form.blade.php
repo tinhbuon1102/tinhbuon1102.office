@@ -201,7 +201,7 @@ jQuery(function($){
 			
 			
     		if(x1=="" || y1=="" || x2=="" || y2=="" || w=="" || h==""){
-    			alert("画像が選択されていません。");
+    			alert("<?php echo trans('common.Please make a selection first')?>");
     		}
 			else{
 

@@ -69,7 +69,7 @@
 								<!--Company Name-->
 							</label>
 							<div class="input-container">
-								<input name="NameOfCompany" id="NameOfCompany" value="{{$user->NameOfCompany}}" required="" ng-model="setting.space_title" type="text" class="ng-invalid" aria-invalid="true" placeholder="株式会社オフィスポ">
+								<input name="NameOfCompany" id="NameOfCompany" value="{{$user->NameOfCompany}}" required="" ng-model="setting.space_title" type="text" class="ng-invalid" aria-invalid="true" placeholder="株式会社アワーオフィス">
 							</div>
 						</div>
 						<div class="form-field address-wrapper">
@@ -181,7 +181,7 @@
 										建物名・階・部屋番号
 										<!--Buidling name,room number-->
 									</label>
-									<input name="Address2" id="Addr2" value="{{$user->Address2}}" required="" ng-model="signup.addr2" type="text" class="ng-pristine ng-untouched" placeholder="オフィスポビル1024">
+									<input name="Address2" id="Addr2" value="{{$user->Address2}}" required="" ng-model="signup.addr2" type="text" class="ng-pristine ng-untouched" placeholder="アワーオフィスビル1024">
 								</div>
 							</div>
 							<!--/form-field-->
@@ -1017,7 +1017,7 @@ jQuery(document).ready(function() {
 
 
     		if(x1=="" || y1=="" || x2=="" || y2=="" || w=="" || h==""){
-    			alert("Please Make a Selection First");
+    			alert("<?php echo trans('common.Please make a selection first')?>");
     		}
 			else{
 

@@ -658,8 +658,6 @@ class Rentbookingsave extends Model
 		try
 		{
 			$oTimeNow = \Carbon\Carbon::now();
-			$oNextMonth = $oTimeNow->copy()->addMonths(1);
-			
 			$oUsedTime = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $rent_data->charge_start_date);
 			
 			// Future will be Relative
@@ -701,9 +699,9 @@ class Rentbookingsave extends Model
 						 *user2 will have 1hour from the time they booked to cancel and not be charged for the reservation.
 						 */
 						$aDiff = [
-							'free' => 2,
-							'half_charge' => 1,
-							'full_charge' => 1
+							'free' => (int)config('booking.Hourly.DAYS_BEFORE_START_DATE_CAN_BE_CANCELLED_CHARGE_0'),
+							'half_charge' => (int)config('booking.Hourly.MORE_THAN_HOURS_BEFORE_START_DATE_CANCELLED_CHARGE_50') / 24,
+							'full_charge' => (int)config('booking.Hourly.LESS_THAN_HOURS_BEFORE_START_DATE_CANCELLED_CHARGE_100') / 24
 						];
 						
 						break;
@@ -718,9 +716,9 @@ class Rentbookingsave extends Model
 						 */
 
 						$aDiff = [
-							'free' => 7,
-							'half_charge' => 3,
-							'full_charge' => 3
+							'free' => (int)config('booking.Daily.DAYS_BEFORE_START_DATE_CAN_BE_CANCELLED_CHARGE_0'),
+							'half_charge' => (int)config('booking.Daily.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'),
+							'full_charge' => (int)config('booking.Daily.LESS_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_100')
 						];
 						break;
 					
@@ -734,9 +732,9 @@ class Rentbookingsave extends Model
 						 */
 
 						$aDiff = [
-							'free' => 14,
-							'half_charge' => 7,
-							'full_charge' => 7
+							'free' => (int)config('booking.Weekly.DAYS_BEFORE_START_DATE_CAN_BE_CANCELLED_CHARGE_0'),
+							'half_charge' => (int)config('booking.Weekly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'),
+							'full_charge' => (int)config('booking.Weekly.LESS_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_100')
 						];
 						
 						break;
@@ -749,11 +747,11 @@ class Rentbookingsave extends Model
 						 *If a reservation is booked with less than 24 hours notice for all space type,
 						 *user2 will have 1hour from the time they booked to cancel and not be charged for the reservation.
 						 */
-
+						$oNextMonth = $oTimeNow->copy()->addMonths((int)config('booking.Monthly.MONTHS_BEFORE_START_DATE_CAN_BE_CANCELLED_CHARGE_0'));
 						$aDiff = [
 							'free' => abs($oNextMonth->diffInDays($oTimeNow)),
-							'half_charge' => 21,
-							'full_charge' => 21
+							'half_charge' => (int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'),
+							'full_charge' => (int)config('booking.Monthly.LESS_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_100')
 						];
 						break;
 				}

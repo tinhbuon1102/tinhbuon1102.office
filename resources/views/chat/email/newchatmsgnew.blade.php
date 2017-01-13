@@ -407,7 +407,7 @@ a span,
                     <table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;width: 100%;vertical-align: top;">
                       <tbody>
                         <tr>
-                          <td class="column_cell font_default" align="center" valign="top" style="padding: 16px;font-family: Helvetica, Arial, sans-serif;font-size: 20px;text-align: left;vertical-align: top;color: #ffffff;font-weight: bold;padding-bottom: 0;padding-top: 16px;"><a href="#" style="display: inline-block;text-decoration: none;font-family: Helvetica, Arial, sans-serif;color: #ffffff;"><img src="{{url('/')}}/email/html/images/email_logo.png" width="156" height="42" alt="SimpleApp" style="line-height: 1;outline: none;border: 0;text-decoration: none;-ms-interpolation-mode: bicubic;mso-line-height-rule: exactly;max-width: 156px;height: auto;"></a></td><!-- /.column_cell -->
+                          <td class="column_cell font_default" align="center" valign="top" style="padding: 16px;font-family: Helvetica, Arial, sans-serif;font-size: 20px;text-align: left;vertical-align: top;color: #ffffff;font-weight: bold;padding-bottom: 0;padding-top: 16px;"><a href="#" style="display: inline-block;text-decoration: none;font-family: Helvetica, Arial, sans-serif;color: #ffffff;"><img src="http://www.office-spot.com/email/html/images/email_logo.png" width="156" height="42" alt="SimpleApp" style="line-height: 1;outline: none;border: 0;text-decoration: none;-ms-interpolation-mode: bicubic;mso-line-height-rule: exactly;max-width: 156px;height: auto;"></a></td><!-- /.column_cell -->
                         </tr>
                       </tbody>
                     </table><!-- /.column -->
@@ -460,7 +460,7 @@ a span,
                                 	<td class="hspace" style="padding: 0;font-size: 0;height: 8px;overflow: hidden;">&nbsp; </td>
                                 </tr>
                                 <tr>
-                                  <td class="icon_cell" style="padding: 8px;font-size: 0;line-height: 1;-webkit-border-radius: 80px;border-radius: 80px;height: 48px;background-color: #e1e3e7;border-color: #ebebeb;"><img src="{{url('/')}}/email/html/images/ic_person_white_48dp_2x.png" width="48" height="48" alt="" style="line-height: 1;outline: none;border: 0;text-decoration: none;-ms-interpolation-mode: bicubic;mso-line-height-rule: exactly;-webkit-border-radius: 4px;border-radius: 4px;"></td>
+                                  <td class="icon_cell" style="padding: 8px;font-size: 0;line-height: 1;-webkit-border-radius: 80px;border-radius: 80px;height: 48px;background-color: #e1e3e7;border-color: #ebebeb;"><img src="http://www.office-spot.com/email/html/images/ic_person_white_48dp_2x.png" width="48" height="48" alt="" style="line-height: 1;outline: none;border: 0;text-decoration: none;-ms-interpolation-mode: bicubic;mso-line-height-rule: exactly;-webkit-border-radius: 4px;border-radius: 4px;"></td>
                                 </tr>
                                 <tr>
                                 	<td class="hspace" style="padding: 0;font-size: 0;height: 8px;overflow: hidden;">&nbsp; </td>
@@ -587,7 +587,7 @@ a span,
                       <tbody>
                         <tr>
                           <td class="column_cell font_default" align="center" valign="top" style="padding: 16px;font-family: Helvetica, Arial, sans-serif;font-size: 15px;text-align: left;vertical-align: top;color: #b3b3b5;padding-bottom: 0;padding-top: 16px;">
-                          <strong>Offispo</strong><br>
+                          <strong>hOur Office</strong><br>
                           <small style="font-size: 86%;font-weight: normal;">このメールは自動送信の為、本メールへの返信はできませんのでご了承下さい。 </small></td><!-- /.column_cell -->
                         </tr>
                       </tbody>
@@ -602,7 +602,7 @@ a span,
                       <tbody>
                         <tr>
                           <td class="column_cell font_default" align="center" valign="top" style="padding: 16px;font-family: Helvetica, Arial, sans-serif;font-size: 15px;text-align: left;vertical-align: top;color: #b3b3b5;padding-bottom: 0;padding-top: 16px;">
-                            <a href="#" style="display: inline-block;text-decoration: none;font-family: Helvetica, Arial, sans-serif;color: #7a7a7a;">&nbsp;<img src="{{url('/')}}/email/html/images/ic_facebook.png" width="24" height="24" alt="" style="line-height: 1;outline: none;border: 0;text-decoration: none;-ms-interpolation-mode: bicubic;mso-line-height-rule: exactly;">&nbsp;</a> &nbsp;<a href="#" style="display: inline-block;text-decoration: none;font-family: Helvetica, Arial, sans-serif;color: #7a7a7a;">&nbsp;<img src="{{url('/')}}/email/html/images/ic_twitter.png" width="24" height="24" alt="" style="line-height: 1;outline: none;border: 0;text-decoration: none;-ms-interpolation-mode: bicubic;mso-line-height-rule: exactly;">&nbsp;</a> &nbsp;<a href="#" style="display: inline-block;text-decoration: none;font-family: Helvetica, Arial, sans-serif;color: #7a7a7a;">&nbsp;<img src="{{url('/')}}/email/html/images/ic_youtube.png" width="24" height="24" alt="" style="line-height: 1;outline: none;border: 0;text-decoration: none;-ms-interpolation-mode: bicubic;mso-line-height-rule: exactly;">&nbsp;</a>
+                            <a href="#" style="display: inline-block;text-decoration: none;font-family: Helvetica, Arial, sans-serif;color: #7a7a7a;">&nbsp;<img src="http://www.office-spot.com/email/html/images/ic_facebook.png" width="24" height="24" alt="" style="line-height: 1;outline: none;border: 0;text-decoration: none;-ms-interpolation-mode: bicubic;mso-line-height-rule: exactly;">&nbsp;</a> &nbsp;<a href="#" style="display: inline-block;text-decoration: none;font-family: Helvetica, Arial, sans-serif;color: #7a7a7a;">&nbsp;<img src="http://www.office-spot.com/email/html/images/ic_twitter.png" width="24" height="24" alt="" style="line-height: 1;outline: none;border: 0;text-decoration: none;-ms-interpolation-mode: bicubic;mso-line-height-rule: exactly;">&nbsp;</a> &nbsp;<a href="#" style="display: inline-block;text-decoration: none;font-family: Helvetica, Arial, sans-serif;color: #7a7a7a;">&nbsp;<img src="http://www.office-spot.com/email/html/images/ic_youtube.png" width="24" height="24" alt="" style="line-height: 1;outline: none;border: 0;text-decoration: none;-ms-interpolation-mode: bicubic;mso-line-height-rule: exactly;">&nbsp;</a>
                           </td><!-- /.column_cell -->
                         </tr>
                       </tbody>

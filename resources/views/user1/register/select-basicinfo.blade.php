@@ -7,7 +7,7 @@
 <div class="header_wrapper primary-navigation-section">
 <header id="header">
 <div class="header_container dark">
-<div class="logo_container"><a class="logo" href="{{url('/')}}">Offispo</a></div>
+<div class="logo_container"><a class="logo" href="{{url('/')}}">hOur Office</a></div>
 </div>
 </header>
 </div>
@@ -53,7 +53,7 @@
 <div class="form-field two-inputs">
 <div class="input-container input-half">
 <label for="last_name"><span class="require-mark">*</span>社名・組織名等<span class="help">法務局に登記されている会社名または事業体の正式名称。</span></label>
-<input name="NameOfCompany" id="NameOfCompany" value="" ng-model="signup.company_name" type="text" class="validate[required]" aria-invalid="true"  placeholder="株式会社Offispo">
+<input name="NameOfCompany" id="NameOfCompany" value="" ng-model="signup.company_name" type="text" class="validate[required]" aria-invalid="true"  placeholder="株式会社hOur Office">
 @if($errors->first('NameOfCompany'))
 									<div ng-show="FirstNameError" class="input-error"><span class="label label-warning ng-binding">{{ $errors->first('NameOfCompany') }}</span></div>
 								@endif
@@ -82,7 +82,7 @@
 </div>
 <div class="input-container input-half">
 <label for="addr">建物名・階・部屋番号</label>
-<input name="Address2" id="BuildingNumber" value=""  ng-model="signup.addr2" type="text" class="ng-pristine ng-untouched" placeholder="オフィスポビル1024">
+<input name="Address2" id="BuildingNumber" value=""  ng-model="signup.addr2" type="text" class="ng-pristine ng-untouched" placeholder="アワーオフィスビル1024">
 </div>
 </div><!--/form-field-->
 <div class="form-field two-inputs">

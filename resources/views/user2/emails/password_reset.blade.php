@@ -412,7 +412,7 @@ a span,
                     <table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;width: 100%;vertical-align: top;">
                       <tbody>
                         <tr>
-                          <td class="column_cell font_default" align="center" valign="top" style="padding: 16px;font-family: Helvetica, Arial, sans-serif;font-size: 20px;text-align: left;vertical-align: top;color: #ffffff;font-weight: bold;padding-bottom: 0;padding-top: 16px;"><a href="#" style="display: inline-block;text-decoration: none;font-family: Helvetica, Arial, sans-serif;color: #ffffff;"><img src="<?php echo url('/')?>/images/email_logo.png" width="156" height="42" alt="Offispo" style="line-height: 1;outline: none;border: 0;text-decoration: none;-ms-interpolation-mode: bicubic;mso-line-height-rule: exactly;max-width: 156px;height: auto;"></a></td><!-- /.column_cell -->
+                          <td class="column_cell font_default" align="center" valign="top" style="padding: 16px;font-family: Helvetica, Arial, sans-serif;font-size: 20px;text-align: left;vertical-align: top;color: #ffffff;font-weight: bold;padding-bottom: 0;padding-top: 16px;"><a href="#" style="display: inline-block;text-decoration: none;font-family: Helvetica, Arial, sans-serif;color: #ffffff;"><img src="<?php echo url('/')?>/images/email_logo.png" width="156" height="42" alt="hOur Office" style="line-height: 1;outline: none;border: 0;text-decoration: none;-ms-interpolation-mode: bicubic;mso-line-height-rule: exactly;max-width: 156px;height: auto;"></a></td><!-- /.column_cell -->
                         </tr>
                       </tbody>
                     </table><!-- /.column -->
@@ -515,7 +515,7 @@ a span,
                         <tr>
                           <td class="column_cell font_default" align="center" valign="top" style="padding: 16px;font-family: Helvetica, Arial, sans-serif;font-size: 15px;text-align: center;vertical-align: top;color: #888888;">
  
-							<p style="font-family: Helvetica, Arial, sans-serif;font-size: 15px;line-height: 23px;margin-top: 16px;margin-bottom: 24px;">Offispoアカウントパスワードの変更リクエストを受け付けました。<br/>このリクエストが正しければ、以下のリンクをクリックしてください。</p>
+							<p style="font-family: Helvetica, Arial, sans-serif;font-size: 15px;line-height: 23px;margin-top: 16px;margin-bottom: 24px;">hOur Officeアカウントパスワードの変更リクエストを受け付けました。<br/>このリクエストが正しければ、以下のリンクをクリックしてください。</p>
                             <table class="secondary_btn" align="center" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;clear: both;margin: 0 auto;">
                               <tbody>
                                 <tr>
@@ -568,7 +568,7 @@ a span,
                       <tbody>
                         <tr>
                           <td class="column_cell font_default" align="center" valign="top" style="padding: 16px;font-family: Helvetica, Arial, sans-serif;font-size: 15px;text-align: left;vertical-align: top;color: #b3b3b5;padding-bottom: 0;padding-top: 16px;">
-                          <strong>Offispo</strong><br>
+                          <strong>hOur Office</strong><br>
                           <small style="font-size: 86%;font-weight: normal;">このメールは自動送信の為、本メールへの返信はできませんのでご了承下さい。 </small></td><!-- /.column_cell -->
                         </tr>
                       </tbody>

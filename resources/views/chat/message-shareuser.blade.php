@@ -79,7 +79,7 @@
 									<h2>{{$nm}}</h2><div class="chat-st {{$activity}}"></div>
 									@if($cuser->latestChat()!=null)
 									<p>
-										{{str_limit($cuser->latestChat()->Message,35)}}
+										{{str_limit(strip_tags($cuser->latestChat()->Message),35)}}
 									</p><div class="chat-time">{{renderHumanTime($cuser->latestChat()->created_at)}}</div>
 									@endif &nbsp;
 								</li>
@@ -276,7 +276,7 @@ get('{{$chat->id}}','{{$chat->User1ID}}','{{getUserName($chat->user1)}}','{{$act
 
 				function sendMessage()
 {
-    var text = $('#text').val();
+    var text = urlify($('#text').val());
     var id = $('#cid').val();
 
     if (text.length > 0)

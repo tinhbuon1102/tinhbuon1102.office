@@ -13,6 +13,11 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
     
+    public function __construct() 
+    {
+    	return forceUserReview();
+    }
+    
     public function __destruct()
     {
     	if (Auth::guard('user1')->check() || Auth::guard('user2')->check())

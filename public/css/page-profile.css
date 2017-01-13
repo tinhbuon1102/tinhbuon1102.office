@@ -1137,9 +1137,24 @@ ul.other-fac-list li {
 	font-size: 19px;
 }
 
+
 .profile-about-description.editable-block,.profile-skills.editable-block
-	{
+{
 	position: relative;
+}
+
+.profile-about-description.editable-block .edit-content, .profile-skills.editable-block .edit-content
+{
+	width: 92%;
+    float: left;
+}
+
+.profile-about-description.editable-block .profile-job-btn, .profile-skills.editable-block .profile-job-btn
+{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 8%;
 }
 
 .profile-job-btn-wraper {
@@ -1150,6 +1165,8 @@ ul.other-fac-list li {
 
 .profile-about .editable-block-wraper {
 	margin-bottom: 20px;
+	clear: both;
+	overflow: hidden;
 }
 
 a.profile-job-btn .fa {
@@ -1617,8 +1634,8 @@ h4.having-space-count {
 .circle-grid {
 	width: 100%;
 	padding-top: 50%;
-	line-height: 1em;
-	margin-top: -1.7em;
+	line-height: inherit;
+    margin-top: -3em;
 	text-align: center;
 	float: left;
 	color: #FFF;
@@ -1691,13 +1708,17 @@ h4.having-space-count {
 .col-md-4 .space-side-info {
 	float: none;
 }
+.cover-image-upload-trigger span, .cover-image-upload-trigger svg {
+    vertical-align: middle;
+    line-height: inherit;
+}
 
 @media ( max-width : 580px) {
 	.circle-grid i {
 		font-size: 30px;
 	}
 	.circle-grid {
-		margin-top: -1.2em;
+		margin-top: -1.5em;
 	}
 	.container-grid h2.lead {
 		font-size: 18px;
@@ -1779,12 +1800,16 @@ h4.having-space-count {
 	cursor: pointer;
 	height: 44px;
 }
-.profile-about-description.editable-block {
-    /*min-height: 30px;*/
+.profile-about-description.editable-block, .profile-skills.editable-block {
+    overflow: hidden;
+    padding: 10px 0;
 }
-a.profile-job-btn.job-desc-edit-btn:hover, a.profile-job-btn.job-skill-edit-btn:hover {
+
+.profile-about-description.editting-block:hover, .profile-skills.editting-block:hover {
     background: #f4f4f4;
 }
+
+
 a.profile-job-btn.job-desc-edit-btn, a.profile-job-btn.job-skill-edit-btn {
     display: block;
     width: 100%;
@@ -1802,6 +1827,7 @@ a.profile-job-btn.job-desc-edit-btn .fa {
 .editable-block div#profile_skills_chosen {
     margin-bottom: 15px;
 }
+
 
 @media ( max-width : 743px) {
 	.hide-sm {

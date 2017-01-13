@@ -10,12 +10,7 @@ $rentBooking = new \App\Rentbookingsave();
 		@include('pages.header_nav_shareuser')
 		<div class="main-container">
 			<div id="main" class="container">
-				@if(session()->has('error'))
-				<div class="alert alert-danger alert-dismissable">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					{{ session()->get('error') }}
-				</div>
-				@endif
+				<?php echo renderErrorSuccessHtml(@$errors);?>
 				<div class="row flex-wrapper">
 					<div id="feed" class="col-xs-8">
 						<?php if (!\App\User1::isProfileFullFill($user) ||  !count($user->spaces)) {?>
@@ -25,7 +20,7 @@ $rentBooking = new \App\Rentbookingsave();
 								<span data-bind="text: CompanyName">
 									<?php echo $user['NameOfCompany']?>
 								</span>
-								様、Offispoへようこそ。
+								様、hOur Officeへようこそ。
 								<br />
 								以下の3ステップでスペースシェアを始めましょう。
 							</p>

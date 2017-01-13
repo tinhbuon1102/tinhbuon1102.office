@@ -45,6 +45,7 @@ class PublicController extends Controller
 				'getSpaceCalendar', 
 				'getBookingPaymentInfo',
 		]]);
+		parent::__construct();
 	}
 	public function viewShareSpace(Request $request,$id)
 	{
@@ -353,8 +354,39 @@ class PublicController extends Controller
 		
 		$space= User2requirespace::firstOrNew(array('User2ID' => $user->id));
 		$isPublicUser = true;
-		$budgets= \App\Budget :: where('Type', '!=','search')->get();
-		$timeslots=\App\Timeslot :: get();
+		$aBudgets= \App\Budget :: where('Type', '!=','search')->get();
+		$aTimeslots=\App\Timeslot :: get();
+		
+		$aSpaceTypes = getSpaceTypeMapper();
+		
+		$timeslots = array();
+		$budgets = array();
+		$areas = array();
+		foreach ($aTimeslots as $timeslot)
+		{
+			$timeslots[$timeslot->id] = $timeslot->Display;
+		}
+		
+		foreach ($aBudgets as $budget)
+		{
+			$budgets[$budget->id] = $budget->Display;
+		}
+		
+		foreach(Config::get('lp.spaceArea') as $area => $ar )
+		{
+			$areas[$ar['id']] = $ar['display'];
+		}
+		
+		$spaceTypes = explode(',', $space->SpaceType);
+		foreach ($spaceTypes as $indexSpaceType => $spaceType)
+		{
+			if (isset($aSpaceTypes[$spaceType]) && is_array($aSpaceTypes[$spaceType]))
+			{
+				$spaceTypes[$indexSpaceType] = implode(',', @$aSpaceTypes[$spaceType]);
+			}
+		}
+		$space->SpaceType = implode(',', $spaceTypes);
+		
 		$userPortfolios = User2portfolio::where('User2Id', '=', $user->id)->get();
 		$reviews = Userreview::avarageUser2Reviews($user->id);
 		$allReviews = Userreview::getUser2Reviews($user->id);
@@ -362,7 +394,7 @@ class PublicController extends Controller
 		$isPaymentSetup = User2::isPaymentSetup($user);
 		$isProfileFullFilled = User2::isProfileFullFill($user);
 		
-		return view('user2.dashboard.profile-rentuser_edit',compact('user','space','budgets','timeslots', 'isPublicUser', 'userPortfolios', 'reviews', 'allReviews', 'isPaymentSetup', 'isProfileFullFilled'));
+		return view('user2.dashboard.profile-rentuser_edit',compact('user','space','aSpaceTypes', 'budgets','timeslots', 'isPublicUser', 'userPortfolios', 'reviews', 'allReviews', 'isPaymentSetup', 'isProfileFullFilled'));
 
 	}
 	public function listDistrict($Prefecture){

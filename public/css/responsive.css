@@ -30,6 +30,14 @@ ul.ns_rentuser-list p.bussiness-type {
 .second-nav .header_container nav li.lang_nav .lang {
 
 }
+
+nav {
+	min-height: auto !important;
+}
+nav.mm {
+    background: rgba(44, 50, 53, 0.96);
+}
+
 .alignleft, .subsubsub {
     float: left;
 }
@@ -224,15 +232,6 @@ body.home .second-nav {
     line-height: 1.33;
     border-radius: 6px;
 }
-#Checkout {
-    width: 100%;
-}
-#Checkout label {
-    font-size: 12px;
-}
-div#page-wrapper.has_fixed_title {
-    padding-top: 92px;
-}
 a.btn.remove_btn {
     background: rgb(242,85,94);
     color: #FFF;
@@ -267,7 +266,13 @@ span.min_selector {
 .pad_1em a#anytime-this-week {
     width: 100%;
 }
+div#page-wrapper.has_fixed_title {
+    padding-top: 92px;
+}
 @media (min-width: 768px) {
+body.home .transparent_header .primary-navigation {
+	float: right;
+}
 .scroll-leftbar {
     max-width: 245px;
 }
@@ -387,6 +392,12 @@ div#datepicker .datepicker-inline {
 }
 
 @media (max-width: 768px) {
+#Checkout {
+    width: 100%;
+}
+#Checkout label {
+    font-size: 12px;
+}
 .sp-none {
 	display: none;
 }
@@ -771,9 +782,9 @@ th.img-th.sorting_asc {
     display: block;
     vertical-align: middle;
     float: none;
-    width: 100%;
+    width: 40%;
     max-width: 100% !important;
-	margin: 0;
+	margin: 0 auto;
     position: absolute;
     left: 0;
     right: 0;
@@ -1085,6 +1096,20 @@ input.labelauty + label {
 	display: none !important;
 }
 @media (max-width: 768px) {
+header nav.primary-navigation, header nav, .second-nav {
+	display: none;
+}
+header nav.primary-navigation a, .header_wrapper .nvOpn{
+	z-index: 9999999;
+}
+
+nav.mm {
+	position: fixed;
+    width: 100%;
+    z-index: 99999999999;
+    top: 60px;
+}
+
 .Rating-review {
     margin-left: 0;
     font-size: 12px;
@@ -1176,6 +1201,18 @@ nav.mm a {
 	line-height: 1.15;
     padding: .75rem .925rem;
 	position: relative;
+}
+header .dark nav ul li, header .dark nav ul li a {
+    color: #FFF;
+}
+header .dark nav ul li {
+    float: none;
+    display: block;
+    color: #FFF;
+    border-bottom: 1px solid #3b3b3b;
+}
+.dark .flex-column.fill-height, .transparent_header .flex-column.fill-height {
+    background: rgba(44, 50, 53, 0.96);
 }
 body.calender .resp-vtabs .resp-tabs-container {
 	width: 100%;
@@ -1570,15 +1607,16 @@ section.profiles-user.user-profile {
     background: none;
 }
 .profile-cover-wrapper {
-    height: 211px;
-    min-height: 211px;
+    height: 226px;
+    min-height: 226px;
+	background-size: cover !important;
 }
 .profile-info {
     position: relative;
     z-index: 1;
     margin-top: 0;
     zoom: 1;
-	height: 211px;
+	height: 226px;
 }
 .user-profile-location span.awesome-icon:before {
 	color: rgba(253, 220, 64, 1);
@@ -2232,6 +2270,146 @@ header nav>ul>li a, header nav ul li a {
 .slimScrollDiv {
     max-height: 150px;
 }
+.recent-matched-space div.space-list div.list-item {
+    float: none;
+    width: 100%;
+    height: 280px;
+}
+.steps-banner-item {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+	display: table;
+}
+.steps-banner-item-image {
+    display: table-cell;
+    margin: 0;
+    width: 60px;
+    height: 70px;
+}
+.steps-banner-item-text {
+    display: table-cell;
+    vertical-align: middle;
+}
+.steps-banner-item:first-child .steps-banner-item-image {
+    background: url(../images/steps-sprite.png) no-repeat;
+    background-size: cover;
+    background-position: -2px center;
+}
+.steps-banner-item:nth-child(2) .steps-banner-item-image {
+    background: url(../images/steps-sprite.png) no-repeat;
+    background-size: cover;
+    background-position: -62px center;
+}
+.steps-banner-item:nth-child(3) .steps-banner-item-image {
+    background: url(../images/steps-sprite.png) no-repeat;
+    background-size: cover;
+    background-position: -122px center;
+}
+.steps-banner-explanation {
+    width: 100%;
+}
+.tab_style2.r-tabs .r-tabs-nav li {
+    display: inline-block;
+    width: auto;
+    padding: 0 20px;
+}
+.profile-components-main .profile-reviews .user-reviews>.user-review .review-contents {
+    padding-right: 0;
+}
+.profile-components-main .profile-reviews .user-reviews>.user-review .review-contents .Rating {
+    position: relative;
+    top: 0;
+    right: 0;
+}
+.profile-components-main .user-rating-info li {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+a.profile-job-btn.job-desc-edit-btn, a.profile-job-btn.job-skill-edit-btn {
+    display: inline-block;
+    width: auto;
+    min-height: 30px;
+    vertical-align: middle;
+    position: relative;
+}
+a.profile-job-btn.job-desc-edit-btn.mb-editbtn, a.profile-job-btn.job-skill-edit-btn.mb-editbtn {
+    position: absolute;
+    z-index: 999;
+    top: -58px;
+    right: 0px;
+}
+.require-table-box .mb-editbtn .profile-job-btn-wraper {
+    right: 0;
+    margin: 0;
+}
+.mb-editbtn span.awesome-icon:before {
+    margin-right: 0;
+    color: #FFF;
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 30px;
+}
+a.profile-job-btn.job-desc-edit-btn.mb-editbtn .fa, a.profile-job-btn.job-skill-edit-btn.mb-editbtn .fa {
+    background: #000;
+    display: inline-block;
+    line-height: 1;
+    width: 30px;
+    text-align: center;
+    height: 30px;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+.portfolio-header {
+    text-align: center;
+    margin-right: -10px;
+	margin-bottom: 10px;
+}
+.portfolio-header .portfolio-edit-button {
+    margin-right: 10px;
+}
+.portfolio-header .portfolio-edit-button, .portfolio-header .portfolio-delete-button {
+    color: #FFF;
+    font-size: 13px;
+}
+.portfolio-header .portfolio-delete-button {
+    background: #000;
+}
+.portfolio-header .portfolio-edit-button {
+	background: #ff9b05;
+}
+.portfolio-header a {
+    display: inline-block;
+    padding: 5px 10px;
+    line-height: 1;
+	border-radius: 3px;
+}
+.profile-portfolio-wrapper {
+    overflow: hidden;
+    display: block;
+    max-height: 100%;
+    margin-bottom: 0;
+}
+.cover-image-upload-trigger svg {
+    height: 16px;
+    width: 16px;
+}
+.cover-image-upload-trigger {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    color: #000;
+    margin-bottom: 10px;
+    position: relative;
+    float: right;
+    margin-right: -15px;
+    font-size: 12px;
+	z-index: 999;
+}
 }
 @media (max-width: 690px) {
 table.style_gywt th {
@@ -2266,4 +2444,7 @@ table .left_title .space {
     line-height: 1.2;
     border-left: 5px solid #7f7f7f;
 }
+}
+.alert.alert-dismissable .close {
+    right: 0;
 }

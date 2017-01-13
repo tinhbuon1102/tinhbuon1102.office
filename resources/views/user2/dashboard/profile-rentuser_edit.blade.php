@@ -8,13 +8,11 @@
 }
 </style>
 <?php
-$description = 'イラストレーターを主に都内で活動をおこなっています。 飲食店のメニュー制作から雑誌の差し込みイラストなどを手がけています。 渋谷区での営業先が多いので、そのあたりで探しており、特にデザイン会社様で、 シェアスペースをさせて頂けるとありがたいです。';
 $breaks = array(
 	"<br />",
 	"<br>",
 	"<br/>"
 );
-$description_area = trim(str_ireplace($breaks, "\r\n", $description));
 ?>
 <!--/head-->
 <body class="profilepage rentuser-profile">
@@ -155,14 +153,12 @@ $description_area = trim(str_ireplace($breaks, "\r\n", $description));
 												<!--job-->
 												<div class="editable-block-wraper">
 													<div class="profile-about-description editable-block">
-														<span class="edit-content"> {{$user->BusinessSummary}} </span>
+														<span class="edit-content"> {{$user->BusinessSummary ? $user->BusinessSummary : '紹介文を記入してください'}} </span>
 														<a style="display: none" class="profile-job-btn job-desc-edit-btn" href="javascript:void(0);">
-															紹介文を記入してください
 															<span class="profile-job-btn-wraper">
 																<span class="fa fa-pencil awesome-icon"></span>
-														
+															</span>
 														</a>
-														</span>
 													</div>
 													<!--job-->
 													<div class="editable-block editting-block editting-description" style="display: none">
@@ -184,7 +180,7 @@ $description_area = trim(str_ireplace($breaks, "\r\n", $description));
 														<ul class="skill-list withstar" id="SkillList">
 														</ul>
 														<a style="display: none" class="profile-job-btn job-skill-edit-btn" href="javascript:void(0);">
-															スキルを選択してください
+															<span style="<?php echo trim($user->Skills) ? 'display: none;' : ''?>" class="no-content-text">スキルを選択してください</span>
 															<span class="profile-job-btn-wraper" style="display: inline-block;">
 																<span class="fa fa-pencil awesome-icon"></span>
 															</span>
@@ -1416,7 +1412,7 @@ jQuery(document).ready(function($) {
     		var w = $('.modal.in #w').val();
     		var h = $('.modal.in #h').val();
     		if(x1=="" || y1=="" || x2=="" || y2=="" || w=="" || h==""){
-    			alert("Please Make a Selection First");
+    			alert("<?php echo trans('common.Please make a selection first')?>");
     			return false;
     		}else{
     			// Ajax Upload and Crop
@@ -1646,11 +1642,16 @@ jQuery.ajaxSetup({
 		jQuery('.btnSaveBSummary').click(function(){
 			var bSummary = jQuery('.profiles-description').val();
 			jQuery.ajax({
-            type: "POST",
-            url : '/RentUser/Dashboard/MyProfile/Edit2',
-            data : { BusinessSummary:bSummary},
-			success: function(data){
-			   }
+	            type: "POST",
+	            url : '/RentUser/Dashboard/MyProfile/Edit2',
+	            data : { BusinessSummary:bSummary},
+				success: function(data){
+					var content = $('textarea[name="job-description"]').val();
+					content = content ? content : '紹介文を記入してください';
+					//content = content.replace(/(?:\r\n|\r|\n)/g, '<br />');
+					
+					$('.profile-about-description .edit-content').html(content);
+				}
 			});
 		});
 

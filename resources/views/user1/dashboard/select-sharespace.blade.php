@@ -1235,7 +1235,7 @@ jQuery(function($){
 			
 			
     		if(x1=="" || y1=="" || x2=="" || y2=="" || w=="" || h==""){
-    			alert("Please Make a Selection First");
+    			alert("<?php echo trans('common.Please make a selection first')?>");
     		}
 			else{
 

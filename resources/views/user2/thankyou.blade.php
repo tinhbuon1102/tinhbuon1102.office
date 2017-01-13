@@ -5,7 +5,7 @@
 @stop
 
 @section('title')
-	先行シェア会員登録- Offispo | オフィスポ
+	先行シェア会員登録- hOur Office | アワーオフィス
 @stop
 @section('content')
 

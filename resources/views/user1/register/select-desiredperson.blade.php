@@ -10,7 +10,7 @@
 			<header id="header">
 				<div class="header_container dark">
 					<div class="logo_container">
-						<a class="logo" href="index.html">Offispo</a>
+						<a class="logo" href="index.html">hOur Office</a>
 					</div>
 				</div>
 			</header>

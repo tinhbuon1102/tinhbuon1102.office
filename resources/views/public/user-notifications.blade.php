@@ -6,7 +6,7 @@ foreach ($notifySpaces as $result) {
 	
 	switch($result['Type']) {
 		case NOTIFICATION_SPACE :
-			$description = ' sent you ' .$result['CountBulk'] . ' offers';
+			$description = 'オファーが' .$result['CountBulk'] . '件きています ';
 			$spid=$result['user1Space']['HashID'];
 			break;
 		case NOTIFICATION_FAVORITE_SPACE :

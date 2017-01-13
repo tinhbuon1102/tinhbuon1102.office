@@ -37,7 +37,7 @@
 			<header id="header">
 				<div class="header_container dark">
 					<div class="logo_container">
-						<a class="logo" href="index.html">Offispo</a>
+						<a class="logo" href="index.html">hOur Office</a>
 					</div>
 				</div>
 			</header>
@@ -84,7 +84,7 @@
 									社名・組織名等
 									<span class="help">法務局に登記されている会社名または事業体の正式名称。</span>
 								</label>
-								<input name="NameOfCompany"  id="CompanyName" value="{{ $user->NameOfCompany }}" required="" ng-model="signup.company_name" type="text" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" aria-invalid="true" aria-required="true" placeholder="株式会社Offispo">
+								<input name="NameOfCompany"  id="CompanyName" value="{{ $user->NameOfCompany }}" required="" ng-model="signup.company_name" type="text" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" aria-invalid="true" aria-required="true" placeholder="株式会社hOur Office">
 								@if($errors->first('NameOfCompany'))
 									<div ng-show="FirstNameError" class="input-error"><span class="label label-warning ng-binding">{{ $errors->first('NameOfCompany') }}</span></div>
 								@endif
@@ -179,7 +179,7 @@
 								<label for="addr">
 									建物名・階・部屋番号
 								</label>
-								<input name="Address2"  id="Addr2" value="{{ $user->Address2 }}"  ng-model="signup.addr2" type="text" class="ng-pristine ng-untouched" placeholder="オフィスポビル1024">
+								<input name="Address2"  id="Addr2" value="{{ $user->Address2 }}"  ng-model="signup.addr2" type="text" class="ng-pristine ng-untouched" placeholder="アワーオフィスビル1024">
 							</div>
 						</div>
 						<!--/form-field-->

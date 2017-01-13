@@ -511,7 +511,7 @@ a span,
                         <tr>
                           <td class="column_cell font_default" align="center" valign="top" style="padding: 16px;font-family: Helvetica, Arial, sans-serif;font-size: 15px;text-align: center;vertical-align: top;color: #888888;">
  
-							<p style="font-family: Helvetica, Arial, sans-serif;font-size: 15px;line-height: 23px;margin-top: 16px;margin-bottom: 24px;">Offispoアカウントのメールアドレスを認証して下さい。</p>
+							<p style="font-family: Helvetica, Arial, sans-serif;font-size: 15px;line-height: 23px;margin-top: 16px;margin-bottom: 24px;">hOur Officeアカウントのメールアドレスを認証して下さい。</p>
                             <table class="secondary_btn" align="center" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;clear: both;margin: 0 auto;">
                               <tbody>
                                 <tr>
@@ -564,7 +564,7 @@ a span,
                       <tbody>
                         <tr>
                           <td class="column_cell font_default" align="center" valign="top" style="padding: 16px;font-family: Helvetica, Arial, sans-serif;font-size: 15px;text-align: left;vertical-align: top;color: #b3b3b5;padding-bottom: 0;padding-top: 16px;">
-                          <strong>Offispo</strong><br>
+                          <strong>hOur Office</strong><br>
                           <small style="font-size: 86%;font-weight: normal;">このメールは自動送信の為、本メールへの返信はできませんのでご了承下さい。 </small></td><!-- /.column_cell -->
                         </tr>
                       </tbody>

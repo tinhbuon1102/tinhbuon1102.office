@@ -382,7 +382,7 @@ Is this space same address as your company?
 								<li>1-month deposit collected upon booking this space.</li>
 								<li>Cancellation Policy: <a href="/Terms/Monthly-Space-License-Agreement" target="_blank">Guest (30 Days)</a> , <a href="/Terms/Monthly-Space-License-Agreement" target="_blank">Host (60 Days)</a>
 								</li>
-								<li>Fees - Offispo will collect payments and send directly to you. We charge a flat 10% fee on bookings.</li>
+								<li>Fees - hOur Office will collect payments and send directly to you. We charge a flat 10% fee on bookings.</li>
 							</ul>
 						</section>
 					</div>
@@ -666,7 +666,7 @@ wi-fi
     		var w = $('.modal.in #w').val();
     		var h = $('.modal.in #h').val();
     		if(x1=="" || y1=="" || x2=="" || y2=="" || w=="" || h==""){
-    			alert("Please Make a Selection First");
+    			alert("<?php echo trans('common.Please make a selection first')?>");
     			return false;
     		}else{
     			return true;

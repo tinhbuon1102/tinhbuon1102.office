@@ -60,7 +60,7 @@
 </div>
 </div><!--/hero-animation-->
 </section>
-<div class="home-top">
+<div class="home-top clearfix">
 <section id="intro" class="white">
 <div class="container">
 <div class="col_half col_left">

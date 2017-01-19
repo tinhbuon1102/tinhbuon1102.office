@@ -25,7 +25,7 @@ $totalCountStatus = $allDatas->get()->count();
 	</div>
 </li>
 <?php if (IsAdminApprovedUser($user)) {?>
-<li class="pc-none">
+<li class="pc-none side-panel-item">
 	<a id="bt-ms01" href="{{url('ShareUser/Dashboard/Message')}}" class="content-navigation">
 		<span class="nav-link-notification-wrap">
 			<?php $unread = readCountNoti(Auth::guard('user1')->user()->HashCode,'User1ID');?>
@@ -39,14 +39,14 @@ $totalCountStatus = $allDatas->get()->count();
 	</a>
 </li>
 <?php }?>
-<li class="pc-none">
+<li class="pc-none side-panel-item">
 	<a id="bt-ms01" href="{{url('ShareUser/Dashboard/MyPage')}}" class="content-navigation">
 		<i class="fa fa-user" aria-hidden="true"></i>
 		マイページ
 		<!--MyPage-->
 	</a>
 </li>
-<li>
+<li class="side-panel-item">
 	<a id="bt-ms1" href="{{url('ShareUser/Dashboard/MySpace/List1')}}" class="content-navigation">
 		<i class="fa fa-building" aria-hidden="true"></i>
 		{{ trans('navigation.space') }}
@@ -54,7 +54,7 @@ $totalCountStatus = $allDatas->get()->count();
 		<!--Space-->
 	</a>
 </li>
-<li>
+<li class="side-panel-item">
 	<a id="bt-ms2" href="{{url('ShareUser/Dashboard/BookList')}}" class="content-navigation">
 		<span class="nav-link-notification-wrap">
 			<?php if ($totalCountStatus) {?>
@@ -70,7 +70,7 @@ $totalCountStatus = $allDatas->get()->count();
 	</a>
 </li>
 <?php if (count($user->spaces)) {?>
-<li>
+<li class="side-panel-item">
 	<a id="bt-ms3" href="{{url('ShareUser/Dashboard/MySpace/Calendar')}}" class="content-navigation">
 		<i class="fa fa-calendar-check-o" aria-hidden="true"></i>
 		{{ trans('navigation.calendar') }}
@@ -79,7 +79,7 @@ $totalCountStatus = $allDatas->get()->count();
 	</a>
 </li>
 <?php }?>
-<li>
+<li class="side-panel-item">
 	<a id="bt-ms4" href="{{url('ShareUser/Dashboard/InvoiceList')}}" class="content-navigation">
 		<i class="fa fa-credit-card" aria-hidden="true"></i>
 		{{ trans('navigation.recipt') }}
@@ -88,7 +88,7 @@ $totalCountStatus = $allDatas->get()->count();
 	</a>
 </li>
 <?php if (IsAdminApprovedUser($user)) {?>
-<li>
+<li class="side-panel-item">
 	<a id="bt-ms5" href="{{url('ShareUser/Dashboard/OfferList')}}" class="content-navigation">
 		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 		{{ trans('navigation.offer_list') }}
@@ -97,7 +97,7 @@ $totalCountStatus = $allDatas->get()->count();
 	</a>
 </li>
 <?php }?>
-<li>
+<li class="side-panel-item">
 	<a id="bt-ms6" href="{{url('ShareUser/Dashboard/DesiredPerson')}}" class="content-navigation">
 		<i class="fa fa-heart" aria-hidden="true"></i>
 		{{ trans('navigation.desired_person') }}
@@ -106,14 +106,14 @@ $totalCountStatus = $allDatas->get()->count();
 	</a>
 </li>
 <?php if (IsAdminApprovedUser($user)) {?>
-<li class="pc-none">
+<li class="pc-none side-panel-item">
 	<a id="bt-ms6" href="{{url('RentUser/list')}}" class="content-navigation">
 		<i class="fa fa-search" aria-hidden="true"></i>
 		利用者を探す
 	</a>
 </li>
 <?php }?>
-<li>
+<li class="side-panel-item pushy-submenu">
 	<a id="bt-ms7" href="{{url('ShareUser/Dashboard/HostSetting')}}" class="content-navigation">
 		<i class="fa fa-cogs" aria-hidden="true"></i>
 		{{ trans('navigation.setting') }}

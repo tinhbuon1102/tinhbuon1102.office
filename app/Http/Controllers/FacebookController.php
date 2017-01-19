@@ -25,9 +25,14 @@ class FacebookController extends Controller
 	{
 		try {
 			// when facebook call us a with token
-			$providerUser = \Socialite::driver('facebook')->user();
+			$providerUser = \Socialite::driver('facebook')->fields([
+				'name',
+				'first_name',
+				'last_name',
+				'email',
+				'gender',
+			])->user();
 				
-// 			echo '<pre>'; print_r($providerUser);die;
 			$fbid= $providerUser->getId();
 			$user1=User1::firstOrNew(['FBID' => $fbid]);
 			$user2=User2::firstOrNew(['FBID' => $fbid]);
@@ -52,6 +57,8 @@ class FacebookController extends Controller
 				Session::put("Email",$email);
 				Session::put("logo",$logo);
 				Session::put("FBID",$fbid);
+				Session::put("providerUser",$providerUser);
+				
 				return view('pages.fb-signup');
 			}
 		}
@@ -70,6 +77,26 @@ class FacebookController extends Controller
 				'looking_for'=> 'required'
 					
 				]);
+		
+		$providerUser = Session::get("providerUser");
+
+		$content = file_get_contents("http://graph.facebook.com/$providerUser->id/picture?width=300&height=300&redirect=false");
+		if ($content)
+		{
+			$data = json_decode($content, true);
+			$avatar_file = '/images/user/' . uniqid() . '.jpg';
+			file_put_contents(public_path() . '/' . $avatar_file, file_get_contents($data['data']['url']));
+			$request->merge(array('Logo' => $avatar_file));
+		}
+		
+		$request->merge(array('password' => bcrypt($request->password)));
+		$request->merge(array('Email' => $providerUser->email));
+		$request->merge(array('FirstName' => $providerUser->user['first_name']));
+		$request->merge(array('LastName' => $providerUser->user['last_name']));
+		$request->merge(array('FBID' => $providerUser->id));
+		$request->merge(array('HashCode' => uniqid()));
+		$request->merge(array('EmailVerificationText' => uniqid()));
+		
 		if($request->looking_for=="ShareUser")
 		{
 			$user1=User1::firstOrNew(['Email' => Session::get("Email")]);
@@ -81,11 +108,6 @@ class FacebookController extends Controller
 				return redirect('/ShareUser/Dashboard/MySpace/List1');
 
 			}
-			$request->merge(array('Email' => Session::get("Email")));
-			$request->merge(array('FBID' => Session::get("FBID")));
-			$request->merge(array('Logo' => Session::get("logo")));
-				
-			$request->merge(array('HashCode' => uniqid()));
 
 			$u=$user1->create($request->except(['_token','looking_for','password_confirmation']));
 			Session::put("ShareUserID",$u->id);
@@ -93,6 +115,16 @@ class FacebookController extends Controller
 		}
 		else if($request->looking_for=="RentUser")
 		{
+			$request->merge(array('Sex' => ($providerUser->user['gender'] == 'female' ? '女性' : '男性')));
+			$coverContent = file_get_contents("https://graph.facebook.com/$providerUser->id?fields=cover&access_token=$providerUser->token");
+			if ($coverContent)
+			{
+				$data = json_decode($coverContent, true);
+				$cover_file = '/images/covers/cover_' . uniqid() . '.jpg';
+				file_put_contents(public_path() . '/' . $cover_file, file_get_contents($data['cover']['source']));
+				$request->merge(array('Cover' => $cover_file));
+			}
+			
 			$user2=User2::firstOrNew(['Email' => Session::get("Email")]);
 			if($user2->exists)
 			{
@@ -102,10 +134,6 @@ class FacebookController extends Controller
 				return redirect('/RentUser/Dashboard/MyProfile');
 
 			}
-			$request->merge(array('Email' => Session::get("Email")));
-			$request->merge(array('FBID' => Session::get("FBID")));
-			$request->merge(array('Logo' => Session::get("logo")));
-			$request->merge(array('HashCode' => uniqid()));
 
 			$u=$user2->create($request->except(['_token','looking_for','password_confirmation']));
 			Session::put("RentUserID",$u->id);

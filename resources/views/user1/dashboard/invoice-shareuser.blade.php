@@ -120,9 +120,7 @@
 			</div>
 		</div>
 		<!--/main-container-->
-		<!--footer-->
-
-		<!--/footer-->
+		</div><!--/#containers-->
 	</div>
 	<!--/viewport-->
 	<script>

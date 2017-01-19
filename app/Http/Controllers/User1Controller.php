@@ -325,8 +325,8 @@ class User1Controller extends Controller
 	{
 		if(Session::has("ShareUserID") && !empty(Session::get("ShareUserID")))
 		{
-
-			return view('user1.register.select-basicinfo');
+			$providerUser = Session::has("providerUser") ? Session::get("providerUser") : '';
+			return view('user1.register.select-basicinfo', compact('providerUser'));
 		}
 		else
 		{
@@ -1582,7 +1582,7 @@ class User1Controller extends Controller
 		$conditions = array(
 				'BusinessKindWelcome' => array($user->BusinessKindWelcome),
 				'Skills' => explode(',', $user->Skills),
-				'Sex' => array(getUserSexMapper()[$user->DisiredSex]),
+				'Sex' => array(@getUserSexMapper()[$user->DisiredSex]),
 				'BirthYear' => $user->DisiredAge,
 		);
 		$user2s = \App\User2::getMatchedRentUser($conditions);

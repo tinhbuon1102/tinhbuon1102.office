@@ -627,6 +627,8 @@ wi-fi
 		<!--footer-->
 		
 		<!--/footer-->
+        </div>
+	<!--/#containers-->
 	</div>
 	<!--/viewport-->
 	<script src="<?php echo SITE_URL?>js/chosen/chosen.jquery.js" type="text/javascript"></script>

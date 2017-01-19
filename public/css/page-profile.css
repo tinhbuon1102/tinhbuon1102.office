@@ -1206,7 +1206,10 @@ textarea.profiles-description {
 
 .rentuser-profile .profile-require-basic .editable-block-wraper td .editting-block
 	{
-	margin-bottom: 20px;
+	/*margin-bottom: 20px;*/
+}
+.rentuser-profile .profile-require-basic .editable-block-wraper td .editable-block.location-content.editting-block {
+    margin-bottom: 0;
 }
 
 .rentuser-profile .editable-block-wraper select {
@@ -1828,7 +1831,12 @@ a.profile-job-btn.job-desc-edit-btn .fa {
     margin-bottom: 15px;
 }
 
-
+.profile-info .profile-statistics .send-msg {
+}
+li.offer-btn-wrap a.btn.button {
+    margin: 0;
+    width: 100%;
+}
 @media ( max-width : 743px) {
 	.hide-sm {
 		display: none !important;

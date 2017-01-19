@@ -270,7 +270,7 @@ div#page-wrapper.has_fixed_title {
     padding-top: 92px;
 }
 @media (min-width: 768px) {
-body.home .transparent_header .primary-navigation {
+.transparent_header .primary-navigation {
 	float: right;
 }
 .scroll-leftbar {
@@ -363,7 +363,7 @@ button#user-trigger.navbar-toggle.mmnv {
 	z-index: 2000;
 }
 .no-login-space {
-    padding-top: 65px;
+    padding-top:80px;
 }
 @media (max-width: 1180px) {
 	div.space-list div.list-item {
@@ -805,13 +805,19 @@ th.img-th.sorting_asc {
 .transparent_header a.logo {
     display: block;
     text-indent: -9999px;
-    background: url(../images/logo-white.png);
+    background: url(../images/logo.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height: 26px;
+    height: 25px;
     /* padding: 19px 15px; */
+}
+body.home a.logo {
+    background: url(../images/logo-white.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .transparent_header.scroll a.logo {
 	 display: block;
@@ -823,8 +829,11 @@ th.img-th.sorting_asc {
     width: 100%;
     height: 26px;
 }
-.transparent_header .nvOpn span {
+body.home .transparent_header .nvOpn span {
     background: #FFF;
+}
+.transparent_header .nvOpn span {
+    background: #000;
 }
 .transparent_header.scroll .nvOpn span {
     background: #000;
@@ -1096,11 +1105,27 @@ input.labelauty + label {
 	display: none !important;
 }
 @media (max-width: 768px) {
+div#page-wrapper.has_fixed_title {
+    padding-top: 50px;
+}
+.user-setting fieldset:first-child .Signup-sectionHeader {
+    padding-top: 0px;
+}
 header nav.primary-navigation, header nav, .second-nav {
 	display: none;
 }
 header nav.primary-navigation a, .header_wrapper .nvOpn{
 	z-index: 9999999;
+}
+
+.header_wrapper .nvOpn {
+    /*margin-bottom: 9px;
+    margin-top: 8px;*/
+}
+
+header nav {
+    clear: both;
+    top: 20px;
 }
 
 nav.mm {
@@ -1409,7 +1434,10 @@ div#cboxLoadedContent, #cboxContent, #cboxWrapper, #colorbox {
     border: 0px;
 }
 body.mypage .fixed-container .right_side {
-    padding-bottom: 414px;
+    padding-bottom: 390px;
+}
+body.mypage.searchpage .fixed-container .right_side {
+    padding-bottom: 0px;
 }
 .subsubsub {
     font-size: 16px;
@@ -1428,15 +1456,19 @@ table.book-list-table .btn-xs {
     display: block;
     padding: .75rem .925rem;
     border-bottom: 1px solid #3b3b3b;
-    background: rgba(44, 50, 53, 0.96);
+    background: #333;
     color: #acacac;
     font-weight: 600;
-	line-height: 1;
+    line-height: 1;
 }
 .side-panel-item .user-controls {
     position: absolute;
-    top: 1rem;
-    right: .925rem;
+    top: .7rem;
+    right: .625rem;
+}
+.side-panel-item .side-panel-btn i {
+    min-width: 0px;
+    margin: 0;
 }
 nav.mm .side-panel-btn a {
     padding: 0;
@@ -1465,10 +1497,10 @@ nav.mm ul li.side-panel-item {
     border-radius: 6250rem;
 }
 body.mypage.searchpage .main-container {
-    padding-bottom: 414px;
+    padding-bottom: 390px;
 }
 body.profilepage div#main {
-    padding-bottom: 414px;
+    padding-bottom: 390px;
 }
 body.dashboard .main-container {
 	padding-right: .9375rem;
@@ -1837,6 +1869,7 @@ ul#fav-feed-list .office-catch-info .office-feature-img {
 }
 ul#fav-feed-list .news-feed-wrapper {
     overflow: hidden;
+	padding: 0 0 10px;
 }
 .offered-list .office-catch-info .office-feature-img {
     float: none;
@@ -1997,7 +2030,7 @@ button#goback .fa {
     -webkit-overflow-scrolling: touch;
 }
 .side-panel-bottom-row {
-    top: -60px;
+    
 }
 .side-panel-title {
     margin: 1.25rem 1.25rem .625rem 2.5rem;
@@ -2007,13 +2040,13 @@ button#goback .fa {
     line-height: 1;
     opacity: 1;
     transition: .3s opacity .6s;
-	font-family: 'Montserrat', sans-serif;
+	font-family: "Open Sans",sans-serif;
 }
-.side-panel-item i {
+.side-panel-item i, nav ul li.side-panel-item a:before {
     display: inline-block;
     min-width: 2.375rem;
     vertical-align: middle;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 .scroll-container {
     height: 100%;
@@ -2253,16 +2286,84 @@ body.support .flex-stack-gutter>.flex-cell, body.support .flex-stack-gutter>[cla
 .hero-article-content h1 {
     font-size: 2rem;
 }
-header nav>ul>li, header nav ul li {
-    border-bottom: 1px solid #3b3b3b;
+nav.pushy ul li {
 	display: list-item;
     text-align: -webkit-match-parent;
 }
-header nav>ul>li a, header nav ul li a {
+nav.pushy ul li.side-panel-item a {
     display: block;
     line-height: 1.45;
     padding: .75rem .925rem;
     position: relative;
+	background-color: #333;
+    color: #acacac;
+	font-weight: 600;
+	font-size: .775rem;
+	border-bottom: 1px solid #3b3b3b;
+}
+nav.pushy .side-panel-item:first-child a {
+    border-top: 1px solid #3b3b3b;
+}
+nav.pushy ul li.side-panel-item .side-panel-btn a {
+    padding: 0;
+	border: none;
+}
+nav.pushy ul {
+    margin: 0;
+	padding: 0;
+}
+nav.pushy ul:first-child {
+    margin-top: 0px;
+}
+.header_wrapper.primary-navigation-section.transparent_header {
+    z-index: 9998;
+}
+nav.pushy.pushy-left {
+    width: 17.5rem;
+	background-color: #333;
+	z-index: 9999;
+}
+.pushy-left {
+    -webkit-transform: translate3d(-17.5rem, 0, 0);
+    -ms-transform: translate3d(-17.5rem, 0, 0);
+    transform: translate3d(-17.5rem, 0, 0);
+}
+nav.pushy .logo-banner {
+    padding: 1.25rem .625rem 1.15rem .75rem;
+}
+.pushy .logo-banner a {
+	padding: 0;
+	margin: 0;
+	color: inherit;
+}
+nav.pushy .side-panel-legal-list {
+    margin: .625rem auto;
+    padding-top: 1.25rem;
+    width: 15rem;
+    list-style-type: none;
+    opacity: 1;
+    transition: .3s opacity .2s;
+}
+nav.pushy .side-panel-legal-item {
+    display: inline-block;
+    margin-left: 1.025rem;
+    width: auto;
+}
+nav.pushy .side-panel-legal-item:first-child {
+    margin: 0;
+}
+nav.pushy .side-panel-legal-item .text-link {
+    color: #746e65;
+}
+nav.pushy .p-sm {
+    font-size: 12px;
+    line-height: 1.5rem;
+}
+.text-nowrap, .text-overflow {
+    white-space: nowrap;
+}
+.text-overflow {
+    overflow: hidden;
 }
 .feed .user-info .right-table-disc .Rating {
     margin-right: 0;
@@ -2410,6 +2511,13 @@ a.profile-job-btn.job-desc-edit-btn.mb-editbtn .fa, a.profile-job-btn.job-skill-
     font-size: 12px;
 	z-index: 999;
 }
+.head-invoice .col-md-4.logo {
+    position: relative;
+    padding-bottom: 10px;
+}
+ul#fav-feed-list {
+    margin-top: 0px;
+}
 }
 @media (max-width: 690px) {
 table.style_gywt th {
@@ -2447,4 +2555,75 @@ table .left_title .space {
 }
 .alert.alert-dismissable .close {
     right: 0;
+}
+span.nav-link-notification {
+    position: absolute;
+    right: 15px;
+    background: #000;
+    color: #FFF;
+    padding: 0px 5px;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 16px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+@media(max-width:766px){
+.panel.panel-default, div#MyPageBoard {
+    margin-top: 15px;
+}
+    .user-trigger.navbar-toggle {
+            padding: 18px 12px;
+            margin: 0px;
+			border: none;
+        }
+
+    .alert {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+
+    .nofix .page-header.header-fixed {
+   
+            margin-bottom: 0px;
+        }
+		.navbar-toggle .fa {
+    line-height: 24px;
+}
+div#containers {
+    height: 100%;
+	padding-top: 62px;
+	position: relative;
+    transition: transform 0.2s cubic-bezier(0.16, 0.68, 0.43, 0.99);
+}
+.pushy-open-left #containers, .pushy-open-left .push {
+    -webkit-transform: translate3d(200px, 0, 0);
+    -ms-transform: translate3d(200px, 0, 0);
+    transform: translate3d(200px, 0, 0);
+}
+section#slider-fullwidth, .hero-article {
+    margin-top: -62px;
+}
+}
+@media(min-width:766px){
+div#containers {
+    height: 100%;
+	padding-top: 65px;
+	position: relative;
+    transition: transform 0.2s cubic-bezier(0.16, 0.68, 0.43, 0.99);
+}
+section#slider-fullwidth, .hero-article {
+    margin-top: -65px;
+}
+body.home .header_wrapper.primary-navigation-section {
+	background: none;
+}
+}
+body.home .header_wrapper.primary-navigation-section.transparent_header {
+    background: none;
+}
+.header_wrapper.primary-navigation-section.transparent_header {
+    background: #FFF;
 }

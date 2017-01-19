@@ -102,6 +102,7 @@
 			</div>
 		</div>
 		<!--/main-container-->
+        </div><!--/#containers-->
 	</div>
 	<?php renderOfferPopup($user1);?>
 	<!--/viewport-->

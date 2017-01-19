@@ -6,12 +6,7 @@ jQuery( function($){
 	var wndow_ht = $( window ).height();	
 	if(wndow_wd<650) {
 		$('nav').css("min-height",wndow_ht);
-	}
-	$( "body" ).on('click', '.nvOpn', function() {
-	  $( this ).toggleClass("actv");
-	  $( "nav" ).toggle("fast");
-	});
-		
+	}	
 });
 </script>
 <footer class="footer">
@@ -85,3 +80,4 @@ jQuery( function($){
 		
 	</div>
 </footer>
+<script src="{{ URL::asset('js/pushy-master/js/pushy.min.js') }}"></script>

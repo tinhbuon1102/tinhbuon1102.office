@@ -15,7 +15,7 @@ $user = isset($user) ? $user : Auth::guard('user2')->user();
 	</div>
 </li>
 <?php if (IsAdminApprovedUser($user)) {?>
-<li class="pc-none">
+<li class="pc-none side-panel-item">
 	<a id="bt-ms01" href="{{url('RentUser/Dashboard/Message')}}" class="content-navigation">
 		<span class="nav-link-notification-wrap">
 			<?php $unread = readCountNoti(Auth::guard('user2')->user()->HashCode,'User2ID');?>
@@ -29,7 +29,7 @@ $user = isset($user) ? $user : Auth::guard('user2')->user();
 	</a>
 </li>
 <?php }?>
-<li>
+<li class="side-panel-item">
 	<a id="bt-ms1" href="{{url('RentUser/Dashboard/MyPage')}}" class="content-navigation">
 		<i class="fa fa-user" aria-hidden="true"></i>
 		{{ trans('navigation.my_page') }}
@@ -37,13 +37,13 @@ $user = isset($user) ? $user : Auth::guard('user2')->user();
 		<!--My Page-->
 	</a>
 </li>
-<li class="pc-none">
+<li class="pc-none side-panel-item">
 	<a id="bt-ms01" href="{{url('RentUser/Dashboard/SearchSpaces')}}" class="content-navigation">
 		<i class="fa fa-search" aria-hidden="true"></i>
 		スペースを探す
 	</a>
 </li>
-<li>
+<li class="side-panel-item">
 	<a id="bt-ms2" href="{{url('RentUser/Dashboard/EditMySpace')}}" class="content-navigation">
 		<i class="fa fa-building" aria-hidden="true"></i>
 		{{ trans('navigation.desired_space') }}
@@ -51,7 +51,7 @@ $user = isset($user) ? $user : Auth::guard('user2')->user();
 		<!--Desired Space-->
 	</a>
 </li>
-<li>
+<li class="side-panel-item">
 	<a id="bt-ms3" href="{{url('RentUser/Dashboard/Reservation')}}" class="content-navigation">
 		<i class="fa fa-calendar-check-o" aria-hidden="true"></i>
 		{{ trans('navigation.reservation') }}
@@ -59,7 +59,7 @@ $user = isset($user) ? $user : Auth::guard('user2')->user();
 		<!--Reservation-->
 	</a>
 </li>
-<li>
+<li class="side-panel-item">
 	<a id="bt-ms3" href="{{url('RentUser/Dashboard/InvoiceList')}}" class="content-navigation">
 		<i class="fa fa-credit-card" aria-hidden="true"></i>
 		{{ trans('navigation.invoice_list') }}
@@ -68,7 +68,7 @@ $user = isset($user) ? $user : Auth::guard('user2')->user();
 	</a>
 </li>
 <?php if (IsAdminApprovedUser($user)) {?>
-<li>
+<li class="side-panel-item">
 	<a id="bt-ms4" href="{{url('RentUser/Dashboard/OfferList')}}" class="content-navigation">
 		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 		{{ trans('navigation.offer_list') }}
@@ -77,7 +77,7 @@ $user = isset($user) ? $user : Auth::guard('user2')->user();
 	</a>
 </li>
 <?php }?>
-<li>
+<li class="side-panel-item">
 	<a id="bt-ms5" href="{{url('RentUser/Dashboard/Favorite')}}" class="content-navigation">
 		<i class="fa fa-star" aria-hidden="true"></i>
 		{{ trans('navigation.fav_list') }}
@@ -85,7 +85,7 @@ $user = isset($user) ? $user : Auth::guard('user2')->user();
 		<!--Favourite list-->
 	</a>
 </li>
-<li>
+<li class="side-panel-item">
 	<a id="bt-ms6" href="{{url('RentUser/Dashboard/BasicInfo/Edit')}}" class="content-navigation">
 		<i class="fa fa-cogs" aria-hidden="true"></i>
 		{{ trans('navigation.setting') }}

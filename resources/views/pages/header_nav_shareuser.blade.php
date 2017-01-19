@@ -1,11 +1,28 @@
-<div class="header_wrapper primary-navigation-section">
+<!-- Pushy Menu -->
+        <nav class="pushy pushy-left">
+          <div class="flex-column fill-height">
+<div class="flex-cell side-panel-top-row">
+<ul>
+@include('user1.dashboard.left_nav_link')
+</ul>
+</div>
+<div class="flex-cell-auto side-panel-bottom-row">
+
+</div>
+</div>
+        </nav>
+        <!-- Site Overlay -->
+        <div class="site-overlay"></div>
+<div id="containers">
+<div class="header_wrapper primary-navigation-section su_header">
 	<header id="header">
 		<div class="header_container dark">
 			<div class="logo_container">
 				<a class="logo" href="{{url('/')}}">hOur Office</a>
 			</div>
-			<!--nav-->
-            <div class="nvOpn"><span></span> <span></span> <span></span></div>
+			<!--old mobile nav-->
+            <div class="nvOpn menu-btn"><span></span> <span></span> <span></span></div>
+
 			<nav class="primary-navigation">
 				<ul>
                 
@@ -216,18 +233,6 @@
 <!--/user sidebar-->
 
 
-<nav class="mm">
-<div class="flex-column fill-height">
-<div class="flex-cell side-panel-top-row">
-<ul>
-@include('user1.dashboard.left_nav_link')
-</ul>
-</div>
-<div class="flex-cell-auto side-panel-bottom-row">
-
-</div>
-</div>
-</nav>
 
 @if(getAuth())
 <script>

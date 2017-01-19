@@ -82,13 +82,10 @@
     jQuery('[data-remodal-id=modal3]').remodal();
 	</script>
 	<script src="{{ URL::asset('js/jquery.validate.js?v=1') }}"></script>
-		<script>
 		
-			
-			 
-		</script>
-		
+
 <script>
+
 jQuery.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
@@ -308,3 +305,5 @@ h = jQuery(window).height();
 jQuery(".viewport").css("min-height", h + "px");
 });
 </script>
+</div>
+<script src="{{ URL::asset('js/pushy-master/js/pushy.min.js') }}"></script>

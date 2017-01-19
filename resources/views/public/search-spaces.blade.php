@@ -25,7 +25,7 @@ $tag = request()->get('tag') ? request()->get('tag') : '';
 		@elseif(Auth::guard('user2')->check())
 			@include('pages.header_nav_rentuser')
 		@else
-			@include('pages.header_nav_beforelogin')
+			@include('pages.before_login_nav')
 			<!--<div class="second-nav"></div>-->
 		@endif
         <div class="main-container" style="background: rgb(248,248,248);">
@@ -73,6 +73,7 @@ $tag = request()->get('tag') ? request()->get('tag') : '';
                                                 </div>
                                             </div>
 											
+                                            <div class="right-area">
                                             <div class="filter-input-wrapper reservation-method">
                                             	<!--<select id="cd-dropdown"  class="cd-select">
                                             		<option value="hourly" selected>Hourly</option>
@@ -122,6 +123,7 @@ $tag = request()->get('tag') ? request()->get('tag') : '';
                                                </div>
                                             </div> --}}
                                             @include('user2/dashboard/parts/search-space-filter-datepeacker')
+                                        </div>
                                         </div>
                                     </form>
                                 </div><!--/search-bar-common-wrapper-->

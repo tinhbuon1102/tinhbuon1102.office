@@ -6,28 +6,11 @@
 <!--/head-->
 <body class="home">
 	<div class="viewport">
-		<div class="header_wrapper">
-			<header id="header">
-				<div class="header_container">
-					<div class="logo_container">
-						<a class="logo" href="{{url('/')}}">hOur Office</a>
-					</div>
-					<!--nav-->
-
-            <?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header_nav_shareuser.php'); ?>
-  @if(Auth::check())
-  @include('pages.header_nav_shareuser')
-  @elseif(Auth::guard('user2')->check())
-  <?php $check_user=1; ?>
-  @include('pages.header_nav_rentuser')
-  @else
-  @include('pages.before_login_nav')
-  @endif
+		<!--nav-->
+<?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/before_login_nav.php');?>
+			@include('pages.before_login_nav')
 
 <!--/nav-->
-				</div>
-			</header>
-		</div>
 		<div class="hero-article hero-hiw-page ng-scope">
 			<div class="hero-article-content">
 				<h1 class="hero-article-title">
@@ -152,7 +135,7 @@
 										<div class="col-md-9">
 											<span class="fl-icon-user input-icon">
 												<?php echo Form::select('BusinessType',
-													getUserBusinessTypes(), old('BusinessType'), ['id' => 'BusinessType', 'class' => 'large-input valid validate[required]', 'required' => 'required', 'placeholder' => '-- 1つ選択 --']);?>
+													getUserBusinessTypes(), old('BusinessType'), ['id' => 'BusinessType', 'class' => 'large-input valid validate[required]', 'placeholder' => '-- 1つ選択 --']);?>
 											</span>
 										</div>
 									</div>

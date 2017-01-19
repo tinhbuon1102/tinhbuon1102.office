@@ -217,7 +217,7 @@ $user = Auth::guard('user1')->user();
 																都道府県
 																<!--Prefecture-->
 															</label>
-															<select id="Prefecture" name="Prefecture" class="confidential" required="">
+															<select id="Prefecture" name="Prefecture" class="confidential" required>
 																<option value=""></option>
 																<option value="北海道">北海道</option>
 																<option value="青森県">青森県</option>
@@ -868,8 +868,7 @@ $user = Auth::guard('user1')->user();
 			</div>
 		</div>
 		<!--/main-container-->
-		<!--footer-->
-		<!--/footer-->
+        </div><!--/#containers-->
 	</div>
 	<!--/viewport-->
 	@include('pages.footer_js')

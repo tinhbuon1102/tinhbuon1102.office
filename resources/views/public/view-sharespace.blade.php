@@ -70,7 +70,7 @@
 <body class="profilepage common">
 	<div class="viewport">
 		<?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header_nav_shareuser.php'); ?>
-		@if(Auth::check()) @include('pages.header_nav_shareuser') @elseif(Auth::guard('user2')->check()) @include('pages.header_nav_rentuser') @else @include('pages.header_nav_beforelogin') @endif
+		@if(Auth::check()) @include('pages.header_nav_shareuser') @elseif(Auth::guard('user2')->check()) @include('pages.header_nav_rentuser') @else @include('pages.before_login_nav') @endif
 		<div id="main" class="container">
 			<?php renderSocialScript();?>
 			<input type="hidden" id="datahdn">
@@ -625,6 +625,7 @@
 														<span class="Rating-progress" style="width:<?php echo showWidthRatingProgress($review['AverageRating'])?>%"></span>
 													</span>
 												</span>
+												<?php if ($review['Comment']) {?>
 												<p itemprop="description">
 													“
 													<span ng-bind="review.get().description" class="ng-binding">
@@ -632,6 +633,7 @@
 													</span>
 													”
 												</p>
+												<?php }?>
 												<span class="user-review-details ng-binding">
 													<a href="<?php echo getUser2ProfileUrl($review['user2'])?>">
 														<span class="user-review-name ng-binding">{{getUserName($review['user2'])}}</span>

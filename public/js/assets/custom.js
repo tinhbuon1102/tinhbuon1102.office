@@ -937,20 +937,10 @@ jQuery(function($){
 	}
 	
 	if ($('#login_form_content_wrapper').length)
-		var clickEvent = 'touchstart';
+		var clickEvent = 'click';
+//		var clickEvent = 'touchstart';
 	else
 		var clickEvent = 'click';
-	
-	$( "body" ).on(clickEvent, '.nvOpn', function() {
-	  $( this ).toggleClass("actv");
-	  if ($('nav.mm').length)
-	  {
-		  $('nav.mm').toggle("fast");
-	  }
-	  else {
-		  $(this).closest('header').find('nav').toggle("fast");
-	  }
-	});
 	
 	
 	$('#common_dialog_wraper').on('show.bs.modal', function () {
@@ -1033,10 +1023,27 @@ jQuery(function($){
 		myScroller.perfectScrollbar('update');
 	}
 	
+	function headerScrollingInit() {
+		// スクロールして何ピクセルでアニメーションさせるか
+		var px_change  = 300;
+		
+		// スクロールのイベントハンドラを登録
+		$(window).scroll(function(){
+			// 変化するポイントまでスクロールしたらクラスを追加
+			if ( $(window).scrollTop() > px_change ) {
+				$("header").addClass("smaller");
+			// 変化するポイント以前であればクラスを削除
+			} else if ( $("header").hasClass("smaller") ) {
+				$("header").removeClass("smaller");
+			}
+		})
+	}
+	
 	function runInitialize() {
 		makeSrollDiv();
 		showTopNotification();		
 		setHeight();
+		headerScrollingInit();
 	}
 	
 	runInitialize();
@@ -1070,3 +1077,33 @@ function cloneObject(obj) {
     }
     return copy;
 }
+
+///////////////
+jQuery(document).ready(function ($) {
+  var trigger = $('.hamburger'),
+      overlay = $('.overlay'),
+     isClosed = false;
+
+    trigger.click(function () {
+      hamburger_cross();      
+    });
+
+    function hamburger_cross() {
+
+      if (isClosed == true) {          
+        overlay.hide();
+        trigger.removeClass('is-open');
+        trigger.addClass('is-closed');
+        isClosed = false;
+      } else {   
+        overlay.show();
+        trigger.removeClass('is-closed');
+        trigger.addClass('is-open');
+        isClosed = true;
+      }
+  }
+  
+  $('[data-toggle="offcanvas"]').click(function () {
+        $('#wrapper').toggleClass('toggled');
+  });  
+});

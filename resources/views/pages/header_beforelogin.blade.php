@@ -31,6 +31,7 @@
 <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/tipso.min.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/jquery.webui-popover.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('js/pushy-master/css/pushy.css') }}">
 
 
 
@@ -79,8 +80,6 @@
 <link rel="stylesheet" href="{{ URL::asset('css/page-profile.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/static-page.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/responsive.css') }}">
-
-
 
 @if(getAuth())
 <script src="//js.pusher.com/2.2/pusher.min.js"></script>
@@ -136,7 +135,8 @@ $(document).ready(function(){
            });
         });
     </script>
-<script>
+
+<!--<script>
 $(function(){
  var header = $('.header_wrapper')
  header_offset = header.offset();
@@ -149,7 +149,8 @@ $(function(){
    }
   });
 });
-</script>
+</script>-->
+
 <link rel="stylesheet" href="{{ URL::asset('js/remodal/remodal.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('js/remodal/remodal-default-theme.css') }}">
 <style>
@@ -180,8 +181,8 @@ $(function(){
 }
 
 .nvOpn.actv span:nth-child(1) {
-	-ms-transform: rotate(135deg); /* IE 9 */
-	-webkit-transform: rotate(135deg); /* Chrome, Safari, Opera */
+	-ms-transform: rotate(135deg);
+	-webkit-transform: rotate(135deg);
 	transform: rotate(135deg);
 	position: absolute;
 	top: 25px;
@@ -189,8 +190,8 @@ $(function(){
 }
 
 .nvOpn.actv span:nth-child(2) {
-	-ms-transform: rotate(45deg); /* IE 9 */
-	-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+	-ms-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
 	transform: rotate(45deg);
 	top: 25px;
 	left: 10px;
@@ -205,7 +206,7 @@ $(function(){
 	width: 30px;
 }
 
-@media screen and (max-width:768px) { /* 640 px */
+@media screen and (max-width:768px) {
 	.mm {
 		display: none;
 	}
@@ -243,7 +244,6 @@ body.navon .nvOpn.actv {
 	display: block;
 }
 </style>
-
 </head>
 
 

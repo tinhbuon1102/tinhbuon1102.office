@@ -180,7 +180,7 @@ HolidayDateTime = {
         if (this.get('month') != $month) return false;
 
         $year = this.get('year');
-        $day = floor(20.8431 + 0.242194 * ($year - 1980) - floor(($year - 1980) / 4));
+        $day = Math.floor(20.8431 + 0.242194 * ($year - 1980) - Math.floor(($year - 1980) / 4));
 
         if (this.get('day') != $day) return false;
         return $name;
@@ -195,7 +195,7 @@ HolidayDateTime = {
         if (this.get('month') != $month) return false;
 
         $year = this.get('year');
-        $day = floor(23.2488 + 0.242194 * ($year - 1980) - floor(($year - 1980) / 4));
+        $day = Math.floor(23.2488 + 0.242194 * ($year - 1980) - Math.floor(($year - 1980) / 4));
 
         if (this.get('day') != $day) return false;
         return $name;

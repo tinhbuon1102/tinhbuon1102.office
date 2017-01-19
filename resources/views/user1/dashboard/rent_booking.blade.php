@@ -325,6 +325,7 @@ use App\Spaceslot;
 			</div>
 		</div>
 		<!--/main-container-->
+        </div><!--/#containers-->
 	</div>
 	<!--/viewport-->
 	<script type='text/javascript'>

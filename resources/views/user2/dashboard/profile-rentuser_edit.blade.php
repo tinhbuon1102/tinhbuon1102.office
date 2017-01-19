@@ -25,7 +25,7 @@ $breaks = array(
 		@endif
 		<div id="main" class="container">
 			<form id="form_cover_image" method="post" enctype="multipart/form-data" action='/upload-image.php' name="photo">
-				<div class="profile-cover-wrapper ng-isolate-scope" style="background-size:100%;<?php if(!empty($user->Cover)){ ?>background:url('{{$user->Cover}}')<? } ?>">
+				<div class="profile-cover-wrapper ng-isolate-scope" style="<?php if(!empty($user->Cover)){ ?>background:url('{{$user->Cover}}')<? } ?> center center / cover no-repeat">
 					<div class="profile-cover-mask">
 						<div class="section-inner">
 							<button style="display: none;" type="button" class="cover-image-upload-trigger" title="カバー写真を編集">
@@ -264,7 +264,7 @@ $breaks = array(
 										<!--/profile-btn-->
 										<?php showStarReview($reviews);?>
 									</div>
-									<ul class="item-stats" ng-show="profile.user.role === 'freelancer'">
+									<!--<ul class="item-stats" ng-show="profile.user.role === 'freelancer'">
 										<li class="is-good">
 											<span class="item-stats-name">使用清潔度</span>
 											<span class="item-stats-value">{{$reviews['CleaninessAvg']}}%</span>
@@ -281,8 +281,12 @@ $breaks = array(
 											<span class="item-stats-name">再利用希望</span>
 											<span class="item-stats-value">{{$reviews['RepeatAvg']}}%</span>
 										</li>
-									</ul>
+									</ul>-->
+                                    
 									<?php if(Auth::guard('user1')->check()) {?>
+                                    <ul class="item-stats">
+                                    <li class="offer-btn-wrap"><a class="btn button dblk-button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> オファーをする</a></li>
+                                    </ul>
                                     <div class="send-msg">
 										<a href="/ShareUser/Dashboard/Message/{{$user->HashCode}}">
 											<button class="btn button msg-button yellow-button" data-bind="click: SendMessageViewModel.showDialog" role="button" aria-disabled="false">
@@ -872,11 +876,13 @@ foreach ( $allReviews as $reviewIndex => $review )
 															<span class="Rating-progress" style="width:<?php echo showWidthRatingProgress($review['AverageRating'])?>%"></span>
 														</span>
 													</span>
+													<?php if ($review['Comment']) {?>
 													<p itemprop="description">
 														“
 														<span ng-bind="review.get().description" class="ng-binding"><?php echo $review['Comment']?></span>
 														”
 													</p>
+													<?php }?>
 													<span class="user-review-details ng-binding">
 														<a href="<?php echo getUser1ProfileUrl($review['user1'])?>">
 															<span class="user-review-name ng-binding"><?php echo $review['user1']['NameOfCompany']?></span>
@@ -1212,11 +1218,13 @@ foreach ( $allReviews as $reviewIndex => $review )
 													<span class="Rating-progress" style="width:<?php echo showWidthRatingProgress($review['AverageRating'])?>%"></span>
 												</span>
 											</span>
+											<?php if ($review['Comment']) {?>
 											<p itemprop="description">
 												“
 												<span ng-bind="review.get().description" class="ng-binding"><?php echo $review['Comment']?></span>
 												”
 											</p>
+											<?php }?>
 											<span class="user-review-details ng-binding">
 												<a href="<?php echo getUser1ProfileUrl($review['user1'])?>">
 													<span class="user-review-name ng-binding"><?php echo $review['user1']['NameOfCompany']?></span>

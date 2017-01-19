@@ -253,12 +253,9 @@
 												<div class="clearfix"></div>
 											</div>
 										</div>
-										<a href="#">
+										<a href="#" class="disablelink">
 											<div class="panel-footer">
-												<span class="pull-left">詳細</span>
-												<span class="pull-right">
-													<i class="fa fa-chevron-circle-right"></i>
-												</span>
+												
 												<div class="clearfix"></div>
 											</div>
 										</a>
@@ -329,8 +326,7 @@
 			</div>
 		</div>
 		<!--/main-container-->
-		<!--footer-->
-		<!--/footer-->
+		</div><!--/#containers-->
 	</div>
 	<!--/viewport-->
 	<script>

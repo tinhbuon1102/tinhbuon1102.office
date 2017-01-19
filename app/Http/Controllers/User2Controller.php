@@ -352,8 +352,8 @@ class User2Controller extends Controller
 	{
 		if(Session::has("RentUserID") && !empty(Session::get("RentUserID")))
 		{
-
-			return view('user2.register.select-basicinfo');
+			$providerUser = Session::has("providerUser") ? Session::get("providerUser") : '';
+			return view('user2.register.select-basicinfo', compact('providerUser'));
 		}
 		else
 		{

@@ -30,7 +30,7 @@
 <body class="profilepage host-profile common">
 	<div class="viewport">
 		<?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header_nav_shareuser.php'); ?>
-		@if(Auth::check()) @include('pages.header_nav_shareuser') @elseif(Auth::guard('user2')->check()) @include('pages.header_nav_rentuser') @else @include('pages.header_nav_beforelogin') @endif
+		@if(Auth::check()) @include('pages.header_nav_shareuser') @elseif(Auth::guard('user2')->check()) @include('pages.header_nav_rentuser') @else @include('pages.before_login_nav') @endif
 		<div id="main" class="container">
 			<section class="space-info workspace-details">
 				<div class="section-inner">
@@ -81,7 +81,7 @@ echo "test";
 															</div>
 														</div>
 														<h2 class="lead">{{$spaces->count()}}</h2>
-														<h5>Space</h5>
+														<h5>スペース</h5>
 													</div>
 												</div>
 												<!--.col-sm-6-->
@@ -93,7 +93,7 @@ echo "test";
 															</div>
 														</div>
 														<h2 class="lead">{{$fav_cnt}}</h2>
-														<h5>Favourite</h5>
+														<h5>お気に入り</h5>
 													</div>
 												</div>
 												<!--.col-sm-6-->
@@ -105,7 +105,7 @@ echo "test";
 															</div>
 														</div>
 														<h2 class="lead">{{count($allReviews)}}</h2>
-														<h5>Review</h5>
+														<h5>レビュー</h5>
 													</div>
 												</div>
 												<!--.col-sm-6-->
@@ -117,7 +117,7 @@ echo "test";
 															</div>
 														</div>
 														<h2 class="lead">{{calculateUserProfilePercent($user, 1)}}%</h2>
-														<h5>Profile</h5>
+														<h5>プロフィール</h5>
 													</div>
 												</div>
 												<!--.col-sm-6-->
@@ -170,11 +170,22 @@ echo "test";
 																<th>従業員数</th>
 																<td>@if( !empty($user->NumberOfEmployee) ) {{$user->NumberOfEmployee}} @else - @endif</td>
 															</tr>
-															<tr>
-																<th>出会いたい人材</th>
+                                                            <tr>
+																<th colspan="2" class="col2">出会いたい人材</th>
+															</tr>
+                                                            <tr class="need_person">
+																<th>性別</th>
+																<td><!--show sex--></td>
+															</tr>
+                                                            <tr class="need_person">
+																<th>年齢</th>
+																<td><!--show age--></td>
+															</tr>
+															<tr class="need_person">
+																<th>事業タイプ</th>
 																<td>{{$user->BusinessKindWelcome}}</td>
 															</tr>
-															<tr>
+															<tr class="need_person">
 																<th>スキル</th>
 																<td>{{$user->Skills}}</td>
 															</tr>
@@ -284,11 +295,13 @@ echo "test";
 										<div class="review-contents">
 											<a class="user-review-title ng-binding" href="#">{{$review->space->Title}}</a>
 											<?php echo showStarReview($review, true)?>
+											<?php if ($review->Comment) {?>
 											<p itemprop="description">
 												“
 												<span ng-bind="review.get().description" class="ng-binding">{{$review->Comment}}</span>
 												”
 											</p>
+											<?php }?>
 											<span class="user-review-details ng-binding">
 												<a href="{{getUser2ProfileUrl($review->user2)}}">
 													<span class="user-review-name ng-binding">{{getUserName($review->user2)}}</span>

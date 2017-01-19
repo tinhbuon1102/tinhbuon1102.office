@@ -73,7 +73,7 @@
 <link rel="stylesheet" href="{{ URL::asset('css/tipso.min.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/jquery.webui-popover.css') }}">
 <link rel="stylesheet" href="<?php echo SITE_URL?>css/static-page.css">
-
+<link rel="stylesheet" href="{{ URL::asset('js/pushy-master/css/pushy.css') }}">
 
 <link rel="stylesheet" href="<?php echo SITE_URL?>js/remodal/remodal.css">
 <link rel="stylesheet" href="<?php echo SITE_URL?>js/remodal/remodal-default-theme.css">

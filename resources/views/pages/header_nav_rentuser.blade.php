@@ -1,11 +1,21 @@
-<div class="header_wrapper primary-navigation-section">
+<!-- Pushy Menu -->
+        <nav class="pushy pushy-left">
+        <ul>
+@include('user2.dashboard.left_nav_links')
+</ul>
+        </nav>
+        <!-- Site Overlay -->
+        <div class="site-overlay"></div>
+<div id="containers">
+<div class="header_wrapper primary-navigation-section ru_header">
 	<header id="header">
 		<div class="header_container dark">
 			<div class="logo_container">
 				<a class="logo" href="{{url('/')}}">hOur Office</a>
 			</div>
 			<!--nav-->
-            <div class="nvOpn"><span></span> <span></span> <span></span></div>
+            <div class="nvOpn menu-btn"><span></span> <span></span> <span></span></div>
+
 			<nav class="primary-navigation">
 				<ul>
 					<li class="menu-find-space">
@@ -196,11 +206,7 @@
 	</div>
 </div>
 <!--/user sidebar-->
-<nav class="mm">
-<ul>
-@include('user2.dashboard.left_nav_links')
-</ul>
-</nav>
+
 @if(getAuth())
 <script>
 	itemActionChannel.bind( "App\\Events\\NewChatNotificaion", function( data ) {

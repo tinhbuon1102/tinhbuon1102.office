@@ -140,7 +140,7 @@
 											<span class="Rating-review">40 reviews</span>
 										</div>
 									</div>
-									<ul class="item-stats" ng-show="profile.user.role === 'freelancer'">
+									<!--<ul class="item-stats" ng-show="profile.user.role === 'freelancer'">
 										<li class="is-good">
 											<span class="item-stats-name">清潔さ</span>
 											<span class="item-stats-value">100%</span>
@@ -157,7 +157,10 @@
 											<span class="item-stats-name">再利用率</span>
 											<span class="item-stats-value">43%</span>
 										</li>
-									</ul>
+									</ul>-->
+                                    <ul class="item-stats">
+                                    <li><a class="btn button dblk-button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> オファーをする</a></li>
+                                    </ul>
 								</section>
 								<!--end of profile-statics-->
 							</div>

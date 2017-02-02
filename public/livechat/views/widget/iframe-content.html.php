@@ -161,7 +161,7 @@
             </div>
         </div>
         
-        <a id="mobile-widget" class="customer-chat-header" href="<?php echo $app->path('Widget:mobileView') ?>" target="_top"><i class="icon-white icon-comment"></i></a>
+        <a id="mobile-widget" class="customer-chat-header" target="_blank" href="<?php echo $app->path('Widget:mobileView') ?>" target="_top"><i class="icon-white icon-comment"></i></a>
         
         <!-- Scripts -->
         

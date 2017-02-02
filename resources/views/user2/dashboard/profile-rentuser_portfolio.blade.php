@@ -98,7 +98,7 @@ h1.port-title {
 				</div>
 				<input type="hidden" value="Upload" class="upload_button" name="submitbtn" />
 				<input type="hidden" value="portfolio" class="upload_button" name="upload_type" />
-				<div class="port-field"><input type="file" name="imagefile" id="portfolio-pic"/></div>
+				<div class="port-field"><input type="file" name="imagefile" required id="portfolio-pic"/></div>
 			</div>
 		</form>
         </div>
@@ -106,12 +106,12 @@ h1.port-title {
         <form id="portfolio-form" class="portfolio-form" method="post" enctype="multipart/form-data" action='/RentUser/Dashboard/MyPortfolioSave?action=save' >
 			<div class="portfolio-title-wraper port-field-row">
 				<div class="port-label">タイトル</div>
-				<div class="port-field"><input name="Title" value="<?php echo $title?>" type="text"/></div>
+				<div class="port-field"><input name="Title" value="<?php echo $title?>" type="text"  required /></div>
 			</div>
 			
 			<div class="portfolio-desc-wraper port-field-row">
 				<div class="port-label">説明</div>
-				<div class="port-field"><textarea name="Description" rows="5" cols="10"><?php echo $description?></textarea></div>
+				<div class="port-field"><textarea name="Description" required rows="5" cols="10"><?php echo $description?></textarea></div>
 			</div>
 			
 			<input type="hidden" value="<?php echo $userPortfolio['Photo']?>" name="Photo" id="portfolio_pic_name"/>
@@ -160,12 +160,15 @@ h1.port-title {
 		}
 
     	$('body').on('click', '#portfolio-submit-button', function(e){
+			if($("#portfolio-form").valid() 	<?php if ($action == 'add') { ?> && $("#portfolio-form-pic").valid() <?php } ?> )
+			{
         	$('#portfolio-submit-button').hide();
     		$("#portfolio-form").ajaxForm({
             	url: '/RentUser/Dashboard/MyPortfolioSave?action=save',
             	dataType: 'json',
                 success:    showResponseSubmit 
             }).submit();
+			}
     	});
 
     	$('body').on('change', '#portfolio-pic', function(e){
@@ -179,6 +182,19 @@ h1.port-title {
             }).submit();
     	});
 	})
+</script>
+<script>
+$("#portfolio-form").validate({
+   rules: {
+     Title: "required",
+     Description: "required"
+	 }
+});
+$("#portfolio-form-pic").validate({
+   rules: {
+     imagefile: "required"
+	 }
+});
 </script>
 	<?php } else {?>
 		<div class="port-pop-wrapper">

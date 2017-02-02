@@ -798,10 +798,11 @@ class MyAdminController extends Controller
 	{
 		$user=User2::where('HashCode', $id)->firstOrFail();
 
-		$user->fill($request->except(['_token','UserName','Email']));
+		$user->fill($request->except(['_token','UserName']));
 		$user->save();
+		return redirect('MyAdmin/RentUser/' . $id);
 		//User1sharespace::where('HashID', $id)->firstOrFail();
-		return view("admin/rentuser/edit-rentuser",compact('user'));
+	//	return view("admin/rentuser/edit-rentuser",compact('user'));
 
 
 	}

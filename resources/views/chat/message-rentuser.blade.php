@@ -64,7 +64,8 @@
 								</li>
 							</ul>
 							<div class="chat-send">
-								<input type="text" class="chat-box" placeholder="メッセージを入力" />
+								<!--<input type="text" class="chat-box" placeholder="メッセージを入力" />-->
+								<textarea class="chat-box" placeholder="メッセージを入力"></textarea>
 								<div class="attach"><i class="fa fa-paperclip" aria-hidden="true"></i></div>
 								<button class="chat-send-btn"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
 							</div>

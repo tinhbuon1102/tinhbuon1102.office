@@ -15,7 +15,7 @@
 </div>
 <div class="input-container input-half">
 <label for="Email">メールアドレス</label>
-<input name="Email" value="{{$user->Email}}" type="email" data-target="signup-email"  readonly disabled>
+<input name="Email" value="{{$user->Email}}" type="email" data-target="signup-email"  >
 </div>
 </div><!--/form-field-->
 </div>

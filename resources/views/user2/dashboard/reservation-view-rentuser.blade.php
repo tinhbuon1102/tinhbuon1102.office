@@ -81,6 +81,27 @@ $count = count($rent_data->bookedSlots);
 																	<div class=" form-inline">{!!$rent_data->finalCancel!!}</div>
 																</div>
 																<!--/list-content-->
+																<!--Cancel button -->
+													@if(($rent_data->status==1 || $rent_data->status==2) && ($rent_data->in_use==0)) @if($rent_data->status==1)
+													<form action='/RentUser/Dashboard/cancelPayment' method='post'>
+														<input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
+														<input type='hidden' name='t_id' value='{!!$rent_data->transaction_id!!}' />
+														<input type='hidden' name='type' value='cancel' />
+														<input type='hidden' name='id' value='{!!$rent_data->id!!}' />
+														<input type='hidden' name='redirect_to' value='/RentUser/Dashboard/Reservation/View/{!!$rent_data->id!!}' />
+														<button class="btn btn-mini btn-info btn-mini lnk-reject cancel_payment" type="button">キャンセル</button>
+													</form>
+													@endif @if($rent_data->status==2)
+													<form action='/RentUser/Dashboard/cancelPayment' method='post'>
+														<input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
+														<input type='hidden' name='t_id' value='{!!$rent_data->transaction_id!!}' />
+														<input type='hidden' name='type' value='cancel' />
+														<input type='hidden' name='id' value='{!!$rent_data->id!!}' />
+														<input type='hidden' name='redirect_to' value='/RentUser/Dashboard/Reservation/View/{!!$rent_data->id!!}' />
+														<button class="btn btn-mini btn-info btn-mini lnk-reject cancel_payment" type="button">キャンセル</button>
+													</form>
+													@endif @elseif($rent_data->in_use==1) キャンセル不可 @endif @if($rent_data->status==3) キャンセル済み @endif @if($rent_data->status==4) キャンセル済み @endif
+													<!-- /Cancel button -->
 															</div>
 															<!--side_list-->
 															
@@ -306,6 +327,9 @@ $count = count($rent_data->bookedSlots);
 														</div>
 														<!--/side_list-->
 													</div>
+													
+													
+													
 													<!--/col-detail-->
 												</div>
 												<!--/col-md-->

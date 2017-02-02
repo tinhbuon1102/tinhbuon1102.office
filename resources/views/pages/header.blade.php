@@ -64,7 +64,7 @@
 
 <link rel="stylesheet" href="<?php echo SITE_URL?>css/font-icon.css">
 
-<link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/style.css?20170124-1652') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/user-review.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/page-profile.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/user-validation.css') }}">
@@ -89,7 +89,7 @@
 <link rel="stylesheet" href="{{ URL::asset('js/magnific-popup/dist/magnific-popup.css') }}">
 <!-- Select2 CSS file -->
 <link rel="stylesheet" href="{{ URL::asset('css/select2.min.css') }}">
-<link rel="stylesheet" href="{{ URL::asset('css/responsive.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/responsive.css?20170124-2255') }}">
 
 <script type="text/javascript">
 	var SITE_URL = "{{ url('/') }}/";
@@ -198,13 +198,6 @@ jQuery(window).scroll(function (event) {
 <script>
         jQuery.noConflict();
             //キャプションフェードイン
-            jQuery(function () {
-                jQuery('.popover-trigger').hover(function () {
-                jQuery('.popover', this).fadeIn("fast");
-            }, function () {
-                jQuery('.popover', this).fadeOut("fast");
-            });
-        });
     </script>
 	<script>
 jQuery(function() {

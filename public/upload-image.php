@@ -58,7 +58,7 @@ if ($_POST['submitbtn']=="Upload") {
  		if ($size < (2048 * 1024)) { // check it if it's bigger than 2 mb or no
  			//@TODO change this to avatar user id
  			$prefix .= isset($_POST['image-id']) ? ($_POST['image-id'] .'_') : '';
- 			$imagename = $prefix . session_id() . "." . $extension;
+ 			$imagename = $prefix . uniqid() . "." . $extension;
  			$tmp = $_FILES['imagefile']['tmp_name'];
  				if (move_uploaded_file($tmp, $filepath . $imagename)) {
  					if ($prefix == 'cover')

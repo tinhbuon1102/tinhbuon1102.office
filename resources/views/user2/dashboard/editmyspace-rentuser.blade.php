@@ -1,5 +1,5 @@
 <?php
-// define('SITE_URL', '{{url('/')}}/design/')
+$otherFacility = explode(',', $space->OtherFacility);
 ?>
 
 <?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header.php'); ?>
@@ -106,7 +106,7 @@
 												<div class="input-container input-col3">
 													<?php
 															echo Form::select('DesireLocationPrefecture', getPrefectures(), $space->DesireLocationPrefecture, [
-																	'id' => 'DesireLocationPrefecture',
+																	'id' => 'DesireLocationPrefecture', 'class' => 'address_select',
 															]);
 															?>
 															
@@ -143,7 +143,7 @@
 															<select id="choose_budget_per_" class="" data-label="予算を選択" name="BudgetID">
 																<option value="" selected="">{{ trans('edit_myspace.select_budget') }}</option>
 																@foreach($budgets as $budget)
-																<option value="{{ $budget->id }}" <?php if ($space->BudgetID == $budget->id) echo 'selected'?> class="{{ $budget->Type }} budget-price1">{{ $budget->Display }}</option>
+																<option value="{{ $budget->id }}" <?php if ($space->BudgetID == $budget->id) echo 'selected'?> class="{{ $budget->Type }} <?php echo $budget->Type == $space->BudgetType ? '' : 'hide'?> budget-price1">{{ $budget->Display }}</option>
 																@endforeach
 															</select>
 														</div>
@@ -277,22 +277,22 @@
 														<!--Other facilities-->
 													</label>
 													<span class="field-checkbox">
-														<input type="checkbox" name="OtherFacility[]" value="wi-fi" data-labelauty="wi-fi|wi-fi" class="other_facilities custom-checkbox">
+														<input type="checkbox" name="OtherFacility[]" value="wi-fi" <?php if(in_array('wi-fi', $otherFacility)) echo 'checked'?> data-labelauty="wi-fi|wi-fi" class="other_facilities custom-checkbox">
 													</span>
 													<span class="field-checkbox">
-														<input type="checkbox" name="OtherFacility[]" value="プリンター" data-labelauty="プリンター|プリンター" class="other_facilities custom-checkbox">
+														<input type="checkbox" name="OtherFacility[]" value="プリンター" <?php if(in_array('プリンター', $otherFacility)) echo 'checked'?> data-labelauty="プリンター|プリンター" class="other_facilities custom-checkbox">
 													</span>
 													<span class="field-checkbox">
-														<input type="checkbox" name="OtherFacility[]" value="プロジェクター" data-labelauty="プロジェクター|プロジェクター" class="other_facilities custom-checkbox">
+														<input type="checkbox" name="OtherFacility[]" value="プロジェクター" <?php if(in_array('プロジェクター', $otherFacility)) echo 'checked'?> data-labelauty="プロジェクター|プロジェクター" class="other_facilities custom-checkbox">
 													</span>
 													<span class="field-checkbox">
-														<input type="checkbox" name="OtherFacility[]" value="自動販売機" data-labelauty="自動販売機|自動販売機" class="other_facilities custom-checkbox">
+														<input type="checkbox" name="OtherFacility[]" value="自動販売機" <?php if(in_array('自動販売機', $otherFacility)) echo 'checked'?> data-labelauty="自動販売機|自動販売機" class="other_facilities custom-checkbox">
 													</span>
 													<span class="field-checkbox">
-														<input type="checkbox" name="OtherFacility[]" value="男女別トイレ" data-labelauty="男女別トイレ|男女別トイレ" class="other_facilities custom-checkbox">
+														<input type="checkbox" name="OtherFacility[]" value="男女別トイレ" <?php if(in_array('男女別トイレ', $otherFacility)) echo 'checked'?> data-labelauty="男女別トイレ|男女別トイレ" class="other_facilities custom-checkbox">
 													</span>
 													<span class="field-checkbox">
-														<input type="checkbox" name="OtherFacility[]" value="喫煙所" data-labelauty="喫煙所|喫煙所" class="other_facilities custom-checkbox">
+														<input type="checkbox" name="OtherFacility[]" value="喫煙所" <?php if(in_array('喫煙所', $otherFacility)) echo 'checked'?> data-labelauty="喫煙所|喫煙所" class="other_facilities custom-checkbox">
 													</span>
 												</div>
 											</div>
@@ -304,10 +304,10 @@
 														<!--Building facilities-->
 													</label>
 													<span class="field-checkbox">
-														<input type="checkbox" name="OtherFacility[]" value="駐車場" data-labelauty="駐車場|駐車場" class="other_facilities custom-checkbox">
+														<input type="checkbox" name="OtherFacility[]" value="駐車場" <?php if(in_array('駐車場', $otherFacility)) echo 'checked'?> data-labelauty="駐車場|駐車場" class="other_facilities custom-checkbox">
 													</span>
 													<span class="field-checkbox">
-														<input type="checkbox" name="OtherFacility[]" value="エレベーター" data-labelauty="エレベーター|エレベーター" class="other_facilities custom-checkbox">
+														<input type="checkbox" name="OtherFacility[]" value="エレベーター" <?php if(in_array('エレベーター', $otherFacility)) echo 'checked'?> data-labelauty="エレベーター|エレベーター" class="other_facilities custom-checkbox">
 													</span>
 												</div>
 											</div>
@@ -380,7 +380,6 @@ jQuery(function(){
     });
 	
     // 全ての駅名を非表示にする
-    jQuery(".budget-price1").addClass('hide');
     // 路線のプルダウンが変更されたら
     jQuery("#choose_budget_per").change(function(){
         // 全ての駅名を非表示にする
@@ -438,7 +437,7 @@ function LoadDetail()
 				jQuery('#DesireLocationDistricts').trigger('chosen:updated');
 			}, 1500);
 		});
-		jQuery('#DesireLocationPrefecture').trigger('change');
+
 }
 </script>
 </body>

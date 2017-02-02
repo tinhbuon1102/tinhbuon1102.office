@@ -74,13 +74,13 @@ function isCoreWorkingOrOpenDesk($space)
 function getSpaceTypeFieldByNumber($typeNumber)
 {
 	if($typeNumber == 1)
-		$type = '時間';
+		$type = 'Hour';
 	else if($typeNumber==2)
-		$type = '日間';
+		$type = 'Day';
 	else if($typeNumber==3)
-		$type = '週間';
+		$type = 'Week';
 	else if($typeNumber==4)
-		$type = 'ヶ月';
+		$type = 'Month';
 
 	return $type;
 }
@@ -232,11 +232,15 @@ function getFlexiblePrice(&$rent_data, $oSlot,$count=0){
 		{
 			$spaceslots = $oSlot->whereIn('SlotID', $rent_data->recurSlotIds);
 		}
+		$spaceslots = $spaceslots->groupBy(array('SlotID'));
 	}
 	else {
 		$spaceslots = $oSlot->where('SpaceID', $rent_data->user1sharespaces_id)->whereIn('id', array_filter(array_unique($slots_id)));
-	}
+	$spaceslots = $spaceslots->where('Status', '<>', -1);
 
+		}
+
+	//$spaceslots = $spaceslots->where('Status', '<>', -1);   /* Moved inside else to solve bug number 67 */
 	$spaceslots = $spaceslots->get();
 
 	foreach ($spaceslots as $indexSlot => $spaceSlot)

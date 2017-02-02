@@ -19,4 +19,6 @@ return [
 	'1ヶ月あたり' => 'per a month',
 	'1週間あたり' => 'per a week',
 	'select_time_range' => 'select time',
+	'draft_suc_msg' => 'You successed to save as draft',
+
 ];

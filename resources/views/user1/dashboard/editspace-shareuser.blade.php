@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{ URL::asset('js/chosen/chosen.css') }}">
 
 <!--/head-->
-<body class="mypage shareuser">
+<body class="mypage shareuser editspace">
 	<div class="viewport fixed-page-wrapper">
 		
 		@include('pages.header_nav_shareuser')

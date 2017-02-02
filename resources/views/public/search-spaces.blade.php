@@ -423,7 +423,7 @@ $tag = request()->get('tag') ? request()->get('tag') : '';
             								?>
                                             {{-- {!! dd($space) !!} --}}
             								<div class="sp01" style='background:url("{{$img}}") !important; background-size: cover!important;background-position: center center!important;'>
-            									<a href="{!! url('ShareUser/ShareInfo/View',['id' => $space->HashID]) !!}" class="link_space">
+            									<a href="{!! url('ShareUser/ShareInfo/View',['id' => $space->HashID]) !!}" class="link_space" target="_blank">
                                                     <span class="area">
                                                         {!! $space->District !!}
                                                         <!--district name-->
@@ -702,13 +702,14 @@ $tag = request()->get('tag') ? request()->get('tag') : '';
 			
 					if (feeType == 4)
 					{
+						var startMonth = moment().startOf('month');
 						$('#datepicker').datepicker({
 							format: japanMonthFormat.toLowerCase(),
 							minViewMode: 1,
-							todayBtn: true,
 							todayHighlight: true,
 							language: "ja",
 							autoclose: true,
+							startDate: startMonth.format('YYYY-MM-DD'),
 						}).on('changeDate', function(e) {
 							$('#start_from').val(e.format('yyyy-mm-dd'));
 	                        $('#form_filter').submit();
@@ -716,15 +717,15 @@ $tag = request()->get('tag') ? request()->get('tag') : '';
 					}
 					else if (feeType == 3)
 					{
+						var startWeek = moment().startOf('isoweek');
 						$('#datepicker').datepicker({
 							format: japanDateFormat.toLowerCase(),
 						    weekStart: 1,
 						    language: "ja",
-						    todayBtn: true,
 						    todayHighlight: true,
 						    calendarWeeks: false,
 						    autoclose: true,
-						    //startDate: today,
+						    startDate: startWeek.format('YYYY-MM-DD'),
 						    daysOfWeekDisabled: "0,2,3,4,5,6",
 						    daysOfWeekHighlighted: "1"
 						}).on('changeDate', function(e) {
@@ -739,6 +740,7 @@ $tag = request()->get('tag') ? request()->get('tag') : '';
 							language: "ja",
 							weekStart: 1,
 							todayHighlight: true,
+							startDate: new Date(),
 							todayBtn: true,
 							autoclose: true,
 						}).on('changeDate', function(e) {

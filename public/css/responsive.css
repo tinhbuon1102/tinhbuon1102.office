@@ -593,9 +593,7 @@ page[size="A4"] {
 table.workspace-details-list {
 	width: 100%;
 }
-.workspace-details-row table.style_gywt, .workspace-details-row table.style_gywt tbody, .workspace-details-row table.style_gywt tr, .workspace-details-row table.style_gywt th, .workspace-details-row table.style_gywt td {
-    display: block;
-}
+
 .find-list-inner-row.find-list-inner-row-results {
     height: 100%;
     display: table-row;
@@ -683,7 +681,15 @@ section#SpaceFilters label.SpaceFilters-rowLabel {
     width: 100%;
 }
 .SpaceFilters-row a#clear-btn {
-    width: 100%;
+    width: auto;
+    border-radius: 0px;
+    padding: 13px 15px;
+    font-size: 13px;
+	border: 1px solid #CCC;
+}
+.SpaceFilters {
+	margin-left: 0px;
+    margin-right: 0px;
 }
 .filter-input-wrapper.reservation-method {
     width: 120px;
@@ -693,7 +699,12 @@ section#SpaceFilters label.SpaceFilters-rowLabel {
     float: left;
     width: calc(100% - 120px);
 }
-
+body.searchpage div.space-list {
+    padding: 0 10px;
+}
+body.searchpage div#fullwidth {
+    padding: 0;
+}
 .invoice-list th.th02.sorting {
     width: 50px !important;
 }
@@ -829,8 +840,17 @@ body.home a.logo {
     width: 100%;
     height: 26px;
 }
-body.home .transparent_header .nvOpn span {
+body.home header .navbar-toggle .fa {
+    color: #FFF;
+}
+body.home header.smaller .navbar-toggle .fa {
+    color: #000;
+}
+body.home .transparent_header .nvOpn span, body.home .header_wrapper.su_header .nvOpn span, body.home .header_wrapper.ru_header .nvOpn span {
     background: #FFF;
+}
+body.home .transparent_header header.smaller .nvOpn span, body.home .header_wrapper.su_header header.smaller .nvOpn span, body.home .header_wrapper.ru_header header.smaller .nvOpn span {
+    background: #000;
 }
 .transparent_header .nvOpn span {
     background: #000;
@@ -846,6 +866,9 @@ body.home .transparent_header .nvOpn span {
 }
 .header_container {
     padding: 0;
+}
+body.home .header_wrapper.primary-navigation-section {
+    background: none;
 }
 header nav ul {
     float: none;
@@ -941,9 +964,6 @@ a.fc-day-grid-event .fc-content {
 }
 .space-calendar-content table, table.dataTable {
     display: table;
-}
-table.workspace-details-list td {
-    width: 100%;
 }
 /*space fac*/
 td.wk-fac table.work-fac th, td.wk-fac table.work-fac td {
@@ -1104,7 +1124,39 @@ input.labelauty + label {
 .pc-none {
 	display: none !important;
 }
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+.space-list .col-md-4.space-item {
+    width: 50%;
+    float: left;
+    padding: 0;
+}
+#haveshare .share-ad-content h2.sec-title {
+    font-size: 2em;
+    display: inline-block;
+}
+#haveshare p.sec-subtitle.left-align {
+    display: inline-block;
+    text-align: center !important;
+}
+}
 @media (max-width: 768px) {
+.yellow-button-small {
+    margin-left: 0;
+	padding: 13px 15px;
+}
+.intro-anime {
+    text-align: center;
+}
+body.home header#header.smaller a.logo {
+    background: url(../images/logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 23px;
+}
 div#page-wrapper.has_fixed_title {
     padding-top: 50px;
 }
@@ -1212,8 +1264,9 @@ span.select2.select2-container.select2-container {
     width: 100% !important;
 }
 .iconbutton {
-	width: 50%;
-	margin: 0 0 20px;
+    width: auto;
+    margin: 0 0 20px;
+    min-width: 148px;
 }
 .btns span.fright {
     float: none;
@@ -1466,7 +1519,7 @@ table.book-list-table .btn-xs {
     top: .7rem;
     right: .625rem;
 }
-.side-panel-item .side-panel-btn i {
+.side-panel-top-row .side-panel-item .side-panel-btn i {
     min-width: 0px;
     margin: 0;
 }
@@ -1648,7 +1701,7 @@ section.profiles-user.user-profile {
     z-index: 1;
     margin-top: 0;
     zoom: 1;
-	height: 226px;
+	height: 180px;
 }
 .user-profile-location span.awesome-icon:before {
 	color: rgba(253, 220, 64, 1);
@@ -1739,6 +1792,9 @@ section.profile-user-requirement .section-inner {
 .profile-intro-username {
     font-size: 14px;
 	margin-bottom: 4px;
+}
+.profile-intro-username .kana-name {
+    color: #FFF;
 }
 .mb-small {
 	font-size: 12px;
@@ -1931,7 +1987,7 @@ body.chatpage footer.footer {
 body.mypage.chatpage .fixed-container .right_side {
     padding-bottom: 0px;
 	min-height: auto !important;
-	margin-top: 50px;
+	margin-top: 0px;
 }
 body.mypage.chatpage .fixed-container .right_side>section {
 	margin-top: 0px;
@@ -1964,6 +2020,7 @@ ul.chat-list.user-list {
 body.mypage.chatpage .chat-left {
     height: 100%;
 	box-shadow: none;
+	border-top: none;
 }
 body.mypage.chatpage .chat-list {
     overflow-y: scroll;
@@ -2434,6 +2491,9 @@ a.profile-job-btn.job-desc-edit-btn, a.profile-job-btn.job-skill-edit-btn {
     vertical-align: middle;
     position: relative;
 }
+.profile-about-description.editable-block, .profile-skills.editable-block {
+    overflow: inherit;
+}
 a.profile-job-btn.job-desc-edit-btn.mb-editbtn, a.profile-job-btn.job-skill-edit-btn.mb-editbtn {
     position: absolute;
     z-index: 999;
@@ -2451,7 +2511,7 @@ a.profile-job-btn.job-desc-edit-btn.mb-editbtn, a.profile-job-btn.job-skill-edit
     display: inline-block;
     line-height: 30px;
 }
-a.profile-job-btn.job-desc-edit-btn.mb-editbtn .fa, a.profile-job-btn.job-skill-edit-btn.mb-editbtn .fa {
+a.profile-job-btn.job-desc-edit-btn.mb-editbtn .fa, a.profile-job-btn.job-skill-edit-btn.mb-editbtn .fa, a.profile-job-btn span.fa {
     background: #000;
     display: inline-block;
     line-height: 1;
@@ -2519,7 +2579,23 @@ ul#fav-feed-list {
     margin-top: 0px;
 }
 }
+@media (max-width: 736px) {
+.iconbutton {
+	width: 50%;
+	margin: 0 0 20px;
+	min-width: 0;
+}
+}
 @media (max-width: 690px) {
+.workspace-details-row table.style_gywt, .workspace-details-row table.style_gywt tbody, .workspace-details-row table.style_gywt tr, .workspace-details-row table.style_gywt th, .workspace-details-row table.style_gywt td {
+    display: block;
+}
+.workspace-details-row table.style_gywt tr.sp-none {
+	display: none;
+}
+table.workspace-details-list td {
+    width: 100%;
+}
 table.style_gywt th {
     width: 100%;
 }
@@ -2570,6 +2646,65 @@ span.nav-link-notification {
 }
 
 @media(max-width:766px){
+iframe#customer-chat-iframe {
+	z-index: 9998 !important;
+}
+body.searchpage span.select2-container {
+    z-index: 999999;
+}
+a.user-review-link-title {
+    font-size: 14px;
+}
+body.calender iframe#customer-chat-iframe {
+    z-index: 999 !important;
+}
+body.chatpage iframe#customer-chat-iframe, body.editspace iframe#customer-chat-iframe, body.profilepage.rentuser-profile iframe#customer-chat-iframe {
+    display: none !important;
+}
+section.profiles-user.user-profile.pc-none ul.item-stats li a.button, section.profiles-user.user-profile.pc-none ul.item-stats li button.btn.button.msg-button {
+    font-size: 12px;
+    padding: 9px 0px;
+}
+	
+	section.profiles-user.user-profile.pc-none ul.item-stats li.send-msg a {
+	padding: 0;
+    margin: 0;
+	}
+section.profiles-user.user-profile.pc-none ul.item-stats li {
+    display: inline-block;
+    width: 50%;
+    padding: 0;
+    font-size: 12px;
+}
+section.profiles-user.user-profile.pc-none ul.item-stats {
+    text-align: center;
+    font-size: 0;
+}
+span.nav-link-notification {
+    position: absolute;
+    right: 15px;
+    background: #8000ff;
+    color: #FFF;
+    padding: 0px 5px;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 16px;
+    border-radius: 50%;
+    text-align: center;
+    top: 50%;
+    margin-top: -8px;
+	line-height: 15px;
+    vertical-align: middle;
+}
+.chat-count {
+    left: 34px;
+}
+.review-content .r-tabs .r-tabs-nav .r-tabs-anchor {
+    font-size: 12px;
+}
+.r-tabs .r-tabs-nav {
+    display: block;
+}
 .panel.panel-default, div#MyPageBoard {
     margin-top: 15px;
 }
@@ -2608,6 +2743,9 @@ section#slider-fullwidth, .hero-article {
 }
 }
 @media(min-width:766px){
+.review-content .r-tabs .r-tabs-nav .r-tabs-anchor {
+    font-size: 13px;
+}
 div#containers {
     height: 100%;
 	padding-top: 65px;

@@ -227,7 +227,10 @@ jQuery(function($){
 		resetBookingForm();
 		$('#booked_date').val(moment($(this).val(), japanDateFormat).format(dateFormat));
 		getBookingHourInfo();
-	});
+	}).on('hide', function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+		});
 	
 	function populateSlots(event, element, view, isCall) {
 
@@ -325,12 +328,42 @@ jQuery(function($){
 		}
 	});
 	
-	$('#myModal').on('hidden.bs.modal', function () {
+	$('#common_dialog_wraper').on('hide.bs.modal', function () {
+		$('body').LoadingOverlay("hide");
+		$('#common_dialog_wraper .btn-success').show();
+		$('#booking_form_wraper').append($('#common_dialog_wraper form#editReservationForm'));
+	});
+	
+	$('body').on('click', '.mobile-bookit-btn-container', function(){
+		
+		if (!globalIsLogged) {
+			jQuery('#login_form_content_wrapper').modal('show');
+			return false;
+		}
+		else if (globalUserType == 1)
+		{
+			if (confirm(errorUser1BookingMessage))
+			{
+				allowSubmit = false;
+				location.href = '/User2/Login?spaceID=' + globalSpaceHashID;
+			}
+			return false;
+		}
+		
+		$('#common_dialog_wraper').modal('show');
+		$('#common_dialog_wraper .modal-title').html('予約する');
+		$('#common_dialog_wraper .modal-body').html($('#booking_form_wraper form#editReservationForm'));
+		$('#common_dialog_wraper .btn-success').hide();
+		$('#common_dialog_wraper .btn-danger').text('閉じる');
+		
+		$('body').LoadingOverlay("hide");
 		
 	});
 	
+	
 	$('body').on('click', '#calendar_picker', function(){
 		$('#myModal').modal('show');
+		$('#calendar_picker').trigger('blur');
 	});
 	
 	$('body').on('click', '.ajaxhourdata #maintime', function(){
@@ -357,6 +390,30 @@ jQuery(function($){
 		$('.endtimed-value').text($(this).text());
 		$('.ajaxhourdata #endtime').slideToggle();
 		getBookingHourInfo();
+	});
+	
+	$('body').on('click', '.login-form-signup-link a', function(e){
+		$('.modal').modal('hide');
+	});
+	
+	$('body').on('click', '#send_message_button', function(e){
+		e.preventDefault();
+		
+		if (!globalIsLogged) {
+			jQuery('#login_form_content_wrapper').modal('show');
+			return false;
+		}
+		else if (globalUserType == 1)
+		{
+			if (confirm(errorUser1BookingMessage))
+			{
+				location.href = $(this).attr('href');
+			}
+			return false;
+		}
+		else {
+			location.href = $(this).attr('href');
+		}
 	});
 	
 	$('body').on('click', '#booking_button', function(e){

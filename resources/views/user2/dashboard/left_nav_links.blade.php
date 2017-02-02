@@ -1,10 +1,11 @@
 <?php
 $user = isset($user) ? $user : Auth::guard('user2')->user();
+$loggedUser = Auth::guard('user2')->check() ? Auth::guard('user2')->user() : Auth::guard('user1')->user();
 ?>
 <li class="pc-none side-panel-item">
 	<div class="side-panel-btn side-panel-btn-active">
 		<a id="bt-ms0" href="{{url('RentUser/Dashboard')}}" class="content-navigation">
-			<img src="{{getUser2Photo($user)}}" class="img-icon media-circle" />
+			<img src="{{getUser2Photo($loggedUser)}}" class="img-icon media-circle" />
 			ダッシュボード
 		</a>
 		<div class="user-controls">
@@ -83,6 +84,13 @@ $user = isset($user) ? $user : Auth::guard('user2')->user();
 		{{ trans('navigation.fav_list') }}
 		<!--お気に入り-->
 		<!--Favourite list-->
+	</a>
+</li>
+<li class="side-panel-item pc-none">
+	<a id="bt-ms5" href="{{url('RentUser/Dashboard/Review')}}" class="content-navigation">
+		<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+		レビュー
+		<!--レビュー-->
 	</a>
 </li>
 <li class="side-panel-item">

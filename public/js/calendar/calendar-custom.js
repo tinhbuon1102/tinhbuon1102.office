@@ -326,10 +326,9 @@ jQuery(document).ready(function($) {
 		removeTimePicker($('.hasTimepicker.start'));
 		createTimePicker($('.hasTimepicker.start'), minTime, moment(maxTime, timeFormatDefault).subtract(hourMinTerm, 'hours').format(timeFormatDefault));
 
-		startTimeObj = moment(event.start, timeFormatDefault);
+		startTimeObj = moment(event.start.format(timeFormatDefault), timeFormatDefault);
 		minTimeObj = moment(minTime, timeFormatDefault);
 		maxTimeObj = moment(maxTime, timeFormatDefault);
-
 
 		if (view.intervalUnit == 'week' && (startTimeObj.isBefore(minTimeObj) || maxTimeObj.isBefore(startTimeObj)) || selectedDay.closed)
 		{
@@ -1170,6 +1169,7 @@ jQuery(document).ready(function($) {
 			firstDay: 1, // Set first day of week is monday - 0 is sunday
 			//minTime: minTime,
 			//maxTime: maxTime,
+			longPressDelay:0,
 
 			views: {
 				MonthlySpace: {
@@ -1329,6 +1329,7 @@ jQuery(document).ready(function($) {
 		        	return false;
 		    },
 		    eventAfterRender:function(event, element, view){
+				$(element).addTouch();
 		    	var eventDate = event.start.format(dateFormat);
 		    	var eventRow = $(element).closest('.fc-row');
 		    	var eventClass = event.className;
@@ -1412,7 +1413,7 @@ jQuery(document).ready(function($) {
 					alert('Min hour limited is ' + hourMinTerm + ', Please choose another time range.');
 					return false;
 				}
-				else {
+				else {					
 					regenerateTimePicker(eventData, view);
 					showModalEditTime(eventData, view);
 				}

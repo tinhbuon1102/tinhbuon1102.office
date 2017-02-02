@@ -1,6 +1,6 @@
 <?php
 $user = isset($user) ? $user : Auth::guard('user1')->user();
-
+$loggedUser = Auth::guard('user2')->check() ? Auth::guard('user2')->user() : Auth::guard('user1')->user();
 // Get Booking status
 $allDatas = \App\Rentbookingsave::select('rentbookingsaves.*')
 ->where('rentbookingsaves.InvoiceID', '<>', '')
@@ -14,7 +14,7 @@ $totalCountStatus = $allDatas->get()->count();
 <li class="pc-none side-panel-item">
 	<div class="side-panel-btn side-panel-btn-active">
 		<a id="bt-ms0" href="{{url('ShareUser/Dashboard')}}" class="content-navigation">
-			<img src="{{getUser1Photo($user)}}" class="img-icon media-circle" />
+			<img src="{{getUser1Photo($loggedUser)}}" class="img-icon media-circle" />
 			ダッシュボード
 		</a>
 		<div class="user-controls">
@@ -105,16 +105,21 @@ $totalCountStatus = $allDatas->get()->count();
 		<!--Desired Person Setting-->
 	</a>
 </li>
+<li class="pc-none side-panel-item">
+	<a id="bt-ms6" href="{{url('ShareUser/Dashboard/Review')}}" class="content-navigation">
+		<i class="fa fa-pencil-square-o" aria-hidden="true"></i>レビュー
+	</a>
+</li>
 <?php if (IsAdminApprovedUser($user)) {?>
 <li class="pc-none side-panel-item">
-	<a id="bt-ms6" href="{{url('RentUser/list')}}" class="content-navigation">
+	<a id="bt-ms7" href="{{url('RentUser/list')}}" class="content-navigation">
 		<i class="fa fa-search" aria-hidden="true"></i>
 		利用者を探す
 	</a>
 </li>
 <?php }?>
 <li class="side-panel-item pushy-submenu">
-	<a id="bt-ms7" href="{{url('ShareUser/Dashboard/HostSetting')}}" class="content-navigation">
+	<a id="bt-ms8" href="{{url('ShareUser/Dashboard/HostSetting')}}" class="content-navigation">
 		<i class="fa fa-cogs" aria-hidden="true"></i>
 		{{ trans('navigation.setting') }}
 		<!--設定-->

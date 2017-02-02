@@ -42,7 +42,6 @@ function fetchChildrenArea(ac, success, error){
         while(data && props.length){
             data = data[props.shift()];
         }
-
         if(!data || !data.length){
             error && error();
             return;
@@ -72,17 +71,18 @@ var $selects = jQuery(".address_select");
 
 var setSelectOptions = function($select, data){
     var i, ii, options = [];
+    var currentVal = $select.val();
 
     //options.push("<option value=''>" + $select.attr("data-label") + "</option>");
     if(data){
         for(i = 0, ii = data.length; i < ii; i++){
-            options.push("<option data-ac='" + data[i].ac + "' value='" + data[i].name + "'>" + data[i].name + "</option>");
+            options.push("<option data-ac='" + data[i].ac + "' "+ (currentVal == data[i].name ? 'selected' : '') +" value='" + data[i].name + "'>" + data[i].name + "</option>");
         }
     }
     if(selectedArray.length!=0)
     {
         jQuery.each(selectedArray, function(index, value){
-            options.push("<option data-ac='" + value + "' value='" + value + "' selected >" + value + "</option>");
+            options.push("<option data-ac='" + value + "' "+ (currentVal == value ? 'selected' : '') +" value='" + value + "' selected >" + value + "</option>");
         });
 
         // The source of the tags for autocompletion
@@ -102,6 +102,8 @@ var setSelectOptions = function($select, data){
             width: '100%',
             display: 'none'
     });*/
+    
+    $select.trigger('change');
 
 
 };

@@ -31,7 +31,7 @@
 									<div id="rentuser-content">
 										<div class="pagenation-container top-pg clearfix">
 											<div class="ns_pagination">{{ $user2s->links() }}</div>
-			                        		<span class="result-amount">Showing {{$user2s->total()}} Results</span>
+			                        		<span class="result-amount">検索結果:{{$user2s->total()}}件</span>
 										</div>
 										<ul id="rentuser_list" class="ns_rentuser-list">
 											<?php foreach ($user2s as $user2) {?>
@@ -86,7 +86,7 @@
 										
 										<div class="rentuser-content-inner">
 											<div class="ns_pagination">{{ $user2s->links() }}</div>
-			                        		<span class="result-amount">Showing {{$user2s->total()}} Results</span>
+											<span class="result-amount">検索結果:{{$user2s->total()}}件</span>
 			                    		</div>
 									</div>
 									<!--/#rentuser-content-->

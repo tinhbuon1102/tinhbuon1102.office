@@ -3,6 +3,7 @@
 <script src="{{ URL::asset('js/jquery.responsiveTabs.js') }}"></script>
 <link href="{{ URL::asset('js/responsive-tabs/easy-responsive-tabs.css') }}" rel='stylesheet' />
 <link href="{{ URL::asset('js/calendar/calendar.css') }}" rel='stylesheet' />
+
 <link href="{{ URL::asset('js/calendar/datepicker/css/bootstrap-datepicker.css') }}" rel="stylesheet" />
 <link href="{{ URL::asset('js/calendar/datepicker/css/timepicker.css') }}" rel="stylesheet" />
 <script src="{{ URL::asset('js/calendar/lib/moment.min.js') }}"></script>

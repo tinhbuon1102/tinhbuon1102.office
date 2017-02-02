@@ -58,7 +58,10 @@ $rentBooking = new \App\Rentbookingsave();
 						<!--show recommend office which are matched with user requirement condition-->
 						<div class="reccomend-list space-list clearfix">
 							<?php 
+							$countSpace = 0;
 							foreach ($user1Space as $space) {
+								$countSpace ++;
+								if ($countSpace > 2) break;
 								$space->spaceImage = $space->spaceImage[0];
 								if (isset($space->spaceImage) && isset($space->spaceImage['ThumbPath']) && file_exists(public_path() . $space->spaceImage['ThumbPath'])) 
 									$spacethumb = $space->spaceImage['ThumbPath'];

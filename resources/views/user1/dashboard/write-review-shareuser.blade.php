@@ -33,19 +33,6 @@
 						<form id="rate-form-id" method="post">
 							{{ csrf_field() }}
 							<div class="reputation">
-								<div class="field">
-									<label>
-										<strong>時間通りにきましたか？</strong>
-									</label>
-									<span class="radio radio_yesno">
-										<input type="radio" name="IsVisitedOnTIme" value="Yes" required>
-										はい
-									</span>
-									<span class="radio radio_yesno">
-										<input type="radio" name="IsVisitedOnTIme" value="No">
-										いいえ
-									</span>
-								</div>
 								<div id="rating" class="row span7">
 									<div class="tb-wpp">
 										<div class="row-fluid">

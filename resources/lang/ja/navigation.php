@@ -3,7 +3,7 @@
 return [
 
 	'space' => 'スペース',
-	'reservation' => '予約',
+	'reservation' => '予約リスト',
 	'calendar' => 'カレンダー',
 	'recipt' => '支払通知書',
 	'offer_list' => 'オファーリスト',

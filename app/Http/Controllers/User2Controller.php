@@ -1055,8 +1055,54 @@ class User2Controller extends Controller
 
 		}
 		//inRandomOrder
-		$user1Space = $user1Space->where('status', SPACE_STATUS_PUBLIC)->inRandomOrder()->take(2)->with('spaceImage');
+		$user1Space = $user1Space->where('status', SPACE_STATUS_PUBLIC)->take(100)->with('spaceImage');
 		$user1Space = $user1Space->get();
+		$spacesTmp = clone $user1Space;
+		
+		foreach ($spacesTmp as $spaceIndex => $space)
+		{
+			// Check available slots
+			$aVailableSlots = Spaceslot::getAvailableSpaceSlot($space);
+			$aBookingTimeInfo = false;
+			$aAvailableDate = array();
+			$aBookingTimeInfoSelected = array();
+			foreach ($aVailableSlots as $aVailableSlot)
+			{
+				if (in_array($aVailableSlot['StartDate'], array_keys($aAvailableDate))) continue;
+		
+				$myRequest = new Request();
+				$myRequest->merge(array('booked_date' => $aVailableSlot['StartDate']));
+				$myRequest->merge(array('spaceID' => $space->id));
+		
+				$aBookingTimeInfo = Spaceslot::getBookingTimeInfo($myRequest, $aVailableSlots, $space);
+					
+				if (count(@$aBookingTimeInfo['timeDefaultSelected']))
+				{
+					if (!isset($aBookingTimeInfo['timeDefaultSelected']['StartDate']))
+						continue;
+							
+						if (!count($aBookingTimeInfoSelected))
+							$aBookingTimeInfoSelected = $aBookingTimeInfo;
+								
+							$aAvailableDate[$aBookingTimeInfo['timeDefaultSelected']['StartDate']] = $aBookingTimeInfo['timeDefaultSelected'];
+								
+							// If has booking info, break now.
+							if ($space->FeeType != SPACE_FEE_TYPE_HOURLY && $aBookingTimeInfo)
+							{
+								break;
+							}
+				}
+			}
+				
+			if (!count($aBookingTimeInfoSelected))
+			{
+				unset($user1Space[$spaceIndex]);
+			}
+		}
+		// Unset temp variable
+		unset($spacesTmp);
+		$spacesTmp = array();
+		
 		$user = Auth::guard('user2')->user();
 
 		// Create Booking Notification
@@ -1320,7 +1366,7 @@ class User2Controller extends Controller
 		if ($request->Photo)
 			$userPortfolio->Photo = $request->Photo;
 		$success = $userPortfolio->save();
-		$message = $success ? 'Portfolio is saving successfully !' : 'Have an error occur, pls try again !';
+		$message = $success ? '実績が追加されました。' : 'エラーが発生しました。再度お試しください。';
 		echo json_encode(array('success' => $success, 'message' => $message));
 		exit();
 	}
@@ -1328,6 +1374,11 @@ class User2Controller extends Controller
 	public function myProfileCoverUpload(Request $request)
 	{
 		$user=User2::find(Auth::guard('user2')->user()->id);
+		// Remove old cover
+		if (file_exists(public_path() . $user->Cover))
+		{
+			@unlink(public_path() . $user->Cover);
+		}
 		$user->Cover=$request->Cover;
 		$user->save();
 		return('success');
@@ -1372,10 +1423,16 @@ class User2Controller extends Controller
 				$image_url = $upload_path_tmp.$un.$filename;
 				$cropped = $this->resizeThumbnailImage($upload_path, $thumb_image_location, $large_image_location,$w,$h,$x1,$y1,$scale);
 				$user=User2::find(Auth::guard('user2')->user()->id);
-				$user->Logo=$up.$un.$filename;
+				
+				// Remove old avatar
+				if (file_exists(public_path() . $user->Logo))
+				{
+					@unlink(public_path() . $user->Logo);
+				}
+				
+				$user->Logo = $up.$un.$filename;
 				$user->save();
 				echo json_encode(array('file_orig'=> $upload_path_tmp_url . $filename, 'file_thumb' => $image_url, 'file_name' => $un.$filename, 'file_thumb_path' => $up.$un.$filename));
-				//echo $up.$filename;
 				exit();
 			}
 		}
@@ -1469,28 +1526,41 @@ class User2Controller extends Controller
 					$slots_data=\App\Bookedspaceslot::whereIn('SlotID', array_filter(array_unique($slots_id)))->orderBy('StartDate','asc')->get();
 					$waitingReview['slotID'] = $slots_data;
 					$waitingReview['reviewed'] = 0;
-					$groupedReviews[0][] = $waitingReview;
-					$groupedReviews[-1][] = $waitingReview;
+					$groupedReviews['1_waiting_owner'][] = $waitingReview;
+					$groupedReviews['0_all'][] = $waitingReview;
 				}
 			}
 
 			foreach ($allReviews as $review)
 			{
-				if ($review['ReviewedBy'] == 'User1' || ($review['ReviewedBy'] == 'User2' && $review['Status'] == 0))
+				if ($review['ReviewedBy'] == 'User2')
 				{
-					if ($review['ReviewedBy'] == 'User2' && $review['Status'] == 0)
+					if ($review['Status'] == 0)
 					{
+						$groupedReviews['3_waiting_partner'][] = $review;
 						$waitingReview['reviewed'] = 1;
 					}
-					$groupedReviews[$review['Status']][] = $review;
-					$groupedReviews[-1][] = $review;;
+					$groupedReviews['2_posted_owner'][] = $review;
+				}
+				elseif ($review['ReviewedBy'] == 'User1')
+				{
+					if ($review['Status'] == 0)
+					{
+						$groupedReviews['1_waiting_owner'][] = $review;
+					}
+					$groupedReviews['4_posted_partner'][] = $review;
+				}
+					 
+				if ($review['ReviewedBy'] == 'User1' || ($review['ReviewedBy'] == 'User2' && $review['Status'] == 0))
+				{
+					$groupedReviews['0_all'][] = $review;;
 				}
 			}
 
 			ksort($groupedReviews);
-			if (isset($groupedReviews[0]))
+			if (isset($groupedReviews['1_waiting_owner']))
 			{
-				$groupedReviews[0] = msort($groupedReviews[0], array('reviewed'));
+// 				$groupedReviews['1_waiting_owner'] = msort($groupedReviews['1_waiting_owner'], array('reviewed'));
 			}	
 			
 			return $groupedReviews;
@@ -1775,6 +1845,36 @@ class User2Controller extends Controller
 
 			$rent_data->isArchive = true;
 			$aFlexiblePrice = getFlexiblePrice($rent_data, new \App\Bookedspaceslot());
+			$refundamount = priceConvert(ceil($rent_data['refund_amount']));
+
+			$subTotal = priceConvert($aFlexiblePrice['subTotal'], true);
+			$subTotalIncludeTax = priceConvert($aFlexiblePrice['subTotalIncludeTax'], true);
+			$subTotalIncludeChargeFee = priceConvert($aFlexiblePrice['subTotalIncludeChargeFee'], true);
+			$totalPrice = priceConvert($aFlexiblePrice['totalPrice'], true);
+			$prices = $aFlexiblePrice['prices'];
+
+			if ($rent_data->recur_id && in_array($rent_data->status, array(BOOKING_STATUS_RESERVED, BOOKING_STATUS_PENDING)))
+			{
+				$rentBooking->storeRecursionHistory(array($rent_data));
+			}
+			
+			return view('user2.dashboard.reservation-view-rentuser',compact('rent_data', 'prices', 'subTotal', 'subTotalIncludeTax', 'subTotalIncludeChargeFee', 'totalPrice','user1Obj','refundamount'));
+		}
+		
+		public function reservationViewTest($id)
+		{
+			$rent_data=Rentbookingsave::Where('user_id', Auth::guard('user2')->user()->id)->where('id',$id)->first();
+			$rentBooking = new Rentbookingsave();
+			
+			if(empty($rent_data)):
+				return redirectToDashBoard();
+			endif;
+			$user1Id = $rent_data->User1ID;
+			$user1Obj = User1::where('id',$user1Id)->first();
+
+			$rent_data->isArchive = true;
+			$aFlexiblePrice = getFlexiblePrice($rent_data, new \App\Bookedspaceslot());
+			//return($rent_data);
 			$refundamount = priceConvert(ceil($rent_data['refund_amount']));
 
 			$subTotal = priceConvert($aFlexiblePrice['subTotal'], true);
@@ -2991,10 +3091,11 @@ class User2Controller extends Controller
 			$rent_data = Rentbookingsave::where('id', $input['id'])->where('user_id', $user->id)->first();
 
 			try {
+				$redirect_to = isset($input['redirect_to']) ? $input['redirect_to'] : '/RentUser/Dashboard/Reservation';
 				if (!$rent_data)
 				{
 					Session::flash('error', 'booking_list.Error Occured, Please try again');
-					return redirect('/RentUser/Dashboard/Reservation');
+					return redirect($redirect_to);
 				}
 				
 				$response = $rentbooking->processCancelPayment($rent_data, false);
@@ -3004,22 +3105,22 @@ class User2Controller extends Controller
 					{
 						// success
 						Session::flash('success', '予約ステータスの更新に成功しました。');
-						return redirect('/RentUser/Dashboard/Reservation');
+						return redirect($redirect_to);
 					}
 					elseif (isset($response['error'])){
 						// failed
 						$message = is_string($response['response']) ? $response['response'] : $response['response']->getMessage();
 						Session::flash('error', $message);
-						return redirect('/RentUser/Dashboard/Reservation');
+						return redirect($redirect_to);
 					}
 					else {
 						Session::flash('error', 'booking_list.Error Occured, Please try again');
-						return redirect('/RentUser/Dashboard/Reservation');
+						return redirect($redirect_to);
 					}
 				}
 				
 			} catch (\Exception $e) {
-				return redirect('/RentUser/Dashboard/Reservation')
+				return redirect($redirect_to)
 				->withErrors($e->getMessage())
 				->withInput();
 			}

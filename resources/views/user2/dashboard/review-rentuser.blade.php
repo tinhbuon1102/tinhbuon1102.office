@@ -84,7 +84,7 @@
 												<span class="booking-id-value">{{$booking->id}}</span>
 											</div>
 											
-											@if($review->Status == 1 && $review instanceof App\Userreview)
+											@if($review instanceof App\Userreview)
 												{{showStarReview($review, false)}}
 											@endif
 											<span class="user-review-price ng-binding">
@@ -103,9 +103,10 @@
 											<?php if ($review instanceof App\Userreview) {?>
 											<p class="review-comment">
 												@if($review->Status == 0 && $review->ReviewedBy == 'User1')
-													<a href="{{getUser1ProfileUrl($review->user1)}}"><span class="no-review">{{$review->user1->NameOfCompany}} has left a feedback to you !</span></a>
-												@elseif($review->Status == 1)
-													<span class="no-review">{{$review->Comment}}</span>
+													<a href="{{getUser1ProfileUrl($review->user1)}}"><span class="no-review">{{$review->user1->NameOfCompany}} があなたにレビューを投稿しました。</span></a>
+												@endif
+												@if($review->Comment)
+													<span style="display:block" class=" <?php echo ($review->ReviewedBy == 'User2' ? 'owner-comment' : 'partner-comment')?>">{{$review->Comment}}</span>
 												@endif
 											</p>
 											<?php }?>

@@ -50,7 +50,7 @@ class User1sharespace extends Model
 	public function getPrefectures(){
 		return $this->select('Prefecture')
 		->whereStatus(1)
-		->where('IsPublished','Yes')
+// 		->where('IsPublished','Yes')
 		->groupBy('Prefecture')
 		->orderBy('Prefecture', 'ASC')
 		->get();
@@ -68,7 +68,7 @@ class User1sharespace extends Model
 		return $this->select('District')
 		->where('Prefecture', trim($prefecture))
 		->where('status','1')
-		->where('IsPublished','Yes')
+// 		->where('IsPublished','Yes')
 		->groupBy('District')
 		->orderBy('District', 'ASC')
 		->get();

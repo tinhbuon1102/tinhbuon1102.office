@@ -371,6 +371,12 @@ function MychkBoxchk(str,id){
 				</div>
 			</div>
 			<?php }?>
+			<?php if (session()->has('successDraft')) { ?>
+	<div class="alert alert-success alert-dismissable">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		<?php echo session()->get('successDraft')?>
+	</div>
+	<?php } ?>
 			<div class="public-status">
 				<div class="row">
 					<div class="col-xs-6 col-md-6 col-sm-8 clearfix">

@@ -201,7 +201,13 @@
 											$price = isset($prices[0]) ? $prices[0]['price'] : 0;
 															echo priceConvert($price, true);?>
 										</td>
-										<td>{{$booking->DurationText}}</td>
+										<td>
+											<?php if ($booking->Duration >= 6 && $booking->SpaceType == 4) {?>
+												2ヶ月
+											<?php }else {?>
+												{{$booking->DurationText}}
+											<?php }?>
+										</td>
 										<td class="td_right price">{{priceConvert($booking->SubTotal, true)}}</td>
 										<td class="pd_20"></td>
 									</tr>

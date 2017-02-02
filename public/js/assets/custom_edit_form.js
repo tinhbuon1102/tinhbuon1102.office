@@ -49,10 +49,14 @@ jQuery(function($){
     	var selectedGroup = $(this).find('option:selected').attr('data-group');
     	var selectedRoomGroup = $(this).find('option:selected').attr('data-room-group');
         // Show/hide capacity people field
-    	if($(this).val() == SPACE_FIELD_SHARE_DESK)
+    	if($(this).val() == SPACE_FIELD_SHARE_DESK || $(this).val() == SPACE_FIELD_PRIVATE_OFFICE)
 		{
 			$('#capacity_people_wraper').hide();
-			$('#desk_size_wraper').show();
+			
+			if ($(this).val() == SPACE_FIELD_SHARE_DESK)
+			{
+				$('#desk_size_wraper').show();
+			}
 		}
 		else {
 			$('#capacity_people_wraper').show();

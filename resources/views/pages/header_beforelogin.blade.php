@@ -73,13 +73,14 @@
 <script src="{{ URL::asset('js/colorbox-master/jquery.colorbox-min.js') }}" type="text/javascript"></script>
 <link class="rs-file" href="{{ URL::asset('js/assets/royalslider/skins/minimal-white/rs-minimal-white.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ URL::asset('js/colorbox-master/colorbox.css') }}">
+<link href="{{ URL::asset('js/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ URL::asset('css/font-icon.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/form-style.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/slider.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/page-profile.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/static-page.css') }}">
-<link rel="stylesheet" href="{{ URL::asset('css/responsive.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/responsive.css?20170124-2255') }}">
 
 @if(getAuth())
 <script src="//js.pusher.com/2.2/pusher.min.js"></script>

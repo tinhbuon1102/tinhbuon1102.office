@@ -3,7 +3,7 @@
  @include('pages.header')
 <link rel="stylesheet" href="<?php echo SITE_URL?>js/chosen/chosen.min.css">
 <style>
-.editting-skills .select2 {
+.editting-skills .select2-container {
 	display: none !important;
 }
 </style>
@@ -23,6 +23,10 @@ $breaks = array(
 		@elseif(Auth::guard('user2')->check())
 			@include('pages.header_nav_rentuser')
 		@endif
+		
+		 @if(Auth::check())
+										<?php renderOfferPopup($user1);?>
+@endif
 		<div id="main" class="container">
 			<form id="form_cover_image" method="post" enctype="multipart/form-data" action='/upload-image.php' name="photo">
 				<div class="profile-cover-wrapper ng-isolate-scope" style="<?php if(!empty($user->Cover)){ ?>background:url('{{$user->Cover}}')<? } ?> center center / cover no-repeat">
@@ -179,15 +183,15 @@ $breaks = array(
 														<p class="skill-label" style="<?php echo !trim($user->Skills) ? 'display: none;' : ''?>">スキル：</p>
 														<ul class="skill-list withstar" id="SkillList">
 														</ul>
+														<span style="<?php echo trim($user->Skills) ? 'display: none;' : ''?>" class="no-content-text">スキルを選択してください</span>
 														<a style="display: none" class="profile-job-btn job-skill-edit-btn" href="javascript:void(0);">
-															<span style="<?php echo trim($user->Skills) ? 'display: none;' : ''?>" class="no-content-text">スキルを選択してください</span>
 															<span class="profile-job-btn-wraper" style="display: inline-block;">
 																<span class="fa fa-pencil awesome-icon"></span>
 															</span>
 														</a>
 													</div>
 													<div class="editable-block editting-block editting-skills" style="display: none;">
-														<select data-placeholder="スキルを選択" class="chosen-select" id="profile-skills" multiple="multiple" aria-hidden="true" tabindex="-1">
+														<select data-placeholder="スキルを選択" class="chosen-select profile-skills-select" id="profile-skills" multiple="multiple" aria-hidden="true" tabindex="-1">
 															<optgroup label="制作用ツール、DTPソフト">
 																<option value="Photoshop">Photoshop</option>
 																<option value="Illustrator">Illustrator</option>
@@ -232,7 +236,7 @@ $breaks = array(
 															</optgroup>
 														</select>
 														<div class="btn-wrapper">
-															<button id="SaveSkills" class="btnSaveBSummary toggle_button save-button btn ui-button-text-only yellow-button" role="button" bind-toggle=".profile-skills, .editting-skills">
+															<button id="SaveSkills" class="btnSaveSkills toggle_button save-button btn ui-button-text-only yellow-button" role="button" bind-toggle=".profile-skills, .editting-skills">
 																<span class="ui-button-text">保存</span>
 															</button>
 															<button id="CancelSkills" class="toggle_button cancel-button btn ui-button-text-only" role="button" bind-toggle=".profile-skills, .editting-skills">
@@ -285,7 +289,9 @@ $breaks = array(
                                     
 									<?php if(Auth::guard('user1')->check()) {?>
                                     <ul class="item-stats">
-                                    <li class="offer-btn-wrap"><a class="btn button dblk-button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> オファーをする</a></li>
+                                    <!--<li class="offer-btn-wrap"><a class="btn button dblk-button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> オファーをする</a></li>
+                                    -->
+									<li class="offer-btn-wrap offer-lists" data-id="{{$user->id}}"><a class="btn button dblk-button offer_btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> オファーをする</a></li>
                                     </ul>
                                     <div class="send-msg">
 										<a href="/ShareUser/Dashboard/Message/{{$user->HashCode}}">
@@ -322,9 +328,7 @@ $breaks = array(
 											    </g>
 											</g>
 											</svg>
-													<span class="picture-upload-trigger-text" style="display: none;">プロフィール写真を編集</span>
 												</span>
-												<input type="hidden" name="Logo" id="Logo" value="">
 											</a>
 										</figure>
 									</div>
@@ -352,8 +356,24 @@ $breaks = array(
 											<span class="fa fa-map-marker awesome-icon">{{$user->Prefecture}}{{$user->City}}</span>
 										</div>
 									</div>
+									<?php if(Auth::guard('user1')->check()) {?>
+                                    <ul class="item-stats">
+                                    <li class="offer-btn-wrap offer-lists" data-id="{{$user->id}}"><a class="btn button dblk-button offer_btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> オファーをする</a></li>
+                                    
+                                    <li class="send-msg">
+										<a href="/ShareUser/Dashboard/Message/{{$user->HashCode}}" class="button">
+											<button class="btn button msg-button yellow-button" data-bind="click: SendMessageViewModel.showDialog" role="button" aria-disabled="false">
+												<span class="ui-button-text">
+													<i class="icon-offispo-icon-06 awesome-icon"></i>
+													メッセージを送る
+												</span>
+											</button>
+										</a>
+									</li>
+                                   </ul>
+                                    <?php }?>
 								</section>
-								<section class="profiles-user-statistics pc-none">
+								<!--<section class="profiles-user-statistics pc-none">
 									<div class="profiles-user-statistics-item ng-binding">
 										<span class="profiles-user-statistics-title">使用清潔度</span>
 										@if( empty($reviews['CleaninessAvg']) ) ---% @else {{$reviews['CleaninessAvg']}}% @endif
@@ -366,7 +386,7 @@ $breaks = array(
 										<span class="profiles-user-statistics-title">再利用希望</span>
 										@if( empty($reviews['RepeatAvg']) ) ---% @else {{$reviews['RepeatAvg']}}% @endif
 									</div>
-								</section>
+								</section>-->
 								<!--/mobile view-->
 							</div>
 						</div>
@@ -380,9 +400,12 @@ $breaks = array(
 					<li class="PageNav-item select">
 						<a href="#" class="PageNav-link">プロフィール</a>
 					</li>
+					
+                <?php if (count($userPortfolios) || (!isset($isPublicUser) || !$isPublicUser)) {?>
 					<li class="PageNav-item">
 						<a href="#" class="PageNav-link">実績</a>
 					</li>
+					<?php }?>
 					<li class="PageNav-item">
 						<a href="#" class="PageNav-link">レビュー</a>
 					</li>
@@ -439,6 +462,8 @@ $breaks = array(
 										<!--/profile-require-basic-->
 									</div>
 									<!--/profile-require-main-->
+									<!--hide if skill is not setted-->
+									<?php if (!trim($user->Skills) || (!isset($isPublicUser) || !$isPublicUser)) {?>
 									<div class="profile-require-main col-md-9">
 										<div class="profile-require-basic js-matchHeight feed-box" id="basic-requirement">
 											<h2 class="section-title">スキル</h2>
@@ -451,9 +476,10 @@ $breaks = array(
 													</a>
 													<ul class="skill-list withstar" id="SkillList">
 													</ul>
+													<span style="<?php echo trim($user->Skills) ? 'display: none;' : ''?>" class="no-content-text">スキルを選択してください</span>
 												</div>
 												<div class="editable-block editting-block editting-skills" style="display: none;">
-													<select data-placeholder="スキルを選択" class="chosen-select" id="profile-skills" multiple="multiple" aria-hidden="true" tabindex="-1">
+													<select data-placeholder="スキルを選択" class="chosen-select profile-skills-select" id="profile-skills-mobile" multiple="multiple" aria-hidden="true" tabindex="-1">
 														<optgroup label="制作用ツール、DTPソフト">
 															<option value="Photoshop">Photoshop</option>
 															<option value="Illustrator">Illustrator</option>
@@ -498,7 +524,7 @@ $breaks = array(
 														</optgroup>
 													</select>
 													<div class="btn-wrapper">
-														<button id="SaveSkills" class="btnSaveBSummary toggle_button save-button btn ui-button-text-only yellow-button" role="button" bind-toggle=".profile-skills, .editting-skills">
+														<button id="SaveSkills" class="btnSaveSkills toggle_button save-button btn ui-button-text-only yellow-button" role="button" bind-toggle=".profile-skills, .editting-skills">
 															<span class="ui-button-text">保存</span>
 														</button>
 														<button id="CancelSkills" class="toggle_button cancel-button btn ui-button-text-only" role="button" bind-toggle=".profile-skills, .editting-skills">
@@ -510,13 +536,14 @@ $breaks = array(
 										</div>
 										<!--/profile-require-basic-->
 									</div>
+									<?php }?>
 									<!--/profile-require-main-->
 									<div class="profile-require-main col-md-9">
 										<div class="profile-require-basic js-matchHeight feed-box" id="basic-requirement">
 											<h2 class="section-title">
 												利用希望ワークスペース
 												<span class="edit-workspace">
-													<a href="{{url('RentUser/Dashboard/EditMySpace')}}" class="profile-job-btn" style="display: none;" target="_blank">
+													<a href="{{url('RentUser/Dashboard/EditMySpace')}}" class="profile-job-btn mb-editbtn" style="display: none;" target="_blank">
 														<span class="fa fa-pencil awesome-icon"></span>
 													</a>
 												</span>
@@ -800,11 +827,12 @@ $breaks = array(
 							<!--/section-inner-->
 						</section>
 					</li>
+					<?php if (count($userPortfolios) || (!isset($isPublicUser) || !$isPublicUser)) {?>
 					<li class="tabli work-con hideli">
 						<section class="profile-portfolio-section" id="profile-portfolio">
 							<div class="section-inner">
                 <?php if (!isset($isPublicUser) || !$isPublicUser) {?>
-                <div class="portfolio-add-item-wraper" style="display: none">
+                <div class="portfolio-add-item-wraper2">
 									<a href="/RentUser/Dashboard/MyPortfolio?action=add" class="ajax-popup-link portfolio-add-item-btn non-feature btn btn-info btn-large wdfull">
 										<span>+ 実績を追加</span>
 									</a>
@@ -846,6 +874,7 @@ $breaks = array(
 				</div>
 						</section>
 					</li>
+					<?php }?>
 					<li class="tabli review-con hideli">
 						<section class="profile-components" id="resume">
 							<div class="section-inner">
@@ -854,9 +883,9 @@ $breaks = array(
 										<div class="profile-reviews feed-box" id="profile-reviews">
 											<h2 class="section-title">
 												最新レビュー
-												<button style="<?php if (count($allReviews) < LIMIT_REVIEWS ) echo 'display: none;'?>" class="signup-modal-trigger profile-reviews-btn-top" ng-click="profile.openReviewsModal()" data-qtsb-label="view_more">
+												<!--<button style="<?php //if (count($allReviews) < LIMIT_REVIEWS ) echo 'display: none;'?>" class="signup-modal-trigger profile-reviews-btn-top" ng-click="profile.openReviewsModal()" data-qtsb-label="view_more">
 													<span ng-if="profile.user.reviews[profile.user.role].length > 0" class="ng-scope">レビューを全て見る</span>
-												</button>
+												</button>-->
 											</h2>
 											<ul class="user-reviews ng-scope">
 												<!--loop review-->
@@ -1385,7 +1414,6 @@ jQuery(document).ready(function($) {
 </script>
 	<script type="text/javascript">
     jQuery(document).ready(function($) {
-      $("#profile-skills").select2();
         $('#thumbviewimage, #profileImageUploader').click(function(e){
             e.preventDefault();
         });
@@ -1556,7 +1584,8 @@ jQuery(document).ready(function($) {
     	});
 
     	$('body').on('change', '#cover_image', function(){
-        	$('.cover-image-upload-confirmation').show();
+        	//$('.cover-image-upload-confirmation').show();
+        	$('#submit_cover_image').click();
     	});
 
         $('body').on('change', '.modal.in #imagefile', function() {
@@ -1619,9 +1648,10 @@ jQuery.ajaxSetup({
 			}
 			return false;
 		});
-		jQuery('#SaveSkills').click(function(e){
+		jQuery('.btnSaveSkills').click(function(e){
 			e.preventDefault();
-			var Skills = jQuery("#profile-skills option:selected").map(function() {return this.value;}).get().join(',');
+			var wraper = $(this).closest('.editable-block');
+			var Skills = wraper.find(".profile-skills-select option:selected").map(function() {return this.value;}).get().join(',');
 			jQuery.ajax({
             type: "POST",
             url : '/RentUser/Dashboard/MyProfile/Edit2',
@@ -1629,36 +1659,40 @@ jQuery.ajaxSetup({
 			   success: function(data){
 					var sklList = Skills.split(',');
 					var items = [];
-					jQuery('#SkillList').empty();
+					jQuery('.skill-list').empty();
                    if(sklList != ''){
 					   jQuery.each(sklList, function(i, item) {
 					       items.push('<li>' + item + '</li>');
 					   });
 					   $('.skill-label').show();
+					   $('.no-content-text').hide();
                    }
                    else {
                 	   $('.skill-label').hide();
+                	   $('.no-content-text').show();
                    }
-					jQuery('#SkillList').append(items.join(''));
+					jQuery('.skill-list').append(items.join(''));
 					jQuery('#profile-skills').val(sklList).trigger('chosen:updated');
+					jQuery('#profile-skills-mobile').val(sklList).trigger('chosen:updated');
 			   }
 			});
 			jQuery('#CloseSkills').click();
 			jQuery('#profile-skills').val(Skills.split(',')).trigger('chosen:updated');
+			jQuery('#profile-skills-mobile').val(Skills.split(',')).trigger('chosen:updated');
 		});
 
 		jQuery('.btnSaveBSummary').click(function(){
-			var bSummary = jQuery('.profiles-description').val();
+			var wraper = $(this).closest('.editable-block-wraper');
+			var bSummary = wraper.find('.profiles-description').val();
 			jQuery.ajax({
 	            type: "POST",
 	            url : '/RentUser/Dashboard/MyProfile/Edit2',
 	            data : { BusinessSummary:bSummary},
 				success: function(data){
-					var content = $('textarea[name="job-description"]').val();
-					content = content ? content : '紹介文を記入してください';
-					//content = content.replace(/(?:\r\n|\r|\n)/g, '<br />');
-					
-					$('.profile-about-description .edit-content').html(content);
+					bSummary = bSummary ? bSummary : '紹介文を記入してください';
+					//bSummary = bSummary.replace(/(?:\r\n|\r|\n)/g, '<br />');
+					$('.profile-about-description .edit-content').html(bSummary);
+					$('.profiles-description').val(bSummary);
 				}
 			});
 		});
@@ -1681,14 +1715,15 @@ jQuery.ajaxSetup({
 	{
 		var sklList = ('<?php echo $user->Skills ?>').split(',');
 		var items = [];
-		jQuery('#SkillList').empty();
+		jQuery('.skill-list').empty();
         if(sklList != ''){
             jQuery.each(sklList, function(i, item) {
               items.push('<li>' + item + '</li>');
             });
         }
-		jQuery('#SkillList').append(items.join(''));
+		jQuery('.skill-list').append(items.join(''));
 		jQuery('#profile-skills').val(sklList).trigger('chosen:updated');
+		jQuery('#profile-skills-mobile').val(sklList).trigger('chosen:updated');
 
 	}
 	function LoadDetail()

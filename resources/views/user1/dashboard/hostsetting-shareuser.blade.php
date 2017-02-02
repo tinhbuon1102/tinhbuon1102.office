@@ -195,7 +195,7 @@ $user = Auth::guard('user1')->user();
 														<!--Company Name-->
 													</label>
 													<div class="input-container">
-														<input name="NameOfCompany" id="NameOfCompany" value="{{$user->NameOfCompany}}" required="" ng-model="setting.space_title" type="text" class="ng-invalid" aria-invalid="true" placeholder="株式会社アワーオフィス">
+														<input name="NameOfCompany" id="NameOfCompany" value="{{$user->NameOfCompany}}" ng-model="setting.space_title" type="text" class="validate[required]" aria-invalid="true" placeholder="株式会社アワーオフィス">
 													</div>
 												</div>
 												<div class="form-field address-wrapper">
@@ -206,18 +206,18 @@ $user = Auth::guard('user1')->user();
 																郵便番号
 																<!--Postal code-->
 															</label>
-															<input name="PostalCode" id="zip" type="text" value="{{$user->PostalCode}}" required=""　class="ng-pristine ng-untouched ng-invalid-required" aria-required="true">
+															<input name="PostalCode" id="zip" type="text" value="{{$user->PostalCode}}"　class="validate[required,custom[zip]]" aria-required="true">
 														</div>
 													</div>
 													<!--/form-field-->
 													<div class="form-field two-inputs">
 														<div class="input-container input-half">
-															<label for="zip">
+															<label for="prefecture">
 																<span class="require-mark">*</span>
 																都道府県
 																<!--Prefecture-->
 															</label>
-															<select id="Prefecture" name="Prefecture" class="confidential" required>
+															<select id="Prefecture" name="Prefecture" class="confidential validate[required]">
 																<option value=""></option>
 																<option value="北海道">北海道</option>
 																<option value="青森県">青森県</option>
@@ -274,7 +274,7 @@ $user = Auth::guard('user1')->user();
 																市区町村
 																<!--District-->
 															</label>
-															<input name="District" id="district" value="{{$user->District}}" type="text" class="ng-pristine ng-untouched ng-invalid-required" aria-required="true" placeholder="横浜市緑区">
+															<input name="District" id="district" value="{{$user->District}}" type="text" class="validate[required]" placeholder="横浜市緑区">
 														</div>
 													</div>
 													<!--/form-field-->
@@ -285,7 +285,7 @@ $user = Auth::guard('user1')->user();
 																番地
 																<!--Street number-->
 															</label>
-															<input name="Address1" id="Addr" value="{{$user->Address1}}" required="" ng-model="signup.addr" type="text" class="ng-pristine ng-untouched ng-invalid-required" aria-required="true" placeholder="六本木1-1-1">
+															<input name="Address1" id="Addr" value="{{$user->Address1}}" ng-model="signup.addr" type="text" class="validate[required]" placeholder="六本木1-1-1">
 														</div>
 														<div class="input-container input-half">
 															<label for="addr">
@@ -309,7 +309,7 @@ $user = Auth::guard('user1')->user();
 															<!--5%-->
 															<!--Phone number-->
 														</label>
-														<input name="Tel" id="phone-number" value="{{$user->Tel}}" type="text" 　class="ng-pristine ng-untouched ng-invalid-required" aria-required="true">
+														<input name="Tel" id="phone-number" value="{{$user->Tel}}" type="text" 　class="validate[required]">
 													</div>
 												</div>
 												<div class="form-field two-inputs">
@@ -320,8 +320,8 @@ $user = Auth::guard('user1')->user();
 															<!--5%-->
 															<!--Category of business-->
 														</label>
-														<select id="BusinessCat" name="BussinessCategory" class="old_ui_selector">
-															<option value="カテゴリを選択" selected="">Choose business category</option>
+														<select id="BusinessCat" name="BussinessCategory" class="old_ui_selector validate[required]">
+															<option value="" selected="">事業タイプを選択</option>
 															<option value="インターネット・ソフトウェア">インターネット・ソフトウェア</option>
 															<option value="コンサルティング・ビジネスサービス">コンサルティング・ビジネスサービス</option>
 															<option value="コンピュータ・テクノロジー">コンピュータ・テクノロジー</option>
@@ -392,7 +392,7 @@ $user = Auth::guard('user1')->user();
 																姓
 																<!--Last name-->
 															</label>
-															<input name="LastName" id="LastName" value="{{$user->LastName}}" required="" ng-model="signup.last_name" type="text" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" aria-invalid="true" aria-required="true" placeholder="佐藤">
+															<input name="LastName" id="LastName" value="{{$user->LastName}}" ng-model="signup.last_name" type="text" class="validate[required]" placeholder="佐藤">
 														</div>
 														<div class="input-container input-half">
 															<label for="last_name">
@@ -400,7 +400,7 @@ $user = Auth::guard('user1')->user();
 																名
 																<!--First name-->
 															</label>
-															<input name="FirstName" id="FirstName" value="{{$user->FirstName}}" required="" ng-model="signup.first_name" type="text" class="ng-pristine ng-invalid ng-invalid-required ng-untouched" aria-invalid="true" aria-required="true" placeholder="太郎">
+															<input name="FirstName" id="FirstName" value="{{$user->FirstName}}" ng-model="signup.first_name" type="text" class="validate[required]" placeholder="太郎">
 														</div>
 													</div>
 													<!--/form-field-->
@@ -411,7 +411,7 @@ $user = Auth::guard('user1')->user();
 																姓(ふりがな)
 																<!--Last name kana-->
 															</label>
-															<input name="LastNameKana" id="LastNameKana" value="{{$user->LastNameKana}}" required="" ng-model="signup.last_name_kana" type="text" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" aria-invalid="true" aria-required="true" placeholder="さとう">
+															<input name="LastNameKana" id="LastNameKana" value="{{$user->LastNameKana}}" ng-model="signup.last_name_kana" type="text" class="validate[required]" placeholder="さとう">
 														</div>
 														<div class="input-container input-half">
 															<label for="last_name">
@@ -419,7 +419,7 @@ $user = Auth::guard('user1')->user();
 																名(ふりがな)
 																<!--First name kana-->
 															</label>
-															<input name="FirstNameKana" id="FirstNameKana" value="{{$user->FirstNameKana}}" required="" ng-model="signup.first_name_kana" type="text" class="ng-pristine ng-invalid ng-invalid-required ng-untouched" aria-invalid="true" aria-required="true" placeholder="たろう">
+															<input name="FirstNameKana" id="FirstNameKana" value="{{$user->FirstNameKana}}" ng-model="signup.first_name_kana" type="text" class="validate[required]" placeholder="たろう">
 														</div>
 													</div>
 													<!--/form-field-->
@@ -591,155 +591,8 @@ $user = Auth::guard('user1')->user();
 <!--/feed-->
 */ ?>
 							<div id="feed">
-								<section class="feed-event recent-follow feed-box" id="payinfo">
-									<div class="dashboard-section-heading-container">
-										<h3 class="dashboard-section-heading">
-											支払受取情報
-											<!--15%-->
-											<!--Payment Info-->
-										</h3>
-										<a class="toggle_button edit" bind-toggle=".bank-account-edit-container, .saved-bank-account" href="#"><i class="fa fa-pencil" aria-hidden="true"></i>編集</a>
-									</div>
-									<form id="BankAccount" class="fl-form" method="post" action="{{url('ShareUser/Dashboard/HostSetting/BankInfo')}}">
-										<div class="space-setting-content">
-											<div class="saved-bank-account">
-												<div class="saved-value">
-													<label>
-														口座の種類
-														<!--Account Type-->
-														:
-													</label>
-													<span id="spanAccountType">{{$bank->AccountType}}</span>
-												</div>
-												<div class="saved-value">
-													<label>
-														名義
-														<!--Account Name-->
-														:
-													</label>
-													<span id="spanAccountName">{{$bank->AccountName}}</span>
-												</div>
-												<div class="saved-value">
-													<label>
-														銀行名
-														<!--Bank Name-->
-														:
-													</label>
-													<span id="spanBankName">{{$bank->BankName}}</span>
-												</div>
-												<div class="saved-value">
-													<label>
-														支店名
-														<!--Branch location name-->
-														:
-													</label>
-													<span id="spanBranchLocationName">{{$bank->BranchLocationName}}</span>
-												</div>
-												<div class="saved-value">
-													<label>
-														口座番号
-														<!--Account Number-->
-														:
-													</label>
-													<span id="spanAccountNumber">{{$bank->AccountNumber}}</span>
-												</div>
-											</div>
-											<!--/saved-bank-account-->
-											<!--show here if you click edit-->
-											<div class="bank-account-edit-container" style="display: none;">
-												<div class="form-container">
-													<div class="form-field">
-														<div class="input-container input-half">
-															<label for="AccountType">
-																<span class="require-mark">*</span>
-																口座の種類
-																<!--Account Type-->
-															</label>
-															<div class="radio inline">
-																<input type="radio" name="AccountType" id="checking" value="当座預金" aria-hidden="true" <? if($bank->AccountType=="当座預金"){ ?> checked <? } ?>>
-																<label for="checking">当座預金</label>
-															</div>
-															<!--/radio inline-->
-															<div class="radio inline">
-																<input type="radio" name="AccountType" id="savings" value="普通預金" aria-hidden="true" @if($bank->
-																AccountType=="普通預金") checked @endif>
-																<label for="savings">普通預金</label>
-															</div>
-															<!--/radio inline-->
-														</div>
-													</div>
-													<!--/form-field-->
-													<div class="form-field">
-														<div class="input-container input-half">
-															<label for="AccountName">
-																<span class="require-mark">*</span>
-																名義
-																<!--Account Name-->
-															</label>
-															<input id="nativeName" name="AccountName" type="text" class="hasHelp js_needsValidation validate" required="required" aria-required="true" value="{{$bank->AccountName}}" placeholder="銀行口座の名義" autocomplete="off">
-															<!-- pattern="[\u30A0-\u30FF \s]*" aria-invalid="false" -->
-														</div>
-														<div class="input-container input-half">
-															<label for="BankName">
-																<span class="require-mark">*</span>
-																銀行名
-																<!--Bank Name-->
-															</label>
-															<input id="bankName" name="BankName" type="text" class="hasHelp  validate" required="required" aria-required="true" value="{{$bank->BankName}}" placeholder="銀行名" autocomplete="off" maxlength="64">
-														</div>
-													</div>
-													<!--/form-field-->
-													<div class="form-field">
-														<div class="input-container input-half">
-															<label for="BankName">
-																<span class="require-mark">*</span>
-																支店名
-																<!--Branch location name-->
-															</label>
-															<input id="branchLocationName" name="BranchLocationName" type="text" class="hasHelp js_needsValidation validate" required="required" aria-required="true" value="{{$bank->BranchLocationName}}" placeholder="支店名" autocomplete="off" maxlength="32" aria-invalid="false">
-															<!--pattern=".*"-->
-														</div>
-														<div class="input-container input-half">
-															<label for="BankName">
-																<span class="require-mark">*</span>
-																支店コード
-																<!--支店コード-->
-															</label>
-															<input id="branchCode" name="BranchCode" type="text" class="hasHelp js_needsValidation validate" required="required" aria-required="true" value="{{$bank->BranchCode}}" placeholder="支店コード" autocomplete="off" maxlength="3">
-															<!--pattern="[0-9]{3}" -->
-														</div>
-													</div>
-													<!--/form-field-->
-													<div class="form-field">
-														<div class="input-container input-half">
-															<label for="accountNumber">
-																<span class="require-mark">*</span>
-																口座番号
-																<!--Account Number-->
-															</label>
-															<input id="accountNumber" name="AccountNumber" type="text" class="hasHelp js_needsValidation validate cobrowse_mask" required="required" aria-required="true" value="{{$bank->AccountNumber}}" placeholder="口座番号" autocomplete="off" maxlength="7">
-															<!--pattern="[0-9]{7}"-->
-														</div>
-													</div>
-													<!--/form-field-->
-													<div class="btn-wrapper">
-														{{ csrf_field() }}
-														<button type="submit" class="upload-button btn ui-button-text-only yellow-button" role="button">
-															<span class="ui-button-text">保存</span>
-														</button>
-														<button class="toggle_button cancel-button btn ui-button-text-only" role="button" bind-toggle=".bank-account-edit-container, .saved-bank-account">
-															<span class="ui-button-text cancel">キャンセル</span>
-														</button>
-													</div>
-												</div>
-												<!--/form-container-->
-											</div>
-											<!--/bank-account-edit-container-->
-											<!--/show here if you click edit-->
-										</div>
-										<!--/space-setting-content-->
-									</form>
-								</section>
+                                <!-- bank account -->
+                                @include('user1.dashboard.bank-account')
 							</div>
 							<!--/feed-->
 							<div id="feed">
@@ -773,53 +626,75 @@ $user = Auth::guard('user1')->user();
 												</div>
 												<!--/input-wrapper-->
 												<div class="add-manager-wrapper">
-													<a class="input-label toggle_button btn btn-info" bind-toggle=".edit-newhost-sec" href="javascript:void(0)" id="addNewAdminBtn" data-bind="click: add">+ 担当者追加</a>
+													{{--<a class="input-label toggle_button btn btn-info" bind-toggle=".edit-newhost-sec" href="javascript:void(0)" id="addNewAdminBtn" data-bind="click: add">+ 担当者追加</a>--}}
+													{{--<a class="input-label toggle_button btn btn-info" href="javascript:void(0)" id="addNewAdminBtn" data-bind="click: add">+ 担当者追加</a>--}}
+
+													<button type="button" id="addNewAdminBtn" class="input-label toggle_button btn btn-info" data-toggle="modal" data-target="#editHostAdminFormModal">
+														+ 担当者追加
+													</button>
+
 												</div>
 											</div>
-											<!--show here if you click Add a Host member-->
-											<form id="editHostAdminForm" class='fl-form' method="post" action="{{url('ShareUser/Dashboard/HostSetting/HostInfo')}}">
-												<div class="input-wrapper edit-newhost-sec" style="display: none;">
-													<div class="input-container">
-														<label class="add-newhost">新規担当者プロフィール</label>
-														<div class="admin-details-wrapper clearfix">
-															<div class="validation-summary-valid" data-valmsg-summary="true">
-																<ul>
-																	<li style="display: none"></li>
-																</ul>
-															</div>
-															<div class="my-admin-picture-wrapper">
-																<!-- ko stopBinding: true -->
-																<div style="width: 120px; height: 120px; background-size: 100% 100%;" class="tab-image-widget noImage" id="background-HostPhoto" data-bind="css: { noImage: noImage }">
-																	<img id="HostImage" data-bind="attr: { src: PictureUrl }" height="120" width="120" src="/images/HostPhoto.png">
-																	<!-- id="editMemberImageView"  -->
-																	<span class="delete-image-icon" style="display: none;" data-bind="visible: showDelete, click: deleteFunc"></span>
-																	<div class="image-empty-text" style="" data-bind="visible: noImage">No image</div>
-																	<div class="image-button-wrapper" id="" data-toggle="modal" data-target="#popover_content_wrapper" image-type="HostPhoto">
-																		<span data-bind="text: buttonText">アップロード</span>
+
+
+											<!-- Modal -->
+											<div class="modal fade" id="editHostAdminFormModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-body">
+															<form id="editHostAdminForm" class='fl-form' method="post" action="{{url('ShareUser/Dashboard/HostSetting/HostInfo')}}">
+																<div class="input-wrapper edit-newhost-sec">
+																	<div class="input-container">
+																		<label class="add-newhost">新規担当者プロフィール</label>
+																		<div class="admin-details-wrapper clearfix">
+																			<div class="validation-summary-valid" data-valmsg-summary="true">
+																				<ul>
+																					<li style="display: none"></li>
+																				</ul>
+																			</div>
+																			<div class="my-admin-picture-wrapper">
+																				<!-- ko stopBinding: true -->
+																				<div style="width: 120px; height: 120px; background-size: 100% 100%;" class="tab-image-widget noImage" id="background-HostPhoto" data-bind="css: { noImage: noImage }">
+																					<img id="HostImage" data-bind="attr: { src: PictureUrl }" height="120" width="120" src="/images/HostPhoto.png">
+																					<!-- id="editMemberImageView"  -->
+																					<span class="delete-image-icon" style="display: none;" data-bind="visible: showDelete, click: deleteFunc"></span>
+																					<div class="image-empty-text" style="" data-bind="visible: noImage">No image</div>
+																					<div class="image-button-wrapper" id="" data-toggle="modal" data-target="#popover_content_wrapper" image-type="HostPhoto">
+																						<span data-bind="text: buttonText">アップロード</span>
+																					</div>
+																					<input type="hidden" name="HostPhoto" id="HostPhoto" value="">
+																					<div class="cropControls cropControlsUpload"></div>
+																				</div>
+																				<!-- /ko -->
+																			</div>
+																			<div class="admin-details">
+																				<input type="hidden" id="hdnHostId" name="HashID">
+																				<input id="MemberLastName" class="validate[required]" name="HostLastName" placeholder="姓" type="text" value="">
+																				<input id="MemberFirstName" class="validate[required]" name="HostFirstName" placeholder="名" type="text" value="">
+																				<input id="MemberEmail" class="validate[required]" name="HostEmail" placeholder="メールアドレス" type="text" value="">
+																				<input id="MemberPhone" name="HostMobilePhone" placeholder="電話番号" type="text" value="">
+																			</div>
+																		</div>
 																	</div>
-																	<input type="hidden" name="HostPhoto" id="HostPhoto" value="">
-																	<div class="cropControls cropControlsUpload"></div>
+																	<!--/input-container-->
+																	<button class="btn ui-button-text-only yellow-button save-host" role="button" type="submit">
+																		<span class="ui-button-text">保存</span>
+																	</button>
+																	<button class="cancel-button btn ui-button-text-only" role="button" data-dismiss="modal">
+																		<span class="ui-button-text">キャンセル</span>
+																	</button>
 																</div>
-																<!-- /ko -->
-															</div>
-															<div class="admin-details">
-																<input type="hidden" id="hdnHostId" name="HashID">
-																<input id="MemberLastName" name="HostLastName" placeholder="姓" type="text" required value="">
-																<input required id="MemberFirstName" name="HostFirstName" placeholder="名" type="text" value="">
-																<input required id="MemberEmail" name="HostEmail" placeholder="メールアドレス" type="text" value="">
-																<input id="MemberPhone" name="HostMobilePhone" placeholder="電話番号" type="text" value="">
-															</div>
+															</form>
 														</div>
 													</div>
-													<!--/input-container-->
-													<button class="btn ui-button-text-only yellow-button save-host" role="button" type="submit">
-														<span class="ui-button-text">保存</span>
-													</button>
-													<button class="toggle_button cancel-button btn ui-button-text-only" role="button" bind-toggle=".edit-newhost-sec">
-														<span class="ui-button-text cancel">キャンセル</span>
-													</button>
 												</div>
-											</form>
+											</div>
+
+
+
+
+											<!--show here if you click Add a Host member-->
+
 											<!--/input-wrapper-->
 											<!--/show here if you click Add a Host member-->
 										</div>
@@ -913,88 +788,83 @@ $(window).scroll(function() {
     }
 });
 
-			function paymentInfo()
-			{
-				 var $form = $('#BankAccount'),
-        data1 = $form.serialize(),
-        url = $form.attr( "action" );
+
+            function hostInfo() {
+                var $form = $('#editHostAdminForm'),
+                    data1 = $form.serialize(),
+                    url = $form.attr("action");
 
 
-	   $.ajax({
-            type: "POST",
-            url : url,
-            data : { formData:data1 },
-           success: function(data){ // What to do if we succeed
-		 if(data.success) {
-			jQuery("#spanAccountType").text(jQuery('input[name="AccountType"]').val());
-			jQuery("#spanAccountName").text(jQuery('input[name="AccountName"]').val());
-			jQuery("#spanBankName").text(jQuery('input[name="BankName"]').val());
-			jQuery("#spanBranchLocationName").text(jQuery('input[name="BranchLocationName"]').val());
-			jQuery("#spanBranchCode").text(jQuery('input[name="BranchCode"]').val());
-			jQuery("#spanAccountNumber").text(jQuery('input[name="AccountNumber"]').val());
-			jQuery(".bank-account-edit-container").toggle();
-			jQuery(".saved-bank-account").toggle();
-          //window.location.href= data.next;
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: {formData: data1},
+                    success: function (data) { // What to do if we succeed
+                        if (data.success) {
 
 
-		 } //success
-    },
-    error: function(jqXHR, textStatus, errorThrown) { // What to do if we fail
-		alert(JSON.stringify(jqXHR));
-        alert("AJAX error: " + textStatus + ' : ' + errorThrown);
-    }
+                            console.log(data);
+
+                            var firstName = jQuery('input[name="HostFirstName"]').val(),
+								lastName = jQuery('input[name="HostLastName"]').val(),
+								photo = jQuery('input[name="HostPhoto"]').val(),
+								hostId = $("#hdnHostId").val();
+
+                            var imgPath = (photo) ?
+                                photo : '/images/HostPhoto.png' ;
+                            var imgAlt = lastName + ' ' + firstName;
+                            var Name = lastName + ' ' + firstName;
+                            var Email = jQuery('input[name="HostEmail"]').val();
+                            var Phone = jQuery('input[name="HostMobilePhone"]').val();
+                            if (hostId == "") {
+
+                                var hostMemberContent =
+									'<div class="admin-wrapper">' +
+										'<div class="aw-image-wrapper">' +
+											'<img src="' + imgPath +'" class="admin-image" data-bind="attr: { alt: MemberName, src: PictureUrl }" alt="' + imgAlt +'">' +
+										'</div>' +
+										'<div class="aw-name" data-bind="text: MemberFirstName">' + Name + '</div>' +
+										'<div class="aw-email" data-bind="text: Email">' + Email +'</div>' +
+										'<div class="aw-link">' +
+											'<span>' +
+												'<a id="lnk'+ data.hash +'" href="javascript:void(0)" onclick="EditDetail(this);" ' +
+													'data-Image="'+ imgPath +'" data-Id="' + data.hash + '"' +
+													'"data-FirstName="'+ firstName +'" data-LastName="' + lastName + '"' +
+													'data-Email="'+ Email +'" data-Phone="'+ Phone +'">詳細</a>' +
+											'</span>' +
+											'<span>' +
+												'<a id="lnk'+ data.hash +'" href="javascript:void(0)" onclick="removeHostMember(this);" ' +
+												'data-Image="'+ imgPath +'" data-Id="' + data.hash + '"' +
+												'"data-FirstName="'+ firstName +'" data-LastName="' + lastName + '"' +
+												'data-Email="'+ Email +'" data-Phone="'+ Phone +'">削除</a>' +
+											'</span>' +
+                                    	'</div>' +
+									'</div>';
+
+                                jQuery('#hostMember').append(hostMemberContent);
+
+                            } else {
+                                jQuery("#img" + hostId).attr("src", imgPath).attr("alt", imgAlt);
+                                jQuery("#name" + hostId).text(Name);
+                                jQuery("#email" + hostId).text(Email);
+                                jQuery("#lnk" + hostId).attr('data-image', imgPath).attr('data-firstname', jQuery('input[name="HostFirstName"]').val()).attr('data-lastname', jQuery('input[name="HostLastName"]').val()).attr('data-email', Email).attr('data-phone', Phone)
+                            }
 
 
-        },"json");
+                            $('#editHostAdminFormModal').modal('hide');
 
-		}
-
-			function hostInfo()
-			{
-				 var $form = $('#editHostAdminForm'),
-        data1 = $form.serialize(),
-        url = $form.attr( "action" );
+                            $('#editHostAdminForm').trigger("reset");
+                            $('#background-HostPhoto').css("background-image: none");
 
 
-	   $.ajax({
-            type: "POST",
-            url : url,
-            data : { formData:data1 },
-           success: function(data){ // What to do if we succeed
-		 if(data.success) {
-			var imgPath =jQuery('input[name="HostPhoto"]').val();
-			var imgAlt = jQuery('input[name="HostLastName"]').val() + ' ' + jQuery('input[name="HostFirstName"]').val();
-			var Name = jQuery('input[name="HostLastName"]').val() + ' ' + jQuery('input[name="HostFirstName"]').val();
-			var Email = jQuery('input[name="HostEmail"]').val();
-			var Phone = jQuery('input[name="HostMobilePhone"]').val();
-			if($("#hdnHostId").val() == "")
-			{
-				jQuery('#hostMember').append('<div class="admin-wrapper"><div class="aw-image-wrapper"><img src="'+imgPath+'" class="admin-image" data-bind="attr: { alt: MemberName, src: PictureUrl }" alt="'+imgAlt+'"></div><div class="aw-name" data-bind="text: MemberFirstName">'+Name+'</div><div class="aw-email" data-bind="text: Email">'+Email+'</div><div class="aw-link"><a href="javascript:void(0)" data-bind="click: edit">Details</a></div></div>');
-			}
-			else
-			{
-				jQuery("#img"+$("#hdnHostId").val()).attr("src",imgPath).attr("alt",imgAlt);
-				jQuery("#name"+$("#hdnHostId").val()).text(Name);
-				jQuery("#email"+$("#hdnHostId").val()).text(Email);
-				jQuery("#lnk"+$("#hdnHostId").val()).attr('data-image',imgPath).attr('data-firstname',jQuery('input[name="HostFirstName"]').val()).attr('data-lastname',jQuery('input[name="HostLastName"]').val()).attr('data-email',Email).attr('data-phone',Phone)
-			}
-			jQuery(".edit-newhost-sec").toggle();
-			$('#editHostAdminForm').trigger("reset");
-			$('#background-HostPhoto').css("background-image: none");
-          //window.location.href= data.next;
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log(jqXHR, textStatus, errorThrown);
+                    }
+                }, "json");
 
-
-		 } //success
-    },
-    error: function(jqXHR, textStatus, errorThrown) { // What to do if we fail
-		alert(JSON.stringify(jqXHR));
-        alert("AJAX error: " + textStatus + ' : ' + errorThrown);
-    }
-
-
-        },"json");
-
-		}
+            }
 		
 		function changePwd()
 		{
@@ -1063,21 +933,38 @@ $(window).scroll(function() {
 		</script>
 	<link rel="stylesheet" href="{{ URL::asset('js/chosen/chosen.css') }}">
 	<script src="{{ URL::asset('js/jquery.validate.js?v=1') }}"></script>
-    
+  <script src="{{ URL::asset('js/jquery.validationEngine.js') }}"></script>
+<script src="{{ URL::asset('js/jquery.validationEngine-ja.js') }}"></script>
+<link rel="stylesheet" href="{{ URL::asset('css/validationEngine.jquery.css') }}">
+
+    <!-- bank account script -->
+    @include('user1.dashboard.bank-account-script')
+
+    <script>
+        jQuery(function(){
+            jQuery("#settinginfo, #editHostAdminForm").validationEngine();
+        });
+    </script>
+
 	<script src="{{ URL::asset('js/chosen/chosen.jquery.js') }}" type="text/javascript"></script>
 	<script src="{{ URL::asset('js/assets/custom_edit_form.js') }}"></script>
 	<script>
-		$("#BankAccount").validate({
+		/*$("#BankAccount").validate({
 				  	errorPlacement: function(label, element) {
 						label.addClass('form-error');
-						label.insertAfter(element);
-			},
+					label.insertAfter(element);
 
-        submitHandler: function(label){
-                             paymentInfo();
-        }
+						console.log('submitHandler');
 
-			});
+				},
+				submitHandler: function(label){
+					paymentInfo();
+
+					console.log('submitHandler');
+
+				}
+			});*/
+
 		$("#editHostAdminForm").validate({
 				  	errorPlacement: function(label, element) {
 						label.addClass('form-error');
@@ -1323,10 +1210,9 @@ $("#chgemail").validate({
 		$("#hdnHostId, #HostPhoto, #MemberFirstName, #MemberLastName, #MemberEmail, #MemberPhone").val("");
 		$("#HostImage").attr("src","/images/HostPhoto.png");
 	}
-	function EditDetail(obj)
-	{
-		if($('.edit-newhost-sec').css('display') == 'none')
-			$("#addNewAdminBtn").click();
+
+	function EditDetail(obj) {
+		$("#addNewAdminBtn").trigger('click');
 		$("#hdnHostId").val($(obj).attr('data-Id'));
 		$("#HostPhoto").val($(obj).attr('data-image'));
 		$("#HostImage").attr("src",$(obj).attr('data-image'));
@@ -1339,12 +1225,12 @@ $("#chgemail").validate({
 
 	function removeHostMember(obj)
 	{
-		element = $(obj);
+		var element = $(obj);
 		if (!confirm('このメンバーを削除しますか？')) {
 			return false;
 		}
 		
-		if($('.edit-newhost-sec').css('display') == 'none')
+
 		$("#hdnHostId").val($(obj).attr('data-Id'));
 		$("#HostPhoto").val($(obj).attr('data-image'));
 		$("#HostImage").attr("src",$(obj).attr('data-image'));
@@ -1355,24 +1241,26 @@ $("#chgemail").validate({
 		
 		var $form = $('#editHostAdminForm'),
 		data1 = $form.serialize(),
-		url = $form.attr( "action" );
-		
-		
-		$.ajax({
-		    type: "POST",
-		    url : url,
-		    data : { formData:data1, action: 'remove' },
-		   success: function(data){ // What to do if we succeed
-		 		if(data.success) {
-		 			element.closest('.admin-wrapper').fadeOut();
-				} 
-			},
-			error: function(jqXHR, textStatus, errorThrown) { // What to do if we fail
-				alert(JSON.stringify(jqXHR));
-				alert("AJAX error: " + textStatus + ' : ' + errorThrown);
-				}
-			},"json");
-		}
+		url = $form.attr("action");
+
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                formData: data1,
+                action: 'remove'
+            },
+            success: function (data) { // What to do if we succeed
+                if (data.success) {
+                    element.closest('.admin-wrapper').fadeOut();
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) { // What to do if we fail
+                console.log(jqXHR, textStatus, errorThrown);
+            }
+        }, "json");
+    }
 </script>
 </body>
 </html>

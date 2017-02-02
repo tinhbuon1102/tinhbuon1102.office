@@ -60,6 +60,7 @@
 	var scheduleSelectedText = '<?php echo trans('common.Schedule Selected')?>';
 	var scheduleSelectedText = '<?php echo trans('common.Schedule Selected')?>';
 	var errorUser1BookingMessage = '<?php echo trans('common.You must login as Rent User to make a booking, Redirect to Rent user login page ?')?>';
+	var errorUser1SendMessage = '<?php echo trans('common.You must login as Rent User to send message, Redirect to Rent user login page ?')?>';
 	var consecutive_error = '<?php echo $space->FeeType == SPACE_FEE_TYPE_MONTHLY ? trans('common.consecutive_month_error') : trans('common.consecutive_week_error')?>';
 	var messageMintemError = '<?php echo getSpaceMinTermAlert($space)?>';
 	var aSelectedSlots = [];
@@ -129,7 +130,27 @@
 												<div class="col-sm-10 col-md-9">
 													<div class="space-title">{{$space->Title}}</div>
 													<!--/space-title-->
+													
 													<div class="space-addinfo">{{$space->Prefecture . $space->District . $space->Town}}</div>
+													<div class="hide-md hide-lg">
+													<!--show price-->
+													<div class="price-block" id="space-price">
+														<div class="price">
+															<?php echo @$aBookingTimeInfoSelected['aPrice'][0]['price'];?>
+														</div>
+														<div class="price-min">
+															<span class="price-min-text">
+																<?php echo renderSpaceTypeTermText($space);?>
+															</span>
+															:
+															<span class="price-min-value">
+																<?php echo renderSpaceTypeTerm($space, true)?>
+															</span>
+														</div>
+													</div>
+													<!--/end price-->
+												</div>
+											
 													<div class="rate-info">
 														<!--start rating-->
 														<?php showStarReview($reviews);?>
@@ -203,7 +224,7 @@
 									<div class="space-side-detail feed-box">
 										<div class="top-pad-inner">
 											<div class="clander-block clearfix">
-												<div class="wlp-general-gray-box-inner">
+												<div class="wlp-general-gray-box-inner hide-sm">
 													<!--show price-->
 													<div class="price-block" id="space-price">
 														<div class="price">
@@ -221,8 +242,11 @@
 													</div>
 													<!--/end price-->
 												</div>
-												<div class="">
-													<div class="wlp-general-gray-box-inner">
+												<div class="mobile-bookit-btn-container js-bookit-btn-container panel-btn-sm panel-btn-fixed-sm hide-md hide-lg">
+													<button class="btn btn-block btn-large js-book-it-sm-trigger yellow-button">予約する</button>
+												</div>
+												<div >
+													<div class="wlp-general-gray-box-inner" id="booking_form_wraper">
 														<form action="/transaction/card-transaction" id="editReservationForm" method="post">
 															<input type='hidden' id="spaceID" name='spaceID' value="{!!$space->id!!}" />
 															<input type='hidden' id="spaceslots_id" name='spaceslots_id' value="<?php echo isset($aBookingTimeInfoSelected['bookedIDs']) ? implode(';', @$aBookingTimeInfoSelected['bookedIDs']) : ''?>" />
@@ -232,9 +256,9 @@
 															
 															<div class="wlp-start-date wlp-picker-wrapper">
 																@if($space['FeeType'] != 1)
-																<input type="text" class="customdate dailydate_popup" id="calendar_picker" value='<?php echo @$aBookingTimeInfoSelected['timeDefaultSelected']['StartDateConverted']?>'>
+																<input readonly="readonly" type="text" class="customdate dailydate_popup" id="calendar_picker" value='<?php echo @$aBookingTimeInfoSelected['timeDefaultSelected']['StartDateConverted']?>'>
 																@else
-																<input type="text" name="datepicker" class="customdate" readonly id="datepicker" value="<?php echo @$aBookingTimeInfoSelected['timeDefaultSelected']['StartDateConverted']?>">
+																<input readonly type="text" name="datepicker" class="customdate" readonly id="datepicker" value="<?php echo @$aBookingTimeInfoSelected['timeDefaultSelected']['StartDateConverted']?>">
 																<input type='hidden' name='startTime' value='<?php echo @$aBookingTimeInfoSelected['timeDefaultSelected']['StartTime']?>' class='startTime' />
 																<input type='hidden' name='endTime' value='<?php echo @$aBookingTimeInfoSelected['timeDefaultSelected']['EndTime']?>' class='endTime' />
 																<div class='ajaxhourdata'>
@@ -295,11 +319,11 @@
 																<input type='submit' style='background: none' class='ui-button-text' value='予約する' id='' />
 															</button>
 													
-													</div>
 													</form>
+													</div>
 													<div class="wlp-general-gray-box-inner">
-														<a href="/RentUser/Dashboard/Message/{{$space->shareUser->HashCode}}">
-															<button class="btn ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" data-bind="click: SendMessageViewModel.showDialog" role="button" aria-disabled="false">
+														<a href="/RentUser/Dashboard/Message/{{$space->shareUser->HashCode}}" id="send_message_button">
+															<button class="btn ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false">
 																<span class="ui-button-text">
 																	<i class="icon-offispo-icon-06 awesome-icon"></i>
 																	メッセージを送る

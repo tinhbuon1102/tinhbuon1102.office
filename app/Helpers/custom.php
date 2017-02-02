@@ -652,9 +652,11 @@ function getBookingTotalPersonArray() {
 
 function getReviewTabMapper(){
 	return array(
-		-1 => trans('reviews.review_all_reviews'),
-		0 => trans('reviews.review_awaiting_reviews'),
-		1 => trans('reviews.review_past_reviews'),
+		'0_all' => trans('reviews.review_all_reviews'),
+		'1_waiting_owner' => trans('reviews.review_waiting_owner'),
+		'2_posted_owner' => trans('reviews.review_posted_owner'),
+		'3_waiting_partner' => trans('reviews.review_waiting_partner'),
+		'4_posted_partner' => trans('reviews.review_posted_partner'),
 	);
 }
 

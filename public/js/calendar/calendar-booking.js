@@ -475,6 +475,9 @@ jQuery(document).ready(function($) {
 						if (!$('.space-calendar.active .fc-scroller').length) {
 							$('.fc-today-button').trigger('click');
 						}
+						
+						$('#myModal .modal-dialog').trigger('touchstart');
+						$('#myModal .modal-dialog').focus();
 					}, 200);
 				}
 			})

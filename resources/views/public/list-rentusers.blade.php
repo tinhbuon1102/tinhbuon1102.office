@@ -67,7 +67,7 @@ $businessCategories = array(
 								</h1>
 								<div class="selected-criteria">
 									<?php 
-									$params = Request::except(['City']);
+									$params = Request::except(['City','page']);
 									$avaiParams = array();
 									foreach ($params as $keyParam => $paramVal)
 									{
@@ -84,6 +84,8 @@ $businessCategories = array(
 									'Prefecture' => trans("common.Location"),
 									'star_rating' => trans("common.Rating"),
 									'Online' => trans("common.Online users"),
+									'Sex' => trans("common.Gender"),
+									'Age' => trans("common.Age"),
 								);
 								?>
 									<ul id="online_only_div">
@@ -96,7 +98,7 @@ $businessCategories = array(
 												<i class="fa fa-times" aria-hidden="true"></i>
 											</a>
 											<span class="btn btn-mini">
-												<?php echo $aMapper[$keyParam]?>
+												<?php echo @$aMapper[$keyParam]?>
 											</span>
 										</li>
 										<?php }?>
@@ -202,6 +204,36 @@ $businessCategories = array(
 										</select>
 										<!--select districts-->
 									</div>
+									
+									<div class="clear"></div>
+									
+									<h4>
+										<?=trans("common.Gender")?>
+									</h4>
+									<div class="clear"></div>
+									<div>
+										<?php echo Form::select('Sex',
+												getUserSexMapper(), 
+												$request->Sex, 
+												['id' => 'Sex', 'placeholder' => '性別を選択', 'class' => 'old_ui_selector']);
+										?>
+									</div>
+									
+									<div class="clear"></div>
+									
+									<h4>
+										<?=trans("common.Age")?>
+									</h4>
+									<div class="clear"></div>
+									<div>
+										<?php 
+										echo Form::select('Age', 
+											getUserAgeMapper(), 
+											$request->Age, 
+											['id' => 'Age', 'placeholder' => '年代を選択', 'class' => 'old_ui_selector']);
+										?>
+									</div>
+									
 									<div class="clear border-bottom"></div>
 									<h4>
 										<?=trans("common.Rating")?>
@@ -270,7 +302,7 @@ $businessCategories = array(
 							<div id="rentuser-content">
 								<div class="pagenation-container top-pg clearfix">
 									<div class="ns_pagination">{{ $users->links() }}</div>
-									<span class="result-amount">表示結果: {{$users->total()}} 件</span>
+									<span class="result-amount">表示結果: {{$users->firstItem()}}-{{$users->lastItem()}}/{{$users->total()}} 件</span>
 								</div>
 								<?php renderOfferPopup($user1);?>
 								<ul id="rentuser_list" class="ns_rentuser-list">
@@ -385,7 +417,7 @@ $businessCategories = array(
 
 				if (jQuery(window ).width() <= 768)
 				{
-					<?php if (!empty($avaiParams)) echo 'jQuery("#mbshow").trigger("click");'; ?>
+					<?php //if (!empty($avaiParams)) echo 'jQuery("#mbshow").trigger("click");'; ?>
 				}
         		
         	});

@@ -10,8 +10,20 @@
     <script src="/js/instantchat.js?v=6" type="text/javascript"></script>
     <script src="/js/list.js?v=4" type="text/javascript"></script>
 <div class="chat_box" id="iuserlist">
-	<div class="chat_head"> チャットリスト</div>
-	<div class="chat_body list"  > 
+	<div class="chat_head">コンタクトリスト</div>
+	
+	<div class="chat_body list"  >
+	<div class="ContactList-search">
+	<div class="InputCombo InputCombo--bordered InputCombo--compact">
+	<div class="InputCombo-inner">
+	<span class="InputCombo-icon Icon Icon--small"><i class="fa fa-search" aria-hidden="true"></i></span>
+	<input class="search InputCombo-input small-input ContactList-search-input ng-pristine ng-untouched ng-valid" placeholder="検索" />
+	</div>
+	</div>
+	</div>
+	<div class="ContactList-content ps-container ps-theme-default">
+	<section class="ContactList-section">
+	<div class="ContactList-thread">
 	<? $ilast_activity = \Carbon\Carbon::now()->subSeconds('1500');
 		if(Auth::guard('user2')->check())
 		{
@@ -54,8 +66,11 @@
 									<?
 									}
 									?>
+									</div>
+									</section>
 	</div>
-			<input class="search" placeholder="Search" style="background-color: #f;padding: 5px;width: 100%;border-radius: 5px 5px;background-color: #c3c3c3;" />
+		</div>
+			
 
  </div>
 

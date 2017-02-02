@@ -198,7 +198,7 @@
 														<td class="pd_20"></td>
 														<td>1</td>
 														<td>
-															<p class="sp-name">{{$booking->spaceID->Title}}(Initial Payment)</p>
+															<p class="sp-name">{{$booking->spaceID->Title}}(初回支払)</p>
 															<p class="small">{{ trans('booking_details.space_type') }}：{{$booking->spaceID->Type}}</p>
 															<p class="small">{{ trans('booking_details.use_type') }}：{{getSpaceTypeText($booking->spaceID)}}毎</p>
 														</td>
@@ -208,7 +208,13 @@
 															echo priceConvert($price, true);
 															?>
 														</td>
-														<td>2months</td>
+														<td>
+															<?php if ($booking->Duration >= 6 && $booking->SpaceType == 4) {?>
+																2ヶ月
+															<?php }else {?>
+																{{$booking->DurationText}}
+															<?php }?>
+														</td>
 														<td class="td_right price">
 															¥
 															<?php echo priceConvert($booking->SubTotal);?>

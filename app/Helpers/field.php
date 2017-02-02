@@ -9,8 +9,8 @@ define('SPACE_FIELD_OFFICE', 'オフィス');
 define('SPACE_FIELD_METTING', '会議室');
 define('SPACE_FIELD_SEMINAR_SPACE', 'セミナースペース');
 
-define('USER_SEX_MALE', 0);
-define('USER_SEX_FEEMALE', 1);
+define('USER_SEX_MALE', 1);
+define('USER_SEX_FEEMALE', 2);
 
 define('USER_AGE_20S', 2);
 define('USER_AGE_30S', 3);

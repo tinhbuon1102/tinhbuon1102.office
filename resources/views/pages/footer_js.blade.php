@@ -4,7 +4,7 @@
 <script src="{{ URL::asset('js/jquery.autoKana.js') }}"></script>
 
 <?php 
-if (strpos(Request::url(), 'editspace') !== false || strpos(Request::url(), 'ShareInfo/Duplicate') !== false || auth()->guard('useradmin')->check())
+if (strpos(Request::url(), 'editspace') !== false || strpos(Request::url(), 'ShareInfo/Duplicate') !== false || strpos(Request::url(), 'MyAdmin') !== false)
 {
 	$imageUploadUrl = url('/') . '/ShareUser/Dashboard/ShareInfo/UploadImage';
 }

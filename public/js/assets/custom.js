@@ -274,7 +274,7 @@ jQuery(function($){
 		
 		if ($('#profileImageUploader').length)
 		{
-			$('#profileImageUploader').toggle();
+			$('.picture-upload-trigger').toggle();
 			$('.cover-image-upload-trigger').toggle();
 			$('.imgareaselect-outer').remove();
 			$('.imgareaselect-selection').parent('div').remove();
@@ -502,6 +502,12 @@ jQuery(function($){
 	// Show top notifications
 	function showTopNotification()
 	{
+		jQuery('.popover-trigger').hover(function () {
+            jQuery('.popover', this).fadeIn("fast");
+        }, function () {
+            jQuery('.popover', this).fadeOut("fast");
+        });
+		
 		var myScroller = $('.header-notification-update div.slimScrollDiv');
 		var myToolTip = myScroller.find('ul');
 		var offset = 0;
@@ -945,6 +951,10 @@ jQuery(function($){
 	
 	$('#common_dialog_wraper').on('show.bs.modal', function () {
 		$('body').LoadingOverlay("show");
+	});
+	
+	$('#common_dialog_wraper').on('hide.bs.modal', function () {
+		$('body').LoadingOverlay("hide");
 	});
 	
 	if($('.lnk-reject').length)

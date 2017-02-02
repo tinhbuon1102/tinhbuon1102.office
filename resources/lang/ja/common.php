@@ -52,6 +52,8 @@ return [
 	'Image'  => "画像",
 	'Title'  => "タイトル",
 	'Offered'  => "オファー済み",
+	'Age' => '年齢',
+	'Gender' => '性別',
 	
 	'Schedule Available' => '予約可能',
 	'Schedule Booked' => '予約不可',
@@ -104,4 +106,7 @@ return [
 	'You must login as Rent User to make a booking, Redirect to Rent user login page ?' => '予約を行うには、レント(利用者)ユーザーとしてログインする必要があります。ログインページへ推移しますか？',
 	'Please complete the reviews before browse other pages' => '他のページをご利用になる前に、レビューを完了させてください。',
 	'Please make a selection first' => '画像が選択されていません。',
+	'Contact Confirmation' => 'お問い合わせ申込内容のご確認',
+	'You must login as Rent User to send message, Redirect to Rent user login page' => 'メッセージを送るには、レント会員としてのログインが必要です。ログインページへリダイレクトします。',
+	'Your Session is expired, please try again.' => 'セッションが切れました。再度やりなおしてください。',
  ];

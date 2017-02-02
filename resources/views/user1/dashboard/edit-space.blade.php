@@ -119,7 +119,7 @@
 	</script>
 <!--/head-->
 
-<body class="mypage shareuser">
+<body class="mypage shareuser editspace">
 	<div class="viewport">
 		<?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header_nav_shareuser.php'); ?>
 		@include('pages.header_nav_shareuser')

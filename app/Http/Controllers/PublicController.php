@@ -44,6 +44,7 @@ class PublicController extends Controller
 				'landingPage',
 				'getSpaceCalendar', 
 				'getBookingPaymentInfo',
+				'profile'
 		]]);
 		parent::__construct();
 	}
@@ -345,7 +346,10 @@ class PublicController extends Controller
 	{
 		$user=User2::where('HashCode', $id)->firstOrFail();
 		
-		
+		if(Auth::check())
+				$user1=User1::find(auth()->user()->id);
+		else
+			$user1='';
 		if ($user->IsAdminApproved == 'No')
 		{
 			Session::flash('error', trans('common.that_user_not_verfied'));
@@ -394,7 +398,7 @@ class PublicController extends Controller
 		$isPaymentSetup = User2::isPaymentSetup($user);
 		$isProfileFullFilled = User2::isProfileFullFill($user);
 		
-		return view('user2.dashboard.profile-rentuser_edit',compact('user','space','aSpaceTypes', 'budgets','timeslots', 'isPublicUser', 'userPortfolios', 'reviews', 'allReviews', 'isPaymentSetup', 'isProfileFullFilled'));
+		return view('user2.dashboard.profile-rentuser_edit',compact('user','user1','space','aSpaceTypes', 'budgets','timeslots', 'isPublicUser', 'userPortfolios', 'reviews', 'allReviews', 'isPaymentSetup', 'isProfileFullFilled'));
 
 	}
 	public function listDistrict($Prefecture){
@@ -420,10 +424,16 @@ class PublicController extends Controller
 		if ($request->Prefecture)
 			$Districts = User2::select('City')->isApproved()->where('Prefecture', $request->Prefecture)->distinct()->get();
 		
+		$aSex = getUserSexMapper();
+			
 		$request->Skills = (array)$request->Skills;
+		
+		
 		$search=$request->except(['page']);
 		$last_activity = \Carbon\Carbon::now()->subSeconds('1500');
-		$aNormalSearch = array('BusinessType', 'Prefecture', 'City');
+		$aNormalSearch = array('BusinessType', 'Prefecture', 'City', 'Sex');
+		
+		@$search['Sex'] = @$aSex[$request->Sex];
 		
 		foreach($search as $key => $value)
 		{
@@ -458,6 +468,15 @@ class PublicController extends Controller
 					}
 				});
 			}
+			elseif($key == "Age" && $value)
+			{
+				$user2 = $user2->where(function ($query) use ($value){
+					$currentYear = date('Y');
+					$toYear = $currentYear - $value * 10;
+					$fromYear = $toYear - 9;
+					$query->whereBetween('BirthYear', [$fromYear, $toYear]);
+				});
+			}
 			elseif($key=="filter_name")
 			{
 				global $search_value;
@@ -485,6 +504,8 @@ class PublicController extends Controller
 			}
 		}
 		$user2 = $user2->isApproved();
+		$user2 = $user2->orderBy('id','desc');
+		
 		$users= $user2->paginate(10);
 		return view("public/list-rentusers",compact('users','last_activity','Prefectures', 'Districts', 'request','user1', 'error'));
 		$users->appends($request->except(['page']))->links();
@@ -497,8 +518,17 @@ class PublicController extends Controller
 			// Don't allow get offers when haven't approved
 			return trans('common.user1_not_allow_to_offer');
 		}
-		
-		$spaces= User1sharespace::where(array('User1ID' => Auth::guard('user1')->user()->id))->get();
+				$user1Space = new User1sharespace();
+		$user1Space = $user1Space->join('spaceslots', 'user1sharespaces.id', '=' ,'spaceslots.SpaceID');
+$spaces = $user1Space->select('user1sharespaces.*')
+		->where('spaceslots.Status', SLOT_STATUS_AVAILABLE)
+		->where('spaceslots.EndDate', '>=', date('Y-m-d'))
+		->where('user1sharespaces.status', SPACE_STATUS_PUBLIC)
+		->where('user1sharespaces.User1ID', Auth::guard('user1')->user()->id)
+		->orderBy('user1sharespaces.id', 'DESC')
+		->groupBy(array('user1sharespaces.id'))->get();
+		//return $spaces;
+		//$spaces= User1sharespace::where(array('User1ID' => Auth::guard('user1')->user()->id))->where('status', SPACE_STATUS_PUBLIC)->get();
 		$html = View::make('public/list-rentuser-spaces',compact('spaces', 'request'));
 		return $html;
 	}
@@ -1159,7 +1189,7 @@ class PublicController extends Controller
 		->where('user1sharespaces.status', SPACE_STATUS_PUBLIC)
 		->orderBy('user1sharespaces.id', 'DESC')
 		->groupBy(array('user1sharespaces.id'))
-		->take(20)
+		->take(100)
 		->join('spaceslots', 'user1sharespaces.id', '=' ,'spaceslots.SpaceID')->get();
 		
 		$finalSpaces = array();

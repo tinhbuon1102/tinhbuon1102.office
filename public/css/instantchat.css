@@ -10,19 +10,55 @@
     position: fixed;
     bottom: 0;
     min-width: 280px;
+	box-shadow: 0 0 4px 0 rgba(0,0,0,.08), 0 2px 4px 0 rgba(0,0,0,.12);
 }
-.chat_box{
-	position:fixed;
-	right:20px;
-	bottom:0px;
-	width:250px;
-	z-index:1000;	
+.chat_box {
+    position: fixed;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    right: 20px;
+    bottom: 0px;
+    width: 280px;
+    z-index: 9999;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,.08), 0 2px 4px 0 rgba(0,0,0,.12);
 }
 .chat_body{
 	background:white;
 	height:220px;
 	padding:5px 0px;
 	border-bottom: 1px solid #BEC0C2;
+}
+	 div#iuserlist .chat_body {
+		 padding: 0;
+	 }
+.ContactList-content {
+	display: flex;
+    position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    overflow: auto;
+    background: #fff;
+}
+.ContactList-content .yscroll {
+		 overflow-y: auto;
+}
+.ps-container {
+    -ms-touch-action: none;
+    touch-action: none;
+    overflow: hidden !important;
+    -ms-overflow-style: none;
+}
+#iuserlist .chat_head {
+	display: flex;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
 }
 .chat_box input.search {
     height: 31px;
@@ -42,7 +78,7 @@
 {
 	position:fixed;
 	bottom:0px;
-	right: 270px;
+	right: 290px;
 	text-align:right;
 		z-index:1000;
 
@@ -167,9 +203,15 @@ span.chatbox-controls.thread-actions {
 	border-top:1px solid #DDDDDD;
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
-	box-sizing: border-box;  
+	box-sizing: border-box;
+	padding: 12px;
+    padding-right: 6px;
+    height: 42px;
+    max-height: 72px;
 }
-
+.msg_footer {
+    position: relative;
+}
 .close{
 	float:right;
 	cursor:pointer;
@@ -259,9 +301,96 @@ span.chatbox-controls.thread-actions {
 	top:7px;
 }
 .iattach, .iloader{
-	    margin-top: -45px;
+	margin: 0;
     font-size: 18px;
-    margin-right: 10px;
-	cursor:pointer;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
+}
+.ContactList-search {
+    display: block;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    padding: 16px 16px 0;
+    background: #fff;
+}
+.InputCombo {
+    -ms-flex-align: center;
+    padding: 4px;
+    background: #fff;
+}
+.InputCombo, .InputCombo-inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 4px;
+}
+.InputCombo--bordered {
+    border: 1px solid #bec0c2;
+}
+.InputCombo--compact {
+    padding: 0;
+}
+.InputCombo-inner {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+    -ms-flex-align: center;
+    width: 100%;
+}
+.Icon {
+    display: inline-block;
+    vertical-align: middle;
+    fill: #75787d;
+}
+.InputCombo-icon {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    margin-left: 8px;
+}
+.InputCombo-icon .fa {
+	margin: 0;
+}
+.InputCombo .InputCombo-input.InputCombo-input {
+	font-size: 12px;
+    font-size: .75rem;
+    line-height: 32px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0 8px;
+    border: 0;
+	outline: none;
+}
+.ContactList-section .user {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+}
+.ContactList-section {
+    padding: 16px;
+	float: none !important;
+}
+.ContactList-thread {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /*padding-right: 8px;*/
 }

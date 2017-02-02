@@ -1491,7 +1491,21 @@ body.calender .resp-vtabs li.resp-tab-active a {
 #myModal {bottom : inherit !important}
 #myModal .fc-time {display: none;}
 #myModal .booked {background: red !important;}
-#myModal .available.selected {background: #6373FA !important;}
+#myModal .available.selected {background: #6373FA !important; border-right: 1px solid #FFF;}
 #myModal .space-calendar-content {min-height: auto;}
 #myModal .fc-row {cursor: pointer;}
 .fc-day-number.booked {color: white !important; opacity: 1 !important;}
+th.fc-month-name.fc-future.available {
+    border-right: 1px solid #FFF;
+	border-top: 1px solid #FFF;
+}
+#myModal .fc-week .available.selected {
+    border-right: 0px;
+}
+.fc-week td.fc-future.booked {
+    border: 0px;
+}
+.fc-day-grid .week-tab thead {
+    border-top: 1px solid #FFF;
+}
+

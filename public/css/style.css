@@ -2583,6 +2583,19 @@ header#header {
 	z-index: 10000;
 	width: 100%;
 }
+.header_wrapper.primary-navigation-section header#header.smaller {
+    background: #FFF;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+}
+body.home header#header.smaller a.logo {
+    background: url(../images/logo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
 a.logo {
 	display: block;
@@ -2763,7 +2776,9 @@ header nav>ul>li>a, header nav ul li a {
 body.home header nav>ul>li>a, body.home header nav ul li a {
 	color: #FFF;
 }
-
+body.home header.smaller nav ul li a {
+    color: #000;
+}
 header nav>ul>li, header nav ul li {
 	float: left;
 	color: #FFF;
@@ -2984,6 +2999,7 @@ a.button {
 	margin-left: 15px;
 	border-color: rgba(255, 204, 0, 1);
 	box-sizing: border-box;
+	border-radius: 0px;
 }
 
 .yellow-button-small-centered {
@@ -5117,6 +5133,9 @@ search page
 #searchBarWrapper .time-block-display {
 	border-top: 0;
 }
+#searchBarWrapper .date_picker.time-block-display.padding-0-20 {
+    border-bottom: 0px;
+}
 
 #searchBarWrapper .time-block-display.top-display {
 	border-left: 0;
@@ -5137,6 +5156,13 @@ search page
 
 #searchBarWrapper .cd-dropdown.cd-active {
 	border: 1px solid #ccc;
+}
+#searchBarWrapper .cd-dropdown > span {
+    border-left: none;
+}
+.datepicker table tr td span.active:hover, .datepicker table tr td span.active:hover:hover, .datepicker table tr td span.active.disabled:hover, .datepicker table tr td span.active.disabled:hover:hover, .datepicker table tr td span.active:active, .datepicker table tr td span.active:hover:active, .datepicker table tr td span.active.disabled:active, .datepicker table tr td span.active.disabled:hover:active, .datepicker table tr td span.active.active, .datepicker table tr td span.active:hover.active, .datepicker table tr td span.active.disabled.active, .datepicker table tr td span.active.disabled:hover.active, .datepicker table tr td span.active.disabled, .datepicker table tr td span.active:hover.disabled, .datepicker table tr td span.active.disabled.disabled, .datepicker table tr td span.active.disabled:hover.disabled, .datepicker table tr td span.active[disabled], .datepicker table tr td span.active:hover[disabled], .datepicker table tr td span.active.disabled[disabled], .datepicker table tr td span.active.disabled:hover[disabled] {
+    background-color: rgba(255, 193, 7, 1);
+    background: rgba(255, 193, 7, 1);
 }
 
 .time-block {
@@ -6878,11 +6904,11 @@ button#offer-btn .fa {
 		padding-right: 10px;
 		white-space: nowrap;
 	}
-	.space-setting-content table.time-slot-table .daystring,.space-setting-content table.time-slot-table td,table.time-slot-table td.checkbutton-cell,table.time-slot-table td.checkbutton-cell
-		{
+	.space-setting-content table.time-slot-table .daystring,.space-setting-content table.time-slot-table td,table.time-slot-table td.checkbutton-cell,table.time-slot-table td.checkbutton-cell {
 		padding-left: 30%;
 		width: 100%;
 		line-height: 40px;
+		display: block;
 	}
 	.space-setting-content table:not (.ui-datepicker-calendar ) tr {
 		height: auto;
@@ -7342,7 +7368,7 @@ a.action-tooltip:hover {
 	width: 90%;
 	margin: 30px auto 0;
 	display: block;
-	height: 60px;
+	height: auto;
 	border-radius: 5px;
 }
 
@@ -7366,7 +7392,7 @@ a.action-tooltip:hover {
 
 .chat-box {
 	width: 90%;
-	height: 60px;
+	min-height: 60px;
 	border-radius: 10px;
 	font-size: 16px;
 	padding: 20px;
@@ -7389,6 +7415,7 @@ a.action-tooltip:hover {
 	vertical-align: top;
 	border-radius: 5px;
 	position: relative;
+	word-break: break-word;
 }
 
 li.you .txt a {
@@ -11552,8 +11579,42 @@ body.searchpage .fixed-container .right_side {
 	margin-top: 6px;
 	margin-right: 6px;
 }
-
-@media ( max-width : 767px) {
+.msg-time {
+    position: relative;
+    clear: both;
+    font-size: 12px;
+	padding-top: 3px;
+}
+li.me .msg-time {
+    text-align: right;
+	margin-right: 60px;
+}
+li.you .msg-time {
+    text-align: left;
+	margin-left: 60px;
+}
+@media ( max-width : 768px) {
+.chat-right .chat-list li {
+    max-width: 100%;
+}
+li.you .msg-time {
+    margin-left: 50px;
+}
+li.me .msg-time {
+	margin-right: 50px;
+}
+.me .chat-pic {
+    margin-left: 5px;
+}
+.chat-right .txt {
+	width: -webkit-calc(100% - 50px);
+    width:    -moz-calc(100% - 50px);
+    width:         calc(100% - 50px);
+	max-width: 100%;
+}
+.chat-pic {
+    margin-right: 5px;
+}
 	.navonin {
 		display: block;
 	}
@@ -11593,11 +11654,13 @@ body.searchpage .fixed-container .right_side {
 	.chat-right .head {
 		position: relative;
 		text-align: center;
-		padding: .8125rem .9375rem;
+		/*padding: .8125rem .9375rem;*/
+		padding: 20px .9375rem;
 		padding-right: .9375rem;
 		padding-left: .9375rem;
 		line-height: 1.45;
-		height: 3.125rem;
+		/*height: 3.125rem;*/
+		height: 62px;
 	}
 	.chat-right .chat-st {
     margin-top: 4px;
@@ -12014,7 +12077,11 @@ div.form-error li{
     background: #B9FFAE !important;
 }
 .modal-open .modal {
-	z-index: 9999;
+	z-index: 999999999999;
+}
+
+.modal-open #bookingModal.modal {
+	z-index: 10000;
 }
 body.support .flex-row {
     display: -webkit-box;
@@ -12112,7 +12179,12 @@ body.support .flex-gutter-md {
     margin-left: -1.25rem;
 }
 
-span.select2-container {z-index: 999999999;}
+span.select2-container {z-index: 9998;}
+span.chatbox-controls.thread-actions .dropdown-menu {
+	top: 30px;
+    right: 0;
+	left: auto;
+}
 
 /* Custom CSs */
 
@@ -12184,6 +12256,9 @@ body {
 }
 .space-side-info table.basic-detail-list tr.need_person th, .space-side-info table.basic-detail-list tr.need_person td {
 	padding: 10px 20px;
+}
+input:focus, input {
+  outline: none;
 }
 /*-------------------------------*/
 /*     Sidebar nav styles        */
@@ -12463,3 +12538,18 @@ body {
     margin-left: -250px;
 }
 }
+.text-muted {
+    color: #767676;
+}
+
+.owner-comment {
+	color: blue;
+}
+
+.partner-comment {
+	color: red;
+}
+
+ .disabled-input-background {
+     background-color: #eeeeee !important;
+ }

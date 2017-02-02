@@ -1,4 +1,5 @@
 <script src="{{ URL::asset('js/calendar/loadingoverlay.js') }}"></script>
+<script src="{{ URL::asset('js/jquery.ui.touch.js') }}"></script>
 <script type="text/javascript" src="{{url('/')}}/livechat/php/app.php?widget-init.js"></script>
 <?php 
 if (Auth::guard('user1')->check() || Auth::guard('user2')->check())

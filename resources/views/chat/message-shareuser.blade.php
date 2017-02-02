@@ -130,7 +130,8 @@
 							</div>
                             <div class="flex-cell-auto">
 							<div class="chat-send">
-								<input type="text" class="chat-box" id="text" placeholder="メッセージを入力" />
+								<!--<input type="text" class="chat-box" id="text" placeholder="メッセージを入力" />-->
+								<textarea class="chat-box" id="text" placeholder="メッセージを入力"></textarea>
 								<input type="hidden" id="cid" name="cid" value="">
 								<input type="hidden" id="whichuser1" name="whichuser1" value="{{$whichuser1}}">
 								<div class="attach"><i class="fa fa-paperclip" aria-hidden="true"></i></div>
@@ -162,30 +163,6 @@
 		
 	</div>
 	<!--/viewport-->
-	<script type="javascript/text">
-      var $ = document.querySelector.bind(document);
-      window.onload = function () {
-        /*Ps.initialize($('.slimScrollDiv'));*/
-      };
-	  
-    // var bodyheight = parseInt($(window).height()) - 100 +'px';
-    // $("#left-box").height(bodyheight);
-	//$('#left-box') .css({'height': (($(window).height()) - 100)+'px'});
-
-$(window).scroll(function() {    
-    var scroll = $(window).scrollTop();
-     
-     //>=, not <=
-    if (scroll >= 1) {
-        //clearHeader, not clearheader - caps H
-        $("#samewidthby").addClass("scroll");
-		 $("#left-box").addClass("scroll");
-    } else {
-		$("#samewidthby").removeClass("scroll");
-        $("#left-box").removeClass("scroll");
-    }
-}); //missing );
-</script>
 <script>
 $=jQuery.noConflict();
 $.ajaxSetup({
@@ -193,9 +170,57 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
+
+function get(id,uid,nm,online)
+{
+	<?php 
+	if(Auth::check())
+	{
+	?>	
+	var url='/ShareUser/Dashboard/GetMessage/'+id;
+	<?php
+	}else
+	{
+	?>	
+	var url='/RentUser/Dashboard/GetMessage/'+id;
+	
+	<?
+	}
+	?>
+	$.get(
+			url,
+			function(data) {
+				$('.chats').hide();
+				$('.chat-name').html(nm);
+				$('#chat-'+uid).show();
+				$('#chat-'+uid).html(data);
+				$('#chat-'+uid).attr('data-loaded','Yes')
+				$("#cid").val(uid);
+				$(".user-id").removeClass("active");
+				$("#usr-"+uid).addClass("active");
+				$("#usr-"+uid + " .chat-count").hide();
+				$("#usr-"+uid + " .chat-count").text('0');
+				$('#chat-'+uid).scrollTop($('#chat-'+uid)[0].scrollHeight);
+				$('.isonline').removeClass('active');
+				if(online=='active')
+					{ $('.isonline').addClass('active'); }
+	
+				
+				if (jQuery(window).width() <= 768)
+				{
+					setTimeout(function(){
+						$('html, body').animate({
+					        scrollTop: $('.chat-right .chat-container.scroll-container').offset().top
+					    }, 1);
+					}, 1);
+				}
+			}
+			
+		);
+}
 <?php 
-										if(Auth::check())
-										{
+if(Auth::check())
+{
 ?>		
  @if ($chat->exists)								
 <? 	$activity='';
@@ -223,59 +248,19 @@ get('{{$chat->id}}','{{$chat->User1ID}}','{{getUserName($chat->user1)}}','{{$act
 <?
 }
 ?>
-	function get(id,uid,nm,online)
-	{
-	<?php 
-										if(Auth::check())
-										{
-?>	
-	var url='/ShareUser/Dashboard/GetMessage/'+id;
-<?php
-}else
-{
-?>	
-	var url='/RentUser/Dashboard/GetMessage/'+id;
-
-<?
-}
-?>
-	$.get(
-					url,
-					function(data) {
-						$('.chats').hide();
-						$('.chat-name').html(nm);
-						$('#chat-'+uid).show();
-						$('#chat-'+uid).html(data);
-						$('#chat-'+uid).attr('data-loaded','Yes')
-						$("#cid").val(uid);
-						$(".user-id").removeClass("active");
-						$("#usr-"+uid).addClass("active");
-						$("#usr-"+uid + " .chat-count").hide();
-						$("#usr-"+uid + " .chat-count").text('0');
-						$('#chat-'+uid).scrollTop($('#chat-'+uid)[0].scrollHeight);
-						$('.isonline').removeClass('active');
-						if(online=='active')
-							{ $('.isonline').addClass('active'); }
-					}
-					
-				);
-	}			
-
-				$(document).ready(function()
-{
-
-
+$(document).ready(function(){
     $(document).keyup(function(e) {
-        if (e.keyCode == 13)
-            sendMessage();
-        else
-            isTyping();
+//         if (e.keyCode == 13)
+//             sendMessage();
+//         else
+//             isTyping();
     });
 	$('.chat-send-btn').click(function() { sendMessage(); } );
 });
 
-				function sendMessage()
+function sendMessage()
 {
+	
     var text = urlify($('#text').val());
     var id = $('#cid').val();
 
@@ -434,10 +419,52 @@ $("#goback").click(function(){
   document.getElementsByClassName('chat-right')[0].style.display = 'none';
   //document.getElementsByClassName('fotter')[0].style.display = 'none';
 });
+/* テキストエリアの初期設定. */
+ 
+// [1] height:30pxで指定
+/*$("#text").height(30);
+// [2] lineHeight:20pxで指定<ユーザ定義>(※line-heightと間違えないように)
+$("#text").css("lineHeight","20px");*/
+ 
+/**
+ * 高さ自動調節イベントの定義.
+ * autoheightという名称のイベントを追加します。
+ * @param evt
+ *
+$("#text").on("autoheight", function(evt) {
+  // 対象セレクタをセット
+  var target = evt.target;
+ 
+  // CASE1: スクロールする高さが対象セレクタの高さよりも大きい場合
+  // ※スクロール表示される場合
+  if (target.scrollHeight > target.offsetHeight) {
+    // スクロールする高さをheightに指定
+    $(target).height(target.scrollHeight);
+  }
+  // CASE2: スクロールする高さが対象セレクタの高さよりも小さい場合
+  else {
+    // lineHeight値を数値で取得      
+    var lineHeight = Number($(target).css("lineHeight").split("px")[0]);
+    
+    while (true) {
+      // lineHeightずつheightを小さくする
+      $(target).height($(target).height() - lineHeight);
+      // スクロールする高さが対象セレクタの高さより大きくなるまで繰り返す
+      if (target.scrollHeight > target.offsetHeight) {
+        $(target).height(target.scrollHeight);
+        break;
+      }
+    }
+  }
+});
+// DOM読み込み時に実行
+$(document).ready(function() {
+  // autoheightをトリガする
+  $("#text").trigger('autoheight');
+});*/
 
 }
 </script>
-
  
 
 </body>

@@ -55,7 +55,7 @@ if ($_POST['submitbtn']=="Upload") {
  if (strlen($name)) {
  	$extension = substr($name, strrpos($name, '.')+1);
  	if (in_array(strtolower($extension), $file_formats)) { // check it if it's a valid format or not
- 		if ($size < (2048 * 1024)) { // check it if it's bigger than 2 mb or no
+ 		if ($size < (4096 * 1024)) { // check it if it's bigger than 2 mb or no
  			//@TODO change this to avatar user id
  			$prefix .= isset($_POST['image-id']) ? ($_POST['image-id'] .'_') : '';
  			$imagename = $prefix . uniqid() . "." . $extension;
@@ -72,7 +72,7 @@ if ($_POST['submitbtn']=="Upload") {
  					echo "Could not move the file";
  				}
  		} else {
- 			echo "Your image size is bigger than 2MB";
+ 			echo "Your image size is bigger than 4MB";
  		}
  	} else {
  			echo "Invalid file format";

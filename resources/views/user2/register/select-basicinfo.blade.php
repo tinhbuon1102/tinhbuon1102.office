@@ -349,14 +349,13 @@ jQuery(document).ready(function(){
                     multiple:true
     	});
     });
-    </script>s
+    </script>
     <script src="{{ URL::asset('js/jquery.validationEngine.js') }}"></script>
 <script src="{{ URL::asset('js/jquery.validationEngine-ja.js') }}"></script>
+<script src="{{ URL::asset('js/jquery.autoKana.js') }}"></script>
 <link rel="stylesheet" href="{{ URL::asset('css/validationEngine.jquery.css') }}">
 
 	<!--<script src="{{ URL::asset('js/jquery.validate.js?v=1') }}"></script>-->
-	<script src="{{ URL::asset('js/KanaMaker.js') }}"></script>
-	<script src="{{ URL::asset('js/kana.js') }}"></script>
 	<script src="{{ URL::asset('js/chosen/chosen.jquery.js') }}" type="text/javascript"></script>
 	<script src="{{ URL::asset('js/assets/custom_edit_form.js') }}" type="text/javascript"></script>
     <script>
@@ -364,54 +363,8 @@ jQuery(document).ready(function(){
     jQuery("#basicinfo").validationEngine();
   });
 </script>
-	<!--<script>
-		$("#basicinfo").validate({
-				  	errorPlacement: function(label, element) { 
-						label.addClass('form-error');
-						label.insertAfter(element);
-			},
-			rules: {
-			    
-			  }
-			});
-			
-			
-			 
-		</script>-->
 	<script>
 jQuery(function($){    
-    var convertor = null;
-    $("#LastName").click(function(e){
-        convertor = new KanaMaker();
-    });
-    
-    $("#LastName").keyup(function(e){
-        if(convertor != null){
-            convertor.eval(e);
-            $("#LastNameKana").val(convertor.Hira());
-          
-            
-        }else if($("#LastName").val() == ""){
-            convertor = new KanaMaker(); //reset
-        }
-    });
-	
-	var convertor1 = null;
-    $("#FirstName").click(function(e){
-        convertor1 = new KanaMaker();
-    });
-    
-    $("#FirstName").keyup(function(e){
-        if(convertor1 != null){
-            convertor1.eval(e);
-            $("#FirstNameKana").val(convertor1.Hira());
-          
-            
-        }else if($("#FirstName").val() == ""){
-            convertor1 = new KanaMaker(); //reset
-        }
-    });
-
     function showHideNameOfCompany(){
 		if ($('#UserType').val() == '法人')
 		{

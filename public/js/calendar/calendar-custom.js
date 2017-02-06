@@ -1169,7 +1169,7 @@ jQuery(document).ready(function($) {
 			firstDay: 1, // Set first day of week is monday - 0 is sunday
 			//minTime: minTime,
 			//maxTime: maxTime,
-			longPressDelay:0,
+			longPressDelay: 500,
 
 			views: {
 				MonthlySpace: {

@@ -561,7 +561,13 @@ $tag = request()->get('tag') ? request()->get('tag') : '';
 
                 $('.top-display').on('click', function(){
                     $('.time-block-popup').toggle();
+                    jQuery( '.cd-dropdown span' ).trigger('hide.dropdown');
                 });
+
+                $('.cd-dropdown').on('click', function(){
+                    $('.time-block-popup').slideUp();
+                });
+                
 
                 $('.duration').on('click', function(){
                     if($('.duration').hasClass('active')){

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>先行シェア会員登録- Offispo | オフィスポ</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="style.css">
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<div id="page-wrapper">
+<div ui-view="" class="ng-scope">
+<div class="signup-view ng-scope" ng-show="$root.pageLoaded" aria-hidden="false">
+<div class="form-container">
+<form class="m-t ng-pristine ng-invalid ng-invalid-required" role="form" name="signupForm">
+<div ng-show="loginError" aria-hidden="true" class="ng-hide"><span class="label label-warning ng-binding"></span></div>
+<div class="welcome-legend" ng-hide="loginError" aria-hidden="false"><span class="label">Nice to meet you! Please tell us about yourself.</span></div>
+<div ng-init="signup.step=1"></div><div ng-init="signup.nextstep=2"></div>
+<div class="input-container">
+<label for="first_name">Company Name</label>
+<input name="company_name" id="company_name" required="" ng-model="signup.company_name" type="text" class="ng-pristine ng-invalid ng-invalid-required ng-touched" aria-invalid="true">
+</div>
+<div class="two-inputs">
+<div class="input-container input-half">
+<label for="last_name">Last Name</label>
+<input name="last_name" id="last_name" required="" ng-model="signup.last_name" type="text" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" aria-invalid="true">
+</div>
+<div class="input-container input-half">
+<label for="first_name">First Name</label>
+<input name="first_name" id="first_name" required="" ng-model="signup.first_name" type="text" class="ng-pristine ng-invalid ng-invalid-required ng-untouched" aria-invalid="true">
+</div>
+</div>
+<div class="input-container">
+<label for="email">E-mail address</label>
+<input id="email" required="" ng-model="signup.email" type="text" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" aria-invalid="true">
+<div ng-show="emailError" aria-hidden="true" class="ng-hide"><span class="label label-warning ng-binding">false</span></div></div><div class="input-container">
+<label for="password">Password</label><input name="password" id="password" required="" ng-model="signup.password" type="password" class="ng-pristine ng-untouched ng-invalid ng-invalid-required" aria-invalid="true">
+</div>
+<button class="md-raised md-primary md-button md-ink-ripple" type="submit" ng-transclude="" ng-disabled="!signup.first_name || !signup.last_name || !signup.email || !signup.password" ng-click="createUser();" aria-label="Next" disabled="disabled"><span class="ng-scope">Next</span></button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

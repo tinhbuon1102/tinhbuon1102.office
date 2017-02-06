@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>先行シェア会員登録- Offispo | オフィスポ</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="style.css">
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href="../dist/css/vendor/bootstrap.min.css" rel="stylesheet">
+<link href="../dist/css/flat-ui.min.css" rel="stylesheet">
+<link href="../assets/css/docs.css" rel="stylesheet">
+<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+<!--[if lt IE 9]>
+<script src="../js/vendor/html5shiv.js"></script>
+<script src="../js/vendor/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div id="page-wrapper">
+<div ui-view="" class="ng-scope">
+<div class="signup-view ng-scope" ng-show="$root.pageLoaded" aria-hidden="false">
+<div class="form-container no-logo">
+<form class="m-t ng-pristine ng-invalid ng-invalid-required" role="form" name="signupForm">
+<div ng-show="loginError" aria-hidden="true" class="ng-hide"><span class="label label-warning ng-binding"></span></div>
+<div class="welcome-legend" ng-hide="loginError" aria-hidden="false"><span class="label">Company Info</span></div>
+<div ng-init="signup.step=1"></div><div ng-init="signup.nextstep=2"></div>
+<div class="input-container">
+<label for="company_postcode">Postal Code</label>
+<input name="zip11" id="company_postcode" required="" ng-model="signup.company_postcode" type="text" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');" class="ng-pristine ng-invalid ng-invalid-required ng-untouched" aria-invalid="true">
+</div>
+<div class="input-container">
+<label for="company_address">Address</label>
+<input name="addr11" id="company_address" required="" ng-model="signup.company_address" type="text" size="60" class="ng-pristine ng-invalid ng-invalid-required ng-untouched" aria-invalid="true">
+</div>
+<div class="input-container">
+<label for="tel">Phone</label>
+<input name="company_tel" id="company_tel" required="" ng-model="signup.company_tel" type="tel" class="ng-pristine ng-invalid ng-invalid-required ng-untouched" aria-invalid="true">
+</div>
+<div class="input-container">
+<label class="checkbox">
+<input type="checkbox" data-toggle="checkbox" checked="checked" value="">Get newsletter?
+</label>
+</div>
+<button class="md-raised md-primary md-button md-ink-ripple" type="submit" ng-transclude="" ng-disabled="!signup.first_name || !signup.last_name || !signup.email || !signup.password" ng-click="createUser();" aria-label="Next" disabled="disabled"><span class="ng-scope">Register</span></button>
+</form>
+</div>
+</div>
+</div>
+</div>
+<script src="../docs/assets/js/application.js"></script>
+<script src="../dist/js/vendor/jquery.min.js"></script>
+<script src="../dist/js/vendor/video.js"></script>
+<script src="../dist/js/flat-ui.min.js"></script>
+</body>
+</html>

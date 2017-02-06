@@ -89,7 +89,7 @@
 <link rel="stylesheet" href="{{ URL::asset('js/magnific-popup/dist/magnific-popup.css') }}">
 <!-- Select2 CSS file -->
 <link rel="stylesheet" href="{{ URL::asset('css/select2.min.css') }}">
-<link rel="stylesheet" href="{{ URL::asset('css/responsive.css?20170124-2255') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/responsive.css?20170202-1729') }}">
 
 <script type="text/javascript">
 	var SITE_URL = "{{ url('/') }}/";

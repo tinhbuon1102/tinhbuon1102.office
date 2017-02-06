@@ -1366,9 +1366,7 @@ class User1Controller extends Controller
 	}
 	function shareSpaceList ()
 	{
-		$user = User1::find(Auth::user()->id);
-		$spaces = $user->spaces;
-		return view('user1.dashboard.list-myspaces', compact('spaces', 'user'));
+		return $this->shareSpaceList1();
 	}
 	function shareSpaceList1 ()
 	{
@@ -1380,9 +1378,13 @@ class User1Controller extends Controller
 		{
 			$isThisSpaceHasSlot = (boolean) Spaceslot::isthisSpaceHasSlot($space);
 			$space->isThisSpaceHasSlot = $isThisSpaceHasSlot;
-			$aNoScheduleSpace[$space->FeeType] = ! isset($aNoScheduleSpace[$space->FeeType]) ? 0 : $aNoScheduleSpace[$space->FeeType];
-			$aNoScheduleSpace[$space->FeeType] = $aNoScheduleSpace[$space->FeeType] + ($isThisSpaceHasSlot ? 0 : 1);
-			$groupedSpaces[$space->FeeType][] = $space;
+			
+			// If Space is Draft and has no Space Type option => Go to Uncategorized Tab with 100
+			$spaceType = ($space->status == 3 && !$space->Type) ? 100 : $space->FeeType;
+			
+			$aNoScheduleSpace[$spaceType] = ! isset($aNoScheduleSpace[$spaceType]) ? 0 : $aNoScheduleSpace[$spaceType];
+			$aNoScheduleSpace[$spaceType] = $aNoScheduleSpace[$spaceType] + ($isThisSpaceHasSlot ? 0 : 1);
+			$groupedSpaces[$spaceType][] = $space;
 		}
 		ksort($groupedSpaces);
 		

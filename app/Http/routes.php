@@ -372,6 +372,7 @@ Route::post('RentUser/Dashboard/MyProfile/CoverUpload', "User2Controller@myProfi
 
 Route::get('RentUser/Dashboard/EditMySpace', "User2Controller@editMySpace");
 Route::get('RentUser/Dashboard/BasicInfo/Edit', "User2Controller@editBasicInfo");
+Route::get('RentUser/Dashboard/BasicInfo/removeCard', "User2Controller@removeCard");
 Route::post('RentUser/Dashboard/BasicInfo/Edit', "User2Controller@editBasicInfoSubmit");
 Route::post('RentUser/Dashboard/BasicInfo/EditData', "User2Controller@editBasicInfoSubmitData");
 
@@ -440,4 +441,11 @@ Route::get('lang/{locale}', function ($locale) {
 	Session::set('locale', $locale);
     return Redirect::back();
     //
+});
+
+
+Route::get('/clear-cache', function() {
+	$exitCode = Artisan::call('cache:clear');
+	$exitCode = Artisan::call('view:clear');
+	// return what you want
 });

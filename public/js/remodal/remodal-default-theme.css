@@ -74,8 +74,8 @@
 
 .remodal-close {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 10px;
+  left: 10px;
 
   display: block;
   overflow: visible;
@@ -93,6 +93,10 @@
   border: 0;
   outline: 0;
   background: transparent;
+}
+button.remodal-close img {
+    width: 25px;
+	height: auto;
 }
 
 .remodal-close:hover,
@@ -113,7 +117,7 @@
 
   width: 35px;
 
-  content: "\00d7";
+  /*content: "\00d7";*/
   text-align: center;
 }
 

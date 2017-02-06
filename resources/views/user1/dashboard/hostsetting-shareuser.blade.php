@@ -206,7 +206,7 @@ $user = Auth::guard('user1')->user();
 																郵便番号
 																<!--Postal code-->
 															</label>
-															<input name="PostalCode" id="zip" type="text" value="{{$user->PostalCode}}"　class="validate[required,custom[zip]]" aria-required="true">
+															<input name="PostalCode" id="zip" value="{{$user->PostalCode}}" type="text" class="validate[required,custom[zip]]" aria-required="true">
 														</div>
 													</div>
 													<!--/form-field-->
@@ -829,13 +829,13 @@ $(window).scroll(function() {
 											'<span>' +
 												'<a id="lnk'+ data.hash +'" href="javascript:void(0)" onclick="EditDetail(this);" ' +
 													'data-Image="'+ imgPath +'" data-Id="' + data.hash + '"' +
-													'"data-FirstName="'+ firstName +'" data-LastName="' + lastName + '"' +
+													'data-FirstName="'+ firstName +'" data-LastName="' + lastName + '"' +
 													'data-Email="'+ Email +'" data-Phone="'+ Phone +'">詳細</a>' +
 											'</span>' +
 											'<span>' +
 												'<a id="lnk'+ data.hash +'" href="javascript:void(0)" onclick="removeHostMember(this);" ' +
 												'data-Image="'+ imgPath +'" data-Id="' + data.hash + '"' +
-												'"data-FirstName="'+ firstName +'" data-LastName="' + lastName + '"' +
+												'data-FirstName="'+ firstName +'" data-LastName="' + lastName + '"' +
 												'data-Email="'+ Email +'" data-Phone="'+ Phone +'">削除</a>' +
 											'</span>' +
                                     	'</div>' +
@@ -942,7 +942,7 @@ $(window).scroll(function() {
 
     <script>
         jQuery(function(){
-            jQuery("#settinginfo, #editHostAdminForm").validationEngine();
+            jQuery("#settinginfo").validationEngine();
         });
     </script>
 
@@ -965,17 +965,14 @@ $(window).scroll(function() {
 				}
 			});*/
 
-		$("#editHostAdminForm").validate({
-				  	errorPlacement: function(label, element) {
-						label.addClass('form-error');
-						label.insertAfter(element);
-			},
-
-        submitHandler: function(label){
-                             hostInfo();
-        }
-
-			});
+			jQuery("#editHostAdminForm").validationEngine('attach', {
+	          	  onValidationComplete: function(form, status){
+	              	  if (status)
+	              	  {
+	              		hostInfo();
+	              	  }
+	          	  }  
+	          	});
 
 
 			$("#changepassword").validate({

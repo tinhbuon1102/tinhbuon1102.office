@@ -496,7 +496,7 @@ echo Form::select('Prefecture', getPrefectures(), $user->Prefecture, [
 																			<span class="PaymentMethods-edit">
 																				<a href="#modal6">編集</a>
 																				|
-																				<a href="{{Url('/')}}/RentUser/Dashboard/BasicInfo/remove">削除</a>
+																				<a href="{{Url('/')}}/RentUser/Dashboard/BasicInfo/removeCard">削除</a>
 																			</span>
 																		</div>
 																	</div>

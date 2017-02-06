@@ -704,6 +704,9 @@ ul.faq-list {
       line-height: 16px;
       display: inline-block;
     }
+		.chat-right {
+			width: 100%;
+		}
 
     .home-page #main-header {
       margin-top: 0;

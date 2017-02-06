@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'dbHost' => '127.0.0.1',
+  'dbHost' => '183.90.250.209',
   'dbPort' => '3306',
-  'dbUser' => 'root',
-  'dbPassword' => 'thang',
-  'dbName' => 'offispo',
+  'dbUser' => 'coreworking_spac',
+  'dbPassword' => 'space147369',
+  'dbName' => 'coreworking_space',
   'superUser' => 'admin',
   'superPass' => 'admin',
   'services' => 
@@ -22,7 +22,7 @@ return array (
   ),
   'appSettings' => 
   array (
-    'contactMail' => 'quocthang.2001@gmail.com',
+    'contactMail' => 'kyoko@heart-hunger.com',
   ),
 );
 

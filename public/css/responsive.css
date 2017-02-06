@@ -728,6 +728,18 @@ body.searchpage div#fullwidth {
     float: left;
 	border-radius: 0px;
 }
+#shareinfo .page-header .col-xs-6.text-right button#saveBasicInfo {
+    background: #000;
+    border-color: #000;
+}
+#shareinfo .page-header .col-xs-6.text-right button#saveDraft {
+    background: #5f5f5f;
+    border-color: #5f5f5f;
+}
+#shareinfo .page-header .col-xs-6.text-right button#previewBasicInfo {
+    background: #7f7f7f;
+    border-color: #7f7f7f;
+}
 #shareinfo .page-header .col-xs-6 {
     width: 100%;
 }

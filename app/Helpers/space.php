@@ -31,18 +31,16 @@ function checkType($type){
 	endif;
 }
 
-function getSpaceTypeText($space)
+function getSpaceTypeText ( $space )
 {
-	$spaceType='';
-	if($space->FeeType==1)
-		$spaceType = '時間';
-	else if($space->FeeType==2)
-		$spaceType = '日間';
-	else if($space->FeeType==3)
-		$spaceType = '週間';
-	else if($space->FeeType==4)
-		$spaceType = 'ヶ月';
-
+	$feeType = is_object($space) ? $space->FeeType : $space;
+	$spaceType = '';
+	if ( $feeType == 1 ) $spaceType = '時間';
+	else if ( $feeType == 2 ) $spaceType = '日間';
+	else if ( $feeType == 3 ) $spaceType = '週間';
+	else if ( $feeType == 4 ) $spaceType = 'ヶ月';
+	else if ( $feeType == 100 ) $spaceType = '未分類';
+	
 	return $spaceType;
 }
 

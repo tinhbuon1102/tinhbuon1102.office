@@ -11239,6 +11239,11 @@ body.modal-open {
 	overflow: visible;
 }
 
+body.mypage.shareuser.modal-open {
+	overflow: hidden;
+	width: 100%;
+}
+
 .aw-link a {
 	display: inline-block;
 	line-height: 1;

@@ -1,0 +1,23 @@
+/* CSS Document */
+table.tokusho {
+	width: 100%;
+	font-size: 12px;
+	font-weight: normal;
+}
+table.tokusho {
+    border-bottom: 1px solid #d7dce5;
+	border-collapse: collapse;
+    border-spacing: 0;
+}
+table.tokusho th {
+    width: 20%;
+    border: 1px solid #d7dce5;
+    background: #f6f6f6;
+    padding: 10px;
+    border-bottom: none;
+}
+table.tokusho td {
+	border: 1px solid #d7dce5;
+    padding: 10px;
+    border-bottom: none;
+}

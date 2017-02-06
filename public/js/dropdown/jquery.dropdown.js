@@ -142,6 +142,13 @@
 				return false;
 
 			} );
+			
+			this.selectlabel.on( 'hide.dropdown', function( event ) {
+				self.opened ? self.close() : '';
+				return false;
+
+			} );
+
 
 			this.opts.on( 'click.dropdown', function() {
 				if( self.opened ) {

@@ -51,7 +51,7 @@
 											<ul id="space_tabs_horizontal">
 												<?php foreach ($groupedSpaces as $spaceType => $spaces) {?>
 												<li>
-													<a href="#space-tab-{{$spaceType}}"><!--{{getSpaceTypeText($spaces[0])}}-->{{ trans('tab_content.'.getSpaceTypeText($spaces[0])) }}</a>
+													<a href="#space-tab-{{$spaceType}}"><!--{{getSpaceTypeText($spaces[0])}}-->{{ trans('tab_content.'.getSpaceTypeText($spaceType)) }}</a>
 												</li>
 												<?php }?>
 											</ul>

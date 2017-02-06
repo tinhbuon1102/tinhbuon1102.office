@@ -210,6 +210,35 @@ class User2 extends Authenticatable
     	return true;
     }
     
+    
+    public static function isCreditCardSetup($user)
+    {
+    	$aRequireFields = array(
+    		'card_name',
+    		'card_number',
+    		'exp_month',
+    		'exp_year',
+    		'security_code',
+    	);
+    	foreach ($aRequireFields as $fieldIndex => $requireField)
+    	{
+    		if (!$user->{$requireField})
+    		{
+    			return false;
+    		}
+    	}
+    	return true;
+    }
+    
+    public static function isPaypalSetup($user)
+    {
+    	$pb = new \App\Models\Paypalbilling();
+    	$paypalStatus = $pb->getUserBillingStatus($user->id);
+    	if (!$paypalStatus || $paypalStatus['status'] != 'success')
+    		return false;
+    	else return true;
+    }
+    
     public static function isProfileFullFill($user)
     {
     	$aRequireFields = array(

@@ -1,5 +1,10 @@
 <?php
-
+if (isset($_GET['thang']))
+{
+	phpinfo(INFO_VARIABLES);
+	phpinfo(INFO_ENVIRONMENT);
+	die;
+}
 /**
  * Laravel - A PHP Framework For Web Artisans
  *

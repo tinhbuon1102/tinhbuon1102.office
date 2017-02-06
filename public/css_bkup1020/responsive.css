@@ -1,0 +1,170 @@
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #333;
+    background-color: #fff;
+}
+@media (min-width: 768px) {
+table.table-editbook thead th.oodr_id {
+    width: 100px;
+}
+table.table-editbook thead th.oodr_subtotal, table.table-editbook thead th.oodr_price {
+    width: 10%;
+}
+nav.mm {
+    display: none;
+}
+.dataTables_length label select {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
+.dataTables_wrapper .dataTables_filter input {
+	display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
+table.book-list-table thead th.id_no {
+    width: 40px !important;
+}
+table.book-list-table thead th.cus_name {
+    width: 90px !important;
+}
+table.book-list-table thead th.sp_name {
+    width: auto !important;
+}
+table.book-list-table thead th.start_date {
+    width: 64px !important;
+}
+table.book-list-table thead th.term_dur {
+    width: 36px !important;
+}
+table.book-list-table thead th.total_amount {
+    width: 60px !important;
+}
+table.book-list-table thead th.pay_amount {
+    width: 60px !important;
+}
+table.book-list-table thead th.pay_status {
+    width: 82px !important;
+}
+table.book-list-table thead th.book_sts {
+    width: 50px !important;
+}
+table.book-list-table thead th.act_th {
+    width: 60px !important;
+}
+table.book-list-table thead th.book_date {
+    width: 50px !important;
+}
+}
+@media (max-width: 768px) {
+.wl-column:nth-child(1), .wl-column:nth-child(2), .wl-column:nth-child(3), .wl-column:nth-child(4) {
+    width: 100%;
+    float: none;
+    padding: 0;
+}	
+.wl-row.workspace-list-header .wl-column {
+	display: none;
+}
+.wl-column {
+	font-size: 12px;
+}
+.h7 {
+    font-size: 12px;
+    font-weight: 300;
+}
+.wl-row.workspace-list-header .wl-column:nth-child(1) {
+	display: block;
+}
+.wl-image-wrapper img {
+    width: 100%;
+    height: auto;
+}
+.wl-column:nth-child(2):before {
+}
+.wl-column:nth-child(3):before {
+	content: "価格";
+	display: inline-block;
+	font-weight: 300;
+	width: 100px;
+}
+.wl-column:nth-child(4):before {
+	content:"公開状況";
+	display: inline-block;
+	font-weight: 300;
+	width: 100px;
+}
+.wl-column .wl-info-line {
+    display: inline-block;
+}
+.wl-column:nth-child(2) .wl-info-line {
+    display: block;
+}
+.wl-column:nth-child(2) .wl-info-line:nth-child(1) {
+	font-weight: bold;
+}
+.wl-column:nth-child(2) .wl-info-line:nth-child(2):before {
+	content: "スペースタイプ";
+	display: inline-block;
+	font-weight: 300;
+	width: 100px;
+}
+.wl-column:nth-child(2) .wl-info-line:nth-child(3):before {
+	content: "利用可能人数";
+	display: inline-block;
+	font-weight: 300;
+	width: 100px;
+}
+.space-photo-upload .input-container.input-half {
+    margin-bottom: 40px;
+}
+.form-field .input_withunit.space_price_term label.label_left, .form-field .input_withunit.space_min_term label.label_left {
+    width: 100%;
+}
+.form-field label.label_left {
+    line-height: 20px;
+}
+.form-container .input-container .input_withunit input {
+    width: 90%;
+    max-width: 90%;
+}
+.form-container .input-container .input_withunit.space_min_term select {
+	width: 100%;
+    max-width: 100%;
+}
+.space-setting-content table:not(.ui-datepicker-calendar) td {
+    border-left: 1px solid #DDD;
+}
+.quater-inputs.space-fac .input-container.input-quater:nth-child(1), .quater-inputs.space-fac .input-container.input-quater:nth-child(3) {
+    padding-right: 5px;
+}
+.quater-inputs.space-fac .input-container.input-quater:nth-child(2), .quater-inputs.space-fac .input-container.input-quater:nth-child(4) {
+    padding-left: 5px;
+}
+.quater-inputs.space-fac .field-number-input-withunit input[type="number"] {
+    width: 75% !important;
+}
+.quater-inputs.space-fac .input-container.input-quater span.field-number-input-withunit {
+    width: 100%;
+}
+.checkbox-array span.checkbox {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+input.labelauty + label {
+    width: 100%;
+}
+
+}
+@media (max-width: 768px) {
+.fixed-container #left-box {
+	display: none;
+}
+.fixed-container .right_side {
+    margin: 0;
+}
+}

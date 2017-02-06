@@ -719,7 +719,7 @@ class User2Controller extends Controller
     }
 
     
-    public function removeCart(){
+    public function removeCard(){
 
 		if(User2::where('id' , Auth::guard('user2')->user()->id)->update([
             'card_name' => '',
@@ -2061,6 +2061,12 @@ class User2Controller extends Controller
 			if ($user->IsAdminApproved == 'No')
 			{
 				Session::flash('error', trans('common.user2_not_allow_to_booking'));
+				return redirect(getSpaceUrl($space->HashID));
+			}
+			
+			if (!User2::isPaymentSetup($user))
+			{
+				Session::flash('error', trans('common.missing_payment_setup'));
 				return redirect(getSpaceUrl($space->HashID));
 			}
 

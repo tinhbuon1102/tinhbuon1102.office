@@ -27,6 +27,7 @@
 	<div class="viewport">
 		<?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header_nav_shareuser.php'); ?>
 		@if(Auth::check()) @include('pages.header_nav_shareuser') @elseif(Auth::guard('user2')->check()) @include('pages.header_nav_rentuser') @endif
+		<?php $user = Auth::guard('user2')->user();?>
 		<section id="page">
 			<div id="main">
 				<header class="page-header">
@@ -114,7 +115,7 @@
 							<form method="post" id="payment-method">
 								{{ csrf_field() }}
 								<div class="mb10">お支払い方法を選択してください</div>
-								<a href='/ShareUser/Dashboard/CreditPayment' class="btn btn-default" value="cards" style='min-width: 160px; min-height: 104px; padding: 20px;'>
+								<a href='/ShareUser/Dashboard/CreditPayment' id="cards_button" class="btn btn-default" value="cards" style='min-width: 160px; min-height: 104px; padding: 20px;'>
 									<i class="fa fa-credit-card"></i>
 									<br>
 									クレジットカード
@@ -148,7 +149,7 @@
 	<!--- popup start --->
 	<div class="remodal no-pad" data-remodal-id="modal">
 		<div class="pr-bannr">
-			@if( $paypalStatus != false )
+			<div class="payment_popup_wraper" style="<?php echo $paypalStatus == false ? 'display:none' : '';?>">
 			<div class="pr-hedaer">
 				<h3 class="pr-head">お支払のご確認</h3>
 				<p class="pr-para">
@@ -181,7 +182,9 @@
 					<button data-remodal-action="cancel" class="remodal-cancel pr-btn">キャンセル</button>
 				</div>
 			</div>
-			@else
+			</div>
+			
+			<div class="payment_missing_popup_wraper" style="<?php echo $paypalStatus != false ? 'display:none' : '';?>">
 			<div class="pr-hedaer">
 				<h3 class="pr-head">Authorise Payment</h3>
 				<p class="pr-para">
@@ -189,36 +192,77 @@
 					&yen;
 					<?php echo $aFlexiblePrice["totalPrice"]; ?>
 				</p>
-				<p class="pr-para2">This willl be debited from your verified payment method.</p>
-				<div class="payment-logos-container ng-scope">
-					<div class="pp-icon">
-						<span class="payment-icon-paypal"></span>
+				<div class="paypal_wraper">
+					<div class="payment-logos-container ng-scope">
+						<div class="pp-icon">
+							<span class="payment-icon-paypal"></span>
+						</div>
+						<p><?php echo trans('common.missing_payment_setup')?></p>
 					</div>
-					<p>Please add your paypal account into profile settings</p>
+				</div>
+				
+				<div class="cc_wraper" style="display: none">
+					<div class="card-row">
+						<span class="visa"></span>
+						<span class="mastercard"></span>
+						<span class="amex"></span>
+						<span class="discover"></span>
+					</div>
+					
+					<p><?php echo trans('common.missing_selected_payment_setup')?></p>
 				</div>
 			</div>
 			<div class="pr-foter">
 				<div class="pr-buttn">
-					<button data-remodal-action="cancel" class="remodal-cancel pr-btn">Cancle</button>
+					<button data-remodal-action="cancel" class="remodal-cancel pr-btn">Cancel</button>
 				</div>
 			</div>
-			<div class="close_icon">x</div>
-			@endif
+			</div>
 		</div>
 	</div>
 	<!--- popup end --->
 	<script>
+		var isPaypalSetup = <?php echo (int) \App\User2::isPaypalSetup($user);?>;
+		var isCreditCardSetup = <?php echo (int) \App\User2::isCreditCardSetup($user);?>;
 		jQuery(document).on('confirmation', '.remodal', function () {
 			jQuery("#payment-method").attr("action"  , "<?php echo action('User2Controller@creditPayment'); ?>");
 			jQuery("#payment-method").trigger("submit");
 		});
 
-			jQuery(document).ready(function(){
-					jQuery("#paypal-payment-button").click(function(){
-						//alert("payment-method");
-						//return false;
-						//jQuery("#payment-methodpayment-method").trigger("submit");
-					});
+			jQuery(document).ready(function($){
+				$('body').on('click', '#cards_button', function(e){
+					if (!isCreditCardSetup)
+					{
+						e.preventDefault();
+						$('.payment_popup_wraper').hide();
+						$('.payment_missing_popup_wraper').show();
+						$('.paypal_wraper').hide();
+						$('.cc_wraper').show();
+					    $('[data-remodal-id=modal]').remodal().open();
+					}
+				});
+
+				$(document).on('closed', '.remodal', function () {
+					$('.paypal_wraper').show();
+					$('.cc_wraper').hide();
+
+					if (isPaypalSetup)
+					{
+						$('.payment_popup_wraper').show();
+						$('.payment_missing_popup_wraper').hide();
+					}
+					else {
+						$('.payment_popup_wraper').hide();
+						$('.payment_missing_popup_wraper').show();
+					}
+				});
+
+				
+				jQuery("#paypal-payment-button").click(function(){
+					//alert("payment-method");
+					//return false;
+					//jQuery("#payment-methodpayment-method").trigger("submit");
+				});
 			});
 		</script>
 </body>

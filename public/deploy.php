@@ -1,10 +1,6 @@
 <?php
 
-$ret = exec('/home/coreworking/opt/bin/git reset --soft HEAD;', $out, $err);
-$ret = exec('/home/coreworking/opt/bin/git add -u ../.;', $out, $err);
-$ret = exec('/home/coreworking/opt/bin/git add ../;', $out, $err);
-$ret = exec('/home/coreworking/opt/bin/git commit -m "Deploy files From Test Environment";', $out, $err);
-$ret = exec('/home/coreworking/opt/bin/git push origin master;', $out, $err);
+$ret = shell_exec('/home/coreworking/opt/bin/git reset --soft HEAD 2>&1; /home/coreworking/opt/bin/git add -u ../. 2>&1; /home/coreworking/opt/bin/git add ../ 2>&1; /home/coreworking/opt/bin/git commit -m "Deploy files From Test Environment" 2>&1; /home/coreworking/opt/bin/git push origin master 2>&1;');
 if ($err) {
 	echo ('Error : <br />');
 	echo '<pre>'; 

@@ -370,7 +370,7 @@ Route::post('RentUser/Dashboard/MyProfile/Edit2', "User2Controller@myProfileEdit
 Route::post('RentUser/Dashboard/MyProfile/UploadImage', "User2Controller@myProfileEditUpload");
 Route::post('RentUser/Dashboard/MyProfile/CoverUpload', "User2Controller@myProfileCoverUpload");
 
-Route::get('RentUser/Dashboard/EditMySpace', "User2Controller@editMySpace");
+Route::get('RentUser/Dashboard/EditMySpace', "User2Controller@editMySpace"); 
 Route::get('RentUser/Dashboard/BasicInfo/Edit', "User2Controller@editBasicInfo");
 Route::get('RentUser/Dashboard/BasicInfo/removeCard', "User2Controller@removeCard");
 Route::post('RentUser/Dashboard/BasicInfo/Edit', "User2Controller@editBasicInfoSubmit");

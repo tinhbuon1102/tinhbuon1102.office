@@ -8,7 +8,7 @@ public/livechat
 public/.htaccess
 public/.htpasswd
 public/certificate
-public/commit.php
+public/deploy.php
 .settings
 .env
 .buildpath

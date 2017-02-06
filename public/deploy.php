@@ -5,6 +5,7 @@ if ($err) {
 	echo ('Error : <br />');
 	echo '<pre>'; 
 	print($err);
+	print_r($out);die;
 }
 else {
 	echo '<pre>'; 

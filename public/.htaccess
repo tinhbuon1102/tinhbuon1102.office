@@ -31,11 +31,11 @@
 
 
 # Order Deny,Allow
-# AuthName "Restricted Area"
-# AuthType Basic
-# AuthUserFile /home/coreworking/houroffice.jp/public_html/public/.htpasswd
-# AuthGroupFile /dev/null 
-# Require valid-user
+AuthName "Restricted Area"
+ AuthType Basic
+ AuthUserFile /home/coreworking/coreworking.xsrv.jp/public_html/public/.htpasswd
+ AuthGroupFile /dev/null 
+ Require valid-user
 
 #Allow valid-user
 # Deny from all

@@ -10,6 +10,7 @@ public/.htpasswd
 public/certificate
 public/deploy.php
 public/pull.php
+public/commit.php
 .settings
 .env
 .buildpath

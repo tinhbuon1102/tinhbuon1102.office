@@ -57,6 +57,7 @@ if ($_POST['submitbtn']=="Upload") {
  	if (in_array(strtolower($extension), $file_formats)) { // check it if it's a valid format or not
  		if ($size < (4096 * 1024)) { // check it if it's bigger than 2 mb or no
  			//@TODO change this to avatar user id
+ 			$oriPrefix = $prefix;
  			$prefix .= isset($_POST['image-id']) ? ($_POST['image-id'] .'_') : '';
  			$imagename = $prefix . uniqid() . "." . $extension;
  			$tmp = $_FILES['imagefile']['tmp_name'];
@@ -68,7 +69,7 @@ if ($_POST['submitbtn']=="Upload") {
  					}
  					
  					// Return imagename as object with width/height
- 					if ($prefix == 'avatar_Logo_')
+ 					if (in_array($oriPrefix, array('avatar_', 'space_', 'logo_')))
  					{
  						$imageSize = getimagesize($filepath . $imagename);
  						$imagename = json_encode(array('name' => $imagename, 'size' => $imageSize));

@@ -1145,8 +1145,14 @@ $("#chgemail").validate({
 
     		if (typeof response == 'string')
     		{
-    			var responseText = response;
-    			var imageArea = [ 175, 100, 800, 600 ];
+    			response = $.parseJSON(response);
+        		var responseText = response.name;
+        		var imageSize = response.size;
+        		
+        		var aspectSmaller = imageSize[0] >= imageSize[1] ? imageSize[1] : imageSize[0];
+        		var aspectBigger = imageSize[0] >= imageSize[1] ? imageSize[0] : imageSize[1];
+        		
+    			var imageArea = [ 0, 0, aspectBigger, aspectBigger ];
     		}
     		else
     		{

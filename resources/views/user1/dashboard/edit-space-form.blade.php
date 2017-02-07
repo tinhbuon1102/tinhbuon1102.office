@@ -257,6 +257,7 @@ jQuery(function($){
 		 		      boxHeight: 300,  //Maximum Height for your bigger images
 		 			  setSelect: imageArea,
 		 			  onSelect: updateCoords,
+		 			  onChange: updateCoords,
 		 			},function(){
 		 			  var jcrop_api = this;
 		 			  thumbnail = this.initComponent('Thumbnailer', { width: 200, height: 133 });

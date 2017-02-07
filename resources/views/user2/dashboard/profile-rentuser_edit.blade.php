@@ -1498,9 +1498,15 @@ jQuery(document).ready(function($) {
     		jQuery('#h').val(c.h);
     	};
 
-    	function showResponse(responseText, statusText, xhr, $form){
-
+    	function showResponse(response, statusText, xhr, $form){
+    		response = $.parseJSON(response);
+    		var responseText = response.name;
+    		var imageSize = response.size;
     		image_src = responseText;
+
+    		// Get smallest between width vs height	
+    		var aspectSmaller = imageSize[0] >= imageSize[1] ? imageSize[1] : imageSize[0];
+    		var aspectBigger = imageSize[0] >= imageSize[1] ? imageSize[0] : imageSize[1];
     		wraperClass = '';
     		if (xhr) {
 }
@@ -1516,7 +1522,7 @@ jQuery(document).ready(function($) {
 		 			  aspectRatio: 1,
 		 		      boxWidth: 400,   //Maximum width you want for your bigger images
 		 		      boxHeight: 300,  //Maximum Height for your bigger images
-		 			  setSelect: [ 175, 100, 400, 300 ],
+		 			  setSelect: [ 0, 0, aspectBigger, aspectBigger ],
 		 			  onSelect: updateCoords,
 		 			},function(){
 		 			  var jcrop_api = this;

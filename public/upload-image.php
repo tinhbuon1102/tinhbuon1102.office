@@ -67,6 +67,13 @@ if ($_POST['submitbtn']=="Upload") {
  						$_SESSION['cover_image'] = $imagename;
  					}
  					
+ 					// Return imagename as object with width/height
+ 					if ($prefix == 'avatar_Logo_')
+ 					{
+ 						$imageSize = getimagesize($filepath . $imagename);
+ 						$imagename = json_encode(array('name' => $imagename, 'size' => $imageSize));
+ 					}
+ 						
 					echo $imagename;
  				} else {
  					echo "Could not move the file";

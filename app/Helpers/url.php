@@ -86,9 +86,9 @@ function getUser2Photo($id)
 	else
 		$user = $id;
 
-	if(!empty($user->Logo) && file_exists(public_path() . '/' . $user->Logo))
-		$logo=$user->Logo;
-	elseif($user->Sex=='女性')
+	if(!empty(@$user->Logo) && file_exists(public_path() . '/' . @$user->Logo))
+		$logo = $user->Logo;
+	elseif(@$user->Sex == '女性')
 	$logo='/images/woman-avatar.png';
 	else
 		$logo='/images/man-avatar.png';
@@ -103,9 +103,9 @@ function getUser1Photo($id)
 	else
 		$user = $id;
 
-	if(!empty($user->Logo) && file_exists(public_path() . '/' . $user->Logo))
-		$logo=$user->Logo;
-	elseif($user->Sex=='女性')
+	if(!empty(@$user->Logo) && file_exists(public_path() . '/' . @$user->Logo))
+		$logo = $user->Logo;
+	elseif(@$user->Sex == '女性')
 	$logo='/images/woman-avatar.png';
 	else
 		$logo='/images/man-avatar.png';

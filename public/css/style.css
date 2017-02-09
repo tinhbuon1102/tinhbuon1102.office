@@ -5038,7 +5038,7 @@ search page
 }
 
 .filter-input-wrapper.address {
-	width: 61%
+	width: calc(100% - 490px);
 }
 
 .reservation-method {

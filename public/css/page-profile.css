@@ -1435,18 +1435,21 @@ textarea.profiles-description {
 .portfolio-header .portfolio-edit-button {
 	margin-right: 20px;
 }
-
-.crop_preview_box_big {
-	width: 400px;
-	height: 300px;
-	border: 1px solid #b6b6b6;
-	background-color: #f7f7f7;
-	margin-bottom: 20px;
+.crop_preview_left {
+    text-align: center;
 }
-
+.crop_preview_box_big {
+	width: 100%;
+	margin: 0 auto 20px;
+}
+.jcrop-active {
+    display: inline-block;
+}
 .crop_preview_box_big img {
-	max-width: 400px;
-	max-height: 300px;
+	/*max-width: 400px;
+	max-height: 300px;*/
+	width: 100% !important;
+    height: auto !important;
 }
 
 .crop_preview_box_small {
@@ -1791,10 +1794,8 @@ h4.having-space-count {
 		order: 1;
 	}
 	.crop_preview_box_big {
-		width: 260px;
-		height: 200px;
 		position: relative;
-		overflow: hidden;
+		/*overflow: hidden;*/
 	}
 	.crop_preview_box_big img {
 		max-width: inherit;

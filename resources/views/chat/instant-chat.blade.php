@@ -43,6 +43,7 @@
 									{
 					if(Auth::guard('user2')->check())
 					{				
+						if (!$icuser->user1) continue;
 						$iactivity='';
 						$online='';
 												if($icuser->user1->LastActivity >= $ilast_activity)
@@ -53,6 +54,7 @@
 												}
 					}
 					else{
+						if (!$icuser->user2) continue;
 							$iactivity='';
 							$online='';
 												if($icuser->user2->LastActivity >= $ilast_activity)

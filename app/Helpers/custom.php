@@ -236,6 +236,11 @@ function getUser2Name($user){
 }
 
 function getUserName($user){
+	if (!$user)
+	{
+		return 'ユーザーはいません';
+	}
+	
 	if (userHasCompany($user) || isset($user->isUser1))
 	{
 		return $user->NameOfCompany ? $user->NameOfCompany : ($user->LastName .' ' . $user->FirstName);

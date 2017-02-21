@@ -12,6 +12,16 @@ else
 {
 	$imageUploadUrl = Request::url() . '/UploadImage';
 }
+
+if (strpos(Request::url(), 'Dashboard/HostSetting')) {
+	$btnUploadText = trans('common.Set as logo image');
+}
+elseif (strpos(Request::url(), 'Dashboard/MyProfile')) {
+	$btnUploadText = trans('common.Set as profile image');
+}
+else{
+	$btnUploadText = trans('user1list.set_as_main_image');
+}
 ?>
 <div class="modal fade" id="preview_content_wrapper" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display:none;">
 	<div class="modal-dialog modal-lg">
@@ -57,7 +67,7 @@ else
 							<input type="hidden" name="filename" value="" id="filename" />
 							<input type="hidden" name="image-type" value="" id="image-type" />
 							<div class="crop_preview_submit">
-								<input type="submit" name="upload_thumbnail" value="{{ trans('user1list.set_as_main_image') }}" id="save_thumb" class="btn btn-success submit_button" />
+								<input type="submit" name="upload_thumbnail" value="{{ $btnUploadText }}" id="save_thumb" class="btn btn-success submit_button" />
 							</div>
 							<input type="hidden" name="backurl" value="{{Request::url()}}" />
 							<input type="hidden" name="upload_thumbnail" value="Set as Profile Picture"  />

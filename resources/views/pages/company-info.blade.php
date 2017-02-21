@@ -55,7 +55,7 @@
                     </tr>
                     <tr>
                     <th class="left_title"><span class="space">事業内容</span></th>
-                    <td class="right_detail"><span class="space">不動産事業</span></td>
+                    <td class="right_detail"><span class="space">インターネットサービス事業</span></td>
                     </tr>
                     <tr>
                     <th class="left_title"><span class="space">所在地</span></th>

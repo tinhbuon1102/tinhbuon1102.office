@@ -387,6 +387,7 @@ span.chatbox-controls.thread-actions {
 .ContactList-section {
     padding: 16px;
 	float: none !important;
+	width: 100%;
 }
 .ContactList-thread {
     margin: 0;

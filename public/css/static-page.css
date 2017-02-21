@@ -1069,3 +1069,8 @@ body.profilepage button.mfp-close {
     margin-bottom: 20px;
 }
 }
+@media (max-width: 690px) {
+.signup-view .hr .inner {
+    background: rgb(255, 221, 0);
+}
+}

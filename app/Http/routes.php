@@ -449,3 +449,7 @@ Route::get('/clear-cache', function() {
 	$exitCode = Artisan::call('view:clear');
 	// return what you want
 });
+
+Route::get('ShareUser/Dashboard/HostSetting/GetBankInfo', "User1Controller@getBankInfo");
+Route::get('ShareUser/Dashboard/HostSetting/GetBranchInfo', "User1Controller@getBranchInfo");
+

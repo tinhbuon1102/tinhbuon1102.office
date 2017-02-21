@@ -2600,8 +2600,8 @@ body.home header#header.smaller a.logo {
 a.logo {
 	display: block;
 	text-indent: -9999px;
-	width: 154px;
-	height: 30px;
+	width: 160px;
+	height: 32px;
 	background: url(../images/logo.png);
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -6552,9 +6552,11 @@ ul.actions.dropdown-menu li:before {
 }
 
 .feed-box.mypage-leftbox nav ul ul {
-	display: none;
+	/*display: none;*/
 }
-
+.feed-box.mypage-leftbox .pushy-submenu ul {
+	 background: #ededed;
+}
 .feed-box.mypage-leftbox nav ul li.li-selected ul {
 	display: block;
 }
@@ -8990,7 +8992,7 @@ label.help-inline.error {
 }
 
 .modal-header-logo img.of-icon {
-	width: 160px;
+	width: 200px;
 	height: auto;
 	vertical-align: middle;
 	padding-bottom: 20px;

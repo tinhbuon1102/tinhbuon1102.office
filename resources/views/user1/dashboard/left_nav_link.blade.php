@@ -119,7 +119,7 @@ $totalCountStatus = $allDatas->get()->count();
 </li>
 <?php }?>
 <li class="side-panel-item pushy-submenu">
-	<a id="bt-ms8" href="{{url('ShareUser/Dashboard/HostSetting')}}" class="content-navigation">
+	<a id="bt-ms8" href="#" class="content-navigation">
 		<i class="fa fa-cogs" aria-hidden="true"></i>
 		{{ trans('navigation.setting') }}
 		<!--設定-->

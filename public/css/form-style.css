@@ -186,7 +186,7 @@ sign up
     max-width: 350px;
     background-position: 50% 8%;
     padding: 70px 20px 25px;
-    background-size: 35%;
+    background-size: 45%;
     border-radius: 4px;
     box-shadow: 0 0 5px 1px rgba(0,0,0,.1);
     background-color: #fff;
@@ -272,5 +272,16 @@ sign up
 .signup-view .form-container {
     width: 100% !important;
     float: left;
+    background-image: url(../images/logo-blk.png);
+	padding-top: 100px;
+}
+.form-container .hr {
+    width: 100%;
+    max-width: 100%;
+    box-shadow: 0 1px 0 rgb(255, 221, 0), transparent 0 0 0;
+    border-color: rgb(255,200,7);
+}
+.signup-view .hr .inner {
+    background: rgb(255, 221, 0);
 }
 }

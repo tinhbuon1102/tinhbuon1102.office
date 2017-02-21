@@ -118,14 +118,21 @@ $totalCountStatus = $allDatas->get()->count();
 	</a>
 </li>
 <?php }?>
+<?php 
+if (strpos(Request::url(), 'Dashboard/HostSetting') !== false) {
+	$showHostMenu = true;
+}else {
+	$showHostMenu = false;
+}
+?>
 <li class="side-panel-item pushy-submenu">
-	<a id="bt-ms8" href="#" class="content-navigation">
+	<a id="bt-ms8" href="<?php echo $showHostMenu ? '#' : url('ShareUser/Dashboard/HostSetting')?>" class="content-navigation">
 		<i class="fa fa-cogs" aria-hidden="true"></i>
 		{{ trans('navigation.setting') }}
 		<!--設定-->
 		<!--Setting-->
 	</a>
-	<ul data-bind="visible: workspaceCurrent" class="pal_nav">
+	<ul data-bind="visible: workspaceCurrent" class="pal_nav" style="<?php echo $showHostMenu ? '' : 'display: none'?>">
                                             
                                         <?php if (!IsAdminApprovedUser($user)) {?>
                                         <li>

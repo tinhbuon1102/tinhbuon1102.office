@@ -13,10 +13,10 @@ else
 	$imageUploadUrl = Request::url() . '/UploadImage';
 }
 
-if (strpos(Request::url(), 'Dashboard/HostSetting')) {
+if (strpos(Request::url(), 'Dashboard/HostSetting') !== false) {
 	$btnUploadText = trans('common.Set as logo image');
 }
-elseif (strpos(Request::url(), 'Dashboard/MyProfile')) {
+elseif (strpos(Request::url(), 'Dashboard/MyProfile') !== false) {
 	$btnUploadText = trans('common.Set as profile image');
 }
 else{

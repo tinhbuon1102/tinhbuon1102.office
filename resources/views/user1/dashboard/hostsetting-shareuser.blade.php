@@ -1207,7 +1207,7 @@ $("#chgemail").validate({
         });
 
         setTimeout(function(){
-        	$('#shareuser-setting-nav .li-selected').click();
+        	$('#shareuser-setting-nav li.pushy-submenu').click();
         }, 500);
 
     });

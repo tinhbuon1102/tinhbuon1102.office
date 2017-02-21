@@ -125,7 +125,7 @@ if (strpos(Request::url(), 'Dashboard/HostSetting') !== false) {
 	$showHostMenu = false;
 }
 ?>
-<li class="side-panel-item pushy-submenu">
+<li class="side-panel-item">
 	<a id="bt-ms8" href="<?php echo $showHostMenu ? '#' : url('ShareUser/Dashboard/HostSetting')?>" class="content-navigation">
 		<i class="fa fa-cogs" aria-hidden="true"></i>
 		{{ trans('navigation.setting') }}

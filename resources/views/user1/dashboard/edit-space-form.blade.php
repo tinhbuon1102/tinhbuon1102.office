@@ -86,8 +86,21 @@ jQuery(function($){
             e.preventDefault();
         });
         
-        $('#popover_content_wrapper').on('shown.bs.modal', function (e) {
-       	$('#popover_content_wrapper form[name="thumbnail"] #image-type').val($(e.relatedTarget).attr('image-type'));
+        $('#popover_content_wrapper').on('show.bs.modal', function (e) {
+	       	$('#popover_content_wrapper form[name="thumbnail"] #image-type').val($(e.relatedTarget).attr('image-type'));
+
+	        // Change button name
+            var image_type = $('form[name="thumbnail"] #image-type').val();
+            console.log(image_type);
+            if (image_type == 'main')
+            {
+                var btnUploadText = '<?php echo trans('common.Set as main image')?>';
+            }
+            else {
+            	var btnUploadText = '<?php echo trans('common.Set as thumb image')?>';
+            }
+            $('input[name="upload_thumbnail"]').val(btnUploadText);	
+            
         	$('#popover_content_wrapper form.uploadform .image-id').val($(e.relatedTarget).attr('image-type'));
         	if($(e.relatedTarget).attr('isbutton')=="yes")
 			{
@@ -281,7 +294,7 @@ jQuery(function($){
         	$(".modal.in .uploadform").append('<input type="hidden" name="upload_type" value="space" />')
         	
         	$(".modal.in #viewimage").html('');
-            $(".modal.in #viewimage").html('<img src="'+ SITE_URL +'images/loading.gif" />');
+            $(".modal.in #viewimage").html('<img class="loading-image" style="width: auto !important" src="'+ SITE_URL +'images/loading.gif" />');
             $(".modal.in .uploadform").ajaxForm({
             	url: SITE_URL + 'upload-image.php',
                 success:    showResponse 

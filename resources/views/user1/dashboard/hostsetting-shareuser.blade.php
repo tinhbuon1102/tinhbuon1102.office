@@ -1206,6 +1206,9 @@ $("#chgemail").validate({
             }).submit();
         });
 
+        setTimeout(function(){
+        	$('#shareuser-setting-nav .li-selected').click();
+        }, 500);
 
     });
 
@@ -1265,6 +1268,7 @@ $("#chgemail").validate({
             }
         }, "json");
     }
+    
 </script>
 </body>
 </html>

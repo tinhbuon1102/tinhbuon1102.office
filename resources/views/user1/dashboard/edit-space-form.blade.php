@@ -91,7 +91,6 @@ jQuery(function($){
 
 	        // Change button name
             var image_type = $('form[name="thumbnail"] #image-type').val();
-            console.log(image_type);
             if (image_type == 'main')
             {
                 var btnUploadText = '<?php echo trans('common.Set as main image')?>';

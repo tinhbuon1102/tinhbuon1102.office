@@ -1054,11 +1054,21 @@ $("#chgemail").validate({
             e.preventDefault();
         });
 
-        $('#popover_content_wrapper').on('shown.bs.modal', function (e) {
+        $('#popover_content_wrapper').on('show.bs.modal', function (e) {
 
 			$('#popover_content_wrapper form[name="thumbnail"] #image-type').val($(e.relatedTarget).attr('image-type'));
         	$('#popover_content_wrapper form.uploadform .image-id').val($(e.relatedTarget).attr('image-type'));
 
+        	// Change button name
+            var image_type = $('form[name="thumbnail"] #image-type').val();
+            if (image_type == 'Logo')
+            {
+                var btnUploadText = '<?php echo trans('common.Set as logo image')?>';
+            }
+            else {
+            	var btnUploadText = '<?php echo trans('common.Set as profile image')?>';
+            }
+            $('input[name="upload_thumbnail"]').val(btnUploadText);	
 
 			var imageData = $(e.relatedTarget).find('input').val();
         	if(imageData){

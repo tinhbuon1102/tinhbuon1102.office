@@ -111,4 +111,8 @@ return [
 	'Your Session is expired, please try again.' => 'セッションが切れました。再度やりなおしてください。',
 	'missing_payment_setup' => '支払い方法がまだ登録されていない為、予約できません。<a href="'. url('/RentUser/Dashboard/BasicInfo/Edit') .'">決済方法設定</a>から支払い方法を追加して下さい。',
 	'missing_selected_payment_setup' => '選択された決済方法が設定されていません。<a href="'. url('/RentUser/Dashboard/BasicInfo/Edit') .'">決済方法設定</a>から支払い方法を追加して下さい。',
+	'Set as logo image' => 'ロゴ画像として設定',
+	'Set as main image' => 'メイン画像として設定',
+	'Set as thumb image' => 'ギャラリー画像として設定',
+	'Set as profile image' => 'プロフィール写真として設定',
  ];

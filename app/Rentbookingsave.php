@@ -1005,7 +1005,7 @@ class Rentbookingsave extends Model
 						'user2' => $rent_data->rentUser,
 						'slots_data' => $slots_data,
 						'template' => 'user2.emails.booked_shared_user',
-						'subject' => 'レビューを投稿しましょう! | Offispo'
+						'subject' => 'レビューを投稿しましょう! | hOurOffice'
 					));
 					
 					// Send email complete to rent user
@@ -1016,10 +1016,23 @@ class Rentbookingsave extends Model
 						'user2' => $rent_data->rentUser,
 						'slots_data' => $slots_data,
 						'template' => 'user2.emails.booked_rent_user',
-						'subject' => 'レビューを投稿しましょう! | Offispo'
+						'subject' => 'レビューを投稿しましょう! | hOurOffice'
 					));
 					break;
 				
+				case BOOKING_STATUS_RESERVED:
+					// Send email complete to rent user
+					sendEmailCustom(array(
+						'sendTo' => $rent_data->rentUser->Email,
+						'rent_data' => $rent_data,
+						'space' => $rent_data->spaceID,
+						'user2' => $rent_data->rentUser,
+						'slots_data' => $slots_data,
+						'template' => 'user2.emails.accepted_rent_user',
+						'subject' => '予約の申込みがありました | hOurOffice'
+					));
+					break;
+					
 				case BOOKING_STATUS_REFUNDED:
 					// Send email complete to shared user :
 					sendEmailCustom(array(
@@ -1031,7 +1044,7 @@ class Rentbookingsave extends Model
 						'slots_data' => $slots_data,
 						'aFlexiblePrice' => $aFlexiblePrice,
 						'template' => 'user2.emails.booking_request_refund',
-						'subject' => '予約のキャンセルを受け付けました。 | Offispo'
+						'subject' => '予約のキャンセルを受け付けました。 | hOurOffice'
 					));
 					
 					// Send email complete to rent user
@@ -1044,7 +1057,7 @@ class Rentbookingsave extends Model
 						'slots_data' => $slots_data,
 						'aFlexiblePrice' => $aFlexiblePrice,
 						'template' => 'user2.emails.booking_refunded_rent_user',
-						'subject' => '予約がキャンセルされました。 | Offispo'
+						'subject' => '予約がキャンセルされました。 | hOurOffice'
 					));
 					
 					// Remove relation slot
@@ -1072,7 +1085,7 @@ class Rentbookingsave extends Model
 						'slots_data' => $slots_data,
 						'aFlexiblePrice' => $aFlexiblePrice,
 						'template' => 'user2.emails.booking_completed_shared_user',
-						'subject' => '予約の申込みがありました | Offispo'
+						'subject' => '予約の申込みがありました | hOurOffice'
 					));
 					
 					// Send email complete to rent user
@@ -1085,7 +1098,7 @@ class Rentbookingsave extends Model
 						'slots_data' => $slots_data,
 						'aFlexiblePrice' => $aFlexiblePrice,
 						'template' => 'user2.emails.booking_completed_rent_user',
-						'subject' => 'ご予約の確認 | Offispo'
+						'subject' => 'ご予約の確認 | hOurOffice'
 					));
 					
 					// Save recursion

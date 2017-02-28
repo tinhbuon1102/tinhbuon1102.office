@@ -153,7 +153,7 @@ class MyAdminController extends Controller
 		function ($message) use ($user, $from){
 			$message->from($from['address'], $from['name']);
 			$mails = [$user->Email];
-			$message->to($mails)->subject('メール認証のご確認 | Offispo');
+			$message->to($mails)->subject('メール認証のご確認 | hOurOffice');
 		});
 		session()->flash('suc', 'メール認証の確認メールが送信されました。');
 		return back();
@@ -168,7 +168,7 @@ class MyAdminController extends Controller
 		function ($message) use ($user, $from){
 			$message->from($from['address'], $from['name']);
 			$mails = [$user->Email];
-			$message->to($mails)->subject('メール認証のご確認 | Offispo');
+			$message->to($mails)->subject('メール認証のご確認 | hOurOffice');
 		});
 		session()->flash('suc', 'メール認証の確認メールが送信されました。');
 		return back();

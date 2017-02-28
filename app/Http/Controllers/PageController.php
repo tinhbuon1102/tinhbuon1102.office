@@ -523,7 +523,7 @@ class PageController extends Controller
 				'applicationFormMapper' => $applicationFormMapper,
 				'sendTo' => $request->Email,
 				'template' => 'pages.emails.contact_user',
-				'subject' => trans('common.Contact Confirmation | Offispo')]
+				'subject' => trans('common.Contact Confirmation | hOurOffice')]
 					);
 			Session::flash('success', trans('common.Thank you for contacting us, we will reply to you soon'));
 			return redirect::back();
@@ -598,7 +598,7 @@ class PageController extends Controller
 						'applicationFormMapper' => $applicationFormMapper,
 						'sendTo' => $user1->Email,
 						'template' => 'pages.emails.application_form_user',
-						'subject' => trans('common.Application Confirmation | Offispo')]
+						'subject' => trans('common.Application Confirmation | hOurOffice')]
 						);
 				
 				Session::flash('success', trans('common.Your Application was successfully sent, we will check and reply to you soon'));

@@ -183,7 +183,7 @@ class User2Controller extends Controller
 			'user' => $request,
 			'sendTo' => $request->Email,
 			'template' => 'user2.emails.register',
-			'subject' => '仮会員登録完了のお知らせ | OFFISPO']
+			'subject' => '仮会員登録完了のお知らせ | hOurOffice']
 				);
 		
 		Session::flush();

@@ -372,7 +372,7 @@ class User1Controller extends Controller
 			'EmailVerificationText' => $request->EmailVerificationText,
 			'sendTo' => $request->Email,
 			'template' => 'user1.emails.register',
-			'subject' => '仮会員登録完了のお知らせ | OFFISPO'
+			'subject' => '仮会員登録完了のお知らせ | hOurOffice'
 		]);
 		
 		Session::flush();

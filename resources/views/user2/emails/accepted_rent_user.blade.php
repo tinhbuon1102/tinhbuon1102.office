@@ -1,4 +1,11 @@
+<?php 
+$subTotal = priceConvert($aFlexiblePrice['subTotal'], true);
+$subTotalIncludeTax = priceConvert($aFlexiblePrice['subTotalIncludeTax'], true);
+$subTotalIncludeChargeFee = priceConvert($aFlexiblePrice['subTotalIncludeChargeFee'], true);
+$totalPrice = priceConvert($aFlexiblePrice['totalPrice'], true);
+$prices = $aFlexiblePrice['prices'];
 
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
@@ -363,6 +370,11 @@ h6 {
 	Margin-bottom: 8px;
 }
 
+.product_row p.no_mgn {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
 .order_total_right .column_cell {
 	text-align: right;
 }
@@ -406,7 +418,7 @@ body,.email_body {
 }
 
 .primary_btn td,.label .font_default {
-	background-color: #1f1f1f;
+	background-color: #ed7e2c;
 }
 
 .icon_secondary .icon_cell {
@@ -494,6 +506,22 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
 		max-width: 100% !important;
 	}
 }
+.no-pad th {
+	padding: 16px 16px 0;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    text-align: left;
+    vertical-align: top;
+    color: #888;
+}
+.no-pad td {
+	padding: 16px 16px 0;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    vertical-align: top;
+    color: #888;
+}
 </style>
 </head>
 <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" style="margin: 0; padding: 0; min-width: 100%; background-color: #ebebeb;">
@@ -528,7 +556,7 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
 											<tr>
 												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px; font-family: Helvetica, Arial, sans-serif; font-size: 20px; text-align: left; vertical-align: top; color: #ffffff; font-weight: bold; padding-bottom: 0; padding-top: 16px;">
 													<a href="<?php echo url('/')?>" style="display: inline-block; text-decoration: none; font-family: Helvetica, Arial, sans-serif; color: #ffffff;">
-														<img src="<?php echo url('/')?>/images/email_logo.png" width="156" height="42" alt="SimpleApp" style="line-height: 1; outline: none; border: 0; text-decoration: none; -ms-interpolation-mode: bicubic; mso-line-height-rule: exactly; max-width: 156px; height: auto;">
+														<img src="<?php echo url('/')?>/images/email_logo.png" width="156" height="42" alt="hOur Office" style="line-height: 1; outline: none; border: 0; text-decoration: none; -ms-interpolation-mode: bicubic; mso-line-height-rule: exactly; max-width: 156px; height: auto;">
 													</a>
 												</td>
 												<!-- /.column_cell -->
@@ -580,28 +608,8 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
 										<tbody>
 											<tr>
 												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; vertical-align: top; color: #888888;">
-
-													<h4 style="font-family: Helvetica, Arial, sans-serif; margin-left: 0; margin-right: 0; margin-top: 16px; margin-bottom: 8px; padding: 0; font-size: 22px; line-height: 30px; font-weight: bold; color: #383d42;">レビューを投稿しましょう</h4>
-													<p class="lead" style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; margin-top: 16px; margin-bottom: 16px;">
-														あなたのスペース利用が終了しました。
-														<br />
-														利用スペース:
-														<strong><a href="{{getSpaceUrl($space->HashID)}}">{{$space->Title}}</a></strong>
-														<br />
-														スペースに対するレビューを投稿しましょう。
-													</p>
-													<table class="primary_btn" align="center" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; clear: both; margin: 0 auto;">
-														<tbody>
-															<tr>
-																<td class="font_default" style="padding: 12px 24px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; mso-line-height-rule: exactly; text-align: center; vertical-align: middle; -webkit-border-radius: 4px; border-radius: 4px; background-color: #1f1f1f;">
-																	<a href="{{getRentFeedbackUrl($rent_data->id)}}" style="display: block; text-decoration: none; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-weight: bold; text-align: center;">
-																		<span style="text-decoration: none; color: #ffffff; text-align: center; display: block;">レビュー投稿</span>
-																	</a>
-																</td>
-															</tr>
-														</tbody>
-													</table>
-													<!-- end .primary_btn -->
+													<h2 style="font-family: Helvetica, Arial, sans-serif; margin-left: 0; margin-right: 0; margin-top: 16px; margin-bottom: 8px; padding: 0; font-size: 26px; line-height: 36px; font-weight: bold; color: #383d42;">ご予約受付のお知らせ</h2>
+													<p class="lead" style="font-family: Helvetica, Arial, sans-serif; font-size: 19px; line-height: 27px; margin-top: 16px; margin-bottom: 16px;">以下の詳細にてスペースの予約が受け付けられました。</p>
 												</td>
 												<!-- /.column_cell -->
 											</tr>
@@ -633,7 +641,512 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
 			<table class="content" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
 				<tbody>
 					<tr>
-						<td class="content_cell" align="center" valign="top" style="padding: 0; text-align: center; background-color: #ffffff; font-size: 0 !important;">
+						<td class="content_cell product_row" align="center" valign="top" style="padding: 0 0 8px; text-align: center; background-color: #ffffff; border-top: 1px solid; border-color: #ebebeb; font-size: 0 !important;">
+							<!--[if (gte mso 9)|(IE)]>
+                <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                  <tbody>
+                    <tr>
+                      <td width="580" align="center" valign="top">
+                <![endif]-->
+							<h4 style="font-family: Helvetica, Arial, sans-serif; margin-left: 0; margin-right: 0; margin-top: 8px; margin-bottom: 0px; padding: 0; font-size: 16px; line-height: 26px; font-weight: bold; color: #383d42;">予約詳細</h4>
+							<!--[if (gte mso 9)|(IE)]>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <![endif]-->
+						</td>
+					</tr>
+					<tr>
+						<td class="content_cell product_row" align="center" valign="top" style="padding: 0 0 16px; text-align: center; background-color: #ffffff; border-top: 1px solid; border-color: #ebebeb; font-size: 0 !important;">
+							<!--[if (gte mso 9)|(IE)]>
+                <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                  <tbody>
+                    <tr>
+                      <td width="580" align="center" valign="top">
+                <![endif]-->
+							<div class="row" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 580px; margin: 0 auto;">
+								<!--[if (gte mso 9)|(IE)]>
+                  <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                    <tbody>
+                      <tr>
+                      <td width="190" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-1" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 190px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+												<td class="column_cell font_default" align="left" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; vertical-align: top; color: #888888;">
+													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 23px; margin-top: 0px; margin-bottom: 0px;">予約番号</p>
+												</td>
+												<!-- /.column_cell:image_thumb -->
+
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-1 -->
+								<!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        <td width="390" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-13" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 390px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; vertical-align: top; color: #000000;">
+													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; font-weight: bold; line-height: 23px; margin-top: 0px; margin-bottom: 0px;">#{{$rent_data->id}}</p>
+												</td>
+												<!-- /.column_cell -->
+
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-13 -->
+								<!--[if (gte mso 9)|(IE)]>
+                      </td>
+                      
+                      </tr>
+                    </tbody>
+                  </table>
+                  <![endif]-->
+							</div>
+							<!-- /.row -->
+							<div class="row" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 580px; margin: 0 auto;">
+								<!--[if (gte mso 9)|(IE)]>
+                  <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                    <tbody>
+                      <tr>
+                      <td width="190" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-1" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 190px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+												<td class="column_cell font_default" align="left" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; vertical-align: top; color: #888888;">
+													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 23px; margin-top: 0px; margin-bottom: 0px;">予約日</p>
+												</td>
+												<!-- /.column_cell:image_thumb -->
+
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-1 -->
+								<!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        <td width="390" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-13" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 390px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; vertical-align: top; color: #000000;">
+													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; font-weight: bold; line-height: 23px; margin-top: 0px; margin-bottom: 0px;">{{renderJapaneseDate($rent_data->created_at, false)}}</p>
+												</td>
+												<!-- /.column_cell -->
+
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-13 -->
+								<!--[if (gte mso 9)|(IE)]>
+                      </td>
+                      
+                      </tr>
+                    </tbody>
+                  </table>
+                  <![endif]-->
+							</div>
+							<!-- /.row -->
+							<div class="row" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 580px; margin: 0 auto;">
+								<!--[if (gte mso 9)|(IE)]>
+                  <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                    <tbody>
+                      <tr>
+                      <td width="190" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-1" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 190px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+
+												<td class="column_cell font_default" align="left" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; vertical-align: top; color: #888888;">
+													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 23px; margin-top: 0px; margin-bottom: 0px;">利用日</p>
+												</td>
+												<!-- /.column_cell:image_thumb -->
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-1 -->
+								<!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        <td width="390" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-13" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 390px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+
+												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; vertical-align: top; color: #000000;">
+													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; font-weight: bold; line-height: 23px; margin-top: 0px; margin-bottom: 0px;"><?php echo $rent_data->UsedDate?></p>
+												</td>
+												<!-- /.column_cell -->
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-13 -->
+								<!--[if (gte mso 9)|(IE)]>
+                      </td>
+                      
+                      </tr>
+                    </tbody>
+                  </table>
+                  <![endif]-->
+							</div>
+							<!-- /.row -->
+							<div class="row" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 580px; margin: 0 auto;">
+								<!--[if (gte mso 9)|(IE)]>
+                  <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                    <tbody>
+                      <tr>
+                      <td width="190" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-1" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 190px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+
+												<td class="column_cell font_default" align="left" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; vertical-align: top; color: #888888;">
+													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 23px; margin-top: 0px; margin-bottom: 0px;">期間</p>
+												</td>
+												<!-- /.column_cell:image_thumb -->
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-1 -->
+								<!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        <td width="390" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-13" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 390px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+
+												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; vertical-align: top; color: #000000;">
+													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; font-weight: bold; line-height: 23px; margin-top: 0px; margin-bottom: 0px;">{{$rent_data->DurationText}}</p>
+												</td>
+												<!-- /.column_cell -->
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-13 -->
+								<!--[if (gte mso 9)|(IE)]>
+                      </td>
+                      
+                      </tr>
+                    </tbody>
+                  </table>
+                  <![endif]-->
+							</div>
+							<!-- /.row -->
+							<div class="row" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 580px; margin: 0 auto;">
+								<!--[if (gte mso 9)|(IE)]>
+                  <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                    <tbody>
+                      <tr>
+                      <td width="190" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-1" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 190px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+
+												<td class="column_cell font_default" align="left" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; vertical-align: top; color: #888888;">
+													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 23px; margin-top: 0px; margin-bottom: 0px;">備考</p>
+												</td>
+												<!-- /.column_cell:image_thumb -->
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-1 -->
+								<!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        <td width="390" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-13" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 390px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+
+												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; vertical-align: top; color: #000000;">
+													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; font-weight: normal; line-height: 23px; margin-top: 0px; margin-bottom: 0px;">{{$rent_data->request}}</p>
+												</td>
+												<!-- /.column_cell -->
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-13 -->
+								<!--[if (gte mso 9)|(IE)]>
+                      </td>
+                      
+                      </tr>
+                    </tbody>
+                  </table>
+                  <![endif]-->
+							</div>
+							<!-- /.row -->
+							<!--[if (gte mso 9)|(IE)]>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <![endif]-->
+						</td>
+					</tr>
+                    <tr>
+						<td class="content_cell product_row" align="center" valign="top" style="padding: 0 0 8px; text-align: center; background-color: #ffffff; border-top: 1px solid; border-color: #ebebeb; font-size: 0 !important;">
+							<!--[if (gte mso 9)|(IE)]>
+                <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                  <tbody>
+                    <tr>
+                      <td width="580" align="center" valign="top">
+                <![endif]-->
+							<h4 style="font-family: Helvetica, Arial, sans-serif; margin-left: 0; margin-right: 0; margin-top: 8px; margin-bottom: 0px; padding: 0; font-size: 16px; line-height: 26px; font-weight: bold; color: #383d42;">予約スペース詳細</h4>
+							<!--[if (gte mso 9)|(IE)]>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <![endif]-->
+						</td>
+					</tr>
+					<tr>
+						<td class="content_cell product_row" align="center" valign="top" style="padding: 0 0 16px; text-align: center; background-color: #ffffff; border-top: 1px solid; border-color: #ebebeb; font-size: 0 !important;">
+							<!--[if (gte mso 9)|(IE)]>
+                <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                  <tbody>
+                    <tr>
+                      <td width="580" align="center" valign="top">
+                <![endif]-->
+							<div class="row" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 580px; margin: 0 auto;">
+								<!--[if (gte mso 9)|(IE)]>
+                  <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                    <tbody>
+                      <tr>
+                      <td width="190" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-1" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 190px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+												<td class="column_cell font_default" align="left" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; vertical-align: top; color: #888888;">
+<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 23px; margin-top: 0px; margin-bottom: 0px;">スペース名</p>
+												</td>
+												<!-- /.column_cell:image_thumb -->
+
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-1 -->
+								<!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        <td width="390" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-13" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 390px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; vertical-align: top; color: #000000;">
+													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; font-weight: bold; line-height: 23px; margin-top: 0px; margin-bottom: 0px;">{{$space->Title}}</p>
+												</td>
+												<!-- /.column_cell -->
+
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-13 -->
+								<!--[if (gte mso 9)|(IE)]>
+                      </td>
+                      
+                      </tr>
+                    </tbody>
+                  </table>
+                  <![endif]-->
+							</div>
+							<!-- /.row -->
+							<div class="row" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 580px; margin: 0 auto;">
+								<!--[if (gte mso 9)|(IE)]>
+                  <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                    <tbody>
+                      <tr>
+                      <td width="190" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-1" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 190px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+												<td class="column_cell font_default" align="left" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; vertical-align: top; color: #888888;">
+													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 23px; margin-top: 0px; margin-bottom: 0px;">住所</p>
+												</td>
+												<!-- /.column_cell:image_thumb -->
+
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-1 -->
+								<!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        <td width="390" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-13" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 390px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; vertical-align: top; color: #000000;">
+													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; font-weight: bold; line-height: 23px; margin-top: 0px; margin-bottom: 0px;">{{$space->Prefecture}}{{$space->District}}{{$space->Town}}{{$space->Address1}}{{$space->Address2}}</p>
+												</td>
+												<!-- /.column_cell -->
+
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-13 -->
+								<!--[if (gte mso 9)|(IE)]>
+                      </td>
+                      
+                      </tr>
+                    </tbody>
+                  </table>
+                  <![endif]-->
+							</div>
+							<!-- /.row -->
+							<!--[if (gte mso 9)|(IE)]>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <![endif]-->
+						</td>
+					</tr>
+					<tr>
+						<td class="content_cell product_row" align="center" valign="top" style="padding: 0 0 8px; text-align: center; background-color: #ffffff; border-top: 1px solid; border-color: #ebebeb; font-size: 0 !important;">
+							<!--[if (gte mso 9)|(IE)]>
+                <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                  <tbody>
+                    <tr>
+                      <td width="580" align="center" valign="top">
+                <![endif]-->
+							<h4 style="font-family: Helvetica, Arial, sans-serif; margin-left: 0; margin-right: 0; margin-top: 8px; margin-bottom: 0px; padding: 0; font-size: 16px; line-height: 26px; font-weight: bold; color: #383d42;">お支払い詳細</h4>
+							<!--[if (gte mso 9)|(IE)]>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <![endif]-->
+						</td>
+					</tr>
+					<tr>
+						<td class="content_cell product_row" align="center" valign="top" style="padding: 0 0 16px; text-align: center; background-color: #ffffff; border-top: 1px solid; border-color: #ebebeb; font-size: 0 !important;">
+							<!--[if (gte mso 9)|(IE)]>
+                <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                  <tbody>
+                    <tr>
+                      <td width="580" align="center" valign="top">
+                <![endif]-->
+							<div class="row" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 580px; margin: 0 auto;">
+								<!--[if (gte mso 9)|(IE)]>
+                  <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                    <tbody>
+                      <tr>
+                        <td width="390" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-13" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 390px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; vertical-align: top; color: #888888;">
+													<h6 style="font-family: Helvetica, Arial, sans-serif; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 8px; padding: 0; font-size: 16px; line-height: 24px; font-weight: bold; color: #383d42;">{{$space->Title}}</h6>
+												</td>
+												<!-- /.column_cell -->
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-13 -->
+								<!--[if (gte mso 9)|(IE)]>
+                      </td>
+                      <td width="190" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-1" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 190px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+												<td class="column_cell font_default" align="left" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; vertical-align: top; color: #888888;">
+												</td>
+												<!-- /.column_cell:image_thumb -->
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-1 -->
+								<!--[if (gte mso 9)|(IE)]>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <![endif]-->
+							</div>
+							<!-- /.row --><div class="row" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 580px; margin: 0 auto;">
+							<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+								<?php renderBookingSummary($space, $prices)?>
+							</table>
+							</div>
+							<!--[if (gte mso 9)|(IE)]>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <![endif]-->
+						</td>
+					</tr>
+
+				</tbody>
+			</table>
+			<!-- /.content -->
+			<table class="jumbotron" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+				<tbody>
+					<tr>
+						<td class="jumbotron_cell order_total order_total_right" align="center" valign="top" style="padding: 0; text-align: center; background-color: #f9f8fb; border-top: 1px solid; border-color: #ebebeb; font-size: 0 !important;">
 							<!--[if (gte mso 9)|(IE)]>
                 <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
                   <tbody>
@@ -651,23 +1164,15 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
 									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
 										<tbody>
 											<tr>
-												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; vertical-align: top; color: #888888;">
-													<small style="font-size: 86%; font-weight: normal;">以下が完了した予約内容です。</small>
-													<p style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 23px; margin-top: 16px; margin-bottom: 24px;">
-														<strong>利用スペース</strong>
-														<br>
-														<a href="{{getSpaceUrl($space->HashID)}}">{{$space->Title}}</a>
-													</p>
-													<p style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 23px; margin-top: 16px; margin-bottom: 24px;">
-														<strong>利用日</strong>
-														<br>
-														<?php echo getBookingSlotDate($slots_data, false, $rent_data)?>
-													</p>
-													<p style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 23px; margin-top: 16px; margin-bottom: 24px;">
-														<strong>利用金額</strong>
-														<br>
-														¥{{number_format($rent_data->amount)}}({{$rent_data->DurationText}})
-													</p>
+												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right; vertical-align: top; color: #888888;">
+													小計
+													<strong>{{$subTotal}}</strong>
+													<br>
+													消費税
+													<strong>{{$subTotalIncludeTax}}</strong>
+													<br>
+													手数料(10%)
+													<strong>{{$subTotalIncludeChargeFee}}</strong>
 												</td>
 												<!-- /.column_cell -->
 											</tr>
@@ -691,11 +1196,179 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
                 </table>
                 <![endif]-->
 						</td>
-						<!-- /.content_cell -->
+						<!-- /.jumbotron_cell -->
 					</tr>
 				</tbody>
 			</table>
-			<!-- /.content -->
+			<table class="content" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+				<tbody>
+					<tr>
+						<td class="content_cell product_row order_total_right" align="center" valign="top" style="padding: 0 0 16px; text-align: center; background-color: #ffffff; border-top: 1px solid; border-color: #ebebeb; font-size: 0 !important;">
+							<!--[if (gte mso 9)|(IE)]>
+                <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                  <tbody>
+                    <tr>
+                      <td width="580" align="center" valign="top">
+                <![endif]-->
+							<div class="row" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 580px; margin: 0 auto;">
+								<!--[if (gte mso 9)|(IE)]>
+                  <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                    <tbody>
+                      <tr>
+                        <td width="580" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-3" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 580px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right; vertical-align: top; color: #888888;">
+													<h5 style="font-family: Helvetica, Arial, sans-serif; margin-left: 0; margin-right: 0; margin-top: 16px; margin-bottom: 8px; padding: 0; font-size: 18px; line-height: 26px; font-weight: bold; color: #383d42;">
+														<small style="font-size: 86%; font-weight: normal;">
+															<strong>合計金額</strong>
+															&nbsp;
+														</small>
+														<span class="text-secondary" style="color: rgb(255, 193, 7);">{{$totalPrice}}</span>
+													</h5>
+												</td>
+												<!-- /.column_cell -->
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-3 -->
+								<!--[if (gte mso 9)|(IE)]>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <![endif]-->
+							</div>
+							<!-- /.row -->
+							<!--[if (gte mso 9)|(IE)]>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <![endif]-->
+						</td>
+						<!-- /.content_cell:product_row -->
+					</tr>
+				</tbody>
+			</table>
+            
+			<table class="jumbotron" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+				<tbody>
+					<tr>
+						<td class="jumbotron_cell order_total order_total_right" align="center" valign="top" style="padding: 0; text-align: center; background-color: #f9f8fb; border-top: 1px solid; border-color: #ebebeb; font-size: 0 !important;">
+							<!--[if (gte mso 9)|(IE)]>
+                <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                  <tbody>
+                    <tr>
+                      <td width="580" align="center" valign="top">
+                <![endif]-->
+							<div class="row" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 580px; margin: 0 auto;">
+								<!--[if (gte mso 9)|(IE)]>
+                  <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                    <tbody>
+                      <tr>
+                        <td width="580" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-3" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 580px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px; font-family: Helvetica, Arial, sans-serif; font-size: 12px; text-align: center; vertical-align: top; color: #888888;">
+													下記のリンクから予約を確認、キャンセルすることができます。
+													<br />
+													※キャンセルができる期間をすぎると返金ができません。詳しくは詳細ページにてご確認ください。
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-3 -->
+								<!--[if (gte mso 9)|(IE)]>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <![endif]-->
+							</div>
+							<!-- /.row -->
+							<!--[if (gte mso 9)|(IE)]>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <![endif]-->
+						</td>
+						<!-- /.jumbotron_cell -->
+					</tr>
+				</tbody>
+			</table>
+			<table class="content" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+				<tbody>
+					<tr>
+						<td class="content_cell product_row" align="center" valign="top" style="padding: 0 0 16px; text-align: center; background-color: #ffffff; border-top: 1px solid; border-color: #ebebeb; font-size: 0 !important;">
+							<!--[if (gte mso 9)|(IE)]>
+                <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                  <tbody>
+                    <tr>
+                      <td width="580" align="center" valign="top">
+                <![endif]-->
+							<div class="row" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 580px; margin: 0 auto;">
+								<!--[if (gte mso 9)|(IE)]>
+                  <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                    <tbody>
+                      <tr>
+                        <td width="580" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-3" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 580px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; vertical-align: top; color: #888888;">
+													<table class="secondary_btn" align="center" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; clear: both; margin: 0 auto;">
+														<tbody>
+															<tr>
+																<td class="font_default" style="padding: 12px 24px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; mso-line-height-rule: exactly; text-align: center; vertical-align: middle; -webkit-border-radius: 4px; border-radius: 4px; background-color: rgb(255, 193, 7);">
+																	<a target="_blank" href="{{url('RentUser/Dashboard/Reservation/View/' . $rent_data->id)}}" style="display: block; text-decoration: none; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-weight: bold; text-align: center;">
+																		<span style="text-decoration: none; color: #ffffff; text-align: center; display: block;">予約内容を見る</span>
+																	</a>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+													<!-- end .secondary_btn -->
+												</td>
+												<!-- /.column_cell -->
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-3 -->
+								<!--[if (gte mso 9)|(IE)]>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <![endif]-->
+							</div>
+							<!-- /.row -->
+							<!--[if (gte mso 9)|(IE)]>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <![endif]-->
+						</td>
+						<!-- /.content_cell:product_row -->
+					</tr>
+				</tbody>
+			</table>
 			<table class="footer" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
 				<tbody>
 					<tr>

@@ -1029,7 +1029,7 @@ class Rentbookingsave extends Model
 						'user2' => $rent_data->rentUser,
 						'slots_data' => $slots_data,
 						'template' => 'user2.emails.accepted_rent_user',
-						'subject' => '予約の申込みがありました | hOurOffice'
+						'subject' => '予約受付のお知らせ | hOurOffice'
 					));
 					break;
 					

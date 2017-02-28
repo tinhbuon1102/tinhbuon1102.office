@@ -12,15 +12,7 @@
 <div class="help-shot"><img src="/images/help/review/share/2.jpg" /></div>
 <p>以下のレビュー項目を選択、記入し、<strong>[レビューを投稿]</strong>ボタンをクリックしてください。</p>
 <ol class="list-type-alp">
-<li><strong>時間通り</strong><br/>時間通りにきたかの有無</li>
-<li><strong>ユーザー評価</strong><br/>1-5のレートで評価してください。
-<ol class="ol-list">
-<li><strong>使用清潔度</strong><br/>きれいに使用していたかの評価</li>
-<li><strong>ルール遵守度</strong><br/>使用ルールは守っていたかの評価</li>
-<li><strong>礼儀正しさ</strong><br/>礼儀正しかったかの評価</li>
-<li><strong>再利用希望</strong><br/>再度利用してほしいかの評価</li>
-</ol>
-</li>
+<li><strong>ユーザー評価</strong><br/>1-5のレートで評価してください。</li>
 <li><strong>コメント</strong><br/>利用者に対しての評価コメントを書いてください。</li>
 </ol>
 <div class="help-shot"><img src="/images/help/review/share/3.jpg" /></div>

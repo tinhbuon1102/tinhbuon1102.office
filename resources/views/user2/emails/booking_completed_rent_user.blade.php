@@ -609,7 +609,7 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
 											<tr>
 												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; vertical-align: top; color: #888888;">
 													<h2 style="font-family: Helvetica, Arial, sans-serif; margin-left: 0; margin-right: 0; margin-top: 16px; margin-bottom: 8px; padding: 0; font-size: 26px; line-height: 36px; font-weight: bold; color: #383d42;">ご予約申し込みのご確認</h2>
-													<p class="lead" style="font-family: Helvetica, Arial, sans-serif; font-size: 19px; line-height: 27px; margin-top: 16px; margin-bottom: 16px;">以下の詳細にてスペース予約申し込みを受け付けました。</p>
+													<p class="lead" style="font-family: Helvetica, Arial, sans-serif; font-size: 19px; line-height: 27px; margin-top: 16px; margin-bottom: 16px;">以下の詳細にてスペース予約申し込みを受け付けました。<br/>シェアユーザー(スペース提供者)からの予約受付をお待ち下さい。</p>
 												</td>
 												<!-- /.column_cell -->
 											</tr>
@@ -1282,6 +1282,7 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
 													下記のリンクから予約を確認、キャンセルすることができます。
 													<br />
 													※キャンセルができる期間をすぎると返金ができません。詳しくは詳細ページにてご確認ください。
+													※現時点では、予約申し込みとなり、予約の確定しておりません。
 												</td>
 											</tr>
 										</tbody>

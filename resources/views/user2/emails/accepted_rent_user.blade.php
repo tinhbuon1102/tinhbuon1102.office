@@ -608,8 +608,8 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
 										<tbody>
 											<tr>
 												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; vertical-align: top; color: #888888;">
-													<h2 style="font-family: Helvetica, Arial, sans-serif; margin-left: 0; margin-right: 0; margin-top: 16px; margin-bottom: 8px; padding: 0; font-size: 26px; line-height: 36px; font-weight: bold; color: #383d42;">ご予約受付のお知らせ</h2>
-													<p class="lead" style="font-family: Helvetica, Arial, sans-serif; font-size: 19px; line-height: 27px; margin-top: 16px; margin-bottom: 16px;">以下の詳細にてスペースの予約が受け付けられました。</p>
+													<h2 style="font-family: Helvetica, Arial, sans-serif; margin-left: 0; margin-right: 0; margin-top: 16px; margin-bottom: 8px; padding: 0; font-size: 26px; line-height: 36px; font-weight: bold; color: #383d42;">予約受付完了のお知らせ</h2>
+													<p class="lead" style="font-family: Helvetica, Arial, sans-serif; font-size: 19px; line-height: 27px; margin-top: 16px; margin-bottom: 16px;">以下の詳細にてスペースの予約受付が完了されました。</p>
 												</td>
 												<!-- /.column_cell -->
 											</tr>

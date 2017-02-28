@@ -6,7 +6,7 @@
 <p>設定ページにて、<strong>[ロゴ設定]</strong>にいき、<strong>[アップロード]</strong>ボタンをクリックしてください。</p>
 <div class="help-shot"><img src="/images/help/setting/10.jpg" /></div>
 <p>アップロード画面が表示されますので、<strong>[ファイルを選択]</strong>ボタンをクリックし、画像をアップロードしてください。</p>
-<div class="help-shot"><img src="/images/help/setting/11.jpg" /></div>
+<div class="help-shot"><img src="/images/help/setting/11_share.jpg" /></div>
 </div>
 <h4>2.画像をトリミング</h4>
 <div class="help_body_content">

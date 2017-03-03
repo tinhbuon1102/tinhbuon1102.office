@@ -1023,13 +1023,15 @@ class Rentbookingsave extends Model
 				case BOOKING_STATUS_RESERVED:
 					// Send email complete to rent user
 					sendEmailCustom(array(
-						'sendTo' => $rent_data->rentUser->Email,
-						'rent_data' => $rent_data,
-						'space' => $rent_data->spaceID,
-						'user2' => $rent_data->rentUser,
-						'slots_data' => $slots_data,
-						'template' => 'user2.emails.accepted_rent_user',
-						'subject' => '予約受付のお知らせ | hOurOffice'
+					'sendTo' => $rent_data->rentUser->Email,
+					'rent_data' => $rent_data,
+					'space' => $rent_data->spaceID,
+					'user1' => $rent_data->shareUser,
+					'user2' => $rent_data->rentUser,
+					'slots_data' => $slots_data,
+					'aFlexiblePrice' => $aFlexiblePrice,
+					'template' => 'user2.emails.accepted_rent_user',
+					'subject' => '予約の申込みがありました | hOurOffice'
 					));
 					break;
 					

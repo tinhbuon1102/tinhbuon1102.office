@@ -158,6 +158,9 @@ use App\Spaceslot;
 											</thead>
 											<tbody>
 												@foreach($rent_datas as $rent) 
+												<?php 
+												$aFlexiblePrice = \App\Rentbookingsave::getInvoiceBookingPayment($rent);
+												?>
 												<tr role="row">
 													<td class="sorting_1">{!!$rent->id!!}</td>
 													<td>@if(isset($rent->rentUser->FirstName)){{getUserName($rent->rentUser)}}@endif</td>
@@ -242,6 +245,15 @@ use App\Spaceslot;
 																	</form>
 																</li>
 																@else
+																<li>
+																	<form action='/ShareUser/Dashboard/acceptPayment' method='post'>
+																		<input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
+																		<button class="ns_pad lnk-accept-payment" type="button" style='padding: 12px; width: 100%;'>{{ trans('booking_details.pre-sale') }}</button>
+																		<input type='hidden' name='t_id' value='{!!$rent->transaction_id!!}' />
+																		<input type='hidden' name='type' value='accept' />
+																		<input type='hidden' name='id' value='{!!$rent->id!!}' />
+																	</form>
+																</li>
 																<li>
 																	<form action='/ShareUser/Dashboard/acceptPayment' method='post'>
 																		<input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />

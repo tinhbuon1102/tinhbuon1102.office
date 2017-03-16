@@ -315,7 +315,8 @@ class MyAdminController extends Controller
 		$refundamount = priceConvert(ceil($rent_data['refund_amount']));
 
 		$rent_data->isArchive = true;
-		$aFlexiblePrice = getFlexiblePrice($rent_data, new \App\Bookedspaceslot());
+// 		$aFlexiblePrice = getFlexiblePrice($rent_data, new \App\Bookedspaceslot());
+		$aFlexiblePrice = Rentbookingsave::getInvoiceBookingPayment($rent_data);
 
 		$subTotal = priceConvert($aFlexiblePrice['subTotal'], true);
 		$subTotalIncludeTax = priceConvert($aFlexiblePrice['subTotalIncludeTax'], true);

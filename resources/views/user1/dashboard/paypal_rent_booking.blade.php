@@ -212,6 +212,15 @@ use App\Spaceslot;
 						</li>
 					@elseif($rent->status == 1)
 						<li>
+							<form action='/ShareUser/Dashboard/acceptPayment' method='post'>
+								<input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
+								<button class="ns_pad lnk-accept-payment" type="button" style='padding: 12px; width: 100%;'>{{ trans('booking_details.pre-sale') }}</button>
+								<input type='hidden' name='t_id' value='{!!$rent_data->transaction_id!!}' />
+								<input type='hidden' name='type' value='accept' />
+								<input type='hidden' name='id' value='{!!$rent_data->id!!}' />
+							</form>
+						</li>
+						<li>
 							 <div class='paypal-cover-{!!$rent->id!!}'>
 								<input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
 								<button class="ns_pad paypal-accept" type="submit" transid="{!!$rent->id!!}" style='padding: 12px;width: 100%;'>

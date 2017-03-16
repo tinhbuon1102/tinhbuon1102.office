@@ -71,6 +71,9 @@ use App\Spaceslot;
 					</thead>
 					<tbody>
 						@foreach($rent_datas as $rent)
+						<?php 
+						$aFlexiblePrice = \App\Rentbookingsave::getInvoiceBookingPayment($rent);
+						?>
 						<tr role="row">
 							<td class="sorting_1">{!!$rent->id!!}</td>
 							<td>@if(isset($rent->rentUser->FirstName)){{getUserName($rent->rentUser)}}@endif</td>

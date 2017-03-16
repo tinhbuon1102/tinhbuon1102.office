@@ -322,7 +322,7 @@ $count = count($rent_data->bookedSlots);
 																				<td>
 																					<div class="lead text-right right-amount-1">
 																						<span id="total_booking" class='total_booking-charged @if(isAllowShowRefund($rent_data)) strike @endif'>
-																							<?php echo $totalPrice?>
+																							<?php echo priceConvert($rent_data->amount, true);?>
 																						</span>
 																						@if(isAllowShowRefund($rent_data))
 																						<span id="total_booking" class='current_amount'> 
@@ -382,7 +382,7 @@ $count = count($rent_data->bookedSlots);
 																					<div class="lead text-right">
 																						<span id="margin_fee">
 																							<small>
-																								<?php echo $subTotalIncludeChargeFee?>
+																								<?php echo "- " . $subTotalIncludeChargeFee?>
 																							</small>
 																						</span>
 																					</div>
@@ -539,6 +539,15 @@ $count = count($rent_data->bookedSlots);
 										</form>
 									</li>
 									@endif
+									<li>
+										<form action='/ShareUser/Dashboard/acceptPayment' method='post'>
+											<input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
+											<button class="ns_pad lnk-accept-payment" type="button" style='padding: 12px; width: 100%;'>{{ trans('booking_details.pre-sale') }}</button>
+											<input type='hidden' name='t_id' value='{!!$rent_data->transaction_id!!}' />
+											<input type='hidden' name='type' value='accept' />
+											<input type='hidden' name='id' value='{!!$rent_data->id!!}' />
+										</form>
+									</li>
 									<li>
 										<form action='/ShareUser/Dashboard/acceptPayment' method='post'>
 											<input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />

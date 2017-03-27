@@ -105,7 +105,7 @@
 								金融機関コード
 								<!--Bank code-->
 							</label>
-							<input id="bank-code" name="BankCode" type="text" class="hasHelp js_needsValidation validate validate[groupRequired[codes]]" value="{{$bank->BankCode}}" autocomplete="off" placeholder="0000" max="9999" maxlength="4" min="0">
+							<input id="bank-code" name="BankCode" type="text" class="hasHelp js_needsValidation validate[required]" value="{{$bank->BankCode}}" autocomplete="off" placeholder="0000" max="9999" maxlength="4" min="0">
 							<!--pattern="[0-9]{4}" -->
 						</div>
 						<div class="input-container input-half">
@@ -125,7 +125,7 @@
 								支店コード
 								<!--支店コード-->
 							</label>
-							<input id="branch-code" name="BranchCode" type="text" class="hasHelp js_needsValidation validate[groupRequired[codes]]" value="{{$bank->BranchCode}}" autocomplete="off" placeholder="000" maxlength="3" min="0" max="999">
+							<input id="branch-code" name="BranchCode" type="text" class="hasHelp js_needsValidation validate[required]" value="{{$bank->BranchCode}}" autocomplete="off" placeholder="000" maxlength="3" min="0" max="999">
 							<!--pattern="[0-9]{3}" -->
 						</div>
 

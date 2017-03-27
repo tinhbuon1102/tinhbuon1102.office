@@ -30,7 +30,7 @@
                 },
 				"groupRequired": {
                     "regex": "none",
-                    "alertText": "* You must fill one of the following fields"
+                    "alertText": "*必須項目です"
                 },
                 "maxSize": {
                     "regex": "none",

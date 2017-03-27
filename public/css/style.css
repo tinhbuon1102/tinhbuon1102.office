@@ -76,7 +76,10 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
+#ccbox .cvc-preview-container.two-card {
+    display: none;
+	padding-top: 10px;
+}
 select::-ms-expand {
     display: none;
 }

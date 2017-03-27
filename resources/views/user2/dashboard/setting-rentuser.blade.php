@@ -701,8 +701,12 @@ echo Form::select('Prefecture', getPrefectures(), $user->Prefecture, [
 																	</div>
 																	<div class="form-field two-inputs">
 																		<div class="input-container input-half">
-																			<label for="typeOrg"> セキュリティコード </label>
+																			<label for="typeOrg"> セキュリティコード <i id="cvc" class="fa fa-question-circle"></i></label>
 																			<input name="security_code" value="{{$user->security_code}}" id="security_code" value="" ng-model="signup.card" type="text" class="ng-pristine ng-untouched ng-invalid-required" aria-required="true" placeholder="">
+																			<div class="cvc-preview-container two-card">
+																			    <div class="amex-cvc-preview"></div>
+																				<div class="visa-mc-dis-cvc-preview"></div>
+																			</div>
 																		</div>
 																	</div>
 																</div>

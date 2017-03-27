@@ -76,7 +76,7 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-#ccbox .cvc-preview-container.two-card {
+.modal-body .cvc-preview-container.two-card {
     display: none;
 	padding-top: 10px;
 }

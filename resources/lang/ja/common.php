@@ -115,4 +115,5 @@ return [
 	'Set as main image' => 'メイン画像として設定',
 	'Set as thumb image' => 'ギャラリー画像として設定',
 	'Set as profile image' => 'プロフィール写真として設定',
+	'Your Session is expired, please try again.' => 'ページのセッションが切れたため、アクセスしたページは開けませんでした。',
  ];

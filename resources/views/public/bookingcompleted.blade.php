@@ -69,8 +69,8 @@ use App\Spaceslot;
 <div id="confirm-book" class="container">
 
 <div class="text-center lead pt20 pb20">
-<h1>予約が完了しました</h1>
-<p class="comp-msg">ご予約内容の確認メールが登録されたメールアドレス宛に送信されますので、ご確認ください。</p>
+<h1>予約の申し込みが完了しました</h1>
+<p class="comp-msg">ご予約内容の確認メールが登録されたメールアドレス宛に送信されますので、ご確認ください。<br/><span class="red bold">予約が承認されるまでは、予約は確定されませんので、ご注意ください。</span></p>
 </div>
 <div class="row mb30 pt30">
 <div class="col-md-4">

@@ -114,7 +114,7 @@
 															</td>
 															<td class="table-cell">
 																<div class="workspace-actions-wrapper">
-																	<a class="action-tooltip font-icon fonticon-dots-three-horizontal"></a>
+																	<a class="action-tooltip text-link">編集・その他</a>
 																	<div class="workspace-actions-modal">
 																		<div class="workspace-actions-popup">
 																			<a target="_blank" class="content-navigation" href="{{ url('ShareUser/Dashboard/editspace/'.$space->HashID) }}">{{ trans('user1list.edit') }}<!--編集--></a>

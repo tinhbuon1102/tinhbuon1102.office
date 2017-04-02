@@ -7128,6 +7128,12 @@ a.action-tooltip {
 a.action-tooltip:hover {
 	color: #333
 }
+a.action-tooltip.text-link {
+    font-size: 12px;
+    width: auto;
+    height: auto;
+	cursor: pointer;
+}
 
 .workspace-actions-modal {
 	position: absolute;

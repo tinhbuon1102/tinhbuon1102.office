@@ -81,9 +81,9 @@
 											<span>1500</span>
 											文字
 										</small>
-										<small style="display: none;" class="help-inline">
+										<!--<small style="display: none;" class="help-inline">
 											<span for="comment-field-id" generated="true" class="error">10文字以下での投稿はできません。</span>
-										</small>
+										</small>-->
 									</div>
 									<button id="rate-space-button-id" type="submit" value="Rate User" class="btn btn-info btn-mini rate-space-button">レビューを投稿</button>
 								</div>

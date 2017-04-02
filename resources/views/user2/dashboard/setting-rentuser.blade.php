@@ -147,6 +147,20 @@ $user = Auth::guard('user2')->user();
 											<div class="hr"></div>
                                                  <?php }?>
 												<!--/if confirmation of identity is not proceed yet-->
+												<fieldset>
+												<div class="Signup-sectionHeader">
+													<legend class="signup-sectionTitle">
+														あなたのプロフィール
+													</legend>
+												</div>
+												<div class="form-field two-inputs">
+													<div class="input-container input-half">
+														<a href="{{url('RentUser/Dashboard/MyProfile')}}" class="btn btn-info"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>プロフィール編集</a>
+													</div>
+												</div>
+												<!--/form-field-->
+											</fieldset>
+											<div class="hr"></div>
 											<fieldset>
 												<div class="Signup-sectionHeader">
 													<legend class="signup-sectionTitle">

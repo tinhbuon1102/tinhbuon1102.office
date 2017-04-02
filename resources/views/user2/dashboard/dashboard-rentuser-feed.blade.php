@@ -13,7 +13,7 @@
 				$notifTitle = ($notifications[0]['Status'] == 0) ? 'があなたにレビューを投稿しました。予約番号#' .$notifications[0]['TypeID'] : 'があなたのレビューをしました。予約番号#' .$notifications[0]['TypeID'];
 				break;
 			case NOTIFICATION_BOOKING_PLACED :
-				$notifTitle = '以下の予約の申込みが完了しました。予約申込みはまだ承認されていません。<br/><a class="font-bold" href="'. getUser1ProfileUrl($aUserSend) .'">'. getUserName($aUserSend) .'</a>からの承認をお待ち下さい。';
+				$notifTitle = '以下の予約の申込みが完了しました。<span class="red">予約申込みはまだ承認されていません。</span><br/><a class="font-bold" href="'. getUser1ProfileUrl($aUserSend) .'">'. getUserName($aUserSend) .'</a>からの承認をお待ち下さい。';
 				break;
 			case NOTIFICATION_BOOKING_CHANGE_STATUS :
 				$notifTitle = 'が予約のステータスを変更しました。予約番号: #' . $notifications[0]['TypeID'];

@@ -936,6 +936,8 @@ $(window).scroll(function() {
   <script src="{{ URL::asset('js/jquery.validationEngine.js') }}"></script>
 <script src="{{ URL::asset('js/jquery.validationEngine-ja.js') }}"></script>
 <link rel="stylesheet" href="{{ URL::asset('css/validationEngine.jquery.css') }}">
+<script src="https://zipaddr.github.io/bankautob.js" charset="UTF-8"></script>
+
 
     <!-- bank account script -->
     @include('user1.dashboard.bank-account-script')

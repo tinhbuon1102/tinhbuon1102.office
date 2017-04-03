@@ -33,9 +33,9 @@
             return str.charCodeAt(str.length - 1);
         };
 
-        $('#bank-code', form).keyup(function(e){
+        $('#bank_code111', form).keyup(function(e){
 
-            var code = $('#bank-code').val();
+            var code = $('#bank_code').val();
             if (code.length < 4) {
                 $('.bank-branch-data-wrapper', form).addClass('hide');
                 return;
@@ -52,7 +52,7 @@
                 return;
             }
 
-            $('#bank-name').val('').attr('placeholder', '');
+            $('#bank_name').val('').attr('placeholder', '');
 
             if (code.length != 4) {
                 $('.bank-branch-data-wrapper', form).addClass('hide');
@@ -62,15 +62,15 @@
             getBankInfo(code, function (data) {
                 console.log(data);
                 $('.bank-branch-data-wrapper', form).removeClass('hide');
-                $('#bank-code').validationEngine('hide');
-                $('#bank-name').val(data.name);
+                $('#bank_code').validationEngine('hide');
+                $('#bank_name').val(data.name);
             }, function () {
                 $('.bank-branch-data-wrapper', form).addClass('hide');
-                $('#bank-name').val('');
+                $('#bank_name').val('');
             });
         });
 
-        $('#branch-code', form).keyup(function(e){
+        $('#branch_code1111', form).keyup(function(e){
 
             var keyCode = e.keyCode || e.which;
             if (keyCode == 0 || keyCode == 229) { //for android chrome keycode fix
@@ -82,10 +82,10 @@
                 return;
             }
 
-            $('#branch-name').val('').attr('placeholder', ''); // empty
+            $('#branch_name').val('').attr('placeholder', ''); // empty
 
-            var code = $('#bank-code').val();
-            var branch = $('#branch-code').val();
+            var code = $('#bank_code').val();
+            var branch = $('#branch_code').val();
 
             if (code.length != 4) {
                 return;
@@ -99,10 +99,10 @@
             getBranchInfo(code, branch, function (data) {
 
                 console.log(data);
-                $('#branch-code').validationEngine('hide');
-                $('#branch-name').val(data.name);
+                $('#branch_code').validationEngine('hide');
+                $('#branch_name').val(data.name);
             }, function () {
-                $('#branch-name').val('').attr('placeholder', ''); // empty
+                $('#branch_name').val('').attr('placeholder', ''); // empty
             });
         });
     });
@@ -175,7 +175,7 @@
                         bankError = (typeof(errors['bank']) != 'undefined') ?
                             errors['bank'][0] : false;
                     if (bankError) {
-                        $('#bank-code').validationEngine('showPrompt', bankError);
+                        $('#bank_code').validationEngine('showPrompt', bankError);
                     }
                 }
 
@@ -215,10 +215,10 @@
                     console.log(errors);
 
                     if (bankError) {
-                        $('#bank-code').validationEngine('showPrompt', bankError);
+                        $('#bank_code').validationEngine('showPrompt', bankError);
                     }
                     if (branchError) {
-                        $('#branch-code').validationEngine('showPrompt', branchError);
+                        $('#branch_code').validationEngine('showPrompt', branchError);
                     }
                 }
 

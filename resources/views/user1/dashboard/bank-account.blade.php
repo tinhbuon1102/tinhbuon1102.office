@@ -105,7 +105,7 @@
 								金融機関コード
 								<!--Bank code-->
 							</label>
-							<input id="bank-code" name="BankCode" type="text" class="hasHelp js_needsValidation validate[required]" value="{{$bank->BankCode}}" autocomplete="off" placeholder="0000" max="9999" maxlength="4" min="0">
+							<input id="bank_code" name="BankCode" type="text" class="hasHelp js_needsValidation validate[required]" value="{{$bank->BankCode}}" autocomplete="off" placeholder="0000" max="9999" maxlength="4" min="0">
 							<!--pattern="[0-9]{4}" -->
 						</div>
 						<div class="input-container input-half">
@@ -113,7 +113,7 @@
 								銀行名 (銀行コードに基づいてオートコンプリート)
 								<!--Bank Name-->
 							</label>
-							<input id="bank-name" name="BankName" type="text" class="hasHelp disabled-input-background" readonly="readonly" value="{{$bank->BankName}}" placeholder="" autocomplete="off" maxlength="64">
+							<input id="bank_name" name="BankName" type="text" class="hasHelp disabled-input-background" value="{{$bank->BankName}}" placeholder="" autocomplete="off" maxlength="64">
 						</div>
 					</div>
 
@@ -125,7 +125,7 @@
 								支店コード
 								<!--支店コード-->
 							</label>
-							<input id="branch-code" name="BranchCode" type="text" class="hasHelp js_needsValidation validate[required]" value="{{$bank->BranchCode}}" autocomplete="off" placeholder="000" maxlength="3" min="0" max="999">
+							<input id="branch_code" name="BranchCode" type="text" class="hasHelp js_needsValidation validate[required]" value="{{$bank->BranchCode}}" autocomplete="off" placeholder="000" maxlength="3" min="0" max="999">
 							<!--pattern="[0-9]{3}" -->
 						</div>
 
@@ -135,7 +135,7 @@
 								支店名 (支店コードに基づいてオートコンプリート)
 								<!--Branch location name-->
 							</label>
-							<input id="branch-name" name="BranchLocationName" type="text" class="hasHelp disabled-input-background" readonly="readonly" value="{{$bank->BranchLocationName}}" placeholder="支店名" autocomplete="off" aria-invalid="false">
+							<input id="branch_name" name="BranchLocationName" type="text" class="hasHelp disabled-input-background" value="{{$bank->BranchLocationName}}" placeholder="支店名" autocomplete="off" aria-invalid="false">
 							<!--pattern=".*"-->
 						</div>
 

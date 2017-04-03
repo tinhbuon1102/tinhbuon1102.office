@@ -1044,6 +1044,44 @@ section#howitworks {
     background: url(../images/bg-sec-hiw.jpg) center/cover no-repeat;
 	background-color: rgba(255, 221, 0, 1);
 }
+
+@charset "utf-8";
+
+#bnkauto {          /* PC */
+	position: absolute;
+	font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+	background: #009999;
+	font-weight: normal;
+	padding: 5px 8px !important;
+	border-radius: 8px;
+	z-index: 999999;
+	font-size: 12px;
+	line-height: 130%;
+}
+
+
+.bnk_line {         /* 行部分 */
+	color: #ffffcc;
+}
+#bnk_cnt {          /* Hit件数 */
+	color: #ffffcc;
+}
+#bnk_close {        /* 閉じる */
+	color: #333333;
+}
+
+.bnk_area{
+	position: relative;
+}
+.bnk_clear{
+	display: none;
+	position: absolute;
+	right: 0;
+	background: #898989;
+	font-size: 16px;
+    margin-top: 0.4em;
+}
+
 @media (min-width: 1220px) {
 section#howitworks {
 	height: 450px;

@@ -3,7 +3,7 @@ function initMap(imagePath){
     var dataCount = 0;
     var dataList = [];
     var myOptions = {
-      zoom: 19,
+      zoom: 16,
       center: latlng,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };

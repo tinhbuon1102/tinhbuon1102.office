@@ -113,7 +113,7 @@
 								銀行名 (銀行コードに基づいてオートコンプリート)
 								<!--Bank Name-->
 							</label>
-							<input id="bank_name" name="BankName" type="text" class="hasHelp disabled-input-background" value="{{$bank->BankName}}" placeholder="" autocomplete="off" maxlength="64">
+							<input id="bank_name" name="BankName" type="text" class="hasHelp " value="{{$bank->BankName}}" placeholder="" autocomplete="off" maxlength="64">
 						</div>
 					</div>
 
@@ -135,7 +135,7 @@
 								支店名 (支店コードに基づいてオートコンプリート)
 								<!--Branch location name-->
 							</label>
-							<input id="branch_name" name="BranchLocationName" type="text" class="hasHelp disabled-input-background" value="{{$bank->BranchLocationName}}" placeholder="支店名" autocomplete="off" aria-invalid="false">
+							<input id="branch_name" name="BranchLocationName" type="text" class="hasHelp " value="{{$bank->BranchLocationName}}" placeholder="支店名" autocomplete="off" aria-invalid="false">
 							<!--pattern=".*"-->
 						</div>
 

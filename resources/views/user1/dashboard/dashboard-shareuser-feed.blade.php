@@ -195,7 +195,6 @@
 					<?php }?>
 					<?php if (in_array($notification['Type'], array(
 								NOTIFICATION_BOOKING_PLACED, 
-								NOTIFICATION_BOOKING_CHANGE_STATUS, 
 								NOTIFICATION_BOOKING_REFUND_50, 
 								NOTIFICATION_BOOKING_REFUND_100, 
 								NOTIFICATION_BOOKING_REFUND_NO_CHARGE))

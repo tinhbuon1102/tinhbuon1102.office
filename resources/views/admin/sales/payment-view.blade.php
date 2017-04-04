@@ -17,7 +17,7 @@
 			<a href="#tab-6">振り込みリスト</a>
 		</li>
 	</ul>
-	<div id="tab-4" data-tab="user_sales">@include('admin.sales.payment_tab_1')</div>
+	<div id="tab-4" data-tab="user_sales" style="opacity: 0;">@include('admin.sales.payment_tab_1')</div>
 	<div id="tab-5" data-tab="total_sales">@include('admin.sales.payment_tab_2')</div>
 	<div id="tab-6" data-tab="transfer_list">@include('admin.sales.payment_tab_3')</div>
 </div>
@@ -33,6 +33,7 @@ $(document).ready(function($) {
         setHash: true,
 		activate: function(e, tab) {
 			var selector = $(tab.selector);
+			console.log(selector);
 			var tabHorizontalIndex = tab.id + 1;
 
 			if (!$('#tab_button_' + tabHorizontalIndex).hasClass('r-tabs-state-active')) return;
@@ -44,11 +45,9 @@ $(document).ready(function($) {
 				method: 'get',
 				dataType: 'html',
 				success : function(response){
-					reloadDataTable(true);
 					selector.html(response);
-					reloadDataTable(false);
-					selector.css('opacity', 1);
 					renderDatePicker();
+					$('.r-tabs-state-active .stats_range li.active:visible a').trigger('click');
 				},
 				error: function(){
 					selector.css('opacity', 1);
@@ -77,6 +76,10 @@ $(document).ready(function($) {
 					$('.r-tabs-state-active table.table-striped tbody').html(response);
 					reloadDataTable(false);
 				}
+				$('.r-tabs-state-active').css('opacity', 1);
+			},
+			error: function(){
+				$('.r-tabs-state-active').css('opacity', 1);
 			}
 		});
 	});

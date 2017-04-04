@@ -820,8 +820,48 @@ class MyAdminController extends Controller
 				
 			$rent_datas=Rentbookingsave::where('User1ID', (int)$request->id)
 			->whereIn('rentbookingsaves.status', array(BOOKING_STATUS_RESERVED, BOOKING_STATUS_COMPLETED))
-			->OrderBy('created_at','desc')->get();
-				
+			->OrderBy('created_at','desc');
+			
+			$dateTime = \Carbon\Carbon::now();
+			if ($request->filter_time)
+			{
+				switch ($request->filter_time)
+				{
+					case CURRENT_YEAR :
+						$startDate = $dateTime->startOfYear()->format('Y-m-d 00:00:00');
+						$endDate = $dateTime->endOfYear()->format('Y-m-d 23:59:59');
+			
+						break;
+					case LAST_MONTH :
+						$dateTime = $dateTime->subMonths(1);
+						$startDate = $dateTime->startOfMonth()->format('Y-m-d 00:00:00');
+						$endDate = $dateTime->endOfMonth()->format('Y-m-d 23:59:59');
+						break;
+					case THIS_MONTH :
+						$startDate = $dateTime->startOfMonth()->format('Y-m-d 00:00:00');
+						$endDate = $dateTime->endOfMonth()->format('Y-m-d 23:59:59');
+						break;
+					case LAST_WEEK :
+						$dateTime = $dateTime->subWeeks(1);
+						$startDate = $dateTime->startOfWeek()->format('Y-m-d 00:00:00');
+						$endDate = $dateTime->endOfWeek()->format('Y-m-d 23:59:59');
+						break;
+				}
+			
+				$rent_datas = $rent_datas->where('created_at', '>=', $startDate);
+				$rent_datas = $rent_datas->where('created_at', '<=', $endDate);
+			}
+			elseif ($request->start_date || $request->end_date) {
+			
+				if (trim($request->start_date))
+					$rent_datas = $rent_datas->where('created_at', '>=', date('Y-m-d 00:00:00', strtotime($request->start_date)));
+			
+					if (trim($request->end_date))
+						$rent_datas = $rent_datas->where('created_at', '<=', date('Y-m-d 23:59:59', strtotime($request->end_date)));
+			}
+			
+			$rent_datas = $rent_datas->get();
+			
 			return view($aFileTab[$request->tab],compact('rent_datas'));
 		}
 
@@ -890,6 +930,7 @@ class MyAdminController extends Controller
 			if (trim($request->end_date))
 				$rent_datas = $rent_datas->where('created_at', '<=', date('Y-m-d 23:59:59', strtotime($request->end_date)));
 		}
+		
 
 		$rent_datas = $rent_datas->get();
 

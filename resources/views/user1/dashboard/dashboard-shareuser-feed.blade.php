@@ -25,6 +25,11 @@
 					$notifTitle = 'からの予約が予約承認され、予約ステータスが<span class="purple bold">予約済み</span>に変更されました。';
 				}
 				break;
+			case NOTIFICATION_BOOKING_REFUND_NO_CHARGE :
+			case NOTIFICATION_BOOKING_REFUND_50 :
+			case NOTIFICATION_BOOKING_REFUND_100 :
+				$notifTitle = 'Status is changed to cancelled';
+				break;
 			default:
 				$notifTitle = '';
 				break;

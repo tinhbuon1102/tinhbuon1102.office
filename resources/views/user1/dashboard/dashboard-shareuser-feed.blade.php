@@ -25,6 +25,11 @@
 					$notifTitle = 'You accepted the booking and the booking is reserved';
 				}
 				break;
+			case NOTIFICATION_BOOKING_REFUND_NO_CHARGE :
+			case NOTIFICATION_BOOKING_REFUND_50 :
+			case NOTIFICATION_BOOKING_REFUND_100 :
+				$notifTitle = 'Status is changed to cancelled';
+				break;
 			default:
 				$notifTitle = '';
 				break;

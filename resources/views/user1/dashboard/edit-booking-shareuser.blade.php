@@ -47,22 +47,24 @@ $count = count($rent_data->bookedSlots);
 													</button>
 												</a>
 												
-												<div class="head_button_wraper ns_action-wrap btn-group">
+												
+											</div>
+											
+										</div>
+										<div class="col-xs-6 col-md-6 col-sm-4 clearfix pb15 text-right">
+												
 													@if($rent_data->in_use==0) 
 													@if(($rent_data->status==1 || $rent_data->status==2))
 														@if($rent_data->status==2)
-															<button class="btn btn-mini btn-info header_booking_button" data-form="#form_refund" type="button" >{{ trans('booking_list.refund_action') }}</button>
+															<button class="btn btn-default mt15 refund_booking_button header_booking_button" data-form="#form_refund" type="button" >{{ trans('booking_list.refund_action') }}</button>
 														@else
-															<button class="btn btn-mini btn-info btn-mini header_booking_button" data-form="#form_accept" type="button" >{{ trans('booking_details.pre-sale') }}</button>
-															<button class="btn btn-mini btn-info header_booking_button" data-form="#form_reject" type="button" >{{ trans('booking_list.reject_action') }}</button>
+															<button class="btn btn-default mt15 accept_booking_button header_booking_button" data-form="#form_accept" type="button" >{{ trans('booking_details.accept_booking') }}</button>
+															<button class="btn btn-default mt15 reject_booking_button header_booking_button" data-form="#form_reject" type="button" >{{ trans('booking_details.deny_booking') }}</button>
 														@endif
 													@endif @endif
-												</div>
+												
 											</div>
-										</div>
-										<div class="col-xs-6 col-md-6 col-sm-4 clearfix pb15 text-right  hide_edit_total3">
-											<!--<button id="saveBasicInfo" type="submit" class="btn btn-default mt15 saveBasicInfo" ><i class="fa fa-floppy-o"></i><span class="hidden-sm hidden-xs"> 保存</span></button>-->
-										</div>
+										
 									</div>
 								</div>
 							</div>

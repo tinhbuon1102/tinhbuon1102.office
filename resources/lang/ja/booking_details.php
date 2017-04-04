@@ -52,4 +52,6 @@ return [
 	'invoice_to' => '支払先',
 	'recipt_no' => '支払い番号',
 	'space_summary' => '利用スペース概要',
+	'accept_booking' => '予約受付処理',
+	'deny_booking' => '予約受付拒否',
 ];

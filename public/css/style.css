@@ -9643,6 +9643,46 @@ button.btn.btn-default.mt15 {
 	white-space: nowrap;
 	vertical-align: middle;
 }
+.reject_booking_button {
+    background: #E54028;
+    color: #FFF;
+    font-weight: bold !important;
+    border-color: #E54028;
+}
+.reject_booking_button:hover, .reject_booking_button:focus {
+	color: #FFF;
+    background: #e8543f;
+    border-color: #e8543f;
+}
+.accept_booking_button {
+    background: #7db500;
+    color: #FFF;
+    font-weight: bold !important;
+    border-color: #7db500;
+}
+.accept_booking_button:hover, .accept_booking_button:focus {
+	color: #FFF;
+    background: #8fcf00;
+    border-color: #8fcf00;
+}
+.refund_booking_button {
+    color: #FFF;
+    background: #F18D05;
+    border-color: #F18D05;
+    font-weight: bold !important;
+}
+.refund_booking_button:hover, .refund_booking_button:focus {
+    color: #FFF;
+    background: #fa9915;
+    border-color: #fa9915;
+}
+span.purple {
+    color: rgb(99, 115, 250);
+    color: rgba(99, 115, 250,1);
+}
+span.bold {
+    font-weight: bold;
+}
 
 a.change-date {
 	background: #1CAF9A;

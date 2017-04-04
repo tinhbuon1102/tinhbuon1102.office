@@ -17,7 +17,7 @@
 			case NOTIFICATION_BOOKING_CHANGE_STATUS :
 				if ($notifications[0]['booking']['status'] == BOOKING_STATUS_RESERVED)
 				{
-					$notifTitle = 'You accepted the booking and the booking is reserved';
+					$notifTitle = 'からの予約が予約承認され、予約ステータスが<span class="purple bold">予約済み</span>に変更されました。';
 				}
 				break;
 			default:

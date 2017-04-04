@@ -808,6 +808,46 @@ class MyAdminController extends Controller
 
 	}
 
+	public function getSaleConditionByRequest($request, $rent_datas){
+		$dateTime = \Carbon\Carbon::now();
+		if ($request->filter_time)
+		{
+			switch ($request->filter_time)
+			{
+				case CURRENT_YEAR :
+					$startDate = $dateTime->startOfYear()->format('Y-m-d 00:00:00');
+					$endDate = $dateTime->endOfYear()->format('Y-m-d 23:59:59');
+						
+					break;
+				case LAST_MONTH :
+					$dateTime = $dateTime->subMonths(1);
+					$startDate = $dateTime->startOfMonth()->format('Y-m-d 00:00:00');
+					$endDate = $dateTime->endOfMonth()->format('Y-m-d 23:59:59');
+					break;
+				case THIS_MONTH :
+					$startDate = $dateTime->startOfMonth()->format('Y-m-d 00:00:00');
+					$endDate = $dateTime->endOfMonth()->format('Y-m-d 23:59:59');
+					break;
+				case LAST_WEEK :
+					$startDate = $dateTime->startOfWeek()->format('Y-m-d 00:00:00');
+					$endDate = $dateTime->endOfWeek()->format('Y-m-d 23:59:59');
+					break;
+			}
+				
+			$rent_datas = $rent_datas->where('created_at', '>=', $startDate);
+			$rent_datas = $rent_datas->where('created_at', '<=', $endDate);
+		}
+		elseif ($request->start_date || $request->end_date) {
+				
+			if (trim($request->start_date))
+				$rent_datas = $rent_datas->where('created_at', '>=', date('Y-m-d 00:00:00', strtotime($request->start_date)));
+					
+			if (trim($request->end_date))
+				$rent_datas = $rent_datas->where('created_at', '<=', date('Y-m-d 23:59:59', strtotime($request->end_date)));
+		}
+		
+		return $rent_datas;
+	}
 	public function sales(Request $request)
 	{
 		if (isset($request->detail) && $request->detail)
@@ -822,43 +862,7 @@ class MyAdminController extends Controller
 			->whereIn('rentbookingsaves.status', array(BOOKING_STATUS_RESERVED, BOOKING_STATUS_COMPLETED))
 			->OrderBy('created_at','desc');
 			
-			$dateTime = \Carbon\Carbon::now();
-			if ($request->filter_time)
-			{
-				switch ($request->filter_time)
-				{
-					case CURRENT_YEAR :
-						$startDate = $dateTime->startOfYear()->format('Y-m-d 00:00:00');
-						$endDate = $dateTime->endOfYear()->format('Y-m-d 23:59:59');
-			
-						break;
-					case LAST_MONTH :
-						$dateTime = $dateTime->subMonths(1);
-						$startDate = $dateTime->startOfMonth()->format('Y-m-d 00:00:00');
-						$endDate = $dateTime->endOfMonth()->format('Y-m-d 23:59:59');
-						break;
-					case THIS_MONTH :
-						$startDate = $dateTime->startOfMonth()->format('Y-m-d 00:00:00');
-						$endDate = $dateTime->endOfMonth()->format('Y-m-d 23:59:59');
-						break;
-					case LAST_WEEK :
-						$dateTime = $dateTime->subWeeks(1);
-						$startDate = $dateTime->startOfWeek()->format('Y-m-d 00:00:00');
-						$endDate = $dateTime->endOfWeek()->format('Y-m-d 23:59:59');
-						break;
-				}
-			
-				$rent_datas = $rent_datas->where('created_at', '>=', $startDate);
-				$rent_datas = $rent_datas->where('created_at', '<=', $endDate);
-			}
-			elseif ($request->start_date || $request->end_date) {
-			
-				if (trim($request->start_date))
-					$rent_datas = $rent_datas->where('created_at', '>=', date('Y-m-d 00:00:00', strtotime($request->start_date)));
-			
-					if (trim($request->end_date))
-						$rent_datas = $rent_datas->where('created_at', '<=', date('Y-m-d 23:59:59', strtotime($request->end_date)));
-			}
+			$rent_datas = $this->getSaleConditionByRequest($request, $rent_datas);
 			
 			$rent_datas = $rent_datas->get();
 			
@@ -893,45 +897,9 @@ class MyAdminController extends Controller
 			->OrderBy('id','desc');
 			$rent_datas = $rent_datas->whereIn('rentbookingsaves.status', array(BOOKING_STATUS_RESERVED, BOOKING_STATUS_COMPLETED));
 		}
-		$dateTime = \Carbon\Carbon::now();
-		if ($request->filter_time)
-		{
-			switch ($request->filter_time)
-			{
-				case CURRENT_YEAR :
-					$startDate = $dateTime->startOfYear()->format('Y-m-d 00:00:00');
-					$endDate = $dateTime->endOfYear()->format('Y-m-d 23:59:59');
-						
-					break;
-				case LAST_MONTH :
-					$dateTime = $dateTime->subMonths(1);
-					$startDate = $dateTime->startOfMonth()->format('Y-m-d 00:00:00');
-					$endDate = $dateTime->endOfMonth()->format('Y-m-d 23:59:59');
-					break;
-				case THIS_MONTH :
-					$startDate = $dateTime->startOfMonth()->format('Y-m-d 00:00:00');
-					$endDate = $dateTime->endOfMonth()->format('Y-m-d 23:59:59');
-					break;
-				case LAST_WEEK :
-					$dateTime = $dateTime->subWeeks(1);
-					$startDate = $dateTime->startOfWeek()->format('Y-m-d 00:00:00');
-					$endDate = $dateTime->endOfWeek()->format('Y-m-d 23:59:59');
-					break;
-			}
-				
-			$rent_datas = $rent_datas->where('created_at', '>=', $startDate);
-			$rent_datas = $rent_datas->where('created_at', '<=', $endDate);
-		}
-		elseif ($request->start_date || $request->end_date) {
-				
-			if (trim($request->start_date))
-				$rent_datas = $rent_datas->where('created_at', '>=', date('Y-m-d 00:00:00', strtotime($request->start_date)));
-				
-			if (trim($request->end_date))
-				$rent_datas = $rent_datas->where('created_at', '<=', date('Y-m-d 23:59:59', strtotime($request->end_date)));
-		}
-		
 
+		$rent_datas = $this->getSaleConditionByRequest($request, $rent_datas);
+		
 		$rent_datas = $rent_datas->get();
 
 		if ($request->ajax())

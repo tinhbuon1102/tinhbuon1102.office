@@ -36,17 +36,11 @@ $rent_data = isset($rent_datas[0]) ? $rent_datas[0] : array();
 			</span>
 		</strong>
 	</li>
-	<li style="border-color: #dbe1e3" class="highlight_series " data-series="1" data-tip="">
-		<strong>
-			<?php echo isset($rent_data['placed']) ? $rent_data['placed'] : 0 ?>
-		</strong>
-		予約数
-	</li>
 	<li style="border-color: #ecf0f1" class="highlight_series " data-series="0" data-tip="">
 		<strong>
 			<?php echo isset($rent_data['purchased']) ? $rent_data['purchased'] : 0 ?>
 		</strong>
-		支払数
+		予約数
 	</li>
 	<li style="border-color: #e74c3c" class="highlight_series " data-series="8" data-tip="">
 		<strong>

@@ -1280,6 +1280,10 @@ class User1Controller extends Controller
 				if ( ! empty($request->dataimage['main_id']) )
 				{
 					$spaceimg = Spaceimage::find($request->dataimage['main_id']);
+					// Remove old link
+					@unlink(public_path() . $spaceimg->OrgPath);
+					@unlink(public_path() . $spaceimg->ThumbPath);
+					@unlink(public_path() . $spaceimg->SThumbPath);
 				}
 				else
 				{
@@ -1291,6 +1295,7 @@ class User1Controller extends Controller
 				$spaceimg->SThumbPath = $newfilenameTS1;
 				$spaceimg->Main = 1;
 				$spaceimg->Coords = "x1:" . $main->x1 . ",y1:" . $main->y1 . ",x2:" . $main->x2 . ",y2:" . $main->y2 . ",w:" . $main->w . ",h:" . $main->h . ",wr:" . $main->wr . "";
+				
 				$spaceimg->save();
 			}
 		}
@@ -1324,17 +1329,24 @@ class User1Controller extends Controller
 					if ( ! empty($request->dataimage["thumb_" . $i . "_id"]) )
 					{
 						$spaceimg = Spaceimage::find($request->dataimage["thumb_" . $i . "_id"]);
+						// Remove old link
+						@unlink(public_path() . $spaceimg->OrgPath);
+						@unlink(public_path() . $spaceimg->ThumbPath);
+						@unlink(public_path() . $spaceimg->SThumbPath);
 					}
 					else
 					{
 						$spaceimg = new Spaceimage();
 					}
+					
+					
 					$spaceimg->ShareSpaceID = $spaceID;
 					$spaceimg->OrgPath = $newfilename1;
 					$spaceimg->ThumbPath = $newfilenameT1;
 					$spaceimg->SThumbPath = $newfilenameTS1;
 					$spaceimg->Main = 0;
 					$spaceimg->Coords = "x1:" . $main->x1 . ",y1:" . $main->y1 . ",x2:" . $main->x2 . ",y2:" . $main->y2 . ",w:" . $main->w . ",h:" . $main->h . ",wr:" . $main->wr . "";
+					
 					$spaceimg->save();
 				}
 			}
@@ -2180,11 +2192,11 @@ class User1Controller extends Controller
 			case "image/pjpeg":
 			case "image/jpeg":
 			case "image/jpg":
-				imagejpeg($newImage,$thumb_image_name, IMAGE_JPG_QUALITY);
+				imagejpeg($newImage,$thumb_image_name, ($thumb_image_name == $image ? IMAGE_JPG_QUALITY : 100));
 				break;
 			case "image/png":
 			case "image/x-png":
-				imagepng($newImage,$thumb_image_name, IMAGE_PNG_QUALITY);
+				imagepng($newImage,$thumb_image_name, ($thumb_image_name == $image ? IMAGE_PNG_QUALITY : 9));
 				break;
 		}
 		
@@ -2232,6 +2244,11 @@ class User1Controller extends Controller
 			}
 			
 			$large_image_location = $upload_path_tmp . $filename;
+			
+			list ($imageOriginalWidth, $imageOriginalHeight, $imageOriginalType) = getimagesize($large_image_location);
+			// Resize original image to reduce resolution
+			$this->resizeThumbnailImage($upload_path, $large_image_location, $large_image_location, $imageOriginalWidth, $imageOriginalHeight, 0, 0, 1);
+			
 			$x1 = $_POST["x1"];
 			$y1 = $_POST["y1"];
 			$x2 = $_POST["x2"];
@@ -2247,6 +2264,8 @@ class User1Controller extends Controller
 				$thumb_image_location = $upload_path_tmp . "thumb_" . $filename;
 				$thumb_image_location1 = $upload_path_tmp . "small_thumb_" . $filename;
 				$image_url = $upload_path_tmp_url . "thumb_" . $filename;
+				
+				// Resize thumb
 				$cropped = $this->resizeThumbnailImage($upload_path, $thumb_image_location, $large_image_location, $w, $h, $x1, $y1, $scale);
 				$cropped1 = $this->resizeThumbnailImage($upload_path, $thumb_image_location1, $large_image_location, $w, $h, $x1, $y1, $scale1);
 			}

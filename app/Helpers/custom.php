@@ -389,13 +389,16 @@ function calculateUserProfilePercent($user, $userType = 1)
 	}
 	
 	// Manually set payment percent point
-	if (isset($user->billings) && $user->billings->billingId && !$user->card_number)
+	if ($userType != 1)
 	{
-		$totalPercent += 5;
-	}
-	elseif ((!isset($user->billings) || (isset($user->billings) && !$user->billings->billingId)) && $user->card_number)
-	{
-		$totalPercent += 5;
+		if (isset($user->billings) && $user->billings->billingId && !$user->card_number)
+		{
+			$totalPercent += 5;
+		}
+		elseif ((!isset($user->billings) || (isset($user->billings) && !$user->billings->billingId)) && $user->card_number)
+		{
+			$totalPercent += 5;
+		}
 	}
 	
 	return $totalPercent;

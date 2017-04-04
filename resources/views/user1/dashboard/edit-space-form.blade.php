@@ -413,6 +413,14 @@ function MychkBoxchk(str,id){
 						{{$space->updated_at ? $space->updated_at->format('Y-m-d H:i') : ''}}
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-xs-12 col-md-12 col-sm-12 clearfix">
+						<label class="left-label" for="space_logged_user">Visible for Logged in User only ?</label>
+						<div class="input-container input-col3">
+							<input type="checkbox" name="LoggedOnly" id="LoggedOnly" value="1" <?php echo ($space->LoggedOnly == 1 ? 'checked' : '')?>/>
+						</div>
+					</div>
+				</div>
 				<!--/row-->
 			</div>
 			<fieldset>

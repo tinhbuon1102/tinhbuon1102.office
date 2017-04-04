@@ -15,7 +15,14 @@ class User1sharespace extends Model
 
 	public function spaceAvailable()
 	{
+		if ( (!\Auth::guard('user1')->check() && !\Auth::guard('user2')->check()) && $this->LoggedOnly)
+		{
+			// Make sql failed so space not exist
+			return $this->hasMany('App\Spaceslot',  'SpaceID')->where('id', -1);
+		}
+		
 		return $this->hasMany('App\Spaceslot',  'SpaceID');
+		
 	}
 	
 	public function bookedSlots()

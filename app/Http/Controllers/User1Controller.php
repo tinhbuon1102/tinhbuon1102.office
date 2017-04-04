@@ -847,6 +847,11 @@ class User1Controller extends Controller
 				'original_point' => implode(",", $request->original_point)
 			));
 		}
+		
+		$request->merge(array(
+			'LoggedOnly' => $request->LoggedOnly ? $request->LoggedOnly : 0
+		));
+		
 		if ( ! empty($request->Skills) )
 		{
 			$request->merge(array(
@@ -1084,6 +1089,11 @@ class User1Controller extends Controller
 				'original_point' => implode(",", $request->original_point)
 			));
 		}
+		
+		$request->merge(array(
+			'LoggedOnly' => $request->LoggedOnly ? $request->LoggedOnly : 0
+		));
+		
 		
 		if ( ! empty($request->Skills) )
 		{

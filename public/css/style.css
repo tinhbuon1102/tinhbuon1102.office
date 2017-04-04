@@ -1082,6 +1082,7 @@ section#howitworks {
     margin-top: 0.4em;
 }
 
+.head_button_wraper form {display: inline-block;}
 @media (min-width: 1220px) {
 section#howitworks {
 	height: 450px;

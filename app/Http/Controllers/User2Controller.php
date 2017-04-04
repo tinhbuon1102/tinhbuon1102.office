@@ -1466,11 +1466,11 @@ class User2Controller extends Controller
 				case "image/pjpeg":
 				case "image/jpeg":
 				case "image/jpg":
-					imagejpeg($newImage,$thumb_image_name,100);
+					imagejpeg($newImage,$thumb_image_name, IMAGE_JPG_QUALITY);
 					break;
 				case "image/png":
 				case "image/x-png":
-					imagepng($newImage,$thumb_image_name);
+					imagepng($newImage,$thumb_image_name, IMAGE_PNG_QUALITY);
 					break;
 			}
 

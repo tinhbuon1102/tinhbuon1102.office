@@ -127,4 +127,8 @@ define('TIME_DEFAULT_FORMAT', 'H:i:s');
 define('JS_CACHED_TIME', 10);
 define('NOTIFICATION_STR_LIMIT', 32);
 
+// Image quality
+define('IMAGE_JPG_QUALITY', 72);
+define('IMAGE_PNG_QUALITY', 7);
+
 define('REQUIRE_MESSAGE_FIELD_TEXT', 'は、必ず指定してください。');

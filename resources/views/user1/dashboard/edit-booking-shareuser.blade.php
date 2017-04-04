@@ -46,6 +46,18 @@ $count = count($rent_data->bookedSlots);
 														</span>
 													</button>
 												</a>
+												
+												<div class="head_button_wraper ns_action-wrap btn-group">
+													@if($rent_data->in_use==0) 
+													@if(($rent_data->status==1 || $rent_data->status==2))
+														@if($rent_data->status==2)
+															<button class="btn btn-mini btn-info header_booking_button" data-form="#form_refund" type="button" >{{ trans('booking_list.refund_action') }}</button>
+														@else
+															<button class="btn btn-mini btn-info btn-mini header_booking_button" data-form="#form_accept" type="button" >{{ trans('booking_details.pre-sale') }}</button>
+															<button class="btn btn-mini btn-info header_booking_button" data-form="#form_reject" type="button" >{{ trans('booking_list.reject_action') }}</button>
+														@endif
+													@endif @endif
+												</div>
 											</div>
 										</div>
 										<div class="col-xs-6 col-md-6 col-sm-4 clearfix pb15 text-right  hide_edit_total3">
@@ -473,7 +485,7 @@ $count = count($rent_data->bookedSlots);
 						</label>
 						<div class="col-lg-9">
 							<div class="invoice-view-bt action-wrapper ns_action-wrap btn-group">
-								<form action='/ShareUser/Dashboard/acceptPayment' method='post'>
+								<form action='/ShareUser/Dashboard/acceptPayment' method='post' >
 									<input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
 										<?php //echo get_webpay_payment_status($rent_data->transaction_id); ?>
 										@if($rent_data->status==1)
@@ -498,7 +510,7 @@ $count = count($rent_data->bookedSlots);
 								<ul class="actions ns_actions dropdown-menu payment-action-{!!$rent_data->id!!}">
 									@if($rent_data->status==2)
 									<li>
-										<form action='/ShareUser/Dashboard/acceptPayment' method='post'>
+										<form action='/ShareUser/Dashboard/acceptPayment' method='post' id="form_refund">
 											<input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
 											<button class="ns_pad lnk-reject" type="button" style='padding: 12px; width: 100%;'>
 												{{ trans('booking_list.refund_action') }}
@@ -511,7 +523,7 @@ $count = count($rent_data->bookedSlots);
 									</li>
 									@else
 									<li>
-										<form action='/ShareUser/Dashboard/acceptPayment' method='post'>
+										<form action='/ShareUser/Dashboard/acceptPayment' method='post' id="form_accept">
 											<input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
 											<button class="ns_pad lnk-accept-payment" type="button" style='padding: 12px; width: 100%;'>{{ trans('booking_details.pre-sale') }}</button>
 											<input type='hidden' name='t_id' value='{!!$rent_data->transaction_id!!}' />
@@ -520,7 +532,7 @@ $count = count($rent_data->bookedSlots);
 										</form>
 									</li>
 									<li>
-										<form action='/ShareUser/Dashboard/acceptPayment' method='post'>
+										<form action='/ShareUser/Dashboard/acceptPayment' method='post' id="form_reject">
 											<input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
 											<button class="ns_pad lnk-reject" type="button" style='padding: 12px; width: 100%;'>{{ trans('booking_list.reject_action') }}</button>
 											<input type='hidden' name='t_id' value='{!!$rent_data->transaction_id!!}' />
@@ -689,7 +701,7 @@ $count = count($rent_data->bookedSlots);
 	</div>
 	<!--/viewport-->
 	<script>
-	jQuery(function() {
+	jQuery(function($) {
     	jQuery( "#tabs" ).tabs();
 		
 		jQuery( "#price" ).change(function() {
@@ -712,6 +724,11 @@ $count = count($rent_data->bookedSlots);
 		jQuery( ".change-total" ).click(function() {
 		  jQuery(".hide_edit_total").toggle();
 		  jQuery(".show_edit_total").toggle();
+		});
+
+		jQuery('body').on('click', '.header_booking_button', function(){
+			var formID = $($(this).attr('data-form'));
+			formID.find('button').trigger('click');
 		});
 		
 

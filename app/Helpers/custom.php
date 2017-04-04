@@ -316,11 +316,7 @@ function getUser2ProfilePercentMaper(){
 			'City' => '2.5',
 			'UserType' => '5',
 			'BusinessType' => '5',
-			'card_name' => '1',
-			'card_number' => '1',
-			'exp_month' => '1',
-			'exp_year' => '1',
-			'security_code' => '1',
+			'card_number' => '5',
 			'BusinessSummary' => '5',
 			'Skills' => '5',//60
 			
@@ -391,6 +387,17 @@ function calculateUserProfilePercent($user, $userType = 1)
 			$totalPercent += isset($user->{$field}) ? (trim($user->{$field}) ?  $percent : 0) : 0;
 		}
 	}
+	
+	// Manually set payment percent point
+	if (isset($user->billings) && $user->billings->billingId && !$user->card_number)
+	{
+		$totalPercent += 5;
+	}
+	elseif ((!isset($user->billings) || (isset($user->billings) && !$user->billings->billingId)) && $user->card_number)
+	{
+		$totalPercent += 5;
+	}
+	
 	return $totalPercent;
 }
 

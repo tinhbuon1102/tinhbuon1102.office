@@ -12,6 +12,14 @@
 				<li class="active">
 					<a class="time_tab" href="javascript:void(0);" data-time="{{THIS_MONTH}}">今月</a>
 				</li>
+				<li class="custom ">
+					カスタム期間:&nbsp;&nbsp;
+					<div>
+						<input type="text" size="10" placeholder="yyyy-mm-dd" value="" name="start_date" class="range_datepicker from hasDatepicker">
+						~&nbsp;&nbsp;<input type="text" size="10" placeholder="yyyy-mm-dd" value="" name="end_date" class="range_datepicker to hasDatepicker">
+						<input type="button" class="submit_sales_range" value="表示">
+					</div>
+				</li>
 			</ul>
 		</h3>
 		<table class="table table-striped table-bordered table-hover dataTable no-footer" id="dataTables-transfer" role="grid" aria-describedby="dataTables-example_info">

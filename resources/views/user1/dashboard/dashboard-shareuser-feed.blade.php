@@ -193,7 +193,30 @@
 						</div>
 					</div>
 					<?php }?>
-					<?php if ($notification['Type'] == NOTIFICATION_BOOKING_PLACED || ($notification['Type'] == NOTIFICATION_BOOKING_CHANGE_STATUS && $notification['booking']['status'] == BOOKING_STATUS_RESERVED)) {?>
+					<?php if (in_array($notification['Type'], array(
+								NOTIFICATION_BOOKING_PLACED, 
+								NOTIFICATION_BOOKING_CHANGE_STATUS, 
+								NOTIFICATION_BOOKING_REFUND_50, 
+								NOTIFICATION_BOOKING_REFUND_100, 
+								NOTIFICATION_BOOKING_REFUND_NO_CHARGE))
+						|| ($notification['Type'] == NOTIFICATION_BOOKING_CHANGE_STATUS && $notification['booking']['status'] == BOOKING_STATUS_RESERVED)) {?>
+					<div class="alert alert-info">
+						<?php if (in_array($notification['Type'], array(NOTIFICATION_BOOKING_REFUND_50))) {?>
+						<strong>キャンセル料: </strong>
+						{{priceConvert($notification['booking']['refund_amount'], true)}} (支払合計金額 {{priceConvert($notification['booking']['amount'], true)}}の50%)
+						<?php }elseif (in_array($notification['Type'], array(NOTIFICATION_BOOKING_REFUND_100))) {?>
+						<strong>キャンセル料: </strong>
+						{{priceConvert($notification['booking']['amount'], true)}}
+						<?php } elseif (in_array($notification['Type'], array(NOTIFICATION_BOOKING_REFUND_NO_CHARGE))) {?>
+						<strong>キャンセル料: </strong>
+						{{priceConvert($notification['booking']['refund_amount'], true)}}
+						<?php } else {
+							?>
+						<strong>予約状況: </strong>
+						{{getBookingStatus($notification['booking'])}}
+						<?php
+														}?>
+					</div>
 					<div class="new-require-review-info book-notice-feed clearfix">
 						<div class="book-feed-form clearfix">
 							<div class="thum-space">

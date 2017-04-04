@@ -21,7 +21,7 @@
 					$notifTitle = 'から以下の予約が承認され、予約ステータスが<span class="purple bold">予約済み</span>になりました。';
 				}
 				else {
-					$notifTitle = 'が予約のステータスを変更し、'. getBookingStatus($notifications[0]['booking'], false) .'となりました。予約番号: #' . $notifications[0]['TypeID'];
+					$notifTitle = 'が予約(#'.$notifications[0]['TypeID'].')のステータスを変更し、'. getBookingStatus($notifications[0]['booking'], false) .'となりました。';
 				}
 				break;
 			case NOTIFICATION_BOOKING_REFUND_NO_CHARGE :

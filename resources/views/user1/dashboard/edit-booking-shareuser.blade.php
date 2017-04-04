@@ -56,7 +56,7 @@ $count = count($rent_data->bookedSlots);
 													@if($rent_data->in_use==0) 
 													@if(($rent_data->status==1 || $rent_data->status==2))
 														@if($rent_data->status==2)
-															<button class="btn btn-default mt15 refund_booking_button header_booking_button" data-form="#form_refund" type="button" >{{ trans('booking_list.refund_action') }}</button>
+															<button class="btn btn-default mt15 refund_booking_button header_booking_button" data-form="#form_refund" type="button" >キャンセルする</button>
 														@else
 															<button class="btn btn-default mt15 accept_booking_button header_booking_button" data-form="#form_accept" type="button" >{{ trans('booking_details.accept_booking') }}</button>
 															<button class="btn btn-default mt15 reject_booking_button header_booking_button" data-form="#form_reject" type="button" >{{ trans('booking_details.deny_booking') }}</button>

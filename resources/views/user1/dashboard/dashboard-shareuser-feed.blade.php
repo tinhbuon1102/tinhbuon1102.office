@@ -1,6 +1,11 @@
 <!--loop give allow to rent-->
 <?php if (isset($user->notifications) && count($user->notifications)) {
 	foreach ($user->notifications as $timeCreated => $notifications) {
+		// Get notification change status if Reserved only
+		if ($notifications[0]['Type'] == NOTIFICATION_BOOKING_CHANGE_STATUS && $notifications[0]['booking']['status'] != BOOKING_STATUS_RESERVED)
+		{
+			continue;
+		}
 		$aUserSend = $notifications[0]['User2Send'];
 
 

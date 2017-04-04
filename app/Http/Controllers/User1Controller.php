@@ -2497,6 +2497,11 @@ class User1Controller extends Controller
 			$user->save();
 		}
 		
+		if ($request->has('Skills'))
+		{
+			$user->Skills = $request->input('Skills') ? implode(",", $request->input('Skills')) : '';
+		}
+		
 		$user->fill($request->except([
 			'_token',
 			'CompanyCertificate',

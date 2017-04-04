@@ -278,6 +278,7 @@ $user = Auth::guard('user1')->user();
 														</div>
 													</div>
 													<!--/form-field-->
+													<a id="pio"></a>
 													<div class="form-field two-inputs">
 														<div class="input-container input-half">
 															<label for="addr">
@@ -301,6 +302,7 @@ $user = Auth::guard('user1')->user();
 												
 												<div></div>
 												<!--/if you click edit link,show this-->
+												
 												<div class="form-field two-inputs">
 													<div class="input-container input-half">
 														<label for="phoneNumber">
@@ -312,6 +314,7 @@ $user = Auth::guard('user1')->user();
 														<input name="Tel" id="phone-number" value="{{$user->Tel}}" type="text" 　class="validate[required]">
 													</div>
 												</div>
+												
 												<div class="form-field two-inputs">
 													<div class="input-container input-half">
 														<label for="categoryBusiness">
@@ -349,6 +352,7 @@ $user = Auth::guard('user1')->user();
 															<option value="その他">その他</option>
 														</select>
 													</div>
+													
 													<div class="input-container input-half">
 														<label for="desire_number_people_inoffice">
 															職場人数
@@ -374,6 +378,7 @@ $user = Auth::guard('user1')->user();
 									</section>
 								</div>
 								<!--/feed-->
+								<a id="cipinfo"></a>
 								<div id="feed">
 									<section class="feed-event recent-follow feed-box" id="rperson">
 										<div class="dashboard-section-heading-container">

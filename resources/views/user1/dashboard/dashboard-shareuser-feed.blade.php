@@ -17,7 +17,7 @@
 				$notifTitle = ($notifications[0]['Status'] == 0) ? 'が以下のスペース利用を終了しました。レビューを投稿しましょう。予約番号 #' .$notifications[0]['TypeID'] : 'があなたのレビューをしました。予約番号#' .$notifications[0]['TypeID'];
 				break;
 			case NOTIFICATION_BOOKING_PLACED :
-				$notifTitle = 'からスペースを予約を受付ました。<br/><span class="red" id="booking_place_'.$notifications[0]['TypeID'].'">予約申し込みはまだ承認されていませんので、承認してください。</span>予約番号: #' . $notifications[0]['TypeID'];
+				$notifTitle = 'からスペースを予約を受付ました。<br/><span class="red bold" id="booking_place_'.$notifications[0]['TypeID'].'">予約申し込みはまだ承認されていませんので、承認してください。</span>予約番号: #' . $notifications[0]['TypeID'];
 				break;
 			case NOTIFICATION_BOOKING_CHANGE_STATUS :
 				if ($notifications[0]['booking']['status'] == BOOKING_STATUS_RESERVED)
@@ -28,7 +28,7 @@
 			case NOTIFICATION_BOOKING_REFUND_NO_CHARGE :
 			case NOTIFICATION_BOOKING_REFUND_50 :
 			case NOTIFICATION_BOOKING_REFUND_100 :
-				$notifTitle = 'Status is changed to cancelled';
+				$notifTitle = 'からの予約が<span class="red bold">キャンセル</span>されました。';
 				break;
 			default:
 				$notifTitle = '';

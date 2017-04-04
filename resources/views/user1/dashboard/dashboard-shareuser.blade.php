@@ -260,7 +260,42 @@ $rentBooking = new \App\Rentbookingsave();
 											@endif
 											@if( $user->BusinessTitle == "" )
 											<p class="user-profile-progress-suggestion">
-												<a href="{{url('ShareUser/Dashboard/HostSetting')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>アカウント責任者の役職情報</a>
+												<a href="{{url('ShareUser/Dashboard/HostSetting#cipinfo')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>アカウント責任者の役職情報</a>
+											</p>
+											@endif
+											@if( $user->Department == "" )
+											<p class="user-profile-progress-suggestion">
+												<a href="{{url('ShareUser/Dashboard/HostSetting#cipinfo')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>アカウント責任者の部署情報</a>
+											</p>
+											@endif
+											@if( $user->CellPhoneNum == "" )
+											<p class="user-profile-progress-suggestion">
+												<a href="{{url('ShareUser/Dashboard/HostSetting#cipinfo')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>アカウント責任者の携帯番号</a>
+											</p>
+											@endif
+											@if (!$user->NumberOfEmployee)
+											<p class="user-profile-progress-suggestion">
+												<a href="{{url('ShareUser/Dashboard/HostSetting#pio')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>職場人数</a>
+											</p>
+											@endif
+											@if (!$user->DisiredSex)
+											<p class="user-profile-progress-suggestion">
+												<a href="{{url('ShareUser/Dashboard/DesiredPerson')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>出会いたい人材の性別</a>
+											</p>
+											@endif
+											@if (!$user->DisiredAge)
+											<p class="user-profile-progress-suggestion">
+												<a href="{{url('ShareUser/Dashboard/DesiredPerson')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>出会いたい人材の年代</a>
+											</p>
+											@endif
+											@if( $user->BusinessKindWelcome == "" )
+											<p class="user-profile-progress-suggestion">
+												<a href="{{url('ShareUser/Dashboard/DesiredPerson')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>出会いたい人材の職種</a>
+											</p>
+											@endif
+											@if( $user->Skills == "" )
+											<p class="user-profile-progress-suggestion">
+												<a href="{{url('ShareUser/Dashboard/DesiredPerson')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>出会いたい人材のスキル</a>
 											</p>
 											@endif
 											<!--end alert for some setting-->

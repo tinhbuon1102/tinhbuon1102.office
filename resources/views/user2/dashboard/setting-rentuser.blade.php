@@ -425,7 +425,7 @@ echo Form::select('Prefecture', getPrefectures(), $user->Prefecture, [
 																<!--5%-->
 															</label>
 															<select required id="BusinessType" name="BusinessType" class="old_ui_selector">
-																<option value="カテゴリを選択" selected="">Choose business category</option>
+																<option value="カテゴリを選択" selected="">事業タイプを選択</option>
 																<option value="インターネット・ソフトウェア">インターネット・ソフトウェア</option>
 																<option value="コンサルティング・ビジネスサービス">コンサルティング・ビジネスサービス</option>
 																<option value="コンピュータ・テクノロジー">コンピュータ・テクノロジー</option>

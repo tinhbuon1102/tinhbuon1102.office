@@ -210,6 +210,11 @@ $rentBooking = new \App\Rentbookingsave();
 											<a href="{{url('RentUser/Dashboard/BasicInfo/Edit')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>アカウント情報の設定</a>
 										</p>
                                             <?php }?>
+                                       @if (!$user->BusinessType)
+                                      <p class="user-profile-progress-suggestion">
+											<a href="{{url('RentUser/Dashboard/BasicInfo/Edit')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>事業のタイプを設定</a>
+										</p>
+										@endif
                                         <!--show if email validation is not done-->
 										@if( !$user['IsEmailVerified'] )
 										<p class="user-profile-progress-suggestion">
@@ -257,14 +262,54 @@ $rentBooking = new \App\Rentbookingsave();
 											<a href="{{url('RentUser/Dashboard/MyProfile')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>自己紹介分を書く</a>
 										</p>
 										@endif
+                                       @if( empty($user['Skills']) )
+										<p class="user-profile-progress-suggestion">
+											<a href="{{url('RentUser/Dashboard/MyProfile')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>スキルを選択</a>
+										</p>
+										@endif
                                         <!--/show if description is not added-->
 										
 										<!--show if desired space condition is not set yet-->
+										@if( empty($user2Space['SpaceType']) || empty($user2Space['BudgetType']) || empty($user2Space['TimeSlot']) || empty($user2Space['SpaceArea']) || empty($user2Space['TimeSlot']) || empty($user2Space['NumberOfPeople']) )
+										<p class="mgt20"><a href="{{url('RentUser/Dashboard/MyProfile')}}" class="btn-info btn wdfull">スペース希望条件を設定する</a></p>
+                                        @endif
 										@if( empty($user2Space['SpaceType']) )
 										<p class="user-profile-progress-suggestion">
-											<a href="{{url('RentUser/Dashboard/EditMySpace')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>スペース希望条件を設定</a>
+											<a href="{{url('RentUser/Dashboard/EditMySpace')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>スペースタイプを設定</a>
 										</p>
 										@endif
+                                      @if( empty($user2Space['BudgetType']) )
+                                      <p class="user-profile-progress-suggestion">
+											<a href="{{url('RentUser/Dashboard/EditMySpace')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>希望利用料金を設定</a>
+										</p>
+										@endif
+                                     @if( empty($user2Space['SpaceArea']) )
+                                      <p class="user-profile-progress-suggestion">
+											<a href="{{url('RentUser/Dashboard/EditMySpace')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>スペース面積を設定</a>
+										</p>
+										@endif
+                                     @if( empty($user2Space['TimeSlot']) )
+                                      <p class="user-profile-progress-suggestion">
+											<a href="{{url('RentUser/Dashboard/EditMySpace')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>利用時間帯を設定</a>
+										</p>
+										@endif
+                                      @if( empty($user2Space['NumberOfPeople']) )
+                                      <p class="user-profile-progress-suggestion">
+											<a href="{{url('RentUser/Dashboard/EditMySpace')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>利用人数を設定</a>
+										</p>
+										@endif
+                                      @if( empty($user2Space['NumOfDesk']) )
+                                      <p class="user-profile-progress-suggestion">
+											<a href="{{url('RentUser/Dashboard/EditMySpace')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>スペースに含まれる設備(デスク数)を設定</a>
+										</p>
+										@endif
+                                     @if( empty($user2Space['NumOfChair']) )
+                                      <p class="user-profile-progress-suggestion">
+											<a href="{{url('RentUser/Dashboard/EditMySpace')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>スペースに含まれる設備(イス数)を設定</a>
+										</p>
+										@endif
+                                      
+                                       
                                         <!--/show if desired space condition is not set yet-->
 										
                                         

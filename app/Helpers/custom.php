@@ -283,14 +283,14 @@ function getUser1ProfilePercentMaper(){
 			'BusinessKindWelcome' => '5',
 		    'DisiredSex' => '5',
 		    'DisiredAge' => '5',
-			'Skills' => '5',
+			'Skills' => '5',//80
 			'Relation' => array(
 				'bank' => array(
 					'AccountName' => '3',
 					'BankName' => '3',
 					'BranchLocationName' => '3',
 					'BranchCode' => '3',
-					'AccountNumber' => '3',
+					'AccountNumber' => '3',//15
 				),
 				'certificates' => array(
 					'Path' => '5',
@@ -322,7 +322,7 @@ function getUser2ProfilePercentMaper(){
 			'exp_year' => '1',
 			'security_code' => '1',
 			'BusinessSummary' => '5',
-			'Skills' => '5',
+			'Skills' => '5',//60
 			
 			'Relation' => array(
 				'certificates' => array(
@@ -335,19 +335,19 @@ function getUser2ProfilePercentMaper(){
 				),
 				'billings' => array(
 					'billingId' => '5',
-				),
+				),//20
 				'space' => array(
-					'SpaceType' => '2',
+					'SpaceType' => '4',
 					'DesireLocationPrefecture' => '2',
 					'BudgetType' => '2',
 					'TimeSlot' => '2',
 					'NumberOfPeople' => '2',
 					'SpaceArea' => '2',
 					'BusinessType' => '2',
-					'notes_ideals' => '2',
+					//'notes_ideals' => '2',
 					'NumOfDesk' => '2',
 					'NumOfChair' => '2',
-				),
+				),//20
 			),
 	);
 }

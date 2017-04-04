@@ -17,7 +17,7 @@
 				$notifTitle = ($notifications[0]['Status'] == 0) ? 'が以下のスペース利用を終了しました。レビューを投稿しましょう。予約番号 #' .$notifications[0]['TypeID'] : 'があなたのレビューをしました。予約番号#' .$notifications[0]['TypeID'];
 				break;
 			case NOTIFICATION_BOOKING_PLACED :
-				$notifTitle = 'からスペースを予約を受付ました。<br/><span class="red">予約申し込みはまだ承認されていませんので、承認してください。</span>予約番号: #' . $notifications[0]['TypeID'];
+				$notifTitle = 'からスペースを予約を受付ました。<br/><span class="red" id="booking_place_'.$notifications[0]['TypeID'].'">予約申し込みはまだ承認されていませんので、承認してください。</span>予約番号: #' . $notifications[0]['TypeID'];
 				break;
 			case NOTIFICATION_BOOKING_CHANGE_STATUS :
 				if ($notifications[0]['booking']['status'] == BOOKING_STATUS_RESERVED)
@@ -28,7 +28,7 @@
 			case NOTIFICATION_BOOKING_REFUND_NO_CHARGE :
 			case NOTIFICATION_BOOKING_REFUND_50 :
 			case NOTIFICATION_BOOKING_REFUND_100 :
-				$notifTitle = 'からの予約が<span class="red">キャンセル</span>されました。';
+				$notifTitle = 'Status is changed to cancelled';
 				break;
 			default:
 				$notifTitle = '';
@@ -37,6 +37,21 @@
 
 		?>
 <li class="feed">
+	<?php 
+	// Hide some text or block of booking placed feed
+	if (in_array($notification['Type'], array(
+		NOTIFICATION_BOOKING_REFUND_50,
+		NOTIFICATION_BOOKING_REFUND_100,
+		NOTIFICATION_BOOKING_CHANGE_STATUS,
+		NOTIFICATION_BOOKING_REFUND_NO_CHARGE)))
+	{
+	?>
+	<style>
+		#booking_place_<?php echo $notifications[0]['TypeID']?> {display: none;}
+	</style>
+	<?php
+	}
+	?>
 	<div class="news-feed-wrapper">
 		<div class="news-feed-inner">
 			<div class="profile-pic-wrapper">

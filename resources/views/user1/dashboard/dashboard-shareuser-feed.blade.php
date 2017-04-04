@@ -14,6 +14,12 @@
 			case NOTIFICATION_BOOKING_PLACED :
 				$notifTitle = 'からスペースを予約を受付ました。<br/><span class="red">予約申し込みはまだ承認されていませんので、承認してください。</span>予約番号: #' . $notifications[0]['TypeID'];
 				break;
+			case NOTIFICATION_BOOKING_CHANGE_STATUS :
+				if ($notifications[0]['booking']['status'] == BOOKING_STATUS_RESERVED)
+				{
+					$notifTitle = 'You accepted the booking and the booking is reserved';
+				}
+				break;
 			default:
 				$notifTitle = '';
 				break;
@@ -40,7 +46,7 @@
 			<?php $defineNumHide = 3;?>
 			<div class="multiple-offer">
 				<?php 
-												foreach ($notifications as $notiIndex => $notification) {?>
+				foreach ($notifications as $notiIndex => $notification) {?>
 				<div class="gry-border-box noti-number-<?php echo ($notiIndex >= $defineNumHide) ? 'hide' : 'show';?>" <?php if ($notiIndex >= $defineNumHide) echo 'style="display:none"'?>>
 					<?php if ($notification['Type'] == NOTIFICATION_SPACE) {?>
 					<div class="office-catch-info clearfix">
@@ -177,7 +183,7 @@
 						</div>
 					</div>
 					<?php }?>
-					<?php if ($notification['Type'] == NOTIFICATION_BOOKING_PLACED) {?>
+					<?php if ($notification['Type'] == NOTIFICATION_BOOKING_PLACED || ($notification['Type'] == NOTIFICATION_BOOKING_CHANGE_STATUS && $notification['booking']['status'] == BOOKING_STATUS_RESERVED)) {?>
 					<div class="new-require-review-info book-notice-feed clearfix">
 						<div class="book-feed-form clearfix">
 							<div class="thum-space">

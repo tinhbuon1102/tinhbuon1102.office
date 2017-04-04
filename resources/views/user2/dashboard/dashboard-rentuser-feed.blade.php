@@ -16,7 +16,13 @@
 				$notifTitle = '以下の予約の申込みが完了しました。<span class="red">予約申込みはまだ承認されていません。</span><br/><a class="font-bold" href="'. getUser1ProfileUrl($aUserSend) .'">'. getUserName($aUserSend) .'</a>からの承認をお待ち下さい。';
 				break;
 			case NOTIFICATION_BOOKING_CHANGE_STATUS :
-				$notifTitle = 'が予約のステータスを変更しました。予約番号: #' . $notifications[0]['TypeID'];
+				if ($notifications[0]['booking']['status'] == BOOKING_STATUS_RESERVED)
+				{
+					$notifTitle = 'The booking is accepted by host.';
+				}
+				else {
+					$notifTitle = 'が予約のステータスを変更しました to '. getBookingStatus($notifications[0]['booking'], false) .'。予約番号: #' . $notifications[0]['TypeID'];
+				}
 				break;
 			case NOTIFICATION_BOOKING_REFUND_NO_CHARGE :
 				$notifTitle = 'が以下のの予約(#'.$notifications[0]['TypeID'].')をキャンセルし、支払額は返金されました。キャンセル規約に基づき、キャンセル料はかかりません。';

@@ -9,7 +9,7 @@
 
 @section('AfterTitle')
 <div class="pull-left text-right">
-	<a href="/MyAdmin/Sales">
+	<a href="/MyAdmin/Sales#tab-6">
 		<button class="btn btn-default" type="button">
 			<i class="fa fa-reply"></i>
 			<span class="hidden-sm hidden-xs"> 一覧に戻る</span>

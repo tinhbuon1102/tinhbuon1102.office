@@ -17,7 +17,7 @@
 			<a href="#tab-6">振り込みリスト</a>
 		</li>
 	</ul>
-	<div id="tab-4" data-tab="user_sales" style="opacity: 0;">@include('admin.sales.payment_tab_1')</div>
+	<div id="tab-4" data-tab="user_sales">@include('admin.sales.payment_tab_1')</div>
 	<div id="tab-5" data-tab="total_sales">@include('admin.sales.payment_tab_2')</div>
 	<div id="tab-6" data-tab="transfer_list">@include('admin.sales.payment_tab_3')</div>
 </div>

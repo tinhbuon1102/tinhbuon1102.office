@@ -28,7 +28,7 @@
 			case NOTIFICATION_BOOKING_REFUND_NO_CHARGE :
 			case NOTIFICATION_BOOKING_REFUND_50 :
 			case NOTIFICATION_BOOKING_REFUND_100 :
-				$notifTitle = 'Status is changed to cancelled';
+				$notifTitle = 'からの予約が<span class="red">キャンセル</span>されました。';
 				break;
 			default:
 				$notifTitle = '';

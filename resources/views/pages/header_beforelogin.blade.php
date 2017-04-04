@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Script-Type" content="text/javascript; charset=UTF-8">
 <meta http-equiv="content-language" content="ja">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <meta name="robots" content="noindex">
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 <title>hOur Office | アワーオフィス</title>

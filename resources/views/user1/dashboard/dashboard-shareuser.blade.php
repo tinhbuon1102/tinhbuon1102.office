@@ -258,6 +258,11 @@ $rentBooking = new \App\Rentbookingsave();
 												<a href="{{url('ShareUser/Dashboard/HostSetting/Certificate')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>組織・個人証明書の提出</a>
 											</p>
 											@endif
+											@if( $user->BusinessTitle == “” )
+											<p class="user-profile-progress-suggestion">
+												<a href="{{url('ShareUser/Dashboard/HostSetting')}}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>アカウント責任者の役職情報</a>
+											</p>
+											@endif
 											<!--end alert for some setting-->
 										</div>
 									</div>

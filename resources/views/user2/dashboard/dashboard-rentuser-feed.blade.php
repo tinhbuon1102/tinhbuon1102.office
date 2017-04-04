@@ -13,25 +13,25 @@
 				$notifTitle = ($notifications[0]['Status'] == 0) ? 'があなたにレビューを投稿しました。予約番号#' .$notifications[0]['TypeID'] : 'があなたのレビューをしました。予約番号#' .$notifications[0]['TypeID'];
 				break;
 			case NOTIFICATION_BOOKING_PLACED :
-				$notifTitle = '以下の予約の申込みが完了しました。<span class="red">予約申込みはまだ承認されていません。</span><br/><a class="font-bold" href="'. getUser1ProfileUrl($aUserSend) .'">'. getUserName($aUserSend) .'</a>からの承認をお待ち下さい。';
+				$notifTitle = '以下の予約の申込みが完了しました。<span class="red bold">予約申込みはまだ承認されていません。</span><br/><a class="font-bold" href="'. getUser1ProfileUrl($aUserSend) .'">'. getUserName($aUserSend) .'</a>からの承認をお待ち下さい。';
 				break;
 			case NOTIFICATION_BOOKING_CHANGE_STATUS :
 				if ($notifications[0]['booking']['status'] == BOOKING_STATUS_RESERVED)
 				{
-					$notifTitle = 'から以下の予約が承認され、予約ステータスが<span class="purple bold">予約済み</span>になりました。';
+					$notifTitle = 'から以下の予約が承認され、予約ステータスが<span class="purple bold">予約済み</span>となり、予約が確定されました。';
 				}
 				else {
 					$notifTitle = 'が予約(#'.$notifications[0]['TypeID'].')のステータスを変更し、'. getBookingStatus($notifications[0]['booking'], false) .'となりました。';
 				}
 				break;
 			case NOTIFICATION_BOOKING_REFUND_NO_CHARGE :
-				$notifTitle = 'が以下のの予約(#'.$notifications[0]['TypeID'].')をキャンセルし、支払額は返金されました。キャンセル規約に基づき、キャンセル料はかかりません。';
+				$notifTitle = 'が以下のの予約(#'.$notifications[0]['TypeID'].')を<span class="red bold">キャンセル</span>し、支払額は返金されました。キャンセル規約に基づき、キャンセル料はかかりません。';
 				break;
 			case NOTIFICATION_BOOKING_REFUND_50 :
-				$notifTitle = 'が以下のの予約(#'.$notifications[0]['TypeID'].')をキャンセルしました。キャンセル規約に基づき、キャンセル料は支払額の50%です。';
+				$notifTitle = 'が以下のの予約(#'.$notifications[0]['TypeID'].')を<span class="red bold">キャンセル</span>しました。キャンセル規約に基づき、キャンセル料は支払額の50%です。';
 				break;
 			case NOTIFICATION_BOOKING_REFUND_100 :
-				$notifTitle = 'が以下のの予約(#'.$notifications[0]['TypeID'].')をキャンセルしました。キャンセル規約に基づき、支払額の返金はされません。';
+				$notifTitle = 'が以下のの予約(#'.$notifications[0]['TypeID'].')を<span class="red bold">キャンセル</span>しました。キャンセル規約に基づき、支払額の返金はされません。';
 				break;
 			default:
 				$notifTitle = '';

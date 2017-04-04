@@ -7019,6 +7019,9 @@ button#offer-btn .fa {
 		width: 100%;
 		margin-bottom: 15px;
 	}
+	.form-container .public-status .input-container.input-col3 {
+    padding: 0;
+}
 	.edit-gallery-thumbnails.edit-main-picture .edit-gallery-thumbnail-wrapper
 		{
 		max-width: 300px;
@@ -7204,7 +7207,10 @@ a.action-tooltip.text-link {
 	border-width: 0 12px 14px 12px;
 	border-color: transparent transparent #CCC transparent;
 }
-
+.show-member-input {
+    line-height: 40px;
+	display: inline-block;
+}
 .workspace-actions-popup:after {
 	content: ' ';
 	position: absolute;

@@ -26,8 +26,8 @@ $profilePercent = calculateUserProfilePercent($user, 1);
 								<!--<span class="access <?php //echo $profilePercent < 100 ? 'not-completed' : ''?>">complete</span>-->
 							</div>
 						</div>
-						<?php if ($profilePercent < 80) {?>
-						<p class="notify-msg">スペースを掲載まで残り <?php echo 80 - $profilePercent?>%</p>
+						<?php if ($profilePercent < 60) {?>
+						<p class="notify-msg">スペースを掲載まで残り <?php echo 60 - $profilePercent?>%</p>
 						<?php }?>
 					</div>
 				</div>

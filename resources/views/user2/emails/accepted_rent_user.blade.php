@@ -1049,7 +1049,7 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
 							</div>
 							<!-- /.row -->
 							
-							<!-- /.row -->
+							<?php if ($space->EnterDetails) {?>
 							<div class="row" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 580px; margin: 0 auto;">
 								<!--[if (gte mso 9)|(IE)]>
                   <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
@@ -1099,9 +1099,10 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
                   </table>
                   <![endif]-->
 							</div>
+							<?php }?>
 							<!-- /.row -->
 							
-							<!-- /.row -->
+							<?php if ($space->ExitDetails) {?>
 							<div class="row" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 580px; margin: 0 auto;">
 								<!--[if (gte mso 9)|(IE)]>
                   <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
@@ -1151,6 +1152,7 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
                   </table>
                   <![endif]-->
 							</div>
+							<?php }?>
 							<!-- /.row -->
 							
 							<!--[if (gte mso 9)|(IE)]>

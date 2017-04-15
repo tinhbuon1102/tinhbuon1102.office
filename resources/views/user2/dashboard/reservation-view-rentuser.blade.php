@@ -164,12 +164,17 @@ $count = count($rent_data->bookedSlots);
 												<!--/col-book-->
 												
 												<div class="how-to-wraper">
+													<?php if ($rent_data->bookedSpace->EnterDetails) {?>
 													<div class="how-to-enter">
 														How to Enter : {{$rent_data->bookedSpace->EnterDetails}}
 													</div>
+													<?php }?>
+													
+													<?php if ($rent_data->bookedSpace->ExitDetails) {?>
 													<div class="how-to-exit">
 														How to Exit : {{$rent_data->bookedSpace->ExitDetails}}
 													</div>
+													<?php }?>
 												</div>
                                             </div>
 											<!--/panel-body-->

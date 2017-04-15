@@ -11,6 +11,8 @@ public/certificate
 public/deploy.php
 public/pull.php
 public/commit.php
+public/chats
+public/userfile
 .settings
 .env
 .buildpath

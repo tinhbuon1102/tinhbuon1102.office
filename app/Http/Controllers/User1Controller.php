@@ -535,6 +535,7 @@ class User1Controller extends Controller
 	public function editshareInfoBeforeLauncht ( $id )
 	{
 		// @TODO REmove when done BEGIN 
+		if (isset($_GET['import_town'])) {
 			$allSpaces = User1sharespace::all();
 			foreach ($allSpaces as $space)
 			{
@@ -542,6 +543,7 @@ class User1Controller extends Controller
 				$space->Town = $addressInfo[2];
 				$space->save();
 			}
+		}
 		// END
 		
 		$user = Auth::user();

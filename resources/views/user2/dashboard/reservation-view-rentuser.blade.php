@@ -1,5 +1,4 @@
 <?php 
-use App\Spaceslot;
 $count = count($rent_data->bookedSlots);
 ?>
 @include('pages.header')
@@ -163,7 +162,15 @@ $count = count($rent_data->bookedSlots);
 													<!--/form-row-->
 												</div>
 												<!--/col-book-->
-											
+												
+												<div class="how-to-wraper">
+													<div class="how-to-enter">
+														How to Enter : {{$rent_data->bookedSpace->EnterDetails}}
+													</div>
+													<div class="how-to-exit">
+														How to Exit : {{$rent_data->bookedSpace->ExitDetails}}
+													</div>
+												</div>
                                             </div>
 											<!--/panel-body-->
 										</div>

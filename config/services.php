@@ -1,5 +1,4 @@
 <?php
-
 if(isset($_REQUEST['looking_for']) && $_REQUEST['looking_for'] == "ShareUser")
 {
 	$faceUrl = url('FBLogin?looking_for=ShareUser');
@@ -8,8 +7,16 @@ else if(isset($_REQUEST['looking_for']) && $_REQUEST['looking_for'] == "RentUser
 {
 	$faceUrl = url('FBLogin?looking_for=RentUser');
 }
-else 
-	$faceUrl = url('FBLogin');
+else
+{
+	if (isset($_SERVER['argv'][0]) && $_SERVER['argv'][0] == 'artisan')
+	{
+		$faceUrl = Config('app.url') . '/FBLogin';
+	}
+	else {
+		$faceUrl = url('FBLogin');
+	}
+}
 
 return [
 

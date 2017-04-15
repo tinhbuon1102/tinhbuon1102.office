@@ -1048,6 +1048,111 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
                   <![endif]-->
 							</div>
 							<!-- /.row -->
+							
+							<!-- /.row -->
+							<div class="row" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 580px; margin: 0 auto;">
+								<!--[if (gte mso 9)|(IE)]>
+                  <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                    <tbody>
+                      <tr>
+                      <td width="190" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-1" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 190px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+												<td class="column_cell font_default" align="left" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; vertical-align: top; color: #888888;">
+													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 23px; margin-top: 0px; margin-bottom: 0px;">How to Enter</p>
+												</td>
+												<!-- /.column_cell:image_thumb -->
+
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-1 -->
+								<!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        <td width="390" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-13" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 390px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; vertical-align: top; color: #000000;">
+													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; font-weight: bold; line-height: 23px; margin-top: 0px; margin-bottom: 0px;">{{$space->EnterDetails}}</p>
+												</td>
+												<!-- /.column_cell -->
+
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-13 -->
+								<!--[if (gte mso 9)|(IE)]>
+                      </td>
+                      
+                      </tr>
+                    </tbody>
+                  </table>
+                  <![endif]-->
+							</div>
+							<!-- /.row -->
+							
+							<!-- /.row -->
+							<div class="row" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 580px; margin: 0 auto;">
+								<!--[if (gte mso 9)|(IE)]>
+                  <table width="580" border="0" cellspacing="0" cellpadding="0" align="center" style="vertical-align: top;">
+                    <tbody>
+                      <tr>
+                      <td width="190" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-1" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 190px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+												<td class="column_cell font_default" align="left" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; vertical-align: top; color: #888888;">
+													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 23px; margin-top: 0px; margin-bottom: 0px;">How to Exit</p>
+												</td>
+												<!-- /.column_cell:image_thumb -->
+
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-1 -->
+								<!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        <td width="390" align="center" valign="top">
+                  <![endif]-->
+								<div class="col-13" style="display: inline-block; width: 100%; vertical-align: top; text-align: center; max-width: 390px;">
+									<table class="column" width="100%" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; vertical-align: top;">
+										<tbody>
+											<tr>
+												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; vertical-align: top; color: #000000;">
+													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; font-weight: bold; line-height: 23px; margin-top: 0px; margin-bottom: 0px;">{{$space->ExitDetails}}</p>
+												</td>
+												<!-- /.column_cell -->
+
+											</tr>
+										</tbody>
+									</table>
+									<!-- /.column -->
+								</div>
+								<!-- /.col-13 -->
+								<!--[if (gte mso 9)|(IE)]>
+                      </td>
+                      
+                      </tr>
+                    </tbody>
+                  </table>
+                  <![endif]-->
+							</div>
+							<!-- /.row -->
+							
 							<!--[if (gte mso 9)|(IE)]>
                       </td>
                     </tr>

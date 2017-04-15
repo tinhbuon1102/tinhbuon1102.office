@@ -71,6 +71,7 @@ class ComposerStaticInit0997d0a31e979b45e67ac313e8593d15
             'League\\OAuth1\\' => 14,
             'League\\Flysystem\\' => 17,
             'Laravel\\Socialite\\' => 18,
+            'Laracasts\\Generators\\' => 21,
         ),
         'K' => 
         array (
@@ -223,6 +224,10 @@ class ComposerStaticInit0997d0a31e979b45e67ac313e8593d15
         'Laravel\\Socialite\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/socialite/src',
+        ),
+        'Laracasts\\Generators\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laracasts/generators/src',
         ),
         'Kbwebs\\MultiAuth\\' => 
         array (
@@ -783,7 +788,6 @@ class ComposerStaticInit0997d0a31e979b45e67ac313e8593d15
         'PHP_Token_STRING' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_STRING_CAST' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_STRING_VARNAME' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
-        'PHP_Token_SUPER' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_SWITCH' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_Stream' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token/Stream.php',
         'PHP_Token_Stream_CachingFactory' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token/Stream/CachingFactory.php',
@@ -798,7 +802,6 @@ class ComposerStaticInit0997d0a31e979b45e67ac313e8593d15
         'PHP_Token_UNSET' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_UNSET_CAST' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_USE' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
-        'PHP_Token_USE_FUNCTION' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_VAR' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_VARIABLE' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_WHERE' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',

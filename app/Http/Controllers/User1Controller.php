@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Paypalbilling;
 use App\Models\Paypal;
+use App\User1space;
 
 class User1Controller extends Controller
 {
@@ -533,6 +534,16 @@ class User1Controller extends Controller
 	}
 	public function editshareInfoBeforeLauncht ( $id )
 	{
+		// @TODO REmove when done BEGIN 
+			$allSpaces = User1sharespace::all();
+			foreach ($allSpaces as $space)
+			{
+				$addressInfo = getAddressInfoFromPostCode ($space->PostalCode);
+				$space->Town = $addressInfo[2];
+				$space->save();
+			}
+		// END
+		
 		$user = Auth::user();
 		$space = User1sharespace::where('HashID', $id)->firstOrFail();
 		$IsEdit = 'True';

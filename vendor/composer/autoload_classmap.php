@@ -6,9 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'CreateUser1Table' => $baseDir . '/database/migrations/2016_04_06_183507_create_user1_table.php',
-    'CreateUser2Table' => $baseDir . '/database/migrations/2016_04_07_091720_create_user2_table.php',
-    'CreateUseradminTable' => $baseDir . '/database/migrations/2016_04_07_133803_create_useradmin_table.php',
+    'AddFieldsToBookedspacesTable' => $baseDir . '/database/migrations/2017_04_15_174052_add_fields_to_bookedspaces_table.php',
+    'AddFieldsToUser1sharespacesTable' => $baseDir . '/database/migrations/2017_04_15_173408_add_fields_to_user1sharespaces_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
@@ -446,7 +445,6 @@ return array(
     'PHP_Token_STRING' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_STRING_CAST' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_STRING_VARNAME' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
-    'PHP_Token_SUPER' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_SWITCH' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_Stream' => $vendorDir . '/phpunit/php-token-stream/src/Token/Stream.php',
     'PHP_Token_Stream_CachingFactory' => $vendorDir . '/phpunit/php-token-stream/src/Token/Stream/CachingFactory.php',
@@ -461,7 +459,6 @@ return array(
     'PHP_Token_UNSET' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_UNSET_CAST' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_USE' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
-    'PHP_Token_USE_FUNCTION' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_VAR' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_VARIABLE' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_WHERE' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',

@@ -506,6 +506,7 @@ function MychkBoxchk(str,id){
 					<!--/form-field-->
 					<div class="form-field two-inputs nopd no-btm-border">
 						<div class="input-container input-half">
+							<input name="Town" id="Town" value="{{$Town}}" type="hidden" >
 							<input name="Address1" required="" id="SpaceAddr" value="{{$Address1}}" required="" ng-model="signup.addr" type="text" class="ng-pristine ng-untouched ng-invalid-required" aria-required="true" placeholder="番地">
 							<!--select towns-->
 						</div>
@@ -615,7 +616,7 @@ function MychkBoxchk(str,id){
 						<span class="require-mark">*</span>
 						How to enter
 					</label>
-					<textarea required cols="20" name="EnterDetails" id="WorkspaceData_EnterDescription" rows="5" class="space-desc-textarea ng-pristine ng-untouched ng-invalid ng-invalid-required">{{$space->EnDetails}}</textarea>
+					<textarea required cols="20" name="EnterDetails" id="WorkspaceData_EnterDescription" rows="5" class="space-desc-textarea ng-pristine ng-untouched ng-invalid ng-invalid-required">{{$space->EnterDetails}}</textarea>
 					<div class="text-length-counter">
 						<span>0</span>
 						<span>/4000</span>
@@ -626,7 +627,7 @@ function MychkBoxchk(str,id){
 						<span class="require-mark">*</span>
 						How to exit
 					</label>
-					<textarea required cols="20" name="ExitDetails" id="WorkspaceData_ExitDescription" rows="5" class="space-desc-textarea ng-pristine ng-untouched ng-invalid ng-invalid-required">{{$space->ExDetails}}</textarea>
+					<textarea required cols="20" name="ExitDetails" id="WorkspaceData_ExitDescription" rows="5" class="space-desc-textarea ng-pristine ng-untouched ng-invalid ng-invalid-required">{{$space->ExitDetails}}</textarea>
 					<div class="text-length-counter">
 						<span>0</span>
 						<span>/4000</span>

@@ -104,6 +104,7 @@ jQuery(function($){
                 $('#district').val(data[1]);
                 $('#city').val(data[1]);
                 $('#City').val(data[1]);
+                $('#Town').val(data[2]);
                 var address1 = $('input[name="Address1"]').val();
                 address1 = address1.replace(data[2], '');
                 $('input[name="Address1"]').val(data[2] + address1);

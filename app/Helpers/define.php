@@ -69,7 +69,7 @@ define('BOOKING_REFUND_CHARGE_100', 3);
 
 // ==================== UPLOAD ===================== //
 define('SITE_URL', url('/') . '/');
-define('ROOT_PATH_FOLDER', $_SERVER['DOCUMENT_ROOT'] . '');
+define('ROOT_PATH_FOLDER', isset($_SERVER['DOCUMENT_ROOT']) ? ($_SERVER['DOCUMENT_ROOT'] . '') : '');
 define('UPLOAD_PATH_SPACE_TMP_URL', url('/images/space/tmp/') . '/');
 define('UPLOAD_PATH_LOGO_URL', url('/images/user/') . '/');
 define('UPLOAD_PATH_AVATAR_URL', url('/images/avatars/tmp') . '/');

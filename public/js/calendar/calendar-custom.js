@@ -1311,7 +1311,7 @@ jQuery(document).ready(function($) {
 						$(element).addClass('disabled');
 				}
 		    	
-		    	// Add popover to booked events
+		    	// Add popover to a events
 		    	if (event.className == 'booked' && event.description) {
 		    		$(element).attr('data-toggle', 'popover');
 		    		$(element).attr('title', '予約内容');
@@ -1321,6 +1321,12 @@ jQuery(document).ready(function($) {
 		    		$(element).popover({
 		    			container: 'body',
 		    			html : true 
+		    		});
+		    		
+		    		$(element).on('click', function(){
+		    			$('#booking_popup_content').html(event.description);
+		    			var remodal = jQuery('#booking_modal').remodal();
+		    			remodal.open();
 		    		});
 		    	}
 		    	
@@ -1353,13 +1359,15 @@ jQuery(document).ready(function($) {
 					}
 					if (gridDate >= startDate && gridDate <= endDate)
 					{
-							if (defaultCalendarView == 'MonthlySpace' && dayGrid.hasClass('fc-today'))
+							if (defaultCalendarView == 'MonthlySpace' && dayGrid.hasClass('fc-today') && eventClass != 'booked')
 							{
 								// Do nothing here
 							}
 							else {
+								
 								dayGrid.addClass(eventClass);
-								eventRow.find('.fc-day-number[data-date="'+ gridDate +'"], .fc-month-name[data-date="'+ gridDate +'"]').addClass(eventClass);
+								eventRow.find('.fc-day-number[data-date="'+ gridDate +'"]').addClass(eventClass);
+								eventRow.find('.fc-month-name[data-date="'+ gridDate +'"]').addClass(eventClass);
 							}
 					}
 					

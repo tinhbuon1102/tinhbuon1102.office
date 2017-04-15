@@ -20,6 +20,7 @@ class ComposerStaticInit0997d0a31e979b45e67ac313e8593d15
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
+        '4a1f389d6ce373bda9e57857d3b61c84' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -96,6 +97,7 @@ class ComposerStaticInit0997d0a31e979b45e67ac313e8593d15
         array (
             'Dotenv\\' => 7,
             'Doctrine\\Instantiator\\' => 22,
+            'DebugBar\\' => 9,
             'DaveJamesMiller\\Breadcrumbs\\' => 28,
         ),
         'C' => 
@@ -103,6 +105,10 @@ class ComposerStaticInit0997d0a31e979b45e67ac313e8593d15
             'Collective\\Html\\' => 16,
             'ClassPreloader\\' => 15,
             'Carbon\\' => 7,
+        ),
+        'B' => 
+        array (
+            'Barryvdh\\Debugbar\\' => 18,
         ),
         'A' => 
         array (
@@ -265,6 +271,10 @@ class ComposerStaticInit0997d0a31e979b45e67ac313e8593d15
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
         ),
+        'DebugBar\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar',
+        ),
         'DaveJamesMiller\\Breadcrumbs\\' => 
         array (
             0 => __DIR__ . '/..' . '/davejamesmiller/laravel-breadcrumbs/src',
@@ -280,6 +290,10 @@ class ComposerStaticInit0997d0a31e979b45e67ac313e8593d15
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
+        ),
+        'Barryvdh\\Debugbar\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src',
         ),
         'App\\' => 
         array (
@@ -348,9 +362,8 @@ class ComposerStaticInit0997d0a31e979b45e67ac313e8593d15
     );
 
     public static $classMap = array (
-        'CreateUser1Table' => __DIR__ . '/../..' . '/database/migrations/2016_04_06_183507_create_user1_table.php',
-        'CreateUser2Table' => __DIR__ . '/../..' . '/database/migrations/2016_04_07_091720_create_user2_table.php',
-        'CreateUseradminTable' => __DIR__ . '/../..' . '/database/migrations/2016_04_07_133803_create_useradmin_table.php',
+        'AddFieldsToBookedspacesTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_15_174052_add_fields_to_bookedspaces_table.php',
+        'AddFieldsToUser1sharespacesTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_15_173408_add_fields_to_user1sharespaces_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',

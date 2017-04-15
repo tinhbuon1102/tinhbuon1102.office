@@ -5279,6 +5279,10 @@ span.btn-file input[type="file"] {
 	width: 33.33333%;
 	float: left;
 }
+.searchbar .address .input-container.input-col4 {
+	width: 25%;
+	float: left;
+}
 
 .searchbar .chosen-container-multi .chosen-choices {
 	border: none;

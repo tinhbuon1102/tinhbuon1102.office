@@ -75,9 +75,17 @@ class User1sharespace extends Model
 		return $this->select('District')
 		->where('Prefecture', trim($prefecture))
 		->where('status','1')
-// 		->where('IsPublished','Yes')
 		->groupBy('District')
 		->orderBy('District', 'ASC')
+		->get();
+	}
+	
+	public function getTownByPrefecture($prefecture){
+		return $this->select('Town')
+		->where('Prefecture', trim($prefecture))
+		->where('status','1')
+		->groupBy('Town')
+		->orderBy('Town', 'ASC')
 		->get();
 	}
 }

@@ -53,7 +53,7 @@ $tag = request()->get('tag') ? request()->get('tag') : '';
                                                     </span></button>
                                                 </div>
                                             <div id="mbshowsec" class="filter-input-wrapper address">
-                                                <div class="input-container input-col3">
+                                                <div class="input-container input-col4">
                                                     <select name="filter_prefecture" id="filter_prefecture" data-label="都道府県を選択">
                                                     	<option value="">都道府県を選択</option>
                                                     	@foreach ($prefectures as $prefecture)
@@ -61,14 +61,21 @@ $tag = request()->get('tag') ? request()->get('tag') : '';
                                                     	@endforeach
                                                     </select><!--select prefecture-->
                                                 </div>
-                                                <div class="input-container input-col3 last">
+                                                <div class="input-container input-col4 ">
+                                                	<select name="filter_town" id="filter_town" data-label="Select Town" data-placeholder="Select Town" multiple>
+                                                    	@foreach ($towns as $town)
+	                                                    	<option @if ( request()->has('town') && in_array($town->Town, request()->get('town')) ) selected="selected" @endif value="{{ $town->Town }}">{{ $town->Town }}</option>
+                                                    	@endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="input-container input-col4 ">
                                                 	<select name="filter_district" id="filter_district" data-label="市区町村を選択" data-placeholder="市区町村を選択(複数選択可)" multiple>
                                                     	@foreach ($districts as $district)
 	                                                    	<option @if ( request()->has('district') && in_array($district->District, request()->get('district')) ) selected="selected" @endif value="{{ $district->District }}">{{ $district->District }}</option>
                                                     	@endforeach
                                                     </select>
                                                 </div>
-                                                <div class="input-container input-col3 last">
+                                                <div class="input-container input-col4 last">
                                                     <button type="button" id="apply_districts" class="yellow-button-small"> 検索</button>
                                                 </div>
                                             </div>
@@ -138,11 +145,20 @@ $tag = request()->get('tag') ? request()->get('tag') : '';
                                  <div class="find-list-inner-row find-list-inner-row-results">
                                 	<form class="fl-form SpaceFilters-row" id="form_filter" method="get">
                                 	    <input type="hidden" name="prefecture" id="prefecture" value="{!! request()->has('prefecture') ? request()->get('prefecture') : ''  !!}"/>
+                                	    
+                                	    <div id="district_town_wraper">
                                         @if(request()->has('district'))
                                             @foreach(request()->get('district') as $key => $district)
                                                 <input type="hidden" name="district[{!! $key !!}]" class="form_filter_district" value="{!! $district !!}" />
                                             @endforeach
                                         @endif
+                                        
+                                        @if(request()->has('town'))
+                                            @foreach(request()->get('town') as $key => $town)
+                                                <input type="hidden" name="town[{!! $key !!}]" class="form_filter_town" value="{!! $town !!}" />
+                                            @endforeach
+                                        @endif
+                                        </div>
 
                                         <input type="hidden" name="fee_type" id="fee_type" value="{!! request()->has('fee_type') ? request()->get('fee_type') : 1  !!}"/>
 
@@ -425,7 +441,7 @@ $tag = request()->get('tag') ? request()->get('tag') : '';
             								<div class="sp01" style='background:url("{{$img}}") !important; background-size: cover!important;background-position: center center!important;'>
             									<a href="{!! url('ShareUser/ShareInfo/View',['id' => $space->HashID]) !!}" class="link_space" target="_blank">
                                                     <span class="area">
-                                                        {!! $space->District !!}
+                                                        {!! $space->District !!} {!! $space->Town !!}
                                                         <!--district name-->
                                                     </span>
 													
@@ -543,9 +559,10 @@ $tag = request()->get('tag') ? request()->get('tag') : '';
                     width: '100%'
                 });*/
 
-                jQuery('#filter_district').select2({
+                jQuery('#filter_district, #filter_town').select2({
                     multiple:true
                 });
+                
             });
 
         </script>

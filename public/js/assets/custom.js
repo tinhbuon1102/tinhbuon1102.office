@@ -452,9 +452,11 @@ jQuery(function($){
 	
 	jQuery('body').on('change', '#filter_prefecture', function(){
 		$('#filter_district').val('');
+		$('#filter_town').val('');
 		$('.form_filter_district').remove();
 		$('#form_filter #prefecture').val($('#filter_prefecture').val());
 		$('#form_filter #district').val($('#filter_district').val());
+		$('#form_filter #town').val($('#filter_town').val());
 		$('#form_filter #per_page').val($('#per_page').val());
 		
 		$('#form_filter').submit();
@@ -465,32 +467,42 @@ jQuery(function($){
 		$('#form_filter #per_page').val(quantity);
 		$('#form_filter #prefecture').val($('#filter_prefecture').val());
 		$('#form_filter #district').val($('#filter_district').val());
+		$('#form_filter #town').val($('#filter_town').val());
 
 		$('#form_filter').submit();
 	});
 
 	jQuery('body').on('click', '#apply_districts', function(){
+		// Empty district and town hidden fields
+		jQuery('#district_town_wraper').html('');
+		
 		var districts = $('#filter_district').val();
 		var district  = '';
         if( null !=  districts){
-            jQuery('.form_filter_district').remove();
             for(i=0; i <= districts.length; i++){
     			if(districts[i] != undefined){
     				district = districts[i].trim();
-    				jQuery('#form_filter').append('<input type="hidden" class="form_filter_district" name="district['+i+']" value="'+district+'">')
+    				jQuery('#district_town_wraper').append('<input type="hidden" class="form_filter_district" name="district['+i+']" value="'+district+'">')
     			}
 
     		}
             $('#form_filter').submit();
 
-        }else{
-            if(jQuery('body').has('.form_filter_district').length){
-                jQuery('.form_filter_district').remove();
-                $('#form_filter').submit();
-                return false;
-            }else{
-                alert('Choose some district before applying.')
-            }
+        }
+        
+
+        var towns = $('#filter_town').val();
+		var town  = '';
+        if( null !=  towns){
+            for(i=0; i <= towns.length; i++){
+    			if(towns[i] != undefined){
+    				town = towns[i].trim();
+    				jQuery('#district_town_wraper').append('<input type="hidden" class="form_filter_town" name="town['+i+']" value="'+town+'">')
+    			}
+
+    		}
+            $('#form_filter').submit();
+
         }
 
 

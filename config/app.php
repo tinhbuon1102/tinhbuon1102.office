@@ -126,12 +126,6 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
-    	DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
-    	Intervention\Image\ImageServiceProvider::class,
-		Collective\Html\HtmlServiceProvider::class,
-        Illuminate\Auth\AuthServiceProvider::class,
-		/*Kbwebs\MultiAuth\AuthServiceProvider::class,*/
-		Laravel\Socialite\SocialiteServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
         Illuminate\Cache\CacheServiceProvider::class,
@@ -161,6 +155,14 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 		App\Providers\HelperServiceProvider::class,
+    	
+    	/* CUSTOM */
+    	DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+    	Intervention\Image\ImageServiceProvider::class,
+    	Collective\Html\HtmlServiceProvider::class,
+    	Illuminate\Auth\AuthServiceProvider::class,
+    	/*Kbwebs\MultiAuth\AuthServiceProvider::class,*/
+    	Laravel\Socialite\SocialiteServiceProvider::class,
     ],
 
     /*
@@ -208,9 +210,13 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+    	
+    	/* CUSTOM */
 		'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     	'Image' => Intervention\Image\Facades\Image::class,
     	'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
+    	'Debugbar' => Barryvdh\Debugbar\Facade::class,
+    	 
     		
     ],
 

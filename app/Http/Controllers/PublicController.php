@@ -699,6 +699,11 @@ $spaces = $user1Space->select('user1sharespaces.*')
 						'conditionType' => 'whereIn',
 						'whereType' => 'IN',
 				),
+				'town' => array(
+					'search' => 'Town',
+					'conditionType' => 'whereIn',
+					'whereType' => 'IN',
+				),
 				'budget' => array(
 						'search' => 'Budgets',
 						'conditionType' => 'Special',
@@ -991,7 +996,7 @@ $spaces = $user1Space->select('user1sharespaces.*')
 	
 		$spaces1= new \App\User1sharespace();
 		$prefectures = $spaces1->getPrefectures();
-		$districts = array();
+		$districts = $towns = array();
 	
 		foreach ($prefectures as &$prefecture)
 		{
@@ -1014,13 +1019,24 @@ $spaces = $user1Space->select('user1sharespaces.*')
 					}
 				}
 
+			$towns = $spaces1->getTownByPrefecture($request->prefecture);
+			
+			if (!empty($towns))
+				foreach ($towns as &$town)
+				{
+					if (is_array($request->town) && in_array($town->Town, $request->town))
+					{
+						$town->selected = true;
+					}
+				}
+				
 				
 		}
 	
 		$budgets = \App\Budget::where('Type', '!=','search')->get();
 		$timeslots=\App\Timeslot::all();
 			
-		return view('public.search-spaces',compact('spaces', 'prefectures', 'districts', 'budgets', 'timeslots', 'available_spaces_message','feeType1', 'request'));
+		return view('public.search-spaces',compact('spaces', 'prefectures', 'districts', 'towns', 'budgets', 'timeslots', 'available_spaces_message','feeType1', 'request'));
 	}
 	
 	public function checkSessionExpire(Request $request){

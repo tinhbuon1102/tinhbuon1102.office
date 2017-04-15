@@ -12,7 +12,7 @@
 <!--/nav-->
 <div class="hero-article hero-hiw-page ng-scope">
 <div class="hero-article-content">
-<h1 class="hero-article-title"><strong>ご利用規約</strong></h1>
+<h1 class="hero-article-title"><strong>利用規約</strong></h1>
 </div>
 <div class="parallax-container"></div>
 </div>

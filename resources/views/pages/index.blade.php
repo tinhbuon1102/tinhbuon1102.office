@@ -64,7 +64,7 @@
 <section id="intro" class="white">
 <div class="container">
 <div class="col_half col_left">
-<h2 class="sec-title left-align"><span class="gray">What's</span> hOur Office?</h2>
+<h2 class="sec-title left-align"><span class="gray">What's</span> <span class="transcase">hOur Office</span>?</h2>
 <p class="sec-subtitle left-align">アワーオフィスとは？</p>
 <p class="disc">
 期間にとらわれず低コストでオフィスを利用したい。<br/>
@@ -138,7 +138,7 @@
 </div><!--/container-->
 </section>
 <section id="three-point" class="white">
-<div class="title-head"><h2 class="sec-title">hOur Office offers</h2>
+<div class="title-head"><h2 class="sec-title"><span class="transcase">hOur Office</span> offers</h2>
 <p class="sec-subtitle">アワーオフィスのサービスについて</p></div>
 <div class="container center">
 <div class="offer-grid grd3-flex-row grd3-flex-lg">

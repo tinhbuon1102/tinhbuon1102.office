@@ -43,7 +43,7 @@
 						<h3>Terms of Service</h3>
 						<ul class="ft-nav">
 							<li>
-								<a href="{{url('/TermCondition/')}}">ご利用規約</a>
+								<a href="{{url('/TermCondition/')}}">利用規約</a>
 							</li>
 							<li>
 								<a href="{{url('/PrivacyPolicy/')}}">プライバシーポリシー</a>

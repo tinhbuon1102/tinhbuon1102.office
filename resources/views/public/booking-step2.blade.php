@@ -249,12 +249,12 @@ use App\Spaceslot;
 									</div>
 									<div class="confirm-term">
 										<p>
-											<a href="{{url('/')}}/TermCondition/RentUser" target="_blank">借主利用規約</a>
+											<a href="{{url('/')}}/TermCondition/RentUser" target="_blank">利用者規約</a>
 											を確認した上で、予約を進めてください。
 										</p>
 										<input type="checkbox" id="checkTerm" />
 										<span>
-											<a href="{{url('/')}}/TermCondition/RentUser" target="_blank">借主利用規約</a>
+											<a href="{{url('/')}}/TermCondition/RentUser" target="_blank">利用者規約</a>
 											に同意する
 										</span>
 									</div>

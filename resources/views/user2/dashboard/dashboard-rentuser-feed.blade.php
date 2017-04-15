@@ -30,13 +30,13 @@
 				}
 				break;
 			case NOTIFICATION_BOOKING_REFUND_NO_CHARGE :
-				$notifTitle = 'が以下のの予約(#'.$notifications[0]['TypeID'].')を<span class="red bold">キャンセル</span>し、支払額は返金されました。キャンセル規約に基づき、キャンセル料はかかりません。';
+				$notifTitle = 'が以下の予約(#'.$notifications[0]['TypeID'].')を<span class="red bold">キャンセル</span>し、支払額は返金されました。キャンセル規約に基づき、キャンセル料はかかりません。';
 				break;
 			case NOTIFICATION_BOOKING_REFUND_50 :
-				$notifTitle = 'が以下のの予約(#'.$notifications[0]['TypeID'].')を<span class="red bold">キャンセル</span>しました。キャンセル規約に基づき、キャンセル料は支払額の50%です。';
+				$notifTitle = 'が以下の予約(#'.$notifications[0]['TypeID'].')を<span class="red bold">キャンセル</span>しました。キャンセル規約に基づき、キャンセル料は支払額の50%です。';
 				break;
 			case NOTIFICATION_BOOKING_REFUND_100 :
-				$notifTitle = 'が以下のの予約(#'.$notifications[0]['TypeID'].')を<span class="red bold">キャンセル</span>しました。キャンセル規約に基づき、支払額の返金はされません。';
+				$notifTitle = 'が以下の予約(#'.$notifications[0]['TypeID'].')を<span class="red bold">キャンセル</span>しました。キャンセル規約に基づき、支払額の返金はされません。';
 				break;
 			default:
 				$notifTitle = '';

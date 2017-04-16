@@ -7,7 +7,14 @@
 <div class="viewport">
 <!--nav-->
 <?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/before_login_nav.php');?>
-			@include('pages.before_login_nav')
+@if(Auth::check())
+  @include('pages.header_nav_shareuser')
+  @elseif(Auth::guard('user2')->check())
+  <?php $check_user=1; ?>
+  @include('pages.header_nav_rentuser')
+  @else
+  @include('pages.before_login_nav')
+  @endif
 
 <!--/nav-->
 <div class="hero-article hero-hiw-page ng-scope">

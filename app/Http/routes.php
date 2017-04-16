@@ -18,6 +18,13 @@ Route::get('/how-it-works', function () {
     return view('pages.howitwork');
 });
 
+Route::get('/paymentextend', function () {
+    return view('pages.payment_extend');
+});
+
+Route::get('/extendcomplete', function () {
+    return view('pages.payment_extend_complete');
+});
 
 Route::get('/TermCondition', function () {
     return view('pages.term_condition');

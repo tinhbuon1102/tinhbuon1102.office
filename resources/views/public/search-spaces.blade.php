@@ -61,17 +61,18 @@ $tag = request()->get('tag') ? request()->get('tag') : '';
                                                     	@endforeach
                                                     </select><!--select prefecture-->
                                                 </div>
-                                                <div class="input-container input-col4 ">
-                                                	<select name="filter_town" id="filter_town" data-label="Select Town" data-placeholder="Select Town" multiple>
-                                                    	@foreach ($towns as $town)
-	                                                    	<option @if ( request()->has('town') && in_array($town->Town, request()->get('town')) ) selected="selected" @endif value="{{ $town->Town }}">{{ $town->Town }}</option>
-                                                    	@endforeach
-                                                    </select>
-                                                </div>
+                                                
                                                 <div class="input-container input-col4 ">
                                                 	<select name="filter_district" id="filter_district" data-label="市区町村を選択" data-placeholder="市区町村を選択(複数選択可)" multiple>
                                                     	@foreach ($districts as $district)
 	                                                    	<option @if ( request()->has('district') && in_array($district->District, request()->get('district')) ) selected="selected" @endif value="{{ $district->District }}">{{ $district->District }}</option>
+                                                    	@endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="input-container input-col4 ">
+                                                	<select name="filter_town" id="filter_town" data-label="Select Town" data-placeholder="Select Town" multiple>
+                                                    	@foreach ($towns as $town)
+	                                                    	<option @if ( request()->has('town') && in_array($town->Town, request()->get('town')) ) selected="selected" @endif value="{{ $town->Town }}">{{ $town->Town }}</option>
                                                     	@endforeach
                                                     </select>
                                                 </div>

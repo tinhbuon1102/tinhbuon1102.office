@@ -1597,7 +1597,7 @@ class User1Controller extends Controller
 							else
 							{
 								// For Multiple booking in one slot
-								$multipleBookedIds[] = '<a class="booking_url" target="_blank" href="'.getSpaceUrl($bookedSpace->HashID).'">' . $bookedSchedule->id . '</a>';
+								$multipleBookedIds[] = '<a class="booking_url" target="_blank" href="'.getSpaceUrl($bookedSpace->HashID).'">' . $bookedSchedule->id . '</a>' . '<span class="booked_user">(<a href="'.getUser2ProfileUrl($bookedSchedule->rentUser).'">' . getUserName($bookedSchedule->rentUser) . '</a>)</span>';
 								if ( $indexBookedSchedule == count($bookedSchedules) - 1 )
 								{
 									$descriptionContent[] = '<span class="booked_id_text">' . trans('common.Booked ID:') . '<span> ' . '<span class="booked_id">#' . implode(', #', $multipleBookedIds) . '</span>';

@@ -1584,7 +1584,7 @@ class User1Controller extends Controller
 							if ( ! isCoreWorkingOrOpenDesk($bookedSpace) )
 							{
 								// For single booking in one slot
-								$descriptionContent[] = '<span class="booked_id_text">' . trans('common.Booked ID:') . '<span> ' . '<span class="booked_id"><a class="booking_url" target="_blank" href="'.getSpaceUrl($bookedSpace->HashID).'">#' . $bookedSchedule->id . '</a></span>';
+								$descriptionContent[] = '<span class="booked_id_text">' . trans('common.Booked ID:') . '<span> ' . '<span class="booked_id"><a class="booking_url" target="_blank" href="'.getSharedBookingDetailUrl($bookedSchedule->id ).'">#' . $bookedSchedule->id . '</a></span>';
 								$descriptionContent[] = '<span class="booked_date_text">' . trans('common.Booked Date:') . '<span> ' . '<span class="booked_date">' . renderJapaneseDate($bookedSchedule->created_at, false) . '</span>';
 								$descriptionContent[] = '<span class="booked_user_text">' . trans('common.Booked User:') . '<span> ' . '<span class="booked_user">' . getUserName($bookedSchedule->rentUser) . '</span>';
 								if ( $bookedSlot->Type == 'DailySpace' || $bookedSlot->Type == 'HourSpace' )
@@ -1597,7 +1597,7 @@ class User1Controller extends Controller
 							else
 							{
 								// For Multiple booking in one slot
-								$multipleBookedIds[] = '<a class="booking_url" target="_blank" href="'.getSpaceUrl($bookedSpace->HashID).'">' . $bookedSchedule->id . '</a>' . '<span class="booked_user">(<a href="'.getUser2ProfileUrl($bookedSchedule->rentUser).'">' . getUserName($bookedSchedule->rentUser) . '</a>)</span>';
+								$multipleBookedIds[] = '<a class="booking_url" target="_blank" href="'.getSharedBookingDetailUrl($bookedSchedule->id ).'">' . $bookedSchedule->id . '</a>' . '<span class="booked_user">(<a href="'.getUser2ProfileUrl($bookedSchedule->rentUser).'">' . getUserName($bookedSchedule->rentUser) . '</a>)</span>';
 								if ( $indexBookedSchedule == count($bookedSchedules) - 1 )
 								{
 									$descriptionContent[] = '<span class="booked_id_text">' . trans('common.Booked ID:') . '<span> ' . '<span class="booked_id">#' . implode(', #', $multipleBookedIds) . '</span>';

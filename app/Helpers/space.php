@@ -60,7 +60,7 @@ function getSpaceTypeFee($space)
 
 function getSpaceAddress($space) 
 {
-	return $space->Prefecture . $space->District . $space->Town . $space->Address1 . $space->Address2;
+	return $space->Prefecture . $space->District . $space->Address1 . $space->Address2;
 }
 
 function isCoreWorkingOrOpenDesk($space)

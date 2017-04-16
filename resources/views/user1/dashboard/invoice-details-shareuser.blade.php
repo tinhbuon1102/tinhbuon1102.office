@@ -55,7 +55,7 @@
 												<p class="inv-p">
 													<b>{{$booking->shareUser->PostalCode}}</b>
 													<br>
-													<b>{{$booking->shareUser->Prefecture . $booking->shareUser->District . $booking->shareUser->Town . $booking->shareUser->Address1}}</b>
+													<b>{{$booking->shareUser->Prefecture . $booking->shareUser->District . $booking->shareUser->Address1}}</b>
 													<br>
 													<b>{{$booking->shareUser->Tel}}</b>
 												</p>

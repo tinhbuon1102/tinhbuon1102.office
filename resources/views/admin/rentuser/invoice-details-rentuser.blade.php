@@ -51,7 +51,7 @@
 									<p class="inv-p">
 										<b>{{$booking->rentUser->PostalCode}}</b>
 										<br>
-										<b>{{$booking->rentUser->Prefecture . $booking->rentUser->District . $booking->rentUser->Town . $booking->rentUser->Address1}}</b>
+										<b>{{$booking->rentUser->Prefecture . $booking->rentUser->District . $booking->rentUser->Address1}}</b>
 										<br>
 										<b>{{$booking->rentUser->Tel}}</b>
 									</p>

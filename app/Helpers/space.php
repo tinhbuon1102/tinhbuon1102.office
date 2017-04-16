@@ -178,7 +178,7 @@ function renderNearestStations($space)
 	$html = '';
 	if (empty($stations))
 	{
-		$address = $space->Prefecture . $space->District . $space->Town . $space->Address1;
+		$address = $space->Prefecture . $space->District . $space->Address1;
 		$nearestStation = 	new \App\Library\NearestStation;
 		$aStations = $nearestStation->getNearestStations($address);
 		

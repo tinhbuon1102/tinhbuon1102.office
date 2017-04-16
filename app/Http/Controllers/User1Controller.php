@@ -892,7 +892,7 @@ class User1Controller extends Controller
 		}
 		
 		// Save nearest Station;
-		$address = $request->Prefecture . $request->District . $request->Town . $request->Address1;
+		$address = $request->Prefecture . $request->District . $request->Address1;
 		$nearestStation = new \App\Library\NearestStation();
 		$aStations = $nearestStation->getNearestStations($address);
 		$request->merge(array(
@@ -1224,7 +1224,7 @@ class User1Controller extends Controller
 		}
 		
 		// Save nearest Station;
-		$address = $space->Prefecture . $space->District . $space->Town . $space->Address1;
+		$address = $space->Prefecture . $space->District  . $space->Address1;
 		$nearestStation = new \App\Library\NearestStation();
 		$aStations = $nearestStation->getNearestStations($address);
 		$space->NearestStations = json_encode($aStations);

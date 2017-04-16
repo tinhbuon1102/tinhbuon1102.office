@@ -366,7 +366,7 @@ $count = count($rent_data->bookedSlots);
 															<div class="label-list">住所:</div>
 															<div class="list-content">
                                                             {!!$rent_data->bookedSpace->PostalCode!!}<br/>
-{!!$rent_data->bookedSpace->Prefecture!!}{!!$rent_data->bookedSpace->District!!}{!!$rent_data->bookedSpace->Town!!}{!!$rent_data->bookedSpace->Address1!!}{!!$rent_data->bookedSpace->Address2!!}
+{!!$rent_data->bookedSpace->Prefecture!!}{!!$rent_data->bookedSpace->District!!}{!!$rent_data->bookedSpace->Address1!!}{!!$rent_data->bookedSpace->Address2!!}
                                                             
                                                             </div>
                                                             <div class="mgt-10">

@@ -370,7 +370,7 @@
 												<tbody>
 													<tr>
 														<th>住所</th>
-														<td>{{$space->Prefecture . $space->District . $space->Town . $space->Address1 . $space->Address2}}</td>
+														<td>{{$space->Prefecture . $space->District . $space->Address1 . $space->Address2}}</td>
 													</tr>
 													<tr>
 														<th>アクセス</th>

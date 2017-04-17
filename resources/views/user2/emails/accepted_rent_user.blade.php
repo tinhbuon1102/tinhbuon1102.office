@@ -1062,7 +1062,7 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
 										<tbody>
 											<tr>
 												<td class="column_cell font_default" align="left" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; vertical-align: top; color: #888888;">
-													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 23px; margin-top: 0px; margin-bottom: 0px;">How to Enter</p>
+													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 23px; margin-top: 0px; margin-bottom: 0px;"><?php echo trans('common.How to enter')?></p>
 												</td>
 												<!-- /.column_cell:image_thumb -->
 
@@ -1115,7 +1115,7 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
 										<tbody>
 											<tr>
 												<td class="column_cell font_default" align="left" valign="top" style="padding: 16px 16px 0; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; vertical-align: top; color: #888888;">
-													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 23px; margin-top: 0px; margin-bottom: 0px;">How to Exit</p>
+													<p class="no_mgn" style="font-family: Helvetica, Arial, sans-serif; font-size: 15px; line-height: 23px; margin-top: 0px; margin-bottom: 0px;"><?php echo trans('common.How to exit')?></p>
 												</td>
 												<!-- /.column_cell:image_thumb -->
 

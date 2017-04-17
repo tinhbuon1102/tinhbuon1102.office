@@ -70,7 +70,7 @@ $tag = request()->get('tag') ? request()->get('tag') : '';
                                                     </select>
                                                 </div>
                                                 <div class="input-container input-col4 ">
-                                                	<select name="filter_town" id="filter_town" data-label="Select Town" data-placeholder="Select Town" multiple>
+                                                	<select name="filter_town" id="filter_town" data-label="町名を選択" data-placeholder="町名を選択(複数選択可)" multiple>
                                                     	@foreach ($towns as $town)
 	                                                    	<option @if ( request()->has('town') && in_array($town->Town, request()->get('town')) ) selected="selected" @endif value="{{ $town->Town }}">{{ $town->Town }}</option>
                                                     	@endforeach

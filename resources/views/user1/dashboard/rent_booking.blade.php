@@ -102,11 +102,16 @@ use App\Spaceslot;
 										<div class="tablenav top">
 											<div class="alignleft actions">
 												<?php 
+													if (!empty($_GET))
+														$paramConcat = '&';
+													else 
+														$paramConcat = '?';
+													
 													echo Form::select('filter_month', 
 															@$rent_data_month, @$param['filter_month'], 
 															['id' => 'filter_by_date', 
 															'placeholder' => trans('common.all_date'), 
-															'onchange' => 'location = "'. getFullUrl(Request::except(['filter_month'])) .'" + (this.value ? "&filter_month=" + this.value : "")']);?>
+															'onchange' => 'location = "'. getFullUrl(Request::except(['filter_month'])) .'" + (this.value ? "'.$paramConcat.'filter_month=" + this.value : "")']);?>
 											</div>
 										</div>
                                         
@@ -205,7 +210,6 @@ use App\Spaceslot;
 														<div class="invoice-view-bt action-wrapper ns_action-wrap btn-group">
 															<form action='/ShareUser/Dashboard/acceptPayment' method='post'>
 																<input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
-																<?php //echo get_webpay_payment_status($rent->transaction_id); ?>
 																@if($rent->status==1)
 																<button class="btn btn-mini btn-info btn-mini lnk-accept-payment" type="button">
 																	仮売上

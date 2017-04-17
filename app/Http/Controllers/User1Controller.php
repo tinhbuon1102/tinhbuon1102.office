@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\User1;
 use App\User1sharespace;
 use App\Spaceimage;
@@ -15,21 +14,16 @@ use App\Userreview;
 use Session;
 use Mail;
 use Config;
-use WebPay\WebPay;
 use Auth;
 use Response;
 use Redirect;
 use URL;
-use App\Chat;
 use App\Chatmessage;
 use \Cache;
-use DB;
 use Hash;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Paypalbilling;
-use App\Models\Paypal;
-use App\User1space;
 
 class User1Controller extends Controller
 {
@@ -96,14 +90,6 @@ class User1Controller extends Controller
 	}
 	public function test ()
 	{
-		/*
-		 * $msgs=Chatmessage::where('User1ID','')->whereIn('ChatID',
-		 * function($query){
-		 * $query->select(array('id'))->from('chats')->where('User1ID',Auth::user()->HashCode)->get();
-		 * })->orderBy('id', 'DESC')->take(10)->get();
-		 * return($msgs);
-		 * //return(DB::table('chats')->select(array('id'))->where('User1ID',Auth::user()->HashCode)->get());
-		 */
 		return view('pages.fb-signup');
 	}
 	public function index ()
@@ -2829,11 +2815,7 @@ class User1Controller extends Controller
 		$waitingReviews = Rentbookingsave::select('rentbookingsaves.*')->join('user1sharespaces', 'rentbookingsaves.user1sharespaces_id', '=', 'user1sharespaces.id')
 			->where('rentbookingsaves.status', BOOKING_STATUS_COMPLETED)
 			->where('rentbookingsaves.User1ID', $user1ID)
-			->
-		// ->whereRaw(DB::raw('rentbookingsaves.id NOT IN (SELECT BookingID From
-		// userreviews WHERE User1ID = ' . $user1ID . ' AND ReviewedBy =
-		// "User1")'))
-		orderBy('rentbookingsaves.created_at', 'DESC')
+			->orderBy('rentbookingsaves.created_at', 'DESC')
 			->get();
 		
 		foreach ( $waitingReviews as $waitingReview )

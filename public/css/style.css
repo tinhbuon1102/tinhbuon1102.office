@@ -11419,6 +11419,15 @@ body.calender .resp-vtabs .resp-tabs-container {
 	border-color: rgb(255, 221, 0) !important;
 }
 
+body.rentuser_calendar .resp-vtabs ul.resp-tabs-list {
+	width: 0% !important;
+	display: none;
+}
+
+body.rentuser_calendar .resp-vtabs .resp-tabs-container {
+	width: 100% !important;
+}
+
 body.calender .resp-vtabs ul.resp-tabs-list {
 	position: relative;
 	top: 0;
@@ -12684,6 +12693,10 @@ input:focus, input {
     content: "\00d7";
     text-align: center;
  }
+ 
+.rentuser_calendar #space_calendar_tabs_horizontal{opacity: 0 !important; height: 0 !important;}
+.rentuser_calendar .fc-right .fc-button-group {display: none !important}
+	
 @media screen and (max-width: 690px) {
 	.searchbar .address .input-container.input-col4 {
     width: 100%;

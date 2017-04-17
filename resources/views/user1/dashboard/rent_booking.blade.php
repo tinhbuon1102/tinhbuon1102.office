@@ -102,11 +102,16 @@ use App\Spaceslot;
 										<div class="tablenav top">
 											<div class="alignleft actions">
 												<?php 
+													if (!empty($_GET))
+														$paramConcat = '&';
+													else 
+														$paramConcat = '?';
+													
 													echo Form::select('filter_month', 
 															@$rent_data_month, @$param['filter_month'], 
 															['id' => 'filter_by_date', 
 															'placeholder' => trans('common.all_date'), 
-															'onchange' => 'location = "'. getFullUrl(Request::except(['filter_month'])) .'" + (this.value ? "&filter_month=" + this.value : "")']);?>
+															'onchange' => 'location = "'. getFullUrl(Request::except(['filter_month'])) .'" + (this.value ? "'.$paramConcat.'filter_month=" + this.value : "")']);?>
 											</div>
 										</div>
                                         

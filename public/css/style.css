@@ -12699,3 +12699,21 @@ input:focus, input {
 	}
 	
 }
+/*calendar popup*/
+#booking_modal button.remodal-close {
+    left: auto;
+    right: 10px;
+}
+div#booking_modal h1 {
+    text-align: left;
+    font-size: 1.4em;
+}
+ul.bs-list li {
+    border-bottom: 1px solid #DFDFDF;
+    padding: 1.2em 0;
+    text-align: left;
+}
+ul.bs-list .bs_label {
+    min-width: 90px;
+    display: inline-block;
+}

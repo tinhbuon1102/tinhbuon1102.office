@@ -148,13 +148,13 @@ $count = count($rent_data->bookedSlots);
 															</div>
 															<!--/side_list-->
                                                             <a href="#!" class="chat-link mb-none">
-																<i class="fa fa-commenting" aria-hidden="true"></i> {{ trans('booking_details.chat') }}
+																<i class="fa fa-commenting" aria-hidden="true"></i> {{ trans('common.Chat') }}
 																<!--チャット-->
 															</a>
 															
 															
 															<a href="/RentUser/Dashboard/Message/<?php echo $user1Obj->HashCode;?>" class="chat-link pc-none">
-																<i class="fa fa-commenting" aria-hidden="true"></i> {{ trans('booking_details.chat') }}
+																<i class="fa fa-commenting" aria-hidden="true"></i> {{ trans('common.Chat') }}
                                                                 </a>
 																<!--チャット-->
 														</div>
@@ -166,13 +166,13 @@ $count = count($rent_data->bookedSlots);
 												<div class="how-to-wraper">
 													<?php if ($rent_data->bookedSpace->EnterDetails) {?>
 													<div class="how-to-enter">
-														How to Enter : {{$rent_data->bookedSpace->EnterDetails}}
+														<?php echo trans('common.How to enter')?> : {{$rent_data->bookedSpace->EnterDetails}}
 													</div>
 													<?php }?>
 													
 													<?php if ($rent_data->bookedSpace->ExitDetails) {?>
 													<div class="how-to-exit">
-														How to Exit : {{$rent_data->bookedSpace->ExitDetails}}
+														<?php echo trans('common.How to exit')?> : {{$rent_data->bookedSpace->ExitDetails}}
 													</div>
 													<?php }?>
 												</div>

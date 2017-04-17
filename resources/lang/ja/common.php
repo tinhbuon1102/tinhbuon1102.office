@@ -116,4 +116,7 @@ return [
 	'Set as thumb image' => 'ギャラリー画像として設定',
 	'Set as profile image' => 'プロフィール写真として設定',
 	'Your Session is expired, please try again.' => 'ページのセッションが切れたため、アクセスしたページは開けませんでした。',
+	'How to enter' => '入室方法',
+	'How to exit' => '退室方法',
+	'Chat' => 'メッセージ',
  ];

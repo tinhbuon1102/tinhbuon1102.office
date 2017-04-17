@@ -614,24 +614,18 @@ function MychkBoxchk(str,id){
 				<div class="form-field">
 					<label for="EnterDesc">
 						<span class="require-mark">*</span>
-						How to enter
+						<?php echo trans('common.How to enter')?>
 					</label>
 					<textarea required cols="20" name="EnterDetails" id="WorkspaceData_EnterDescription" rows="5" class="space-desc-textarea ng-pristine ng-untouched ng-invalid ng-invalid-required">{{$space->EnterDetails}}</textarea>
-					<div class="text-length-counter">
-						<span>0</span>
-						<span>/4000</span>
-					</div>
+					
 				</div>
 				<div class="form-field">
 					<label for="ExitDesc">
 						<span class="require-mark">*</span>
-						How to exit
+						<?php echo trans('common.How to exit')?>
 					</label>
 					<textarea required cols="20" name="ExitDetails" id="WorkspaceData_ExitDescription" rows="5" class="space-desc-textarea ng-pristine ng-untouched ng-invalid ng-invalid-required">{{$space->ExitDetails}}</textarea>
-					<div class="text-length-counter">
-						<span>0</span>
-						<span>/4000</span>
-					</div>
+					
 				</div>
 				<div class="form-field nopd no-btm-border col3_wrapper">
 					<div class="input-container input-col3">

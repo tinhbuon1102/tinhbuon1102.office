@@ -1570,15 +1570,15 @@ class User1Controller extends Controller
 							if ( ! isCoreWorkingOrOpenDesk($bookedSpace) )
 							{
 								// For single booking in one slot
-								$descriptionContent[] = '<span class="booked_id_text">' . trans('common.Booked ID:') . '<span> ' . '<span class="booked_id"><a class="booking_url" target="_blank" href="'.getSharedBookingDetailUrl($bookedSchedule->id ).'">#' . $bookedSchedule->id . '</a></span>';
-								$descriptionContent[] = '<span class="booked_date_text">' . trans('common.Booked Date:') . '<span> ' . '<span class="booked_date">' . renderJapaneseDate($bookedSchedule->created_at, false) . '</span>';
-								$descriptionContent[] = '<span class="booked_user_text">' . trans('common.Booked User:') . '<span> ' . '<span class="booked_user">' . getUserName($bookedSchedule->rentUser) . '</span>';
+								$descriptionContent[] = '<span class="booked_id_text bs_label">' . trans('common.Booked ID:') . '</span> ' . '<span class="booked_id bs_value"><a class="booking_url" target="_blank" href="'.getSharedBookingDetailUrl($bookedSchedule->id ).'">#' . $bookedSchedule->id . '</a></span>';
+								$descriptionContent[] = '<span class="booked_date_text bs_label">' . trans('common.Booked Date:') . '</span> ' . '<span class="booked_date bs_value">' . renderJapaneseDate($bookedSchedule->created_at, false) . '</span>';
+								$descriptionContent[] = '<span class="booked_user_text bs_label">' . trans('common.Booked User:') . '</span> ' . '<span class="booked_user bs_value">' . getUserName($bookedSchedule->rentUser) . '</span>';
 								if ( $bookedSlot->Type == 'DailySpace' || $bookedSlot->Type == 'HourSpace' )
 								{
-									$descriptionContent[] = '<span class="booked_time_text">' . trans('common.Time Range:') . '<span> ' . '<span class="booked_time">' . getTimeFormat($bookedSlot->StartTime) . ' - ' . getTimeFormat($bookedSlot->EndTime) . '</span>';
+									$descriptionContent[] = '<span class="booked_time_text bs_label">' . trans('common.Time Range:') . '</span> ' . '<span class="booked_time bs_value">' . getTimeFormat($bookedSlot->StartTime) . ' - ' . getTimeFormat($bookedSlot->EndTime) . '</span>';
 								}
-								$descriptionContent[] = '<span class="booked_price_text">' . trans('common.Booked Price:') . '</span> ' . '<span class="booked_price">' . priceConvert($unitPrice, true) . '</span>';
-								$descriptionContent[] = '<span class="booked_status_text">' . trans('common.Booking Status:') . '</span> ' . '<span class="booked_status">' . getBookingPaymentStatus($bookedSchedule) . '</span>';
+								$descriptionContent[] = '<span class="booked_price_text bs_label">' . trans('common.Booked Price:') . '</span> ' . '<span class="booked_price bs_value">' . priceConvert($unitPrice, true) . '</span>';
+								$descriptionContent[] = '<span class="booked_status_text bs_label">' . trans('common.Booking Status:') . '</span> ' . '<span class="booked_status bs_value">' . getBookingPaymentStatus($bookedSchedule) . '</span>';
 							}
 							else
 							{
@@ -1586,15 +1586,15 @@ class User1Controller extends Controller
 								$multipleBookedIds[] = '<a class="booking_url" target="_blank" href="'.getSharedBookingDetailUrl($bookedSchedule->id ).'">' . $bookedSchedule->id . '</a>' . '<span class="booked_user">(<a href="'.getUser2ProfileUrl($bookedSchedule->rentUser).'">' . getUserName($bookedSchedule->rentUser) . '</a>)</span>';
 								if ( $indexBookedSchedule == count($bookedSchedules) - 1 )
 								{
-									$descriptionContent[] = '<span class="booked_id_text">' . trans('common.Booked ID:') . '<span> ' . '<span class="booked_id">#' . implode(', #', $multipleBookedIds) . '</span>';
-									$descriptionContent[] = '<span class="booked_date_text">' . trans('common.Booked Date:') . '<span> ' . '<span class="booked_date">' . renderJapaneseDate($bookedSlot->created_at, false) . '</span>';
+									$descriptionContent[] = '<span class="booked_id_text bs_label">' . trans('common.Booked ID:') . '</span> ' . '<span class="booked_id bs_value">#' . implode(', #', $multipleBookedIds) . '</span>';
+									$descriptionContent[] = '<span class="booked_date_text bs_label">' . trans('common.Booked Date:') . '</span> ' . '<span class="booked_date bs_value">' . renderJapaneseDate($bookedSlot->created_at, false) . '</span>';
 									if ( $bookedSlot->Type == 'DailySpace' || $bookedSlot->Type == 'HourSpace' )
 									{
-										$descriptionContent[] = '<span class="booked_time_text">' . trans('common.Time Range:') . '<span> ' . '<span class="booked_time">' . getTimeFormat($bookedSlot->StartTime) . ' - ' . getTimeFormat($bookedSlot->EndTime) . '</span>';
+										$descriptionContent[] = '<span class="booked_time_text bs_label">' . trans('common.Time Range:') . '</span> ' . '<span class="booked_time bs_value">' . getTimeFormat($bookedSlot->StartTime) . ' - ' . getTimeFormat($bookedSlot->EndTime) . '</span>';
 									}
 									if ( $space->FeeType != SPACE_FEE_TYPE_HOURLY )
 									{
-										$descriptionContent[] = '<span class="booked_capacity_text">' . trans('common.Capacity:') . '<span> ' . '<span class="capacity_id">' . count($bookedSchedules) . '/' . $space->Capacity . '</span>';
+										$descriptionContent[] = '<span class="booked_capacity_text bs_label">' . trans('common.Capacity:') . '</span> ' . '<span class="capacity_id bs_value">' . count($bookedSchedules) . '/' . $space->Capacity . '</span>';
 									}
 									elseif ( count($multipleBookedIds) )
 									{
@@ -1674,7 +1674,7 @@ class User1Controller extends Controller
 							}
 						}
 						
-						$calendarEvents[$indexSlot]['description'] = implode(('<br />'), $descriptionContent);
+						$calendarEvents[$indexSlot]['description'] = '<ul class="bs-list"><li>'.implode(('</li><li>'), $descriptionContent).'</li></ul>';
 						$calendarEvents[$indexSlot]['url'] = 'javascript:void(0)';
 					}
 				}

@@ -308,7 +308,6 @@
 		<button data-remodal-action="close" class="remodal-close"></button>
 		<h1>予約内容</h1>
 		<div id="booking_popup_content"></div>
-		<button data-remodal-action="cancel" class="remodal-cancel">Close</button>
 	</div>
 </body>
 </html>

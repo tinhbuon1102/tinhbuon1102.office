@@ -390,18 +390,6 @@ class User1Controller extends Controller
 	}
 	public function basicInfo ()
 	{
-		// @TODO REmove when done BEGIN
-		if (isset($_GET['import_town'])) {
-			$allSpaces = User1sharespace::all();
-			foreach ($allSpaces as $space)
-			{
-				$addressInfo = getAddressInfoFromPostCode ($space->PostalCode);
-				$space->Town = $addressInfo[2];
-				$space->save();
-			}
-		}
-		// END
-		
 		if ( Session::has("ShareUserID") && ! empty(Session::get("ShareUserID")) )
 		{
 			$providerUser = Session::has("providerUser") ? Session::get("providerUser") : '';
@@ -3051,6 +3039,21 @@ class User1Controller extends Controller
 	}
 	public function processBookingPaymentAuto ( Request $request )
 	{
+		// @TODO REmove when done BEGIN
+		if (isset($_GET['import_town'])) {
+			$allSpaces = User1sharespace::all();
+			foreach ($allSpaces as $space)
+			{
+				$addressInfo = getAddressInfoFromPostCode ($space->PostalCode);
+				$space->Town = $addressInfo[2];
+				$space->save();
+			}
+			pr(count($allSpaces));
+			die('done');
+		}
+		// END
+		
+		
 		$rentbooking = new Rentbookingsave();
 		if ( $request->reSaveTime )
 		{

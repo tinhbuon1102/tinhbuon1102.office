@@ -1,8 +1,8 @@
 <?php
 namespace App\Library\WebPay;
 
-use App\Library\Webpay\Recursion;
-use App\Library\Webpay\Charge;
+use App\Library\WebPay\Recursion;
+use App\Library\WebPay\Charge;
 use \Payjp\Payjp;
 use \Payjp\Token;
 use \Payjp\Customer;

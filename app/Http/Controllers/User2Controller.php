@@ -17,7 +17,7 @@ use App\User2identitie;
 use Session;
 use Mail;
 use Config,DB;
-use App\Library\Webpay\WebPay;
+use App\Library\WebPay\WebPay;
 use Auth;
 use Response,Redirect;
 use Cache;

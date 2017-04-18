@@ -2417,7 +2417,11 @@ class User2Controller extends Controller
 				
 					$oStartDate = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $rent_data->charge_start_date);
 					// Next month will be charge by recursion
-					$oStartDate->addMonths(2);
+					$oStartDate->addMonths(1);
+					
+					// Reduce end date 2 months
+					$oEndDate = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $rent_data->charge_end_date);
+					$oEndDate->subMonths(2);
 					
 					$infoRecursion = $webpay->recursion->create(array(
 							"amount" => ceil($monthly_payment),
@@ -2432,6 +2436,7 @@ class User2Controller extends Controller
 					));
 						
 					$rent_data_save->recur_id = $infoRecursion->id;
+					$rent_data_save->charge_end_date = $oEndDate->format('Y-m-d');
 					$rent_data_save->save();
 				
 				}else{

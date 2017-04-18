@@ -19,13 +19,13 @@ return [
 	
 	/* --------------------- Webpay SETTING --------------------- */
 	'WebpayLive' => [
-		'WEPAY_SECRET_API_KEY' => 'test_secret_ac709mfnrcLrdGUa3r4g95WZ',
-		'WEPAY_PUBLIC_API_KEY' => 'test_public_6wsgEFg2rgz17uJgEy7V2dnr',
+		'WEPAY_SECRET_API_KEY' => 'sk_live_5caa322ad1420da3d345fb48b449894f1f73b0992b0388cd87bab191',
+		'WEPAY_PUBLIC_API_KEY' => 'pk_live_7488905c082af065fec39c26',
 	],
 	
 	'WebpayTest' => [
-		'WEPAY_SECRET_API_KEY' => 'sk_test_57296166f27657b3daed2f8c',
-		'WEPAY_PUBLIC_API_KEY' => 'pk_test_2c80bd31fbb9a546da24c024',
+		'WEPAY_SECRET_API_KEY' => 'sk_test_ee016d56c886a2b6f8f85671',
+		'WEPAY_PUBLIC_API_KEY' => 'pk_test_3879aded1afdd5a161c7bb1a',
 	],
 	
 	/* --------------------- Booking Cancelation Time Setting --------------------- */

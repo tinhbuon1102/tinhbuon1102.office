@@ -1,5 +1,5 @@
 <?php
-namespace App\Library\Webpay;
+namespace App\Library\WebPay;
 
 class Charge extends \Payjp\Charge
 {

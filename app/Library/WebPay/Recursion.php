@@ -1,5 +1,5 @@
 <?php
-namespace App\Library\Webpay;
+namespace App\Library\WebPay;
 
 use \Payjp\Customer;
 use \Payjp\Subscription;

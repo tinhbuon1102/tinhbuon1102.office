@@ -1,5 +1,5 @@
 <?php
-namespace App\Library\Webpay;
+namespace App\Library\WebPay;
 
 use App\Library\Webpay\Recursion;
 use App\Library\Webpay\Charge;

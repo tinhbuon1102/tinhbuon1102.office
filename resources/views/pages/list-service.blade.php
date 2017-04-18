@@ -8,7 +8,14 @@
 	<div class="viewport">
 		<!--nav-->
 <?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/before_login_nav.php');?>
-			@include('pages.before_login_nav')
+ @if(Auth::check())
+  @include('pages.header_nav_shareuser')
+  @elseif(Auth::guard('user2')->check())
+  <?php $check_user=1; ?>
+  @include('pages.header_nav_rentuser')
+  @else
+  @include('pages.before_login_nav')
+  @endif
 
 <!--/nav-->
 		<div class="hero-article hero-hiw-page ng-scope">
@@ -25,14 +32,15 @@
 					<?php renderErrorSuccessHtml($errors);?>
 					
 					<div class="layout-story-header ng-scope">
-						<h3 class="story-title text-center">掲載代行サービスとは？</h3>
+						<h3 class="story-title text-center">写真撮影代行サービスとは？</h3>
+						<span class="icon-big icon-add-service-icons-camera"></span>
 						<div class="hiwn-hiwp-copy">
-							掲載代行サービスとは、hOur Office運営会社があなたに代わり、
+							写真撮影代行サービスとは、hOur Office運営会社があなたに代わり、
 							<br class="sp-none">
-							セットアップからスペースの掲載まで代行で行うサービスです。
+							より魅力的なオフィススペースを掲載するために<br class="sp-none">スペースの撮影を代行で行うサービスです。
 						</div>
 					</div>
-					<div class="ofsp-benefit">
+					<!--<div class="ofsp-benefit">
 						<div class="row">
 							<div class="col-md-6 hiwn-benefit">
 								<div class="hiwn-benefit-icon hiwn-benefit-icon-connect">
@@ -73,7 +81,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div>-->
 					<a id="daiko-form"></a>
 				</div>
 				<!--/container-->
@@ -81,7 +89,7 @@
 			<section id="hiw-feature" class="gray">
 				<div class="container">
 					<div class="layout-story-header ng-scope">
-						<h3 class="story-title text-center">掲載代行サービスお申込みフォーム</h3>
+						<h3 class="story-title text-center">写真撮影代行サービスお申込みフォーム</h3>
 					</div>
 					<div class="service-form">
 						<form id="daikobasicinfo" name="DaikoBasicInfo" method="post" action="" class="HomepageAuth-form fl-form large-form">

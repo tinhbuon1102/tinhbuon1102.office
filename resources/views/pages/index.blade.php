@@ -164,8 +164,8 @@
 <div class="container">
 <div class="share-ad-content">
 <h2 class="sec-title ja left-align mgb-30">シェアスペースをお持ちですか？</h2>
-<p class="sec-subtitle left-align">余っているスペースを、臨時収入と新しい出会いに変えましょう<br/><span class="highlight">今ならオープン記念キャンペーンにて代行登録無料！</span></p>
-<a class="button yellow-button btn-size-lg" href="{{url('list-service')}}">シェアスペース提供をご検討の方はコチラ</a>
+<p class="sec-subtitle left-align">余っているスペースを、臨時収入と新しい出会いに変えましょう<br/><span class="highlight">今ならオープン記念キャンペーンにて写真撮影代行無料！</span></p>
+<a class="button yellow-button btn-size-lg" href="{{url('list-service')}}">写真撮影代行をご希望の方はコチラ</a>
 </div>
 </div><!--/container-->
 </section>

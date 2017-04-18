@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 </head>
 <body>
-<p>この度は、hOur Office掲載代行サービスにお申し込みいただき、誠にありがとうございます。</p>
+<p>この度は、hOur Office写真撮影代行サービスにお申し込みいただき、誠にありがとうございます。</p>
 <p>お申込み内容 : </p>
 <ul>
 <?php foreach ($applicationFormMapper as $keyMapper => $translate) {?>

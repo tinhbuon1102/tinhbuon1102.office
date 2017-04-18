@@ -12730,3 +12730,8 @@ div#booking_modal h1 {
     min-width: 90px;
     display: inline-block;
 }
+.layout-story-header .icon-big {
+    font-size: 3em;
+    margin-bottom: 20px;
+    display: inline-block;
+}

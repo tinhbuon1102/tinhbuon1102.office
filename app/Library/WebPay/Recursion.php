@@ -29,7 +29,7 @@ class Recursion
 			"interval" => $data['period'],
 			"name" => $data['description'],
 			'trial_days' => $dayLength,
-			'billing_day' => date('d', $data['first_scheduled'])
+			'billing_day' => 27
 		));
 		
 		$sub = Subscription::create(array(

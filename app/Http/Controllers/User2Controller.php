@@ -2421,7 +2421,7 @@ class User2Controller extends Controller
 					
 					// Reduce end date 2 months
 					$oEndDate = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $rent_data->charge_end_date);
-					$oEndDate->subMonths(1);
+					$oEndDate->subMonths(2);
 					
 					$infoRecursion = $webpay->recursion->create(array(
 							"amount" => ceil($monthly_payment),

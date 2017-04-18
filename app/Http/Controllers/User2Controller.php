@@ -3290,7 +3290,7 @@ class User2Controller extends Controller
 					$descriptionContent[] = '<span class="booked_time_text">' . trans('common.Time Range:') . '<span> ' . '<span class="booked_time">' . getTimeFormat($bookedSlot->StartTime) . ' - ' . getTimeFormat($bookedSlot->EndTime) . '</span>';
 				}
 				$descriptionContent[] = '<span class="booked_price_text">' . trans('common.Booked Price:') . '</span> ' . '<span class="booked_price">' . priceConvert($unitPrice, true) . '</span>';
-				$descriptionContent[] = '<span class="booked_status_text">' . trans('common.Booking Status:') . '</span> ' . '<span class="booked_status">' . getBookingPaymentStatus($bookedSlot) . '</span>';
+				$descriptionContent[] = '<span class="booked_status_text">' . trans('common.Booking Status:') . '</span> ' . '<span class="booked_status">' . getBookingStatus($bookedSlot) . '</span>';
 					
 				$calendarEvents[$indexSlot]['description'] = implode(('<br />'), $descriptionContent);
 				$calendarEvents[$indexSlot]['url'] = 'javascript:void(0)';

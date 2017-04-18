@@ -3270,7 +3270,7 @@ class User2Controller extends Controller
 				$calendarEvents[$indexSlot]['id'] = $bookedSlot->SlotID;
 				$calendarEvents[$indexSlot]['type'] = $bookedSlot->Type;
 					
-				$calendarEvents[$indexSlot]['backgroundColor'] = $bookedSlot->BookedStatus == BOOKING_STATUS_PENDING ? '#6373fa !important' : ($bookedSlot->BookedStatus == BOOKING_STATUS_RESERVED ? 'orange !important' : 'green !important');
+				$calendarEvents[$indexSlot]['backgroundColor'] = $bookedSlot->BookedStatus == BOOKING_STATUS_PENDING ? '#6373fa !important' : ($bookedSlot->BookedStatus == BOOKING_STATUS_RESERVED ? '#6373fa !important' : '#6373fa !important');
 				$calendarEvents[$indexSlot]['title'] = getBookingPaymentStatus($bookedSlot);
 				$calendarEvents[$indexSlot]['description'] = '';
 				$calendarEvents[$indexSlot]['editable'] = false;

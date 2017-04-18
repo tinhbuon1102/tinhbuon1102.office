@@ -1352,11 +1352,11 @@ be a descendant of the grid when it is being dragged.
 }
 
 .fc-month-name.booked.reserved, .fc-day-number.booked.reserved, .fc-day.booked.reserved {
-	background: orange !important;
+	/* background: orange !important; */
 }
 
 .fc-month-name.booked.completed, .fc-day-number.booked.completed, .fc-day.booked.completed {
-	background: green !important;
+	/* background: green !important; */
 }
 
 .fc-day-grid .fc-event-container a, .fc-month-grid .fc-event-container a{

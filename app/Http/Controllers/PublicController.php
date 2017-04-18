@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 use App\User1;
 use App\User2;
 use App\Spaceslot;
@@ -14,9 +13,7 @@ use App\Notification;
 use App\Rentbookingsave;
 use App\User2portfolio;
 use App\Spaceimage;
-use App\User1paymentinfo;
 use App\Userreview;
-use WebPay\WebPay;
 use View;
 use Session;
 use DB;

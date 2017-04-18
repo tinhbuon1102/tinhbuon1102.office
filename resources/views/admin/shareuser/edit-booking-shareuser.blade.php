@@ -466,7 +466,6 @@ $count = count($rent_data->bookedSlots);
 										<!--Pre-Sale-->
 										</span>
 										@else
-										<?php //echo get_webpay_payment_status($rent_data->transaction_id); ?>
 										@if($rent_data->status==1)
 										<button class="btn btn-mini btn-info btn-mini lnk-accept-payment" type="button">
 											{{ trans('booking_details.pre-sale') }}

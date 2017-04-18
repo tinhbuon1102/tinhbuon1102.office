@@ -1,7 +1,6 @@
 <?php
 namespace App;
-use WebPay\WebPay;
-use Redirect, Session;
+use App\Library\Webpay\WebPay;
 use App\Spaceslot;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -282,9 +281,6 @@ class Rentbookingsave extends Model
 		{
 			$webpay = new WebPay(WEPAY_SECRET_API_KEY);
 			$before = $webpay->charge->retrieve('ch_3u8g4S5Dy2KO1jZ');
-			// $info = $webpay->charge->capture(['id' => 'ch_3u8g4S5Dy2KO1jZ']);
-			// $info = $webpay->charge->refund(['id' => 'ch_3u8g4S5Dy2KO1jZ',
-			// 'amount' => '664']);
 		}
 		catch ( \Exception $e )
 		{
@@ -419,7 +415,7 @@ class Rentbookingsave extends Model
 			catch ( \Exception $e )
 			{
 				$info = $webpay->charge->retrieve($rent_data->transaction_id);
-				if ( $info && ($info->refunded || $info->amount_refunded || $info->captured) )
+				if ( $info && ($info->refunded || $info->amount_refunded) )
 				{
 					// pr($rent_data->charge_start_date .' -- Refunded ');
 					$rent_data->status = BOOKING_STATUS_REFUNDED;

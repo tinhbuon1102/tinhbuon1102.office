@@ -61,6 +61,15 @@ $loggedUser = Auth::guard('user2')->check() ? Auth::guard('user2')->user() : Aut
 	</a>
 </li>
 <li class="side-panel-item">
+	<a id="bt-ms3" href="{{url('RentUser/Dashboard/Calendar')}}" class="content-navigation">
+		<i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+		{{ trans('navigation.calendar') }}
+		<!--カレンダー-->
+		<!--Calendar-->
+	</a>
+</li>
+
+<li class="side-panel-item">
 	<a id="bt-ms3" href="{{url('RentUser/Dashboard/InvoiceList')}}" class="content-navigation">
 		<i class="fa fa-credit-card" aria-hidden="true"></i>
 		{{ trans('navigation.invoice_list') }}

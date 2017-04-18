@@ -489,7 +489,6 @@ $count = count($rent_data->bookedSlots);
 							<div class="invoice-view-bt action-wrapper ns_action-wrap btn-group">
 								<form action='/ShareUser/Dashboard/acceptPayment' method='post' >
 									<input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
-										<?php //echo get_webpay_payment_status($rent_data->transaction_id); ?>
 										@if($rent_data->status==1)
 										<button class="btn btn-mini btn-info btn-mini lnk-accept-payment" type="button">
 											{{ trans('booking_details.pre-sale') }}

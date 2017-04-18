@@ -5,7 +5,6 @@ use App\Notification;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 use App\User1;
 use App\User2;
 use App\Userreview;
@@ -18,13 +17,12 @@ use App\User2identitie;
 use Session;
 use Mail;
 use Config,DB;
-use WebPay\WebPay;
+use App\Library\Webpay\WebPay;
 use Auth;
 use Response,Redirect;
 use Cache;
 use View;
 use Form;
-use App\Chat;
 use App\Chatmessage;
 use URL;
 use App\Models\Paypalbilling;
@@ -32,6 +30,7 @@ use App\Models\Paypal;
 use Date;
 use Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Bookedspace;
 
 
 class User2Controller extends Controller
@@ -402,68 +401,87 @@ class User2Controller extends Controller
 		$user=User2::find(Session::get("RentUserID"));
 		if ($user)
 		{
-			return view('user2.register.register_pre_success',compact('user'));
+			return view('user2.register.register_pre_success', compact('user'));
 		}
 		return '';
 	}
-
-	public function editBasicInfo()
+	public function editBasicInfo ()
 	{
 		$pb = new Paypalbilling();
 		$paypalStatus = $pb->getUserBillingStatus();
-
-		$user=User2::find(Auth::guard('user2')->user()->id);
-		$userIde=User2identitie::where('User2ID',Auth::guard('user2')->user()->id)->where('SentToAdmin','Yes')->get();
-		return view('user2.dashboard.setting-rentuser',compact('user','userIde','paypalStatus'));
+		
+		$user = User2::find(Auth::guard('user2')->user()->id);
+		$userIde = User2identitie::where('User2ID', Auth::guard('user2')->user()->id)->where('SentToAdmin', 'Yes')->get();
+		return view('user2.dashboard.setting-rentuser', compact('user', 'userIde', 'paypalStatus'));
 	}
-	public function editBasicInfoSubmit(Request $request)
+	public function editBasicInfoSubmit ( Request $request )
 	{
-		$input=$request->all();
-		$credit=new User2();
-		$user=User2::find(Auth::guard('user2')->user()->id);
-        if($this->validDate($input['exp_year'] , $input['exp_month']) == false){
-            return redirect()->back()->withErrors(['massage' => '有効期限が過ぎています']);
-        }
-      $type =   $this->creditCardType($input['card_number']);
-        if($type == ""){
-            return redirect()->back()->withErrors(['massage' => 'カードの種類が確認できません']);
-        }
-        if($this->validCvcLength($input['security_code'] , $type) == false){
-            return redirect()->back()->withErrors(['massage' => 'セキュリティーコードが間違っています']);
-        }
-		if( strpos($input['card_number'], '*') !== false ){
-			$request['card_number']=$credit->cc_encrypt($user['modifiededit_card_number']);
-		}else{
-			$request['card_number']=$credit->cc_encrypt($input['card_number']);
+		$input = $request->all();
+		$credit = new User2();
+		$user = User2::find(Auth::guard('user2')->user()->id);
+		if ( $this->validDate($input['exp_year'], $input['exp_month']) == false )
+		{
+			return redirect()->back()->withErrors([
+				'massage' => '有効期限が過ぎています'
+			]);
 		}
-		if($credit->cc_encrypt($input['card_number']!=$user['card_number'] && !$credit->is_valid_card($input['card_number']))):
+		$type = $this->creditCardType($input['card_number']);
+		if ( $type == "" )
+		{
+			return redirect()->back()->withErrors([
+				'massage' => 'カードの種類が確認できません'
+			]);
+		}
+		if ( $this->validCvcLength($input['security_code'], $type) == false )
+		{
+			return redirect()->back()->withErrors([
+				'massage' => 'セキュリティーコードが間違っています'
+			]);
+		}
+		if ( strpos($input['card_number'], '*') !== false )
+		{
+			$request['card_number'] = $credit->cc_encrypt($user['modifiededit_card_number']);
+		}
+		else
+		{
+			$request['card_number'] = $credit->cc_encrypt($input['card_number']);
+		}
+		if ( $credit->cc_encrypt($input['card_number'] != $user['card_number'] && ! $credit->is_valid_card($input['card_number'])) )
+		:
 		//Session::flash('error', 'Your card number is invalid.');
 		//return redirect('/RentUser/Dashboard/BasicInfo/Edit');
 		endif;
-        $type =   $this->validate_cc_number($input['card_number']);
-        if($type == false){
-            return redirect()->back()->withErrors(['success' => 'カード番号が無効です']);
-        }else{
-
-            $webpay = new WebPay(WEPAY_SECRET_API_KEY);
-
-
-            if (strpos($input['card_number'], '*') !== false) {
-                $request['card_number'] = $credit->cc_encrypt($user['modifiededit_card_number']);
-            } else {
-                $request['card_number'] = $credit->cc_encrypt($input['card_number']);
-            }
-
-
-
-            $user->fill($request->except(['_token','oldpassword','password','cpassword','UserName','Email']));
-            $user->save();
-		    Session::flash('success', 'You have successfully updated profile info.');
-            return redirect('/RentUser/Dashboard/BasicInfo/Edit');
-        }
-
-    }
-
+		$type = $this->validate_cc_number($input['card_number']);
+		if ( $type == false )
+		{
+			return redirect()->back()->withErrors([
+				'success' => 'カード番号が無効です'
+			]);
+		}
+		else
+		{
+			if ( strpos($input['card_number'], '*') !== false )
+			{
+				$request['card_number'] = $credit->cc_encrypt($user['modifiededit_card_number']);
+			}
+			else
+			{
+				$request['card_number'] = $credit->cc_encrypt($input['card_number']);
+			}
+			
+			$user->fill($request->except([
+				'_token',
+				'oldpassword',
+				'password',
+				'cpassword',
+				'UserName',
+				'Email'
+			]));
+			$user->save();
+			Session::flash('success', 'You have successfully updated profile info.');
+			return redirect('/RentUser/Dashboard/BasicInfo/Edit');
+		}
+	}
 
 	public function editBasicInfoSubmitData(Request $request)
 	{
@@ -2053,7 +2071,6 @@ class User2Controller extends Controller
 		public function cardTransaction(Request $request){
 			$input=$request->all();
 			$isAllowBooking  =true;
-			$webpay = new WebPay(WEPAY_SECRET_API_KEY);
 
 			$user=User2::find(Auth::guard('user2')->user()->id);
 			$space = User1sharespace::find($request->spaceID);
@@ -2357,7 +2374,7 @@ class User2Controller extends Controller
 				return array('error' => 1, 'message' => '正しい有効期限を選択してください。');
 			
 			}
-			
+			$expire[1] = strlen($expire[1]) == 2 ? "20$expire[1]" : $expire[1];
 			$expire_days = getPaymentExpireDays($rent_data['spaceID']);
 			
 			try {
@@ -2398,10 +2415,9 @@ class User2Controller extends Controller
 							"description" => str_limit($rent_data->spaceID->Title, 70),
 					));
 				
-					$oStartDate = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $rent_data->charge_start_date)->setTimezone('UTC');
+					$oStartDate = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $rent_data->charge_start_date);
 					// Next month will be charge by recursion
-					$oStartDate->addMonths(1);
-					$first_scheduled = $oStartDate->timestamp;
+					$oStartDate->addMonths(2);
 					
 					$infoRecursion = $webpay->recursion->create(array(
 							"amount" => ceil($monthly_payment),
@@ -2411,7 +2427,7 @@ class User2Controller extends Controller
 							"capture" => false,
 							"customer" => $custom_info->id,
 							"period" => "month",
-							"first_scheduled" => strtotime($rent_data->charge_start_date),
+							"first_scheduled" => strtotime($oStartDate->format('Y-m-d')),
 							"expire_days" => $expire_days
 					));
 						
@@ -3192,20 +3208,116 @@ class User2Controller extends Controller
 						$cert->FileType=$request->doctype;
 						$cert->Description=$request->Description;
 						$cert->save();
-					} else {
-						// Collect error messages
-						Session::flash('error', 'ファイル"' . $f1->getClientOriginalName() . '"がアップロードできません。以下の拡張子を持つファイルのみ、アップロードが可能です。<br/>jpeg, jpg, bmp, gif, png, pdf, doc, docx');
-						return redirect('/RentUser/Dashboard/Identify/Upload');
-					}
-
 				}
-
+				else
+				{
+					// Collect error messages
+					Session::flash('error', 'ファイル"' . $f1->getClientOriginalName() . '"がアップロードできません。以下の拡張子を持つファイルのみ、アップロードが可能です。<br/>jpeg, jpg, bmp, gif, png, pdf, doc, docx');
+					return redirect('/RentUser/Dashboard/Identify/Upload');
+				}
 			}
-			Session::flash('success', 'ファイルのアップロードに成功しました。[書類を提出]をクリックすると、送信されます。');
-			return redirect('/RentUser/Dashboard/Identify/Upload');
 		}
-
-		public function notAuth() {
-			return view('user2.dashboard.not-auth');
+		Session::flash('success', 'ファイルのアップロードに成功しました。[書類を提出]をクリックすると、送信されます。');
+		return redirect('/RentUser/Dashboard/Identify/Upload');
+	}
+	public function notAuth ()
+	{
+		return view('user2.dashboard.not-auth');
+	}
+	public function calendar ( Request $request )
+	{
+		$user = Auth::guard('user2')->user();
+		$oTimeNow = \Carbon\Carbon::now();
+		// Get all booking from user 2 in this year.
+		$bookedSlots = Rentbookingsave::where('rentbookingsaves.user_id', $user->id)
+			->where('rentbookingsaves.InvoiceID', '<>', '')
+			->joinSpace()
+			->orderBy('rentbookingsaves.id', 'desc')
+			->whereIn('rentbookingsaves.status', array(
+				BOOKING_STATUS_PENDING,
+				BOOKING_STATUS_RESERVED,
+				BOOKING_STATUS_COMPLETED
+			))
+			->where('rentbookingsaves.SpaceType', '=', SPACE_FEE_TYPE_DAYLY)
+			->where('rentbookingsaves.created_at', '>=', $oTimeNow->subYear(USER2_CALENDAR_YEAR_NUMBER)->format('Y-m-d'));
+		;
+		if ( $request->ajax() )
+		{
+			$bookedSlots = $bookedSlots->select(DB::Raw('rentbookingsaves.*, 
+				bookedspaceslots.StartDate,
+				bookedspaceslots.StartTime,
+				bookedspaceslots.EndDate,
+				bookedspaceslots.EndTime,
+				bookedspaceslots.SlotID,
+				bookedspaceslots.Type,
+				bookedspaces.FeeType,
+				rentbookingsaves.status as BookedStatus
+			'));
+// 			$bookedSlots = $bookedSlots->where('bookedspaces.SpaceID', (int) $request->spaceID);
+			$bookedSlots = $bookedSlots->get();
+			
+			$calendarEvents = array();
+			$groupedSpaces = array();
+			$firstSpace = false;
+			
+			foreach ( $bookedSlots as $indexSlot => $bookedSlot )
+			{
+				$descriptionContent = array();
+				$space = $bookedSlot->bookedSpace;
+					
+				$calendarEvents[$indexSlot]['start'] = $bookedSlot->StartDate . 'T' . $bookedSlot->StartTime;
+				$calendarEvents[$indexSlot]['end'] = $bookedSlot->EndDate . 'T' . $bookedSlot->EndTime;
+				$calendarEvents[$indexSlot]['id'] = $bookedSlot->SlotID;
+				$calendarEvents[$indexSlot]['type'] = $bookedSlot->Type;
+					
+				$calendarEvents[$indexSlot]['backgroundColor'] = $bookedSlot->BookedStatus == BOOKING_STATUS_PENDING ? '#6373fa !important' : ($bookedSlot->BookedStatus == BOOKING_STATUS_RESERVED ? 'orange !important' : 'green !important');
+				$calendarEvents[$indexSlot]['title'] = getBookingPaymentStatus($bookedSlot);
+				$calendarEvents[$indexSlot]['description'] = '';
+				$calendarEvents[$indexSlot]['editable'] = false;
+				$calendarEvents[$indexSlot]['className'] = 'booked';
+				$calendarEvents[$indexSlot]['status'] = $bookedSlot->BookedStatus == BOOKING_STATUS_PENDING ? 'pending' : ($bookedSlot->BookedStatus == BOOKING_STATUS_RESERVED ? 'reserved' : 'completed');
+				$calendarEvents[$indexSlot]['constraint'] = null;
+				$calendarEvents[$indexSlot]['overlap'] = true;
+				
+				// Make booked event wit summary popup data
+				$unitPrice = $bookedSlot->price;
+					
+				// For single booking in one slot
+				$descriptionContent[] = '<span class="booked_id_text">' . trans('common.Booked ID:') . '<span> ' . '<span class="booked_id"><a class="booking_url" target="_blank" href="' . getRentBookingDetailUrl($bookedSlot->id) . '">#' . $bookedSlot->id . '</a></span>';
+				$descriptionContent[] = '<span class="booked_date_text">' . trans('common.Booked Date:') . '<span> ' . '<span class="booked_date">' . renderJapaneseDate($bookedSlot->created_at, false) . '</span>';
+				if ( $bookedSlot->Type == 'DailySpace' || $bookedSlot->Type == 'HourSpace' )
+				{
+					$descriptionContent[] = '<span class="booked_time_text">' . trans('common.Time Range:') . '<span> ' . '<span class="booked_time">' . getTimeFormat($bookedSlot->StartTime) . ' - ' . getTimeFormat($bookedSlot->EndTime) . '</span>';
+				}
+				$descriptionContent[] = '<span class="booked_price_text">' . trans('common.Booked Price:') . '</span> ' . '<span class="booked_price">' . priceConvert($unitPrice, true) . '</span>';
+				$descriptionContent[] = '<span class="booked_status_text">' . trans('common.Booking Status:') . '</span> ' . '<span class="booked_status">' . getBookingPaymentStatus($bookedSlot) . '</span>';
+					
+				$calendarEvents[$indexSlot]['description'] = implode(('<br />'), $descriptionContent);
+				$calendarEvents[$indexSlot]['url'] = 'javascript:void(0)';
+				
+			}
+			
+			$calendarEvents = json_encode(array_values($calendarEvents));
+			return view('user1.dashboard.calendar', compact('space', 'user', 'calendarEvents'));
+		}
+		else {
+			// Group space slot
+			$bookedSpaces = $bookedSlots->groupBy(array('bookedspaces.id'));
+			$bookedSpaces = $bookedSpaces->select(DB::Raw('bookedspaces.*, bookedspaces.SpaceID as id, rentbookingsaves.created_at as BookedDate'))->get();
+			foreach ($bookedSpaces as $bookedSpace)
+			{
+				$bookedSpace->isThisSpaceHasSlot = true;
+				#$groupedSpaces[$bookedSpace->FeeType][] = $bookedSpace;
+				$groupedSpaces[1][] = $bookedSpace;
+				
+				if ( $firstSpace === false )
+				{
+					$firstSpace = $bookedSpace;
+				}
+			}
+			
+			ksort($groupedSpaces);
+			return view('user2.dashboard.space-calendar', compact('groupedSpaces', 'firstSpace', 'user'));
 		}
 	}
+}

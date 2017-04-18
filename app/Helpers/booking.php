@@ -1,6 +1,4 @@
 <?php
-use WebPay\WebPay;
-
 function getBookingStatus($rent_data, $html = false)
 {
 	if ($html)
@@ -803,17 +801,7 @@ function renderBookingFor6Months($sub_total_months,$rent_data,$start_date,$count
 
 function getPaypalRecursionbooking($rent_data,$recuData){
 	return true;
-	//print '<pre>';
-	//print_r($recuData);
-	//print_r($rent_data);
-	//exit;
-
-	//$recursion_info=$webpay->customer->retrieve($customer_info->customer);
-
-	//$recursion_info=$webpay->recursion->all();
-
-	//foreach($customer_info->recursions as $recursion):
-	?>
+?>
 <td>
 	<?php  echo date('Y-m-d',$charge_info->created); ?>
 </td>
@@ -875,31 +863,3 @@ function getRecursionbooking($rent_data){
 	}
 }
 
-function get_webpay_payment_status($t_id){
-	$webpay = new WebPay(WEPAY_SECRET_API_KEY);
-	
-	$status=$webpay->charge->retrieve($t_id);
-	//echo '<pre>';print_r($status);exit;
-	if($status->paid==1 && $status->captured=='' && $status->refunded==1):
-		return '<span class="btn ps-refund btn-mini">返金済</span> ';
-	elseif($status->paid==1 && $status->captured==1):
-		return '<span class="btn accepted btn-mini">本売上</span> ';
-	elseif($status->paid==1 && $status->captured==''):
-		return ' <button class="btn btn-mini btn-info btn-mini lnk-accept-payment" type="submit">仮売上</span>';
-	else:
-		return '<span class="btn ps-rejected btn-mini">受取拒否</span> ';
-	endif;
-}
-	
-	
-function get_recursion_webpay_payment_status($t_id){
-	$webpay = new WebPay(WEPAY_SECRET_API_KEY);
-	
-	$recursion=$webpay->recursion->retrieve($t_id);
-	if($recursion->last_executed==''):
-		return false;
-	else:
-		return true;
-	endif;
-	
-}

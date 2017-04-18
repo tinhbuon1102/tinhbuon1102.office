@@ -9,7 +9,7 @@ else if(isset($_REQUEST['looking_for']) && $_REQUEST['looking_for'] == "RentUser
 }
 else
 {
-	if (isset($_SERVER['argv'][0]) && $_SERVER['argv'][0] == 'artisan')
+	if (isset($_SERVER['argv'][0]) && isset($_SERVER['SHELL']))
 	{
 		$faceUrl = Config('app.url') . '/FBLogin';
 	}

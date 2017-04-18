@@ -395,6 +395,7 @@ Route::get('RentUser/Dashboard/deleterecPayment', "User2Controller@deleterecPaym
 Route::get('RentUser/Dashboard/Reservation', "User2Controller@reservation");
 Route::get('RentUser/Dashboard/SearchSpaces', "PublicController@searchSpaces");
 Route::get('RentUser/AddFavoriteSpace/{id}', "User2Controller@addFavoriteSpace");
+Route::get('RentUser/Dashboard/Calendar', "User2Controller@calendar");
 /**/
 //**********************************************
 Route::get('contact', "ContactController@contact");

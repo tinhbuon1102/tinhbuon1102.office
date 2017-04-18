@@ -24,8 +24,8 @@ return [
 	],
 	
 	'WebpayTest' => [
-		'WEPAY_SECRET_API_KEY' => 'test_secret_ac709mfnrcLrdGUa3r4g95WZ',
-		'WEPAY_PUBLIC_API_KEY' => 'test_public_6wsgEFg2rgz17uJgEy7V2dnr',
+		'WEPAY_SECRET_API_KEY' => 'sk_test_57296166f27657b3daed2f8c',
+		'WEPAY_PUBLIC_API_KEY' => 'pk_test_2c80bd31fbb9a546da24c024',
 	],
 	
 	/* --------------------- Booking Cancelation Time Setting --------------------- */

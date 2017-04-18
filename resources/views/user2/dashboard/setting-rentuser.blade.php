@@ -1,8 +1,3 @@
-<?php
-// define('SITE_URL', '{{url('/')}}/design/')
-?>
-
-<?php //include( $_SERVER['DOCUMENT_ROOT'] . '/design/header.php'); ?>
 @include('pages.header')
 <!--/head-->
 <link rel="stylesheet" href="{{url('/')}}/js/chosen/chosen.min.css">
@@ -778,34 +773,6 @@ echo Form::select('Prefecture', getPrefectures(), $user->Prefecture, [
 	<script src="{{ URL::asset('js/jquery.validate.js?v=1') }}"></script>
 	<script src="{{ URL::asset('js/KanaMaker.js') }}"></script>
 	<script src="{{ URL::asset('js/kana.js') }}"></script>
-	{{--
-	<script type="text/javascript" src="https://js.webpay.jp/v1/"></script>
-	<script>
-		var webpayResponseHandler = function(status, response) {
-			var form = $(".payment_box");
-			if (response.error) {
-				// 必要に応じてエラー処理を入れてください
-				form.find("button").prop("disabled", false);
-			} else {
-				// 伝送させたくない情報をフォームから削除する
-				$("#card_name").removeAttr("name");
-				$("#card_number").removeAttr("name");
-				$("#exp_month").removeAttr("name");
-				$("#exp_year").removeAttr("name");
-				$("#security_code").removeAttr("name");
-
-				var token = response.id;
-				var input = document.createElement("input");
-				input.type = "hidden";
-				input.name = "token";
-				input.value = token;
-				$(input).appendTo(form);
-
-				form.get(0).submit();
-			}
-		};
-	</script>
-	--}}
 	<script>
 	$=jQuery.noConflict();
 

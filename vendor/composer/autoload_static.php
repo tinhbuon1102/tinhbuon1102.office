@@ -62,6 +62,7 @@ class ComposerStaticInit0997d0a31e979b45e67ac313e8593d15
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'PhpParser\\' => 10,
+            'Payjp\\' => 6,
         ),
         'M' => 
         array (
@@ -214,6 +215,10 @@ class ComposerStaticInit0997d0a31e979b45e67ac313e8593d15
         'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
+        ),
+        'Payjp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/payjp/payjp-php/lib',
         ),
         'Monolog\\' => 
         array (

@@ -13,7 +13,9 @@
 	"laravel/socialite": "~2.0",
 	"laravelcollective/html": "^5.2.0",
     "davejamesmiller/laravel-breadcrumbs": "^3.0",
-        "barryvdh/laravel-debugbar": "^2.3"
+        "barryvdh/laravel-debugbar": "^2.3",
+        "payjp/payjp-php": "^0.0.8",
+        "guzzlehttp/guzzle": "^6.2"
 	},
 	
     "require-dev": {

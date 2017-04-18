@@ -1031,8 +1031,9 @@ jQuery(document).ready(function($) {
 						$('#booking_form input[name="SpaceID"]').val(spaceID);
 
 						// Call ajax to load
+						var calendar_url = globalUserType == 1 ? (SITE_URL + 'ShareUser/Dashboard/MySpace/Calendar?spaceID='+spaceID) : (SITE_URL + 'RentUser/Dashboard/Calendar?spaceID='+spaceID);
 						$.get(
-							SITE_URL + 'ShareUser/Dashboard/MySpace/Calendar?spaceID='+spaceID,
+							calendar_url,
 							function(data) {
 								var spaceCalendar = $('.space-calendar').clone();
 								spaceCalendar.addClass('active');
@@ -1065,8 +1066,9 @@ jQuery(document).ready(function($) {
             text: text,
             click: function() {
             	showHideInprogressBackground('show');
+            	var calendar_url = globalUserType == 1 ? (SITE_URL + 'ShareUser/Dashboard/MySpace/Calendar?spaceID=' + data['SpaceID']) : (SITE_URL + 'RentUser/Dashboard/Calendar?spaceID=' + data['SpaceID']);
             	$.ajax({
-        			url: SITE_URL + 'ShareUser/Dashboard/MySpace/Calendar?spaceID=' + data['SpaceID'],
+        			url: calendar_url,
         			method: 'get',
         			dataType: 'json',
         			success: function(response){
@@ -1339,6 +1341,7 @@ jQuery(document).ready(function($) {
 		    	var eventDate = event.start.format(dateFormat);
 		    	var eventRow = $(element).closest('.fc-row');
 		    	var eventClass = event.className;
+		    	var eventStatus = event.status;
 		    	eventClass = eventClass[0];
 		    	
 		    	eventRow.find('.fc-day').each(function(gridIndex){
@@ -1365,9 +1368,9 @@ jQuery(document).ready(function($) {
 							}
 							else {
 								
-								dayGrid.addClass(eventClass);
-								eventRow.find('.fc-day-number[data-date="'+ gridDate +'"]').addClass(eventClass);
-								eventRow.find('.fc-month-name[data-date="'+ gridDate +'"]').addClass(eventClass);
+								dayGrid.addClass(eventClass + ' ' + eventStatus);
+								eventRow.find('.fc-day-number[data-date="'+ gridDate +'"]').addClass(eventClass + ' ' + eventStatus);
+								eventRow.find('.fc-month-name[data-date="'+ gridDate +'"]').addClass(eventClass + ' ' + eventStatus);
 							}
 					}
 					

@@ -786,7 +786,7 @@ class MyAdminController extends Controller
 			$rentbooking=$rentbooking->cancelpayment($rent_data,$input['id'],$input['type'],$input['t_id']);
 
 			return redirect('MyAdmin/RentUser/' . $userHash . '#tab-2');
-		} catch (\WebPay\ErrorResponse\InvalidRequestException $e) {
+		} catch (\Exception $e) {
 
 			return redirect('MyAdmin/RentUser/' . $userHash . '#tab-2')
 			->withErrors($e->getMessage())

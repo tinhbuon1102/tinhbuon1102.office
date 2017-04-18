@@ -1,6 +1,6 @@
 <?php
 namespace App;
-use App\Library\Webpay\WebPay;
+use App\Library\WebPay\WebPay;
 use App\Spaceslot;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;

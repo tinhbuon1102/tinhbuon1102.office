@@ -875,6 +875,7 @@ class Rentbookingsave extends Model
 					break;
 			}
 		}
+		die('done import');
 	}
 	public function deleterecPayment ()
 	{}

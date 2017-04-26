@@ -2417,7 +2417,7 @@ class User2Controller extends Controller
 				
 					$oStartDate = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $rent_data->charge_start_date);
 					// Next month will be charge by recursion
-					$oStartDate->addMonths(1);
+					$oStartDate->addMonths(1)->startOfMonth();
 					
 					// Reduce end date 2 months
 					$oEndDate = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $rent_data->charge_end_date);

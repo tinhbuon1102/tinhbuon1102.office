@@ -7,19 +7,19 @@ class Charge extends \Payjp\Charge
 	 * Create construct Webpay function to call PayJp
 	 * Webpay gate way is end but we want maintain old code so we created this class
 	 */
-	public function capture($data) {
+	public function capture($params = null, $options = null) {
 		$ch = \Payjp\Charge::retrieve($data['id']);
 		return $ch->capture();
 	}
 	
-	public function refund($data) {
+	public function refund($params = null, $options = null) {
 		$ch = \Payjp\Charge::retrieve($data['id']);
 		unset($data['id']);
 		
 		return $ch->refund($data);
 	}
 	
-	public static function create($data) {
+	public static function create($params = null, $options = null) {
 		$data['expiry_days'] = $data['expire_days'];
 		unset($data['expire_days']);
 		

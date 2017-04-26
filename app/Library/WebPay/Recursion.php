@@ -7,7 +7,7 @@ use \Payjp\Plan;
 
 class Recursion
 {
-	public function __construct($apiKey) 
+	public function __construct() 
 	{
 		$this->plan = new Plan();
 		$this->subscription = new Subscription();
@@ -17,6 +17,7 @@ class Recursion
 	
 	public function create($data)
 	{
+		$billing_day = 27;
 		// 2 months trial because it already paid for initial payment
 		$first_scheduled = \Carbon\Carbon::createFromTimestamp($data['first_scheduled']);
 		$now = \Carbon\Carbon::now();
@@ -29,7 +30,7 @@ class Recursion
 			"interval" => $data['period'],
 			"name" => $data['description'],
 			'trial_days' => $dayLength,
-			'billing_day' => 27
+			'billing_day' => $billing_day
 		));
 		
 		$sub = Subscription::create(array(

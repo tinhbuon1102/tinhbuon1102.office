@@ -145,7 +145,7 @@ class Rentbookingsave extends Model
 		if ( ! count($rent_datas) )
 		{
 			$rent_datas = \App\Rentbookingsave::where('recur_id', '<>', '')->whereIn('status', array(
-				BOOKING_STATUS_REFUNDED
+				BOOKING_STATUS_RESERVED
 			))
 				->where('in_use', BOOKING_IN_USE)
 				->get();
@@ -157,31 +157,32 @@ class Rentbookingsave extends Model
 			{
 				try
 				{
+					$sTimeNow = \Carbon\Carbon::now('UTC')->timestamp;
+					
 					if ( $rent_data->payment_method == 'creditcard' )
 					{
 						$webpay = new WebPay(WEPAY_SECRET_API_KEY);
 						$existRecursion = \App\BookingRecursion::where('BookingID', $rent_data->id)->where('RecursionID', $rent_data->recur_id)->first();
 						
-						$sTimeNow = strtotime(date('Y-m-d H:i:s'));
 						if ( ! $existRecursion || ($existRecursion->NextScheduled && $sTimeNow > $existRecursion->NextScheduled) )
 						{
 							$info = $webpay->recursion->retrieve(array(
 								'id' => $rent_data->recur_id
 							));
 							
-							if ( $info && count($info) )
+							if ( $info && count($info) && (!$existRecursion || ($existRecursion && $info->current_period_start != $existRecursion->LastExecuted)) )
 							{
 								$oRecursion = new \App\BookingRecursion();
 								$oRecursion->BookingID = $rent_data->id;
 								$oRecursion->RecursionID = $rent_data->recur_id;
 								$oRecursion->RecursionCreated = $info->created;
 								$oRecursion->RecursionCustomer = $info->customer;
-								$oRecursion->Amount = ! $existRecursion ? ($info->amount * BOOKING_MONTH_RECURSION_INITPAYMENT) : $info->amount;
-								$oRecursion->Period = $info->period;
-								$oRecursion->Description = $info->description;
-								$oRecursion->LastExecuted = ! $existRecursion ? ($info->created) : $info->last_executed;
-								$oRecursion->NextScheduled = $info->next_scheduled;
-								$oRecursion->Status = $info->status;
+								$oRecursion->Amount = ! $existRecursion ? ($info->plan->amount * BOOKING_MONTH_RECURSION_INITPAYMENT) : $info->plan->amount;
+								$oRecursion->Period = $info->plan->interval;
+								$oRecursion->Description = $info->plan->name;
+								$oRecursion->LastExecuted = $info->current_period_start;
+								$oRecursion->NextScheduled = $info->current_period_end;
+								$oRecursion->Status = strtolower($info->status) == 'trial' ? 'active' : $info->status;
 								$oRecursion->InitialPayment = ! $existRecursion ? 1 : 0;
 								$oRecursion->Deleted = $info->deleted;
 								$success = $oRecursion->save();
@@ -196,7 +197,6 @@ class Rentbookingsave extends Model
 						
 						$existRecursion = \App\BookingRecursion::where('BookingID', $rent_data->id)->where('RecursionID', $rent_data->recur_id)->first();
 						
-						$sTimeNow = strtotime(date('Y-m-d H:i:s'));
 						if ( ! $existRecursion || ($existRecursion->NextScheduled && $sTimeNow > $existRecursion->NextScheduled) )
 						{
 							$inputParam['GRPPDFields'] = array(
@@ -204,7 +204,8 @@ class Rentbookingsave extends Model
 							);
 							$info = $PayPal->GetRecurringPaymentsProfileDetails($inputParam);
 							
-							if ( $info && $info['ACK'] == PAYPAL_RESPONSE_STATUS_SUCCESS )
+							if ( $info && $info['ACK'] == PAYPAL_RESPONSE_STATUS_SUCCESS && 
+								(!$existRecursion || ($existRecursion && strtotime($info['LASTPAYMENTDATE']) != $existRecursion->LastExecuted && $existRecursion->RecursionCreated != $existRecursion->LastExecuted)) )
 							{
 								$oRecursion = new \App\BookingRecursion();
 								$oRecursion->BookingID = $rent_data->id;

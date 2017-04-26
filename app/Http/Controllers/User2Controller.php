@@ -2635,7 +2635,7 @@ class User2Controller extends Controller
 			}
 				
 			
-			$oStartDate = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $rent_data->charge_start_date)->setTimezone('UTC');
+			$oStartDate = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $rent_data->charge_start_date);
 			// Next month will be charge by recursion
 			
 			$PROFILESTARTDATE = $oStartDate->format('Y-m-d').'T'.$oStartDate->format('H:i:s').'Z';

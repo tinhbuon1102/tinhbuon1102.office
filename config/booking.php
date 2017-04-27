@@ -5,7 +5,7 @@ return [
 		'PAYPAL_APP_ID' => 'APP-80W284485P519543T',
 		'PAYPAL_APP_UN' => 'skoh_api1.properties.co.jp',
 		'PAYPAL_APP_PW' => 'AL3T3FJ6BSYLZ7VU',
-		'PAYPAL_APP_SIGNATURE' => 'AQU0e5vuZCvSg-XJploSa.sGUDIpAXzHPaBghDQ5TsmZ6WXE-Z6TnhDa',
+		'PAYPAL_APP_SIGNATURE' => 'AQU0e5vuZCvSg-XJploSa.sGUDlpAXzHPaBghDQ5TsmZ6WXE-Z6TnhDa',
 		'PAYPAL_MERCHANT_EMAIL' => 'skoh@properties.co.jp'
 	],
 	

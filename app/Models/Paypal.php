@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 define('SSL_SAND_URL', 'https://www.sandbox.paypal.com/cgi-bin/webscr');
 define('SSL_P_URL', 'https://www.paypal.com/cgi-bin/webscr');
 
-define('PAYPAL_APP_APIVersion', '95.0');
+define('PAYPAL_APP_APIVersion', '97.0');
 define('CURRENCYCODE', 'JPY');
 define('PAYPAL_LOCALE', 'ja_JP');
 

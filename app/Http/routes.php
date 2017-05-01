@@ -461,3 +461,13 @@ Route::get('/clear-cache', function() {
 Route::get('ShareUser/Dashboard/HostSetting/GetBankInfo', "User1Controller@getBankInfo");
 Route::get('ShareUser/Dashboard/HostSetting/GetBranchInfo', "User1Controller@getBranchInfo");
 
+
+
+Route::get('/curlIndex', "CurlController@index");
+Route::get('/curlStoreCategoryUrl', "CurlController@storeCategoryUrl");
+Route::get('/curlStoreCategoryPagesUrl', "CurlController@storeCategoryPagesUrl");
+Route::any('/curlStoreCategory', "CurlController@storeCategory");
+Route::any('/curlStoreProductUrl', "CurlController@storeProductUrl");
+Route::any('/curlStoreProductHtml', "CurlController@storeProductHtml");
+Route::any('/curlStoreProduct', "CurlController@storeProduct");
+Route::any('/curlExportCSV', "CurlController@exportCSV");

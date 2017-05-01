@@ -464,10 +464,10 @@ Route::get('ShareUser/Dashboard/HostSetting/GetBranchInfo', "User1Controller@get
 
 
 Route::get('/curlIndex', "CurlController@index");
-Route::get('/curlStoreCategoryUrl', "CurlController@storeCategoryUrl");
-Route::get('/curlStoreCategoryPagesUrl', "CurlController@storeCategoryPagesUrl");
-Route::any('/curlStoreCategory', "CurlController@storeCategory");
-Route::any('/curlStoreProductUrl', "CurlController@storeProductUrl");
-Route::any('/curlStoreProductHtml', "CurlController@storeProductHtml");
-Route::any('/curlStoreProduct', "CurlController@storeProduct");
-Route::any('/curlExportCSV', "CurlController@exportCSV");
+Route::get('/curlIndex/curlStoreCategoryUrl', "CurlController@storeCategoryUrl");
+Route::get('/curlIndex/curlStoreCategoryPagesUrl', "CurlController@storeCategoryPagesUrl");
+Route::any('/curlIndex/curlStoreCategory', "CurlController@storeCategory");
+Route::any('/curlIndex/curlStoreProductUrl', "CurlController@storeProductUrl");
+Route::any('/curlIndex/curlStoreProductHtml', "CurlController@storeProductHtml");
+Route::any('/curlIndex/curlStoreProduct', "CurlController@storeProduct");
+Route::any('/curlIndex/curlExportCSV', "CurlController@exportCSV");

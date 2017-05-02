@@ -466,6 +466,7 @@ Route::get('ShareUser/Dashboard/HostSetting/GetBranchInfo', "User1Controller@get
 Route::get('/curlIndex', "CurlController@index");
 Route::get('/curlIndex/curlStoreCategoryUrl', "CurlController@storeCategoryUrl");
 Route::get('/curlIndex/curlStoreCategoryPagesUrl', "CurlController@storeCategoryPagesUrl");
+Route::any('/curlIndex/curlStoreCategoryHtml', "CurlController@storeCategoryHtml");
 Route::any('/curlIndex/curlStoreCategory', "CurlController@storeCategory");
 Route::any('/curlIndex/curlStoreProductUrl', "CurlController@storeProductUrl");
 Route::any('/curlIndex/curlStoreProductHtml', "CurlController@storeProductHtml");

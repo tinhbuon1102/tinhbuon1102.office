@@ -23,6 +23,7 @@ public/userfile
 
 
 app/CategorieUrl.php
+app/CategoryHtml.php
 app/Category.php
 app/Http/Controllers/CurlController.php
 app/Product.php

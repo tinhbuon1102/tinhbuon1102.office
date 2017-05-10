@@ -137,6 +137,23 @@
 <div class="center"><a href="{{url('RentUser/Dashboard/SearchSpaces')}}" class="button yellow-button">もっと見る</a></div>
 </div><!--/container-->
 </section>
+<section id="memberonly" class="bg-ylw">
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6">
+			<h2 class="sec-title left-align">Member Only Spaces</h2>
+			<p class="sec-subtitle left-align">会員限定公開オフィススペース</p>
+			<p class="disc">
+				hOur Officeの<strong>会員しか見られない</strong>、<br/>特別なオフィススペースを<strong>限定公開中</strong>！<br/>
+				<a href="#modal" class="button blk-button"><i class="fa fa-chevron-right" aria-hidden="true"></i><i class="fa fa-chevron-right" aria-hidden="true"></i>今すぐ無料会員登録して見る</a>
+			</p>
+		</div>
+		<div class="col-sm-6">
+		<img src="images/memberonly.png" />
+		</div>
+	</div>
+</div>
+</section>
 <section id="three-point" class="white">
 <div class="title-head"><h2 class="sec-title"><span class="transcase">hOur Office</span> offers</h2>
 <p class="sec-subtitle">アワーオフィスのサービスについて</p></div>

@@ -43,7 +43,6 @@
                                     </thead>
                                     <tbody>
 									@foreach($spaces as $space)
-									<?php if (!isset($space->shareUser)) continue;?>
                                         <tr class="odd gradeX">
                                             <td><input tabindex="1" type="checkbox" name="delete[]" id="delete-{{$space->id}}" value="{{$space->id}}"> </td>
                                             <td><img class="wl-image" src="{{getSpacePhoto($space)}}"></td>

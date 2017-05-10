@@ -263,6 +263,7 @@ class Spaceslot extends Model
 	public static function getAvailableSpaceSlot($space)
 	{
 		if (!$space) return array();
+		if (!$space->shareUser) return array();
 		
 		// Calculate lastBook Time
 		$oTimeNow = calculateSpaceLastBooking($space);

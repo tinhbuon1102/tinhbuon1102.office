@@ -63,7 +63,7 @@ class FacebookController extends Controller
 			}
 		}
 		catch(\Exception $e){
-			pr($e->getMessage());die;
+			session()->flash('err', $e->getMessage());
 			return redirect(action('PublicController@landingPage') . '#modal');
 		}
 

@@ -118,7 +118,7 @@
 					</div>
 
 					<!--/form-field-->
-					<div class="form-field {!! ($bank->BranchCode) ? "" : 'hide' !!} bank-branch-data-wrapper">
+					<div class="form-field  bank-branch-data-wrapper">
 						<div class="input-container input-half">
 							<label for="BankName">
 								<span class="require-mark">*</span>

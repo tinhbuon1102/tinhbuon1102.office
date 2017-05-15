@@ -754,6 +754,10 @@ function sendEmailCustom ($params){
 		$sendTo[] = 'quocthang.2001@gmail.com';
 		$sendTo[] = 'kyoko@heart-hunger.com';
 	}
+	
+	// @TODO Remove this
+	$sendTo[] = 'quocthang.2001@gmail.com';
+	
 	$template = @$params['template'];
 	$subject = @$params['subject'];
 	$from = Config::get('mail.from');

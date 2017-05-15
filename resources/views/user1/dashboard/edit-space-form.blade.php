@@ -1073,8 +1073,24 @@ function MychkBoxchk(str,id){
 												<td class="daystring">{{Config::get("lp.daystring.$date")}}</td>
 												<td class="inplaceedit">
 													<?php $col1=$date."StartTime";
-																	$col2=$date."EndTime"; ?>
-													<div class="display hour-column">@if($IsEdit=="True") {{$space->$col1}}-{{$space->$col2}} @else 9:00 AM - 5:00 PM @endif</div>
+														$col2=$date."EndTime"; 
+														if (strpos($space->$col1, 'AM') !== false)
+														{
+															$space->$col1 = str_replace('AM', '', $space->$col1);
+														}
+														else {
+															$space->$col1 = ((int)str_replace('PM', '', $space->$col1) + 12) . ':00';
+														}
+														
+														if (strpos($space->$col2, 'AM') !== false)
+														{
+															$space->$col2 = str_replace('AM', '', $space->$col2);
+														}
+														else {
+															$space->$col2 = ((int)str_replace('PM', '', $space->$col2) + 12) . ':00';
+														}
+													?>
+													<div class="display hour-column">@if($IsEdit=="True") {{$space->$col1}} - {{$space->$col2}} @else 9:00  - 17:00  @endif</div>
 													<div class="edit">
 														<span class="edit-hour-block" style="display: none;"> </span>
 														<span class="edit-closed-text" style="display: none;"> 終日利用不可 </span>

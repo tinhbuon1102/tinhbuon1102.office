@@ -12,9 +12,9 @@ jQuery(document).ready(function($) {
 	var monthFormat = 'YYYY-MM-DD';
 	var monthFormatOnly = 'YYYY-MM';
 	var dateFormat = 'YYYY-MM-DD';
-	var timeFormat = 'AH:mm';
-	var timeFormatDefault = 'H:mm A';
-	var timePickerFormat = 'AH:i';
+	var timeFormat = 'H:mm';
+	var timeFormatDefault = 'H:mm';
+	var timePickerFormat = 'H:i';
 	var minTime = '05:00:00';
 	var maxTime = '24:00:00';
 	var maxTimePicker;
@@ -1152,7 +1152,7 @@ jQuery(document).ready(function($) {
 			},
 			lang: 'ja',
 			timeFormat: eventTimeFormat,
-			axisFormat: 'h:A',
+			axisFormat: timeFormat,
 			timezone: 'local',
 			displayEventEnd: true,
 			defaultDate: currentDay,

@@ -107,7 +107,10 @@ jQuery(function($){
 			str_number = str_number + ':00';
 			
 			hour_AM.push(str_number + ' AM');
-			hour_PM.push(str_number + ' PM');
+			
+			if (i > 0) {
+				hour_PM.push(str_number + ' PM');
+			}
 			
 //			for(j = 0; j <= 4; j++ )
 //			{
@@ -127,11 +130,11 @@ jQuery(function($){
 		}
 
 		$.each(hour_AM, function(index, value){
-			hour_select.append('<option value="'+ value +'">'+ value + '</option>')
+			hour_select.append('<option value="'+ value +'">'+ (value.replace('AM', '').trim()) + '</option>')
 		})
 		
 		$.each(hour_PM, function(index, value){
-			hour_select.append('<option value="'+ value +'">'+ value + '</option>')
+			hour_select.append('<option value="'+ value +'">'+ (parseInt(value.replace('AM', '').replace('PM', '').trim()) + 12) + ':00' + '</option>')
 		})
 		
 		$('body').on('click', '.hour-column', function(e){
@@ -164,8 +167,22 @@ jQuery(function($){
 				
 				var hour_value = $(this).text().trim();
 				var hour_value_array = hour_value.split('-');
-				var hour_value_from = hour_value_array[0].trim();
-				var hour_value_to = hour_value_array[1].trim();
+				var hour_value_from = parseInt(hour_value_array[0].trim());
+				var hour_value_to = parseInt(hour_value_array[1].trim());
+					
+				if (hour_value_from  <= 12) {
+					hour_value_from = hour_value_from + ':00 AM';
+				}
+				else {
+					hour_value_from = (hour_value_from - 12) + ':00 PM';
+				}
+				
+				if (hour_value_to  <= 12) {
+					hour_value_to = hour_value_to + ':00 AM';
+				}
+				else {
+					hour_value_to = (hour_value_to - 12) + ':00 PM';
+				}
 					
 				var wraper = $(this).closest('.inplaceedit');
 				var hour_block = wraper.find('.edit-hour-block');
@@ -207,6 +224,20 @@ jQuery(function($){
 					{
 						var hour_value_from = wraper.find('.hour-from').val();
 						var hour_value_to = wraper.find('.hour-to').val()
+						
+						if (hour_value_from.indexOf('AM') !== -1) {
+							hour_value_from= parseInt(hour_value_from.replace('AM', '').replace('PM', '').trim()) + ':00';
+						}
+						else {
+							hour_value_from= (parseInt(hour_value_from.replace('AM', '').replace('PM', '').trim()) + 12) + ':00';
+						}
+						
+						if (hour_value_to.indexOf('AM') !== -1) {
+							hour_value_to= parseInt(hour_value_to.replace('AM', '').replace('PM', '').trim()) + ':00';
+						}
+						else {
+							hour_value_to= (parseInt(hour_value_to.replace('AM', '').replace('PM', '').trim()) + 12) + ':00';
+						}
 						
 						wraper.find('.hour-column').text(hour_value_from + ' - ' + hour_value_to);
 					}

@@ -383,13 +383,22 @@ class User2Controller extends Controller
 		if($u->save())
 		{
 			$from = Config::get('mail.from');
-			Mail::send('user2.emails.register',
-			['user' => $u],
-			function ($message) use ($u, $from) {
-				$message->from($from['address'], $from['name']);
-				$mails = [$u->Email];
-				$message->to($mails)->subject('ユーザー会員登録完了のお知らせ');
-			});
+			
+			// Send to User
+			sendEmailCustom([
+				'user' => $u,
+				'sendTo' => $u->Email,
+				'template' => 'user2.emails.register',
+				'subject' => 'ユーザー会員登録完了のお知らせ'
+			]);
+			
+			// Send to Admin
+			sendEmailCustom([
+				'user' => $u,
+				'sendTo' => $from['address'],
+				'template' => 'user2.emails.register_admin',
+				'subject' => 'ユーザー会員登録完了のお知らせ'
+			]);
 				
 			return redirect('/RentUser/RegisterPreSuccess');
 		}

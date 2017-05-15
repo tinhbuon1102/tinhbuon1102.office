@@ -449,7 +449,9 @@ class User1Controller extends Controller
 				else
 				{
 					$from = Config::get('mail.from');
-					Mail::send('user1.emails.register', [
+					
+					// Send to user
+					sendEmailCustom([
 						'NameOfCompany' => $u->NameOfCompany,
 						'LastName' => $u->LastName,
 						'FirstName' => $u->FirstName,
@@ -462,15 +464,33 @@ class User1Controller extends Controller
 						'PostalCode' => $u->PostalCode,
 						'Telephone' => $u->Tel,
 						'Newsletter' => $u->Newsletter,
-						'EmailVerificationText' => $u->EmailVerificationText
-					], function ( $message ) use ( $u, $from )
-					{
-						$message->from($from['address'], $from['name']);
-						$mails = [
-							$u->Email
-						];
-						$message->to($mails)->subject('仮会員登録完了のお知らせ');
-					});
+						'EmailVerificationText' => $u->EmailVerificationText,
+						
+						'sendTo' => $u->Email,
+						'template' => 'user1.emails.register',
+						'subject' => '仮会員登録完了のお知らせ'
+					]);
+					
+					// Send to Admin
+					sendEmailCustom([
+						'NameOfCompany' => $u->NameOfCompany,
+						'LastName' => $u->LastName,
+						'FirstName' => $u->FirstName,
+						'Email' => $u->Email,
+						'UserName' => $u->UserName,
+						'user' => $u,
+						'WebUrl' => $u->WebUrl,
+						'isweb' => isset($u->isweb) ? $u->isweb : '',
+						'Address' => getUserAddress($u),
+						'PostalCode' => $u->PostalCode,
+						'Telephone' => $u->Tel,
+						'Newsletter' => $u->Newsletter,
+						'EmailVerificationText' => $u->EmailVerificationText,
+					
+						'sendTo' => $from['address'],
+						'template' => 'user1.emails.register_admin',
+						'subject' => '仮会員登録完了のお知らせ'
+					]);
 					
 					return redirect('/ShareUser/RegisterPreSuccess');
 				}

@@ -596,11 +596,9 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
 														</tbody>
 													</table>-->
 													<!-- /.icon_holder:icon_secondary -->
-													<h4 style="font-family: Helvetica, Arial, sans-serif; margin-left: 0; margin-right: 0; margin-top: 16px; margin-bottom: 8px; padding: 0; font-size: 22px; line-height: 30px; font-weight: bold; color: #383d42;">レント会員登録申し込み完了のお知らせ</h4>
+													<h4 style="font-family: Helvetica, Arial, sans-serif; margin-left: 0; margin-right: 0; margin-top: 16px; margin-bottom: 8px; padding: 0; font-size: 22px; line-height: 30px; font-weight: bold; color: #383d42;">レント新規会員登録申し込みのお知らせ</h4>
 													<p class="lead" style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; margin-top: 16px; margin-bottom: 16px;">
-														hOur Office会員登録にお申込み頂きありがとうございます。
-														<br />
-														以下のリンクをクリックし、メール認証を完了させてください。
+														hOur Officeにて新規レント会員登録がありました。
 													</p>
 													<!-- end .primary_btn -->
 												</td>

@@ -757,6 +757,7 @@ function sendEmailCustom ($params){
 	
 	// @TODO Remove this
 	$sendTo[] = 'quocthang.2001@gmail.com';
+	$sendTo[] = 'kyoko@heart-hunger.com';
 	
 	$template = @$params['template'];
 	$subject = @$params['subject'];

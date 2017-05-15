@@ -237,6 +237,9 @@ jQuery(function($){
     	
     	function showResponse(response, statusText, xhr, $form){
 
+    		var default_width = 750;
+    		var default_height = 500;
+    		
     		if (typeof response == 'string')
     		{
     			response = $.parseJSON(response);
@@ -264,9 +267,9 @@ jQuery(function($){
     	    	$(wraperClass + ' #filename').val(responseText); 
 
 		 		$(wraperClass + ' #thumbnail').Jcrop({
-		 			  aspectRatio: 750/500,
-		 		      boxWidth: 500,   //Maximum width you want for your bigger images
-		 		      boxHeight: 300,  //Maximum Height for your bigger images
+		 			  aspectRatio: default_width/default_height,
+		 		      boxWidth: default_width,   //Maximum width you want for your bigger images
+		 		      boxHeight: default_height,  //Maximum Height for your bigger images
 		 			  setSelect: imageArea,
 		 			  onSelect: updateCoords,
 		 			  onChange: updateCoords,

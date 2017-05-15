@@ -5741,7 +5741,7 @@ form#TermsUse span.radio_field input[type="radio"] {
 .edit-gallery-thumbnails-placeholder>.edit-gallery-thumbnail-wrapper,.edit-logo-thumbnails-placeholder>.edit-logo-thumbnail-wrapper
 	{
 	cursor: pointer;
-	background-size: cover;
+	/* background-size: cover; */
 }
 
 .edit-gallery-thumbnail-wrapper,.edit-logo-thumbnail-wrapper {

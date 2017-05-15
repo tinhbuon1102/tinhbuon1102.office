@@ -1443,10 +1443,10 @@ textarea.profiles-description {
 	margin: 0 auto 20px;
 }
 .jcrop-active {
-    display: inline-block;
+    /* display: inline-block;
 	width: 100% !important;
 	height: auto !important;
-	max-width: 300px;
+	max-width: 300px; */
 }
 .crop_preview_box_big img {
 	/*max-width: 400px;

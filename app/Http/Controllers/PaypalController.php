@@ -205,7 +205,7 @@ class PaypalController extends Controller {
 				'giropaysuccessurl' => '', // The URL on the merchant site to redirect to after a successful giropay payment.  Only use this field if you are using giropay or bank transfer payment methods in Germany.
 				'giropaycancelurl' => '', // The URL on the merchant site to redirect to after a canceled giropay payment.  Only use this field if you are using giropay or bank transfer methods in Germany.
 				'banktxnpendingurl' => '', // The URL on the merchant site to transfer to after a bank transfter payment.  Use this field only if you are using giropay or bank transfer methods in Germany.
-				'brandname' => 'Office-Spot', // A label that overrides the business name in the PayPal account on the PayPal hosted checkout pages.  127 char max.
+				'brandname' => 'hOur Office | アワーオフィス', // A label that overrides the business name in the PayPal account on the PayPal hosted checkout pages.  127 char max.
 				'customerservicenumber' => '555-555-5555', // Merchant Customer Service number displayed on the PayPal Review page. 16 char max.
 				'giftmessageenable' => '1', // Enable gift message widget on the PayPal Review page. Allowable values are 0 and 1
 				'giftreceiptenable' => '1', // Enable gift receipt widget on the PayPal Review page. Allowable values are 0 and 1
@@ -227,7 +227,7 @@ class PaypalController extends Controller {
 
 		$BillingAgreements = array();
 		$Item = array(
-				'l_billingtype' => 'MerchantInitiatedBilling', // Required.  Type of billing agreement.  For recurring payments it must be RecurringPayments.  You can specify up to ten billing agreements.  For reference transactions, this field must be either:  MerchantInitiatedBilling, or MerchantInitiatedBillingSingleSource
+				'l_billingtype' => 'RecurringPayments', // Required.  Type of billing agreement.  For recurring payments it must be RecurringPayments.  You can specify up to ten billing agreements.  For reference transactions, this field must be either:  MerchantInitiatedBilling, or MerchantInitiatedBillingSingleSource
 				'l_billingagreementdescription' => 'Billing Agreement', // Required for recurring payments.  Description of goods or services associated with the billing agreement.
 				'l_paymenttype' => 'Any', // Specifies the type of PayPal payment you require for the billing agreement.  Any or IntantOnly
 				'l_billingagreementcustom' => ''     // Custom annotation field for your own use.  256 char max.
@@ -322,10 +322,12 @@ class PaypalController extends Controller {
 					return true;
 				}
 			} else {
-				abort(403, 'Paypalアカウントが認証できませんでした。しばらくたってから再度お試しください。');
+				Session::flash('error', 'Paypalアカウントが認証できませんでした。しばらくたってから再度お試しください。');
+				return redirect()->action('User2Controller@editBasicInfo');
 			}
 		} else {
-			abort(403, '無効なトークンです。');
+			Session::flash('error', '無効なトークンです。');
+			return redirect()->action('User2Controller@editBasicInfo');
 		}
 	}
 

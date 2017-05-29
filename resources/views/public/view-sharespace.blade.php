@@ -941,7 +941,7 @@ jQuery(function() {
 	}, 3000);
 });
 </script> 
-	<script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?key=AIzaSyC0zkZJ3sHFHJgzUsAteOnObvf3ouAbc68&language=ja&region=JP'></script>
+	<script type='text/javascript' src='//maps.googleapis.com/maps/api/js?key=AIzaSyC0zkZJ3sHFHJgzUsAteOnObvf3ouAbc68&language=ja&region=JP'></script>
 	<script type='text/javascript' src='<?php echo SITE_URL?>js/map.js'></script>
 	<script type='text/javascript' src='<?php echo SITE_URL?>js/markerwithlabel.js'></script>
 	<?php 

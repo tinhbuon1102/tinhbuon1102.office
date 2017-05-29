@@ -14,11 +14,6 @@
 				<?php $message = Session::get('success'); ?>
 				<?php $senttoadmin = Session::get('senttoadmin'); ?>
 
-				@if( isset($error) )
-				<div class="alert alert-danger">{!! $error !!}</div>
-				@endif @if( isset($message) )
-				<div class="alert alert-success">{!! $message !!}</div>
-				@endif
 				<div id="left-box" class="col_3_5">@include('user2.dashboard.left_nav')</div>
 				<!--/leftbox-->
 				<div id="samewidth" class="right_side">
@@ -46,6 +41,13 @@
 						</div>
 						<!--/page-header header-fixed-->
 						<div id="feed">
+							<div class="message_wraper">
+								@if( isset($error) )
+								<div class="alert alert-danger">{!! $error !!}</div>
+								@endif @if( isset($message) )
+								<div class="alert alert-success">{!! $message !!}</div>
+								@endif
+							</div>
                        
 							<section class="feed-event recent-follow feed-box">
                             <?php 

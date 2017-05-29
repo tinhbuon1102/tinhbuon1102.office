@@ -41,13 +41,11 @@
 						</div>
 						<!--/page-header header-fixed-->
 						<div id="feed">
-							<div class="message_wraper">
-								@if( isset($error) )
-								<div class="alert alert-danger">{!! $error !!}</div>
-								@endif @if( isset($message) )
-								<div class="alert alert-success">{!! $message !!}</div>
-								@endif
-							</div>
+							@if( isset($error) )
+							<div class="alert alert-danger">{!! $error !!}</div>
+							@endif @if( isset($message) )
+							<div class="alert alert-success">{!! $message !!}</div>
+							@endif
                        
 							<section class="feed-event recent-follow feed-box">
                             <?php 

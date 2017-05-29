@@ -46,11 +46,13 @@
                         
 						<div id="feed">
 							<section class="feed-event recent-follow feed-box">
-							@if( isset($error) )
-							<div class="alert alert-danger">{!! $error !!}</div>
-							@endif @if( isset($message) )
-							<div class="alert alert-success">{!! $message !!}</div>
-							@endif
+								<div class="message_wraper">
+									@if( isset($error) )
+									<div class="alert alert-danger">{!! $error !!}</div>
+									@endif @if( isset($message) )
+									<div class="alert alert-success">{!! $message !!}</div>
+									@endif
+								</div>
 
 								<div class="space-setting-content">
 									<div class="form-container">

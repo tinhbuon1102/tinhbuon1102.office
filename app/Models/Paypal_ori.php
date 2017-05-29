@@ -161,7 +161,7 @@ class Paypal extends Model {
 		 * These can be setup here or within each caller directly when setting up the PayPal object.
 		 */
 		$device_ip_address = $_SERVER['REMOTE_ADDR'];
-		/*	
+			
 		$PayPalConfig = array(
 				'Sandbox' => PAYPAL_SANDBOX,
 				'APIUsername' => PAYPAL_APP_UN,
@@ -169,14 +169,7 @@ class Paypal extends Model {
 				'APISignature' => PAYPAL_APP_SIGNATURE,
 				'APIVersion' => PAYPAL_APP_APIVersion,
 		);
-		*/
-			$PayPalConfig = array(
-				'Sandbox' => PAYPAL_SANDBOX,
-				'APIUsername' => '24itechnologies_api1.gmail.com',
-				'APIPassword' => '8T4GX5ZAZFZUJ8ZE',
-				'APISignature' => 'AFcWxV21C7fd0v3bYYYRCpSSRl31ApxNx0pEMeCA0BrZxqFsrxj-jwwj',
-				'APIVersion' => PAYPAL_APP_APIVersion,
-		);
+			
 		$PayPal = new PayPalCore($PayPalConfig);
 			
 		return $PayPal;

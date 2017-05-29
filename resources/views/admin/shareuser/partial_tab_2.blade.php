@@ -23,7 +23,7 @@
       <div class="wl-column h7">スペースタイプ / 利用人数</div>
       <div class="wl-column h7">金額</div>
       <div class="wl-column h7">ステータス</div>
-      <div class="wl-column"></div>
+      <div class="wl-column h7">設定</div>
    </div>
    
    
@@ -68,9 +68,9 @@
       </div>
       <div class="wl-column">
          <div class="workspace-actions-wrapper">
-            <a class="action-tooltip font-icon fonticon-dots-three-horizontal"></a>
+            <a class="action-tooltip text-link">編集・その他</a>
             <div class="workspace-actions-modal">
-            <div class="workspace-actions-popup1">
+            <div class="workspace-actions-popup">
                <a target="_blank" aclass="content-navigation editSpaceAdmin" data-id="{{$space->HashID}}" href="{{ url('MyAdmin/ShareUser/'. $user->HashCode .'/EditSpace/'.$space->HashID) }}" >編集</a>               
                <!--<a target="_blank" href="">Preview</a>-->
                <a href="{{ url('ShareUser/Dashboard/ShareInfo/Duplicate/'.$space->HashID) }}" >複製</a>               

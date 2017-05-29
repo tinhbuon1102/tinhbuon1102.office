@@ -368,7 +368,7 @@ jQuery(function($){
 	});
 	
 	
-	$('.workspace-actions-wrapper a').click(function(e){
+	$('.workspace-actions-wrapper a.action-tooltip').click(function(e){
 		e.stopPropagation();
 		var el = $(this).parent().find('.workspace-actions-popup'); 
 		if( el.is(":visible") ){

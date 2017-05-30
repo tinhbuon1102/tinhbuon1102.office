@@ -11,10 +11,10 @@ return [
 	
 	'PaypalTest' => [
 		'PAYPAL_APP_ID' => 'APP-80W284485P519543T',
-		'PAYPAL_APP_UN' => 'quocthang.2001.japan_api1.gmail.com',
-		'PAYPAL_APP_PW' => 'UA4WC9XVN7CDWRLJ',
-		'PAYPAL_APP_SIGNATURE' => 'AFcWxV21C7fd0v3bYYYRCpSSRl31AbQ5v1TJK2G5TmwZ.NqGFsN-Ru0M',
-		'PAYPAL_MERCHANT_EMAIL' => 'quocthang.2001.japan@gmail.com',
+		'PAYPAL_APP_UN' => 'business_quocthang2_api1.yahoo.com',
+		'PAYPAL_APP_PW' => '58C6K3TTEQ358V4N',
+		'PAYPAL_APP_SIGNATURE' => 'AFcWxV21C7fd0v3bYYYRCpSSRl31A9yp33uOMGye0vqu--d2EM1.ytYZ',
+		'PAYPAL_MERCHANT_EMAIL' => 'business_quocthang2@yahoo.com',
 	],
 	
 	/* --------------------- Webpay SETTING --------------------- */

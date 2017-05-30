@@ -242,8 +242,8 @@ class PaypalController extends Controller {
 
 		$PayPalRequest = array(
 				'SECFields' => $SECFields,
-				'SurveyChoices' => $SurveyChoices,
-				'BillingAgreements' => $BillingAgreements,
+// 				'SurveyChoices' => $SurveyChoices,
+// 				'BillingAgreements' => $BillingAgreements,
 				'Payments' => $Payments
 		);
 
@@ -286,27 +286,36 @@ class PaypalController extends Controller {
 		}
 		if (isset($_GET["token"]) && $_GET["token"] != "") {
 			$token = $_GET["token"];
-			$PayPalResult = $PayPal->CreateBillingAgreement($token);
+			$PayPalResult = $PayPal->GetExpressCheckoutDetails($token);
+			
+// 			$PayPalResult = $PayPal->CreateBillingAgreement($token);
 			$ACK = $PayPalResult["ACK"];
 			$return = array("status" => "", "message" => "");
 			if ($ACK == "Success") {
-				$agreementDetail = $PayPal->GetBillingAgreementCustomerDetails($token);
-				$responseStatus = $agreementDetail["ACK"];
+// 				$agreementDetail = $PayPal->GetBillingAgreementCustomerDetails($token);
+// 				$responseStatus = $agreementDetail["ACK"];
 
-				if ($responseStatus == "Success") {
-					$PaypalBilling->emailId = $agreementDetail["EMAIL"];
-				} else {
-					abort(403, 'unable to get details of authenticated token , paypal server error.');
+// 				if ($responseStatus == "Success") {
+// 					$PaypalBilling->emailId = $agreementDetail["EMAIL"];
+// 				} else {
+// 					Session::flash('error', 'common.Unable to get details of authenticated token , paypal server error.');
+// 					return redirect()->action('User2Controller@editBasicInfo');
+// 				}
+// 				$return["BILLINGAGREEMENTID"] = $PayPalResult["BILLINGAGREEMENTID"];
+// 				$return["TIMESTAMP"] = $PayPalResult["TIMESTAMP"];
+// 				$return["CORRELATIONID"] = $PayPalResult["CORRELATIONID"];
+// 				$return["status"] = "Success";
+
+				$tokenBilling = Paypalbilling::where('token', $token)->first();
+				
+				if (!$tokenBilling)
+				{
+					$PaypalBilling->emailId = $PayPalResult["EMAIL"];
+					$PaypalBilling->token = $token;
+					$PaypalBilling->billingId = $PayPalResult["TOKEN"];
+					$PaypalBilling->userId = $id;
+					$PaypalBilling->save();
 				}
-				$user_id = $id; //$slug
-				$return["BILLINGAGREEMENTID"] = $PayPalResult["BILLINGAGREEMENTID"];
-				$return["TIMESTAMP"] = $PayPalResult["TIMESTAMP"];
-				$return["CORRELATIONID"] = $PayPalResult["CORRELATIONID"];
-				$return["status"] = "Success";
-				$PaypalBilling->token = $token;
-				$PaypalBilling->billingId = $PayPalResult["BILLINGAGREEMENTID"];
-				$PaypalBilling->userId = $id;
-				$PaypalBilling->save();
 
 				if (isset($_GET["return"])) {
 					$return = urldecode($_GET["return"]);

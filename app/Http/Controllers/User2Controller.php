@@ -2477,8 +2477,6 @@ class User2Controller extends Controller
 			$paypalBilling = new Paypalbilling;
 			$PayPal = $paypalModel->getRefrecePaypalClient();
 				
-			$monthly_payment = ceil($rent_data->amount / $rent_data->Duration);
-			
 			try {
 				// Get checkout express token
 				$SECFields = array(
@@ -2486,28 +2484,60 @@ class User2Controller extends Controller
 						'CANCELURL' => action('User2Controller@bookingPayment'),
 						'ALLOWNOTE' => 1,
 						'LOCALECODE' => PAYPAL_LOCALE,
-						'SKIPDETAILS' => 0,
 						'CUSTOM' => '',
 						'INVNUM' => '',
-						'NOTIFYURL' => ''
+						'NOTIFYURL' => '',
+						'NOSHIPPING' => 1
 				);
+				$unit_payment = ceil($rent_data->amount / $rent_data->Duration);
 					
-				$profile_description = trans('common.recurring_paypal_description', ['monthly_price' => priceConvert($monthly_payment, true)]);
-				$Payments = array();
-				$BillingAgreements = array();
-				$BillingAgreements[] = array(
+				if (isBookingRecursion($rent_data))
+				{
+					$profile_description = trans('common.recurring_paypal_description', ['monthly_price' => priceConvert($unit_payment, true)]);
+					$Payments = array();
+					$BillingAgreements = array();
+					$BillingAgreements[] = array(
 						'L_BILLINGTYPE' => 'RecurringPayments', // Required.  Type of billing agreement.  For recurring payments it must be RecurringPayments.  You can specify up to ten billing agreements.  For reference transactions, this field must be either:  MerchantInitiatedBilling, or MerchantInitiatedBillingSingleSource
 						'L_BILLINGAGREEMENTDESCRIPTION' => $profile_description, // Required for recurring payments.  Description of goods or services associated with the billing agreement.
 						'L_PAYMENTTYPE' => 'Any', // Specifies the type of PayPal payment you require for the billing agreement.  Any or IntantOnly
 						'L_CUSTOM' => ''
-				);
-				$Payments[] = array('AMT' => $monthly_payment, 'CURRENCYCODE' => CURRENCYCODE);
+					);
+					
+					$Payments[] = array(
+						'AMT' => $unit_payment, 
+						'CURRENCYCODE' => CURRENCYCODE,
+						'DESC' => str_limit($rent_data->spaceID->Title, 25),
+						'PAYMENTACTION' => 'Authorization',
+					);
+				}
+				else
+				{
+					$Payments[] = array(
+						'AMT' => $rent_data->amount, 
+						'CURRENCYCODE' => CURRENCYCODE,
+						'DESC' => str_limit($rent_data->spaceID->Title, 25),
+						'PAYMENTACTION' => 'Authorization',
+						'order_items' => array(
+							array(
+								'NAME' => '予約アイテム',
+								'DESC' => str_limit($rent_data->spaceID->Title, 25),
+								'AMT'  => $rent_data->amount,
+							)
+						)
+						
+					);
+				}
+					
+				
 				$PayPalRequest = array(
 						'SECFields' => $SECFields,
-						'BillingAgreements' => $BillingAgreements,
 						'Payments' => $Payments
 				);
 					
+				if (isBookingRecursion($rent_data))
+				{
+					$PayPalRequest['BillingAgreements'] = $BillingAgreements;
+				}
 				$SetExpressCheckoutResult = $PayPal->SetExpressCheckout($PayPalRequest);
 				if ($SetExpressCheckoutResult['ACK'] == PAYPAL_RESPONSE_STATUS_SUCCESS)
 				{
@@ -2515,11 +2545,15 @@ class User2Controller extends Controller
 					$userBilling->save();
 					return redirect($SetExpressCheckoutResult['REDIRECTURL']);
 				}
+				else {
+					throw new \Exception($SetExpressCheckoutResult['L_LONGMESSAGE0']);
+				}
 			}
 			catch(\Exception $e)
 			{
+				$message = $e->getMessage() ? $e->getMessage() : trans('common.Error occured, Please try again'); 
 				return redirect(url('ShareUser/Dashboard/BookingPayment'))
-					->withErrors(trans('common.Error occured, Please try again'))
+					->withErrors($message)
 					->withInput();
 			}
 		}
@@ -2531,38 +2565,81 @@ class User2Controller extends Controller
 			$PayPal = $paypalModel->getRefrecePaypalClient();
 			$userBilling = Paypalbilling::where('userId', $user->id)->first();
 			
-			$custom = $rent_data->id . "|" . $rent_data->User1ID . "|" . $rent_data->user_id . "|" . getSpaceSlotType($rent_data->spaceID) . "|" . $rent_data->Duration;
-			
 			if (isBookingRecursion($rent_data))
 				$amount = ceil(($rent_data->amount / $rent_data->Duration) * BOOKING_MONTH_RECURSION_INITPAYMENT);
 			else
 				$amount = $rent_data->amount;
 			
-			$PaymentDetails = array(
-					'CURRENCYCODE' => CURRENCYCODE,
-					'DESC' => str_limit($rent_data->spaceID->Title, 70),
-					'INVNUM' => 'off-' . time(),
-					'NOTIFYURL' => $paypalModel->notify_url,
-					'custom' => $custom,
+// 			$custom = $rent_data->id . "|" . $rent_data->User1ID . "|" . $rent_data->user_id . "|" . getSpaceSlotType($rent_data->spaceID) . "|" . $rent_data->Duration;
+// 			$PaymentDetails = array(
+// 					'CURRENCYCODE' => CURRENCYCODE,
+// 					'DESC' => str_limit($rent_data->spaceID->Title, 70),
+// 					'INVNUM' => 'off-' . time(),
+// 					'NOTIFYURL' => $paypalModel->notify_url,
+// 					'custom' => $custom,
+// 			);
+			
+// 			$DRTFields = array(
+// 					'REFERENCEID' => $userBilling->billingId,
+// 					'PAYMENTACTION' => 'Authorization',
+// 					'AMT' => $amount
+// 			);
+			
+			
+// 			$PayPalRequestData = array(
+// 					'DRTFields' => $DRTFields,
+// 					'PaymentDetails' => $PaymentDetails,
+// 			);
+			
+// 			$PayPalResult = $PayPal->DoReferenceTransaction($PayPalRequestData);
+			
+			if ($_GET['token'] && $_GET['PayerID'])
+			{
+				$token = $_GET['token'];
+				$PayerID = $_GET['PayerID'];
+			}
+			
+			// Prepare request arrays
+			$DECPFields = array(
+				'token' => $token, 								// Required.  A timestamped token, the value of which was returned by a previous SetExpressCheckout call.
+				'payerid' => $PayerID, 							// Required.  Unique PayPal customer id of the payer.  Returned by GetExpressCheckoutDetails, or if you used SKIPDETAILS it's returned in the URL back to your RETURNURL.
+				'PAYMENTACTION' => 'Authorization',
 			);
 			
-			$DRTFields = array(
-					'REFERENCEID' => $userBilling->billingId,
-					'PAYMENTACTION' => 'Authorization',
-					'AMT' => $amount
+			$Payments = array();
+			$Payment = array(
+				'amt' => $amount, 							// Required.  The total cost of the transaction to the customer.  If shipping cost and tax charges are known, include them in this value.  If not, this value should be the current sub-total of the order.
+				'currencycode' => CURRENCYCODE, 					// A three-character currency code.  Default is USD.
+				'PAYMENTACTION' => 'Authorization',
 			);
 			
+			$PaymentOrderItems = array();
+			$Item = array(
+				'name' => str_limit($rent_data->spaceID->Title, 100), 								// Item name. 127 char max.
+				'desc' => str_limit($rent_data->spaceID->Title, 100), 								// Item description. 127 char max.
+				'amt' => $amount, 								// Cost of item.
+				'number' => $rent_data->spaceID->HashID, 							// Item number.  127 char max.
+				'qty' => 1, 								// Item qty on order.  Any positive integer.
+				'taxamt' => '', 							// Item sales tax
+				'itemurl' => getSpaceUrl($rent_data->spaceID->HashID), 							// URL for the item.
+			);
+			array_push($PaymentOrderItems, $Item);
+			$Payment['order_items'] = $PaymentOrderItems;
+			array_push($Payments, $Payment);
+			$UserSelectedOptions = array();
 			
 			$PayPalRequestData = array(
-					'DRTFields' => $DRTFields,
-					'PaymentDetails' => $PaymentDetails,
+				'DECPFields' => $DECPFields,
+				'Payments' => $Payments,
+				'UserSelectedOptions' => $UserSelectedOptions
 			);
 			
-			$PayPalResult = $PayPal->DoReferenceTransaction($PayPalRequestData);
+			// Pass data into class for processing with PayPal and load the response array into $PayPalResult
+			$PayPalResult = $PayPal->DoExpressCheckoutPayment($PayPalRequestData);
 			
 			if (isset($PayPalResult['ACK']) && $PayPalResult['ACK'] == PAYPAL_RESPONSE_STATUS_SUCCESS)
 			{
-				$rent_data->transaction_id = $PayPalResult['TRANSACTIONID'];
+				$rent_data->transaction_id = $PayPalResult['PAYMENTINFO_0_TRANSACTIONID'];
 				$rent_data->save();
 			}
 			else{
@@ -2596,29 +2673,10 @@ class User2Controller extends Controller
 			}
 			
 			try {
-				$rent_data_save = Rentbookingsave::where('id', Session::get('rent_id'))->firstOrFail();
-				
-				if (isBookingRecursion($rent_data)) 
-				{
-					// Make Recursion for booking over 6 months
-					$PayPalExpress = $userBilling->token ? $PayPal->GetExpressCheckoutDetails($userBilling->token) : array();
-					if (count($PayPalExpress) && isset($PayPalExpress['ACK']) && $PayPalExpress['ACK'] == PAYPAL_RESPONSE_STATUS_SUCCESS && false)
-					{
-						return Redirect::action('User2Controller@doPaypalRecurring', array('token' => $userBilling->token));
-					}
-					else {
-						// Set checkout express to get new token because it is expired
-						$PayPalResult = $this->setCheckoutExpress($rent_data, $userBilling);
-						if (is_a($PayPalResult, 'Illuminate\Http\RedirectResponse'))
-							return $PayPalResult;
-					}
-				}
-				else {
-					// Do papal payment as normal way
-					$PayPalResult = $this->paypalPaymentOneTime($rent_data);
-					if (is_a($PayPalResult, 'Illuminate\Http\RedirectResponse'))
-						return $PayPalResult;
-				}
+				// Do the checkout
+				$PayPalResult = $this->setCheckoutExpress($rent_data, $userBilling);
+				if (is_a($PayPalResult, 'Illuminate\Http\RedirectResponse'))
+					return $PayPalResult;
 			}
 			catch(\Exception $e)
 			{
@@ -2643,6 +2701,16 @@ class User2Controller extends Controller
 				->withInput();
 			}
 				
+			if (!isBookingRecursion($rent_data))
+			{
+				// If not Recursion, so it is one time checkout.
+				$PayPalResult = $this->paypalPaymentOneTime($rent_data);
+				if (is_a($PayPalResult, 'Illuminate\Http\RedirectResponse'))
+					return $PayPalResult;
+				
+				return Redirect::action('User2Controller@creditPayment', array('payment_type' => 'paypal', 'save_booking' =>$userBilling->token));
+				die;
+			}
 			
 			$oStartDate = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $rent_data->charge_start_date);
 			// Next month will be charge by recursion
@@ -2789,10 +2857,13 @@ class User2Controller extends Controller
 				->withInput();
 			}
 
-			if($request->isMethod('post') || ($rent_data->recur_id && isset($input['save_booking']))):
+			if($request->isMethod('post') || 
+					(isBookingRecursion($rent_data) && $rent_data->recur_id && isset($input['save_booking'])) ||
+					(!isBookingRecursion($rent_data) && isset($input['save_booking']))
+			):
 			try {
 				// If below = false mean not created REcursion for paypal yet
-				if (!$rent_data->recur_id || !isset($input['save_booking']))
+				if ((isBookingRecursion($rent_data) && !$rent_data->recur_id) || !isset($input['save_booking']))
 				{
 					if($rent_data->amount < 50) {
 						return redirect::back()

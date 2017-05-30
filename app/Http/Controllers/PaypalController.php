@@ -242,8 +242,8 @@ class PaypalController extends Controller {
 
 		$PayPalRequest = array(
 				'SECFields' => $SECFields,
-// 				'SurveyChoices' => $SurveyChoices,
-// 				'BillingAgreements' => $BillingAgreements,
+				'SurveyChoices' => $SurveyChoices,
+				'BillingAgreements' => $BillingAgreements,
 				'Payments' => $Payments
 		);
 

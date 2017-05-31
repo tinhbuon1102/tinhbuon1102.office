@@ -362,13 +362,13 @@ jQuery(function($){
 		});
 	}
 	
-	$('#filters-button').click(function(){
+	$('body').on('click', '#filters-button', function(){
 		$('#SpaceFilters').toggle(); 
 		$('.reccomend-list').toggle();
 	});
 	
 	
-	$('.workspace-actions-wrapper a.action-tooltip').click(function(e){
+	$('body').on('click', '.workspace-actions-wrapper a.action-tooltip', function(e){
 		e.stopPropagation();
 		var el = $(this).parent().find('.workspace-actions-popup'); 
 		if( el.is(":visible") ){
@@ -379,7 +379,7 @@ jQuery(function($){
 		}
 	});
 	
-	$(document).click(function(){
+	$('body').on('click', function(){
 		 $('.workspace-actions-popup').hide();
 	});
 	

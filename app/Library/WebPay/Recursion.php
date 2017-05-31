@@ -17,7 +17,7 @@ class Recursion
 	
 	public function create($data)
 	{
-		$billing_day = 27;
+		$billing_day = 1;
 		// 2 months trial because it already paid for initial payment
 		$first_scheduled = \Carbon\Carbon::createFromTimestamp($data['first_scheduled']);
 		$now = \Carbon\Carbon::now();

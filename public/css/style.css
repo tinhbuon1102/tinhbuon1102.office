@@ -3224,8 +3224,8 @@ span.price-right strong {
 pages common
 *******************************/
 .search-table,.section-inner,.site-section-inner {
-	width: 960px;
-	min-width: 960px;
+	max-width: 960px;
+	width: 100%;
 	margin: 0 auto;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -3249,15 +3249,15 @@ pages common
 	}
 }
 
-@media ( max-width : 960px) {
+@media screen and (max-width: 960px) {
 	body.selectPage #main.container, body.success-pre #main.container {
-		    width: 94% !important;
-    min-width: 94%;
-    padding: 30px 20px;
+		width: 94% !important;
+		min-width: 94%;
+		padding: 30px 20px;
 	}
 }
 
-@media ( min-width : 960px) {
+@media screen and (min-width : 960px) {
 	html.is-responsive .search-table,html.is-responsive .section-inner,html.is-responsive .site-section-inner
 		{
 		width: 100%;
@@ -3265,7 +3265,7 @@ pages common
 	}
 }
 
-@media ( min-width : 1216px) {
+@media screen and (min-width : 1216px) {
 	html.is-responsive .search-table,html.is-responsive .section-inner,html.is-responsive .site-section-inner
 		{
 		padding-left: 0;

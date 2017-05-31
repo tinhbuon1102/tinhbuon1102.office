@@ -2710,6 +2710,9 @@ span.nav-link-notification {
 iframe#customer-chat-iframe {
 	z-index: 9998 !important;
 }
+body.profilepage iframe#customer-chat-iframe {
+	display: none !important;
+}
 body.searchpage span.select2-container {
     z-index: 999999;
 }

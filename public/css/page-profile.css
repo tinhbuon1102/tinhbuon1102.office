@@ -1850,7 +1850,7 @@ li.offer-btn-wrap a.btn.button {
     margin: 0;
     width: 100%;
 }
-@media ( max-width : 743px) {
+@media screen and (max-width : 743px) {
 	.hide-sm {
 		display: none !important;
 	}
@@ -1913,8 +1913,17 @@ body.host-profile .space-side-info .space-side-detail .wlp-general-gray-box-inne
 }
 }
 
-@media ( min-width : 743px) {
+@media screen and (min-width : 743px) {
 	.hide-lg {
 		display: none !important;
+	}
+}
+@media screen and (min-width:769px) and (max-width:989px) {
+	.space-action-btn .icon-button.half-btn {
+		width: 100%;
+	}
+	.space-action-btn .favourite-btn.half-btn .btn-inner .btn {
+    border-bottom: 0px;
+    border-right: 1px solid rgba(255, 193, 7, 1);
 	}
 }

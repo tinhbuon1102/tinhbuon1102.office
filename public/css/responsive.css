@@ -269,6 +269,54 @@ span.min_selector {
 div#page-wrapper.has_fixed_title {
     padding-top: 92px;
 }
+.private-draft section#page, .private-draft section#page div#main {
+    min-height: 100%;
+}
+.private-draft div#content.not-found {
+    position: relative;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+.private-draft div#content.not-found .error-404-message h1 {
+    font-size: 28px;
+    color: #333;
+    padding-bottom: 30px;
+}
+.private-draft div#content.not-found .error-404-message p {
+    margin-bottom: 40px;
+}
+a.goback-home {
+    display: inline-block;
+    background: #000;
+    color: #FFF;
+    line-height: 50px;
+    padding: 0 20px;
+}
+a.goback-home:hover, a.goback-home:focus {
+    background: rgba(255, 221, 0, 1);
+    color: #000;
+}
+@media (min-width: 480px) {
+	.private-draft section#page, .private-draft section#page div#main {
+    height: 100%;
+	}
+	.private-draft div#containers {
+    height: 100vh;
+	}
+	.private-draft div#content.not-found {
+    top: 50%;
+    -webkit-transform: translate(0px, -50%);
+    -ms-transform: translate(0px, -50%);
+    transform: translate(0px, -50%);
+	}
+}
+@media (max-width: 479px) {
+	.private-draft div#content.not-found {
+		padding: 40px 20px;
+	}
+}
 @media (min-width: 768px) {
 .transparent_header .primary-navigation {
 	float: right;
@@ -1202,6 +1250,7 @@ nav.mm {
 .Rating-review {
     margin-left: 0;
     font-size: 12px;
+	padding: 5px 0;
 }
 ul.ns_rentuser-list .offerme-w {
     position: relative;
@@ -2660,6 +2709,9 @@ span.nav-link-notification {
 @media(max-width:766px){
 iframe#customer-chat-iframe {
 	z-index: 9998 !important;
+}
+body.profilepage iframe#customer-chat-iframe {
+	display: none !important;
 }
 body.searchpage span.select2-container {
     z-index: 999999;

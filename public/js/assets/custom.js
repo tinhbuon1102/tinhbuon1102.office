@@ -427,6 +427,20 @@ jQuery(function($){
         $("#left-box").height(bodyheight);
     }).resize();
 	
+	$(window).on('load resize', function() {
+		var windowWidth = $(window).width();
+		var bodyheight = $(this).height();
+		var minBreak = 480;
+		var footerHeight = $('footer').innerHeight();
+		if (windowWidth > minBreak) {
+			$("body.private-draft div#containers").css('height', bodyheight + 'px');
+		} else {
+			$("body.private-draft div#containers").css('height', 'auto');
+		}
+		
+		$("div#main").css('padding-bottom', footerHeight + 'px');
+	});
+	
 	
 	function selectLeftNav(obj){
 

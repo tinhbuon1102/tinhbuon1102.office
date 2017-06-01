@@ -56,8 +56,8 @@ echo "test";
 													{
 														?>
 													<div class="ms-slide">
-														<img src="{{$im->ThumbPath}}" data-src="{{$im->ThumbPath}}" alt="" />
-														<img class="ms-thumb" src="{{$im->SThumbPath}}" alt="thumb" />
+														<img src="{{$im['ThumbPath']}}" data-src="{{$im['ThumbPath']}}" alt="" />
+														<img class="ms-thumb" src="{{$im['SThumbPath']}}" alt="thumb" />
 														<!-- <a href="/js/swipe-slider/slider-templates/lightbox/img/1.jpg" class="ms-lightbox" rel="prettyPhoto[gallery1]" title="lorem ipsum dolor sit"> lightbox </a> -->
 													</div>
 													<?

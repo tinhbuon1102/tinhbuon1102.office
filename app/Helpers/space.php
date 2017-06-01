@@ -578,9 +578,7 @@ function getAllSpaceImages($id)
 
 function getAllAvailSpaceImages($id)
 {
-	$spaces = $query->select(array('id'))
-		->from('user1sharespaces')
-		->where('User1ID','=', $id)
+	$spaces = \App\User1sharespace::where('User1ID','=', $id)
 		->where('status','=', SPACE_STATUS_PUBLIC)
 		->get();
 	
@@ -589,18 +587,17 @@ function getAllAvailSpaceImages($id)
 	{
 		foreach ( $spaces as $space )
 		{
-			$aVailableSlots = Spaceslot::getAvailableSpaceSlot($space);
+			$aVailableSlots = \App\Spaceslot::getAvailableSpaceSlot($space);
 			if (count($aVailableSlots))
 			{
-				$imgs=\App\Spaceimage::whereIn('ShareSpaceID', $space->id)->get();
+				$imgs = \App\Spaceimage::where('ShareSpaceID', $space->id)->get();
 				
 				if (count($imgs))
 				{
-					$allImages = array_merge($allImages, $imgs);
+					$allImages = array_merge($allImages, $imgs->toArray());					
 				}
 			}
 		}
 	}
-	
 	return $allImages;
 }

@@ -12,13 +12,14 @@
 <?php if (isset($space)) {?>
 <title>{{getSpaceTitle($space)}} | hOur Office | アワーオフィス</title>
 <meta name="description" content="{{getSpaceDescription($space, 160)}}"/>
-<meta property="og:url"                content="{{getSpaceUrl($space->HashID)}}"/>
-<meta property="og:type"               content="company"/>
-<meta property="og:title"              content="{{getSpaceTitle($space)}}"/>
-<meta property="og:description"        content="{{getSpaceDescription($space)}}"/>
-<meta property="og:image"              content="{{url(getSpacePhoto($space))}}"/>
+<meta property="og:url" content="{{getSpaceUrl($space->HashID)}}"/>
+<meta property="og:type" content="company"/>
+<meta property="og:title" content="{{getSpaceTitle($space)}}"/>
+<meta property="og:description" content="{{getSpaceDescription($space)}}"/>
+<meta property="og:image" content="{{url(getSpacePhoto($space))}}"/>
 <meta property="og:image:width" content="450"/>
 <meta property="og:image:height" content="298"/>
+<meta property="fb:app_id" content="315767042137325">
 <?php }else {?>
 <title>hOur Office | アワーオフィス</title>
 <?php	}?>

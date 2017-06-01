@@ -594,7 +594,10 @@ function getAllAvailSpaceImages($id)
 				
 				if (count($imgs))
 				{
-					$allImages = array_merge($allImages, $imgs->toArray());					
+					foreach ($imgs as $img)
+					{
+						$allImages[] = $img;
+					}
 				}
 			}
 		}

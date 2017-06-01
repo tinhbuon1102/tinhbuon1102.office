@@ -51,7 +51,7 @@ echo "test";
 													<?
 
 													//$spaceImg= $spaces->spaceImage->all();
-													$spaceImg=getAllSpaceImages($user->id);
+													$spaceImg=getAllAvailSpaceImages($user->id);
 													foreach($spaceImg as $im)
 													{
 														?>

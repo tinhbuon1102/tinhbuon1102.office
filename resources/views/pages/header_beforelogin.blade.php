@@ -27,7 +27,7 @@
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="hOur Office | アワーオフィス"/>
 <meta property="og:description" content="offispoであなたのオフィススペースを収益化しませんか？好きな時間、価格で、フリーデスク、会議室から個室まで、様々な種類のオフィスが掲載できるマッチングサイト。"/>
-<meta property="og:image" content="{{url(images/fb-thum.jpg)}}"/>
+<meta property="og:image" content="{{url('images/fb-thum.jpg')}}"/>
 <meta property="og:image:width" content="450"/>
 <meta property="og:image:height" content="298"/>
 <meta property="fb:app_id" content="315767042137325">

@@ -20,7 +20,7 @@
 
 @section('Content')
 <?php 
-if (!isset($rent_datas[0])) die('No data');
+if (isset($rent_datas[0])) { 
 
 $rent_data = $rent_datas[0];
 $total_include_tax = $total_tax = $total_charge_fee = 0;
@@ -175,4 +175,10 @@ $total_include_tax = $total_tax = $total_charge_fee = 0;
 	</div>
 </div>
 <!--/row-->
+<?php }
+else {
+?>	
+	<div class="no-data"><?php echo 'No data'?></div>
+<?php
+}?>
 @stop

@@ -1,6 +1,6 @@
 @foreach($rent_datas as $rent)
 <tr class="gradeX odd" role="row">
-	<td><?php echo renderJapaneseDate($rent->created_at)?></td>
+	<td><?php echo renderJapaneseDate($rent->charge_start_date)?></td>
 	<td>{{getUserName($rent->shareUser)}}</td>
 	<td>
 		<?php echo priceConvert($rent->total_amount - $rent->total_charge_fee, true)?>

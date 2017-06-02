@@ -231,7 +231,7 @@
 <p>月毎利用タイプは、以下のキャンセル条件となります。</p>
 <ol class="list-type-dot big-txt">
 <li><span class="underline">予約をしてから</span><strong>3週間以内</strong>までのキャンセルは<strong>100%返金</strong></li>
-<li><span class="underline">予約をしてから</span><strong>3週間1日〜4週間以内</strong>までのキャンセルは<strong>50%返金</strong></li>
+<li><span class="underline">予約をしてから</span><strong>3週間上回〜4週間以内</strong>までのキャンセルは<strong>50%返金</strong></li>
 <li><span class="underline">予約をしてから</span><strong>4週間を上回った</strong>キャンセルは<strong>返金不可</strong></li>
 </ol>
 <p class="strong-notice">※但し、予約した時点で、予約開始日時までの日にちが3週間を下回っていた場合は、予約した時間から1時間以内であれば100%返金でのキャンセルが可能</p>

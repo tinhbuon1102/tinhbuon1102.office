@@ -130,7 +130,7 @@ class Rentbookingsave extends Model
 		{
 			if ( $booking->refund_status == BOOKING_REFUND_CHARGE_50 )
 			{
-				$booking->refund_amount = ceil(($booking->SubTotal + $booking->Tax) / 2);
+				$booking->refund_amount = round(($booking->SubTotal + $booking->Tax) / 2);
 				$booking->ChargeFee = $booking->ChargeFee / 2;
 			}
 		}
@@ -351,7 +351,7 @@ class Rentbookingsave extends Model
 				'refund_status' => $refund_status
 			);
 		}
-		if ( isBookingRecursion($rent_data) ) $bookingAmount = ceil(($rent_data->amount / $rent_data->Duration) * BOOKING_MONTH_RECURSION_INITPAYMENT);
+		if ( isBookingRecursion($rent_data) ) $bookingAmount = round(($rent_data->amount / $rent_data->Duration) * BOOKING_MONTH_RECURSION_INITPAYMENT);
 		else $bookingAmount = $rent_data->amount;
 		
 		switch ( $refund_status )
@@ -360,15 +360,15 @@ class Rentbookingsave extends Model
 				$refund_amount = 0;
 				break;
 			case BOOKING_REFUND_CHARGE_50:
-				$refund_amount = ceil($bookingAmount / 2);
+				$refund_amount = round($bookingAmount / 2);
 				break;
 			case BOOKING_REFUND_CHARGE_100:
 				$refund_amount = $bookingAmount;
 				break;
 		}
 		
-		// Ceil amount refund
-		$refund_amount = ceil($refund_amount);
+		// round amount refund
+		$refund_amount = round($refund_amount);
 		
 		if ( $rent_data->payment_method == 'creditcard' )
 		{
@@ -578,7 +578,7 @@ class Rentbookingsave extends Model
 				$paypalModel = new \App\Models\Paypal();
 				$PayPal = $paypalModel->getRefrecePaypalClient();
 				
-				if ( isBookingRecursion($rent_data) ) $amount = ceil(($rent_data->amount / $rent_data->Duration) * BOOKING_MONTH_RECURSION_INITPAYMENT);
+				if ( isBookingRecursion($rent_data) ) $amount = round(($rent_data->amount / $rent_data->Duration) * BOOKING_MONTH_RECURSION_INITPAYMENT);
 				else $amount = $rent_data->amount;
 				
 				$DCFields = array(

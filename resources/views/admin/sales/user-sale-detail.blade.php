@@ -104,8 +104,16 @@ $total_include_tax = $total_tax = $total_charge_fee = 0;
 								<?php foreach ($rent_datas as $rent_data) {
 									$groupPrices = array();
 									$space = $rent_data->bookedSpace;
-									$rent_data->isArchive = true;
-									$aFlexiblePrice = getFlexiblePrice($rent_data, new \App\Bookedspaceslot());
+									
+									if (isMonthlySpace($space))
+									{
+										$aFlexiblePrice = \App\Rentbookingsave::getInvoiceBookingPayment($rent_data);
+										$rent_data->DurationText = '2ヶ月';
+									}
+									else {
+										$rent_data->isArchive = true;
+										$aFlexiblePrice = getFlexiblePrice($rent_data, new \App\Bookedspaceslot());
+									}
 									if (isset($aFlexiblePrice['prices']) && count($aFlexiblePrice['prices']))
 									{
 										foreach ($aFlexiblePrice['prices'] as $subPrice)
@@ -113,7 +121,7 @@ $total_include_tax = $total_tax = $total_charge_fee = 0;
 											$groupPrices[$subPrice['SpecialDay']][] = $subPrice;
 										}
 									}
-									$total_include_tax += $rent_data->amount - $rent_data->ChargeFee;
+									$total_include_tax += $rent_data->SubTotal + $rent_data->Tax;
 									$total_tax += $rent_data->Tax;
 									$total_charge_fee += $rent_data->ChargeFee;
 								?>

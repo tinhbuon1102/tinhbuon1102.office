@@ -258,10 +258,10 @@ function getFlexiblePrice(&$rent_data, $oSlot,$count=0){
 	}
 
 	$aReturn = array();
-	$aReturn['subTotal'] = ceil($subTotal);
-	$aReturn['subTotalIncludeTax'] = ceil($subTotalIncludeTax = $subTotal * BOOKING_TAX_PERCENT / 100);
-	$aReturn['subTotalIncludeChargeFee'] = ceil($subTotalIncludeChargeFee = ($subTotal + $subTotalIncludeTax) * BOOKING_CHARGE_FEE_PERCENT / 100);
-	$aReturn['totalPrice'] = ceil($subTotal + $subTotalIncludeTax + $subTotalIncludeChargeFee);
+	$aReturn['subTotal'] = round($subTotal);
+	$aReturn['subTotalIncludeTax'] = round($subTotalIncludeTax = $subTotal * BOOKING_TAX_PERCENT / 100);
+	$aReturn['subTotalIncludeChargeFee'] = round($subTotalIncludeChargeFee = ($subTotal + $subTotalIncludeTax) * BOOKING_CHARGE_FEE_PERCENT / 100);
+	$aReturn['totalPrice'] = round($subTotal + $subTotalIncludeTax + $subTotalIncludeChargeFee);
 	$aReturn['prices'] = $prices;
 
 	return $aReturn;

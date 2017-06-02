@@ -5,7 +5,7 @@
 </div>
 <ul>
 <li class="menu-find-space side-panel-item"><a href="{{url('RentUser/Dashboard/SearchSpaces')}}">スペースを探す</a></li>
-<li class="menu-share-space side-panel-item"><a href="{{url('how-it-works/list-space')}}">スペースを貸す</a></li>
+<li class="menu-share-space side-panel-item"><a href="{{url('how-it-works/list-space')}}">スペースを提供する</a></li>
 <li class="menu-how-use side-panel-item"><a href="{{url('how-it-works')}}">ご利用方法</a></li>
 <li class="menu-login side-panel-item"><a href="#modal2">ログイン</a></li>
 <li class="menu-signup side-panel-item"><a href="#modal">会員登録</a></li>

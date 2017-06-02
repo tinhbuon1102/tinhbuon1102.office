@@ -117,7 +117,6 @@ $selects.eq(1).change(function(){
 });
 
 fetchChildrenArea("JP", function(data){
-	console.log(data);
     setSelectOptions($selects.eq(0), data);
     setSelectOptions($selects.eq(1));
     setSelectOptions($selects.eq(2));

@@ -121,7 +121,7 @@ function createRandomInvoiceID($len = 7){
 
 function priceConvert($price, $showCurrency = false, $html = false)
 {
-	$price = ceil(str_replace(',', '', $price));
+	$price = round(str_replace(',', '', $price));
 	$price = @number_format((float)$price, 0);
 	$price = ($showCurrency ? '¥' : '') . ($html ? '<strong class="price-label">'. $price .'</strong>' : $price);
 	return $price;

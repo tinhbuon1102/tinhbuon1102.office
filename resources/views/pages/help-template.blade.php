@@ -114,27 +114,71 @@ $(this).colorbox.resize();
 });
 	/*moving sidebar*/
 	$(function(){
-    var target = $(".scroll-leftbar");//ここに追尾したい要素名を記載
-    var footer = $("footer")//フッターでストップさせる
-    var targetHeight = target.outerHeight(true);
-    var targetTop = target.offset().top;
- 
-    $(window).scroll(function(){
-        var scrollTop = $(this).scrollTop();
-        if(scrollTop > targetTop){
-            // 動的にコンテンツが追加されてもいいように、常に計算する
-            var footerTop = footer.offset().top;
+		var wd = $(window);
+		var windowW = wd.width();
+		var windowH = wd.height();
+		var minBreak = 480;
+		var footer = $("footer");//フッターでストップさせる
+		var header = $(".header_wrapper");
+		var maincon = $(".help-content");
+		var sidebar = $(".scroll-leftbar");
+		var sideH = sidebar.height();
+		var sidebarTop = sidebar.offset().top;
+		var headerH = header.height();
+		var conH = maincon.height();
+		console.log('ヘッダー：' + headerH + 'px');
+		console.log('サイドバー：' + sideH + 'px');
+		console.log('メインコン：' + conH + 'px');
+	$(window).on('load resize', function() {
+		if (windowW > minBreak && sideH < conH) {
+			$(".left-menu").css('height', conH + 'px');
+			//サイドバーがウィンドウよりいくらはみ出してるか
+			var sideOver = windowH - sideH;
+			//固定を開始する位置 = サイドバーの座標＋はみ出す距離
+			var starPoint = sidebar.offset().top + (-sideOver);
+			//固定を解除する位置 = メインコンテンツの終点
+			var breakPoint = sidebar.offset().top + conH;
+			wd.scroll(function() { //スクロール中の処理
+                   
+                  if(windowH < sideH){ //サイドメニューが画面より大きい場合
+                        if(starPoint < wd.scrollTop() && wd.scrollTop() + wd.height() < breakPoint){ //固定範囲内
+                              sidebar.css({"position": "fixed", "bottom": "20px"}); 
+       
+                        }else if(wd.scrollTop() + windowH >= breakPoint){ //固定解除位置を超えた時
+                              sidebar.css({"position": "absolute", "bottom": "0"});
+       
+                        } else { //その他、上に戻った時
+                              sidebar.css("position", "static");
+       
+                        }
+       
+                  }else{ //サイドメニューが画面より小さい場合
+                   
+                        var sideBtm = wd.scrollTop() + sideH; //サイドメニューの終点
+                         
+                        if(maincon.offset().top < wd.scrollTop() && sideBtm < breakPoint){ //固定範囲内
+                              sidebar.css({"position": "fixed", "top": (headerH + 20) + "px"});
+                               
+                        }else if(sideBtm >= breakPoint){ //固定解除位置を超えた時
+                         
+                              //サイドバー固定場所（bottom指定すると不具合が出るのでtopからの固定位置を算出する）
+                              var fixedSide = conH - sideH;
+                               
+                              sidebar.css({"position": "absolute", "top": fixedSide});
+                               
+                        } else {
+                              sidebar.css("position", "static");
+                        }
+                  }
+                         
              
-            if(scrollTop + targetHeight > footerTop){
-                customTopPosition = footerTop - (scrollTop + targetHeight)
-                target.css({position: "fixed", top:  customTopPosition + "px"});
-            }else{
-                target.css({position: "fixed", top: "75px", width: "20%"});
-            }
-        }else{
-            target.css({position: "static", top: "auto", width: "100%"});
-        }
-    });
+            });
+			
+		} else {
+			$(".left-menu").css('height', 'auto');
+		}
+		
+	});
 });
 </script>
 </body>

@@ -879,6 +879,11 @@ h5#acMenu {
     right: -30px;
     top: 0;
 }
+.timeline-point.start-point {
+    right: initial;
+    left: 80px;
+    min-width: 80px;
+}
 .timeline-point-tooltip {
     position: relative;
     opacity: 1;
@@ -886,6 +891,7 @@ h5#acMenu {
     padding: 6px 10px;
     left: -50%;
     top: -60px;
+	text-align: center;
 }
 .tooltip-bottom-middle:before {
     content: "";
@@ -929,6 +935,7 @@ h5#acMenu {
     left: -50%;
     top: 34px;
     text-align: center;
+	min-width: 105px;
 }
 .timeline-fineprint {
     margin-top: 10px;

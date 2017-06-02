@@ -228,19 +228,19 @@
 <div class="mgb-30">
 <h4>月毎タイプの利用予約の場合</h4>
 <div class="help_body_content">
-<p>週毎利用タイプは、以下のキャンセル条件となります。</p>
+<p>月毎利用タイプは、以下のキャンセル条件となります。</p>
 <ol class="list-type-dot big-txt">
-<li>利用開始日<strong>1ヶ月前</strong>までのキャンセルは<strong>100%返金</strong></li>
-<li>利用開始日<strong>3週間前</strong>までのキャンセルは<strong>50%返金</strong></li>
-<li>利用開始時間<strong>3週間未満前</strong>までのキャンセルは<strong>返金不可</strong></li>
+<li><span class="underline">予約をしてから</span><strong>3週間以内</strong>までのキャンセルは<strong>100%返金</strong></li>
+<li><span class="underline">予約をしてから</span><strong>3週間1日〜4週間以内</strong>までのキャンセルは<strong>50%返金</strong></li>
+<li><span class="underline">予約をしてから</span><strong>4週間を上回った</strong>キャンセルは<strong>返金不可</strong></li>
 </ol>
-<p class="strong-notice">※但し、予約した時点で、予約開始日時までの時間が3週間を下回っていた場合は、予約した時間から1時間以内であれば100%返金でのキャンセルが可能</p>
-<div class="timeline-container hide-sm">
+<p class="strong-notice">※但し、予約した時点で、予約開始日時までの日にちが3週間を下回っていた場合は、予約した時間から1時間以内であれば100%返金でのキャンセルが可能</p>
+<div class="timeline-container hide-sm has-first">
 <div class="row clearfix">
-<div class="col-sm-3 timeline-segment timeline-segment-refundable ">
-        <div class="timeline-point">
+<div class="col-sm-3 timeline-segment timeline-segment-refundable">
+        <div class="timeline-point start-point">
           <div class="tooltip tooltip-bottom-middle dark-caret-bottom-middle timeline-point-tooltip">
-            2週間前
+            予約日
           </div>
 
           <div class="timeline-point-marker"></div>
@@ -250,14 +250,27 @@
             </div>
         </div>
       </div>
+<div class="col-sm-3 timeline-segment timeline-segment-refundable ">
+        <div class="timeline-point">
+          <div class="tooltip tooltip-bottom-middle dark-caret-bottom-middle timeline-point-tooltip">
+            3週間以内
+          </div>
+
+          <div class="timeline-point-marker"></div>
+            <div class="timeline-point-label">
+              12月23日（金）
+              <br>9:00
+            </div>
+        </div>
+      </div>
       
       <div class="col-sm-3 timeline-segment timeline-segment-partly-refundable">
       <div id="second-point" class="timeline-point">
         <div class="tooltip tooltip-bottom-middle dark-caret-bottom-middle timeline-point-tooltip">
-          1週間前
+          4週間以内
         </div>
         <div class="timeline-point-marker"></div>
-          <div class="timeline-point-label">12月9日（金）
+          <div class="timeline-point-label">12月30日（金）
             <br>9:00</div>
       </div>
     </div>
@@ -265,23 +278,12 @@
     <div class="col-sm-3 timeline-segment timeline-segment-nonrefundable">
       <div id="third-point" class="timeline-point">
         <div class="tooltip tooltip-bottom-middle dark-caret-bottom-middle timeline-point-tooltip">
-          1週間未満前
+          4週間上回る
         </div>
 
         <div class="timeline-point-marker"></div>
-          <div class="timeline-point-label">12月9日（金）
+          <div class="timeline-point-label">12月30日（金）
             <br>9:01</div>
-      </div>
-    </div>
-    <div class="col-sm-3 timeline-segment timeline-segment-nonrefundable">
-      <div id="third-point" class="timeline-point">
-        <div class="tooltip tooltip-bottom-middle dark-caret-bottom-middle timeline-point-tooltip">
-          利用開始
-        </div>
-
-        <div class="timeline-point-marker"></div>
-          <div class="timeline-point-label">12月16日（金）
-            <br>9:00</div>
       </div>
     </div>
 </div><!--/row-->

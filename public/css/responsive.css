@@ -317,6 +317,12 @@ a.goback-home:hover, a.goback-home:focus {
 		padding: 40px 20px;
 	}
 }
+.left-menu {
+    position: relative;
+}
+.underline {
+	text-decoration: underline;
+}
 @media (min-width: 768px) {
 .transparent_header .primary-navigation {
 	float: right;

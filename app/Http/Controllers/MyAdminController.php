@@ -241,8 +241,69 @@ class MyAdminController extends Controller
 		->orderBy('rentbookingsaves.id','desc')
 		->groupBy(array('rentbookingsaves.id'))
 		->where('rentbookingsaves.status','!=', BOOKING_STATUS_DRAFT);
-		$rent_datas = $rent_datas->get();
-
+		
+		switch ($request->status)
+		{
+			case BOOKING_STATUS_PENDING :
+			case BOOKING_STATUS_COMPLETED :
+				$rent_datas = $rent_datas->where('rentbookingsaves.status', $request->status);
+				break;
+			case BOOKING_STATUS_REFUNDED :
+				$rent_datas = $rent_datas->whereIn('rentbookingsaves.status', array(BOOKING_STATUS_REFUNDED, BOOKING_STATUS_CALCELLED));
+				break;
+			case BOOKING_STATUS_RESERVED :
+				$rent_datas = $rent_datas->where('rentbookingsaves.status', $request->status)->where('in_use', 0);
+				break;
+			case BOOKING_STATUS_INUSE:
+				$rent_datas = $rent_datas->where('rentbookingsaves.status', BOOKING_STATUS_RESERVED)->where('in_use', BOOKING_IN_USE);
+				break;
+			case 'all' :
+			default :
+				$rent_datas = $rent_datas->where('rentbookingsaves.status','!=', BOOKING_STATUS_DRAFT);
+				break;
+		
+		}
+		
+		if ($request->filter_month)
+		{
+			$rent_datas = $rent_datas->where('rentbookingsaves.created_at','>=', $request->filter_month . '-01')->where('rentbookingsaves.created_at','<=', $request->filter_month . '-31');
+		}
+		
+		$rent_datas= $rent_datas->paginate(LIMIT_BOOKING);
+		$rent_datas->appends($request->except(['page']))->links();
+		
+		$allDatas = Rentbookingsave::select('rentbookingsaves.*')
+		->where('rentbookingsaves.InvoiceID', '<>', '')
+		->where('rentbookingsaves.User1ID', $user->id)
+		->joinSpace()
+		->groupBy(array('rentbookingsaves.id'))
+		->where('rentbookingsaves.status','!=', BOOKING_STATUS_DRAFT);
+		
+		$allAvailDatas = clone $allDatas;
+		if ($request->filter_month)
+		{
+			$allAvailDatas = $allAvailDatas->where('rentbookingsaves.created_at','>=', $request->filter_month . '-01')->where('rentbookingsaves.created_at','<=', $request->filter_month . '-31');
+		}
+		// 		pr(getSqlQuery($allAvailDatas));die;
+		$allDatas = $allDatas->get();
+		$allAvailDatas = $allAvailDatas->get();
+		
+		//Filter by status
+		$rent_data_status = array();
+		$rent_data_month = array();
+		
+		foreach ($allAvailDatas as $rent_data)
+		{
+			$status = ($rent_data->status == BOOKING_STATUS_RESERVED && $rent_data->in_use == BOOKING_IN_USE) ? BOOKING_STATUS_INUSE : $rent_data->status;
+			$status = $status == BOOKING_STATUS_CALCELLED ? BOOKING_STATUS_REFUNDED : $status;
+			$rent_data_status[$status][] = $rent_data;
+		}
+		foreach ($allDatas as $rent_data)
+		{
+			$month = date('Y-m', strtotime($rent_data->created_at));
+			$rent_data_month[$month] = $month;
+		}
+		
 		// Get invoices
 		$invoices = Rentbookingsave::where('User1ID', $user->id)
 		->where(function($query){
@@ -261,11 +322,46 @@ class MyAdminController extends Controller
 		->where('rentbookingsaves.InvoiceID', '<>', '')
 		->whereNotNull('rentbookingsaves.InvoiceID')
 		->orderBy('created_at', 'DESC');
-		$invoices= $invoices->paginate(100);
-		$invoices->appends($request->except(['page']))->links();
+		
+		$allDatas = clone $invoices;
+		
+		if ($request->filter_year)
+		{
+			$invoices = $invoices->where('rentbookingsaves.charge_start_date','>=', $request->filter_year . '-01-01')->where('rentbookingsaves.charge_start_date','<=', $request->filter_year . '-12-31');
+		}
+		
+		if ($request->filter_month)
+		{
+			$invoices = $invoices->where('rentbookingsaves.charge_start_date','>=', $request->filter_month . '-01')->where('rentbookingsaves.charge_start_date','<=', $request->filter_month . '-31');
+		}
+		
+		
+		$invoices = $invoices->paginate(LIMIT_INVOICE);
+		$invoices->appends($request->except([
+			'page'
+		]))
+		->links();
+		
+		$allDatas = $allDatas->get();
+		
+		$rent_data_month_invoice = array();
+		$rent_data_year = array();
+		
+		foreach ($allDatas as $rent_data)
+		{
+			$year = date('Y', strtotime($rent_data->charge_start_date));
+			$rent_data_year[$year] = $year;
+				
+			if (($request->filter_year && strpos($rent_data->charge_start_date, $request->filter_year) !== false) || !$request->filter_year)
+			{
+				$month = date('Y-m', strtotime($rent_data->charge_start_date));
+				$rent_data_month_invoice[$month] = $month;
+			}
+				
+		}
 
 			
-		return view("admin/shareuser/edit-share",compact('user','bank','hosts','certificates','id','rent_datas', 'invoices'));
+		return view("admin/shareuser/edit-share",compact('user','bank','hosts','certificates','id','rent_datas', 'invoices', 'rent_data_month', 'rent_data_status', 'rent_data_month_invoice', 'rent_data_year'));
 
 
 	}
@@ -712,11 +808,47 @@ class MyAdminController extends Controller
 		->where('rentbookingsaves.InvoiceID', '<>', '')
 		->whereNotNull('rentbookingsaves.InvoiceID')
 		->orderBy('created_at', 'DESC');
-		$invoices= $invoices->paginate(100);
-		$invoices->appends($request->except(['page']))->links();
+		
+		$allDatas = clone $invoices;
+		
+		if ($request->filter_year)
+		{
+			$invoices = $invoices->where('rentbookingsaves.charge_start_date','>=', $request->filter_year . '-01-01')->where('rentbookingsaves.charge_start_date','<=', $request->filter_year . '-12-31');
+		}
+		
+		if ($request->filter_month)
+		{
+			$invoices = $invoices->where('rentbookingsaves.charge_start_date','>=', $request->filter_month . '-01')->where('rentbookingsaves.charge_start_date','<=', $request->filter_month . '-31');
+		}
+		
+		
+		$invoices = $invoices->paginate(LIMIT_INVOICE);
+		$invoices->appends($request->except([
+			'page'
+		]))
+		->links();
+		
+		$allDatas = $allDatas->get();
+		
+		$rent_data_month_invoice = array();
+		$rent_data_year = array();
+		
+		foreach ($allDatas as $rent_data)
+		{
+			$year = date('Y', strtotime($rent_data->charge_start_date));
+			$rent_data_year[$year] = $year;
+		
+			if (($request->filter_year && strpos($rent_data->charge_start_date, $request->filter_year) !== false) || !$request->filter_year)
+			{
+				$month = date('Y-m', strtotime($rent_data->charge_start_date));
+				$rent_data_month_invoice[$month] = $month;
+			}
+		
+		}
 			
+		
 
-		return view("admin/rentuser/edit-rentuser",compact('user','userIde', 'invoices', 'rent_data', 'rent_datas', 'rent_data_status', 'allDatas', 'allAvailDatas', 'rent_data_month'));
+		return view("admin/rentuser/edit-rentuser",compact('user','userIde', 'invoices', 'rent_data', 'rent_datas', 'rent_data_status', 'allDatas', 'allAvailDatas', 'rent_data_month', 'rent_data_month_invoice', 'rent_data_year'));
 	}
 
 	public function shareUserInvoiceDetail($userHash, $invoiceID)

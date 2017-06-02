@@ -2033,13 +2033,45 @@ class User1Controller extends Controller
 			->where('rentbookingsaves.InvoiceID', '<>', '')
 			->whereNotNull('rentbookingsaves.InvoiceID')
 			->orderBy('created_at', 'DESC');
+		
+		$allDatas = clone $invoices;
+		
+		if ($request->filter_year)
+		{
+			$invoices = $invoices->where('rentbookingsaves.charge_start_date','>=', $request->filter_year . '-01-01')->where('rentbookingsaves.charge_start_date','<=', $request->filter_year . '-12-31');
+		}
+		
+		if ($request->filter_month)
+		{
+			$invoices = $invoices->where('rentbookingsaves.charge_start_date','>=', $request->filter_month . '-01')->where('rentbookingsaves.charge_start_date','<=', $request->filter_month . '-31');
+		}
+		
+		
 		$invoices = $invoices->paginate(LIMIT_INVOICE);
 		$invoices->appends($request->except([
 			'page'
 		]))
 			->links();
 		
-		return view('user1.dashboard.invoice-shareuser', compact('user', 'invoices'));
+		$allDatas = $allDatas->get();
+		
+		$rent_data_month = array();
+		$rent_data_year = array();
+		
+		foreach ($allDatas as $rent_data)
+		{
+			$year = date('Y', strtotime($rent_data->charge_start_date));
+			$rent_data_year[$year] = $year;
+			
+			if (($request->filter_year && strpos($rent_data->charge_start_date, $request->filter_year) !== false) || !$request->filter_year)
+			{
+				$month = date('Y-m', strtotime($rent_data->charge_start_date));
+				$rent_data_month[$month] = $month;
+			}
+			
+		}
+		
+		return view('user1.dashboard.invoice-shareuser', compact('user', 'invoices', 'rent_data_year', 'rent_data_month'));
 	}
 	public function invoiceDetail ( $id )
 	{

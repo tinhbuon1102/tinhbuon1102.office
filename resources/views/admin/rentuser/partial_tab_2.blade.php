@@ -69,11 +69,14 @@
 								<div class="tablenav top">
 									<div class="alignleft actions">
 										<?php 
+										if ( empty($_GET) || (count($_GET) == 1 && isset($_GET['filter_month'])) ) $paramConcat = '?';
+										else $paramConcat = '&';
+										
 										echo Form::select('filter_month',
 														@$rent_data_month,
 														@$param['filter_month'],
 														['id' => 'filter_by_date', 'placeholder' => trans('common.all_date'),
-														'onchange' => 'location = "'. getFullUrl(Request::except(['filter_month'])) .'" + (this.value ? "&filter_month=" + this.value : "")']);?>
+														'onchange' => 'location = "'. getFullUrl(Request::except(['filter_month'])) .'" + (this.value ? "&filter_month=" + this.value : "") + "#tab-2"']);?>
 									</div>
 								</div>
 								<table class="table table-striped table-bordered" id="example" cellspacing="0" width="100%">

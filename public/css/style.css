@@ -12763,3 +12763,6 @@ section#memberonly .disc {
 section#memberonly h2.sec-title, section#memberonly .sec-subtitle {
     color: #000;
 }
+
+.wrapper_dataTables .tablenav {float: left;}
+.wrapper_dataTables .tablenav #filter_by_year{margin-right: 10px;}

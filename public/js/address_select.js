@@ -18,52 +18,37 @@ function fetchChildrenArea(ac, success, error){
         return;
     }
 
-    jQuery.ajax({
-        url: api.url,
-        data: {
-            appid: api.appid,
-            ac: ac,
-            mode: "2", // 1:甲良町（犬上郡）, 2: 犬上郡甲良町
-            output: "json"
-        },
-        dataType: "jsonp"
-    }).done(function(json){
 
-        var data, props, i, ii;
+    var data, props, i, ii;
 
-        if(json.error){
-            error && error();
-            return;
-        }
-
-        // jsonデータから子地域データを取得
-        data = json;
-        props = ["Feature", "0", "Property", "AddressDirectory"];
-        while(data && props.length){
-            data = data[props.shift()];
-        }
-        if(!data || !data.length){
-            error && error();
-            return;
-        }
-
-        i = 0, ii = data.length;
-        while(i < ii){
-            data[i] = {
-                ac: data[i]["AreaCode"],
-                name: data[i]["Name"]
-            };
-            i++;
-        }
-
-        that.cache[ac] = data;
-        success && success(data);
-
-    }).fail(function(){
-
+    if(yahooAddress.error){
         error && error();
+        return;
+    }
 
-    });
+    // jsonデータから子地域データを取得
+    data = yahooAddress;
+    props = ["Feature", "0", "Property", "AddressDirectory"];
+    while(data && props.length){
+        data = data[props.shift()];
+    }
+    if(!data || !data.length){
+        error && error();
+        return;
+    }
+
+    i = 0, ii = data.length;
+    while(i < ii){
+        data[i] = {
+            ac: data[i]["AreaCode"],
+            name: data[i]["Name"]
+        };
+        i++;
+    }
+
+    that.cache[ac] = data;
+    success && success(data);
+
 }
 
 
@@ -132,6 +117,7 @@ $selects.eq(1).change(function(){
 });
 
 fetchChildrenArea("JP", function(data){
+	console.log(data);
     setSelectOptions($selects.eq(0), data);
     setSelectOptions($selects.eq(1));
     setSelectOptions($selects.eq(2));

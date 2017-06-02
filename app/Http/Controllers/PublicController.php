@@ -299,7 +299,7 @@ class PublicController extends Controller
 		
 		if ($request->filter_month)
 		{
-			$rent_datas = $rent_datas->where('rentbookingsaves.created_at','>=', $request->filter_month . '-01')->where('rentbookingsaves.created_at','<=', $request->filter_month . '-31');
+			$rent_datas = $rent_datas->where('rentbookingsaves.charge_start_date','>=', $request->filter_month . '-01')->where('rentbookingsaves.charge_start_date','<=', $request->filter_month . '-31');
 		}
 		
 		$rent_datas= $rent_datas->paginate(LIMIT_BOOKING);
@@ -315,7 +315,7 @@ class PublicController extends Controller
 		$allAvailDatas = clone $allDatas;
 		if ($request->filter_month)
 		{
-			$allAvailDatas = $allAvailDatas->where('rentbookingsaves.created_at','>=', $request->filter_month . '-01')->where('rentbookingsaves.created_at','<=', $request->filter_month . '-31');
+			$allAvailDatas = $allAvailDatas->where('rentbookingsaves.charge_start_date','>=', $request->filter_month . '-01')->where('rentbookingsaves.charge_start_date','<=', $request->filter_month . '-31');
 		}
 // 		pr(getSqlQuery($allAvailDatas));die;
 		$allDatas = $allDatas->get();
@@ -333,7 +333,7 @@ class PublicController extends Controller
 		}
 		foreach ($allDatas as $rent_data)
 		{
-			$month = date('Y-m', strtotime($rent_data->created_at));
+			$month = date('Y-m', strtotime($rent_data->charge_start_date));
 			$rent_data_month[$month] = $month;
 		}
 		return view('user1.dashboard.rent_booking',compact('user','rent_datas', 'rent_data_status', 'allDatas', 'allAvailDatas', 'rent_data_month'));

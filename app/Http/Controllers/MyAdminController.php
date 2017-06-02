@@ -266,7 +266,7 @@ class MyAdminController extends Controller
 		
 		if ($request->filter_month)
 		{
-			$rent_datas = $rent_datas->where('rentbookingsaves.created_at','>=', $request->filter_month . '-01')->where('rentbookingsaves.created_at','<=', $request->filter_month . '-31');
+			$rent_datas = $rent_datas->where('rentbookingsaves.charge_start_date','>=', $request->filter_month . '-01')->where('rentbookingsaves.charge_start_date','<=', $request->filter_month . '-31');
 		}
 		
 		$rent_datas= $rent_datas->paginate(LIMIT_BOOKING);
@@ -282,7 +282,7 @@ class MyAdminController extends Controller
 		$allAvailDatas = clone $allDatas;
 		if ($request->filter_month)
 		{
-			$allAvailDatas = $allAvailDatas->where('rentbookingsaves.created_at','>=', $request->filter_month . '-01')->where('rentbookingsaves.created_at','<=', $request->filter_month . '-31');
+			$allAvailDatas = $allAvailDatas->where('rentbookingsaves.charge_start_date','>=', $request->filter_month . '-01')->where('rentbookingsaves.charge_start_date','<=', $request->filter_month . '-31');
 		}
 		// 		pr(getSqlQuery($allAvailDatas));die;
 		$allDatas = $allDatas->get();
@@ -752,7 +752,7 @@ class MyAdminController extends Controller
 
 		if ($request->filter_month)
 		{
-			$rent_datas = $rent_datas->where('rentbookingsaves.created_at','>=', $request->filter_month . '-01')->where('rentbookingsaves.created_at','<=', $request->filter_month . '-31');
+			$rent_datas = $rent_datas->where('rentbookingsaves.charge_start_date','>=', $request->filter_month . '-01')->where('rentbookingsaves.charge_start_date','<=', $request->filter_month . '-31');
 		}
 
 		$rent_datas= $rent_datas->paginate(LIMIT_BOOKING);
@@ -768,7 +768,7 @@ class MyAdminController extends Controller
 		$allAvailDatas = clone $allDatas;
 		if ($request->filter_month)
 		{
-			$allAvailDatas = $allAvailDatas->where('rentbookingsaves.created_at','>=', $request->filter_month . '-01')->where('rentbookingsaves.created_at','<=', $request->filter_month . '-31');
+			$allAvailDatas = $allAvailDatas->where('rentbookingsaves.charge_start_date','>=', $request->filter_month . '-01')->where('rentbookingsaves.charge_start_date','<=', $request->filter_month . '-31');
 		}
 
 		$allDatas = $allDatas->get();
@@ -966,16 +966,16 @@ class MyAdminController extends Controller
 					break;
 			}
 				
-			$rent_datas = $rent_datas->where('created_at', '>=', $startDate);
-			$rent_datas = $rent_datas->where('created_at', '<=', $endDate);
+			$rent_datas = $rent_datas->where('charge_start_date', '>=', $startDate);
+			$rent_datas = $rent_datas->where('charge_start_date', '<=', $endDate);
 		}
 		elseif ($request->start_date || $request->end_date) {
 				
 			if (trim($request->start_date))
-				$rent_datas = $rent_datas->where('created_at', '>=', date('Y-m-d 00:00:00', strtotime($request->start_date)));
+				$rent_datas = $rent_datas->where('charge_start_date', '>=', date('Y-m-d 00:00:00', strtotime($request->start_date)));
 					
 			if (trim($request->end_date))
-				$rent_datas = $rent_datas->where('created_at', '<=', date('Y-m-d 23:59:59', strtotime($request->end_date)));
+				$rent_datas = $rent_datas->where('charge_start_date', '<=', date('Y-m-d 23:59:59', strtotime($request->end_date)));
 		}
 		
 		return $rent_datas;

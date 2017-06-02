@@ -1040,3 +1040,17 @@ function getAddressInfoFromPostCode ($data) {
 
 	return $param;
 }
+
+function getYahooAddressApi()
+{
+	$client = new \GuzzleHttp\Client();
+	$res = $client->get(
+			'http://search.olp.yahooapis.jp/OpenLocalPlatform/V1/addressDirectory?appid=dj0zaiZpPWpvUXpPQzh4UFpXTSZzPWNvbnN1bWVyc2VjcmV0Jng9OWU-&ac=JP&mode=2&output=json'
+			);
+	
+	if ($res->getStatusCode() == 200)
+	{
+		return $res->getBody();
+	}
+	return '{}';
+}

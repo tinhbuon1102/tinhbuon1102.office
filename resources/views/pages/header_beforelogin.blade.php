@@ -160,6 +160,7 @@ $(document).ready(function(){
               jQuery(".user-sidebar").removeClass("has-open-user-sidebar");
            });
         });
+        var yahooAddress = <?php echo getYahooAddressApi(); ?>;
     </script>
 
 <!--<script>

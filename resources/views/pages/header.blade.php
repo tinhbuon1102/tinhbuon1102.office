@@ -404,6 +404,7 @@ body.navon .nvOpn.actv {
           var sound = document.getElementById("audio");
           sound.play()
       }
+    var yahooAddress = <?php echo getYahooAddressApi(); ?>;
     </script>
 </head>
 @include('pages.common_header')

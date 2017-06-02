@@ -620,6 +620,10 @@ class Rentbookingsave extends Model
 		$oUsedTime = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $rent_data->charge_start_date);
 		$oCreatedTime = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $rent_data->created_at);
 		
+		if (isMonthlySpace($rent_data->spaceID)){
+			$oUsedTime = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $rent_data->created_at);
+		}
+		
 		// Future will be Relative
 		// Past will be Nagative
 		$iUsedInSeconds = $oTimeNow->diffInSeconds($oUsedTime, false);
@@ -640,7 +644,7 @@ class Rentbookingsave extends Model
 			// 50% will be charged
 			$response = $this->cancelBookingPayment($rent_data, BOOKING_REFUND_CHARGE_50);
 		}
-		elseif ( $iUsedInDays < $aDiff['full_charge'] && $iUsedInDays >= 0 )
+		elseif ( $iUsedInDays < $aDiff['full_charge'])
 		{
 			// 100% will be charged and cancel booking
 			$response = $this->cancelBookingPayment($rent_data, BOOKING_REFUND_CHARGE_100);
@@ -656,6 +660,11 @@ class Rentbookingsave extends Model
 		{
 			$oTimeNow = \Carbon\Carbon::now();
 			$oUsedTime = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $rent_data->charge_start_date);
+			
+			if (isMonthlySpace($rent_data->spaceID)){
+				$oUsedTime = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $rent_data->created_at);
+				$oUsedTime = $oUsedTime->addDays((int)config('booking.Monthly.DAY_AUTOMATIC_CANCELLED'));
+			}
 			
 			// Future will be Relative
 			// Past will be Nagative
@@ -746,9 +755,9 @@ class Rentbookingsave extends Model
 						 */
 						$oNextMonth = $oTimeNow->copy()->addMonths((int)config('booking.Monthly.MONTHS_BEFORE_START_DATE_CAN_BE_CANCELLED_CHARGE_0'));
 						$aDiff = [
-							'free' => abs($oNextMonth->diffInDays($oTimeNow)),
-							'half_charge' => (int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'),
-							'full_charge' => (int)config('booking.Monthly.LESS_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_100')
+							'free' => -(int)config('booking.Monthly.MONTHS_BEFORE_START_DATE_CAN_BE_CANCELLED_CHARGE_0'),
+							'half_charge' => -(int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'),
+							'full_charge' => -(int)config('booking.Monthly.LESS_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_100')
 						];
 						break;
 				}

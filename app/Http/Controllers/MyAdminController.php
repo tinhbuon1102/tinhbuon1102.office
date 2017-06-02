@@ -408,7 +408,7 @@ class MyAdminController extends Controller
 		$paypalModel = new \App\Models\Paypal;
 		$PayPalRefrence = $paypalModel->getRefrecePaypalClient();
 			
-		$refundamount = priceConvert(ceil($rent_data['refund_amount']));
+		$refundamount = priceConvert(round($rent_data['refund_amount']));
 
 		$rent_data->isArchive = true;
 // 		$aFlexiblePrice = getFlexiblePrice($rent_data, new \App\Bookedspaceslot());
@@ -857,7 +857,7 @@ class MyAdminController extends Controller
 		$booking = Rentbookingsave::where('InvoiceID', $invoiceID)->first();
 		$aFlexiblePrice = Rentbookingsave::getInvoiceBookingPayment($booking);
 		$prices = $aFlexiblePrice['prices'];
-		$refundamount = priceConvert(ceil($booking->refund_amount));
+		$refundamount = priceConvert(round($booking->refund_amount));
 		$totalPrice = priceConvert($aFlexiblePrice['totalPrice'], true);
 		$remaining_amont=abs($aFlexiblePrice['totalPrice'] - $booking->refund_amount);
 
@@ -871,7 +871,7 @@ class MyAdminController extends Controller
 		$booking->isArchive = true;
 		$aFlexiblePrice = getFlexiblePrice($booking, new \App\Bookedspaceslot());
 		$prices = $aFlexiblePrice['prices'];
-		$refundamount = priceConvert(ceil($booking->refund_amount));
+		$refundamount = priceConvert(round($booking->refund_amount));
 		$totalPrice = priceConvert($aFlexiblePrice['totalPrice'], true);
 		$remaining_amont=abs($aFlexiblePrice['totalPrice'] - $booking->refund_amount);
 
@@ -893,7 +893,7 @@ class MyAdminController extends Controller
 
 		$rent_data->isArchive = true;
 		$aFlexiblePrice = getFlexiblePrice($rent_data, new \App\Bookedspaceslot());
-		$refundamount = priceConvert(ceil($rent_data['refund_amount']));
+		$refundamount = priceConvert(round($rent_data['refund_amount']));
 
 		$subTotal = priceConvert($aFlexiblePrice['subTotal'], true);
 		$subTotalIncludeTax = priceConvert($aFlexiblePrice['subTotalIncludeTax'], true);

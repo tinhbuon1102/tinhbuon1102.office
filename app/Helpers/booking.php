@@ -357,7 +357,7 @@ function renderBookingSummary($space, $prices,$count=0,$rent_data_status=0)
 		<div class="lead text-right">
 			<span id="unit_total" class="price-value <?php if($rent_data_status==BOOKING_STATUS_REFUNDED): echo 'strike'; endif;?> <?php if($subPrice['SpecialDay']=='日曜料金'): echo 'sunday';elseif($subPrice['SpecialDay']=='土曜料金'): echo 'saturday'; else: echo 'weekday'; endif ?>" style="float: right">
 				<small>
-					<?php echo priceConvert(ceil($groupPriceTotal), true);?>
+					<?php echo priceConvert(round($groupPriceTotal), true);?>
 				</small>
 			</span>
 		</div>
@@ -388,7 +388,7 @@ function renderBookingSummary($space, $prices,$count=0,$rent_data_status=0)
 		<div class="lead text-right">
 			<span id="unit_total" class="price-value select-subtot <?php if($rent_data_status==BOOKING_STATUS_REFUNDED): echo 'strike'; endif;?> <?php if($subPrice['SpecialDay']=='日曜料金'): echo 'sunday';elseif($subPrice['SpecialDay']=='土曜料金'): echo 'saturday'; else: echo 'weekday'; endif ?>" style="float: right">
 				<small>
-					<?php echo priceConvert(ceil($groupPriceTotal), true)?>
+					<?php echo priceConvert(round($groupPriceTotal), true)?>
 				</small>
 			</span>
 		</div>
@@ -464,7 +464,7 @@ function renderBookingSummary($space, $prices,$count=0,$rent_data_status=0)
 	<th style="padding: 16px 16px 0; font-size: 15px; text-align: left; vertical-align: top; color: #888;">
 		<p class="total-calc">
 			<span class="unit-price">
-				<?php if(isset($prices[0]['price'])): echo priceConvert(ceil($prices[0]['price']), true); endif;?>
+				<?php if(isset($prices[0]['price'])): echo priceConvert(round($prices[0]['price']), true); endif;?>
 			</span>
 			x
 			<span class="qty">
@@ -477,7 +477,7 @@ function renderBookingSummary($space, $prices,$count=0,$rent_data_status=0)
 		<div class="lead text-right">
 			<span id="unit_total" class="price-value <?php if($rent_data_status==BOOKING_STATUS_REFUNDED): echo 'strike'; endif;?>">
 				<small>
-					<?php if(isset($prices[0]['price'])): echo priceConvert(ceil($prices[0]['price'] * count($prices)), true); endif;?>
+					<?php if(isset($prices[0]['price'])): echo priceConvert(round($prices[0]['price'] * count($prices)), true); endif;?>
 				</small>
 			</span>
 		</div>
@@ -813,7 +813,7 @@ function getPaypalRecursionbooking($rent_data,$recuData){
 	<!--Initial Payment(2 months fee)-->
 </td>
 <td>
-	<?php echo priceConvert(ceil($charge_info->amount));?>
+	<?php echo priceConvert(round($charge_info->amount));?>
 </td>
 <td class="align-center">
 	<?php if($charge_info->paid==1 && $charge_info->captured==1):echo '支払い済み';else:echo '返金済み';endif;?>
@@ -828,7 +828,7 @@ if($recursion_info->last_executed!=''):
 	<?php echo $rent_data->bookedSpace->Title;?>
 </td>
 <td>
-	<?php echo priceConvert(ceil($recursion_info->amount));?>
+	<?php echo priceConvert(round($recursion_info->amount));?>
 </td>
 <td class="align-center">
 	<?php echo $recursion_info->status;?>

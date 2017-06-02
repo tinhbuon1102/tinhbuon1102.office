@@ -1162,7 +1162,7 @@ $spaces = $user1Space->select('user1sharespaces.*')
 				if (isset($response['refund_status']))
 				{
 					if (isBookingRecursion($rent_data))
-						$bookingAmount = ceil(($rent_data->amount / $rent_data->Duration) * BOOKING_MONTH_RECURSION_INITPAYMENT);
+						$bookingAmount = round(($rent_data->amount / $rent_data->Duration) * BOOKING_MONTH_RECURSION_INITPAYMENT);
 					else
 						$bookingAmount = $rent_data->amount;
 					
@@ -1173,7 +1173,7 @@ $spaces = $user1Space->select('user1sharespaces.*')
 							$refund_text = 'キャンセル料無し';
 							break;
 						case BOOKING_REFUND_CHARGE_50:
-							$refund_amount = ceil($bookingAmount / 2);
+							$refund_amount = round($bookingAmount / 2);
 							$refund_text = 'キャンセル料 50%';
 							break;
 						case BOOKING_REFUND_CHARGE_100:
@@ -1181,7 +1181,7 @@ $spaces = $user1Space->select('user1sharespaces.*')
 							$refund_text = 'キャンセル料 100%';
 							break;
 					}
-					$refund_amount = ceil($refund_amount);
+					$refund_amount = round($refund_amount);
 					$message = '予約番号#' . $rent_data->id . 'のキャンセルをリクエストします。<br />';
 					$message .= 'キャンセルポリシーに基づき、支払金額は返金処理されます。' . $refund_text . '<br />';
 					$message .= 'キャンセル料金 : ' . priceConvert($refund_amount, true, true);

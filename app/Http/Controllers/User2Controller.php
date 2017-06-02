@@ -154,7 +154,7 @@ class User2Controller extends Controller
 		
 		$aFlexiblePrice = Rentbookingsave::getInvoiceBookingPayment($booking);
 		$prices = $aFlexiblePrice['prices'];
-		$refundamount = priceConvert(ceil($booking->refund_amount));
+		$refundamount = priceConvert(round($booking->refund_amount));
 		$totalPrice = priceConvert($aFlexiblePrice['totalPrice'], true);
 		$remaining_amont=abs($aFlexiblePrice['totalPrice'] - $booking->refund_amount);
 
@@ -1907,7 +1907,7 @@ class User2Controller extends Controller
 
 			$rent_data->isArchive = true;
 			$aFlexiblePrice = getFlexiblePrice($rent_data, new \App\Bookedspaceslot());
-			$refundamount = priceConvert(ceil($rent_data['refund_amount']));
+			$refundamount = priceConvert(round($rent_data['refund_amount']));
 
 			$subTotal = priceConvert($aFlexiblePrice['subTotal'], true);
 			$subTotalIncludeTax = priceConvert($aFlexiblePrice['subTotalIncludeTax'], true);
@@ -1937,7 +1937,7 @@ class User2Controller extends Controller
 			$rent_data->isArchive = true;
 			$aFlexiblePrice = getFlexiblePrice($rent_data, new \App\Bookedspaceslot());
 			//return($rent_data);
-			$refundamount = priceConvert(ceil($rent_data['refund_amount']));
+			$refundamount = priceConvert(round($rent_data['refund_amount']));
 
 			$subTotal = priceConvert($aFlexiblePrice['subTotal'], true);
 			$subTotalIncludeTax = priceConvert($aFlexiblePrice['subTotalIncludeTax'], true);
@@ -2436,7 +2436,7 @@ class User2Controller extends Controller
 						
 					$monthly_payment = $rent_data->amount / $rent_data->Duration;
 					$info = $webpay->charge->create(array(
-							"amount" => ceil($monthly_payment * BOOKING_MONTH_RECURSION_INITPAYMENT),
+							"amount" => round($monthly_payment * BOOKING_MONTH_RECURSION_INITPAYMENT),
 							"currency" => "jpy",
 							"card" => $token->id,
 							"description" => $rent_data['request'],
@@ -2468,7 +2468,7 @@ class User2Controller extends Controller
 					$oEndDate->subMonths(2);
 					
 					$infoRecursion = $webpay->recursion->create(array(
-							"amount" => ceil($monthly_payment),
+							"amount" => round($monthly_payment),
 							"currency" => "jpy",
 							"card" => $token->id,
 							"description" => str_limit($rent_data->spaceID->Title, 70),
@@ -2524,7 +2524,7 @@ class User2Controller extends Controller
 						'NOTIFYURL' => '',
 						'NOSHIPPING' => 1
 				);
-				$unit_payment = ceil($rent_data->amount / $rent_data->Duration);
+				$unit_payment = round($rent_data->amount / $rent_data->Duration);
 					
 				if (isBookingRecursion($rent_data))
 				{
@@ -2601,7 +2601,7 @@ class User2Controller extends Controller
 			$userBilling = Paypalbilling::where('userId', $user->id)->first();
 			
 			if (isBookingRecursion($rent_data))
-				$amount = ceil(($rent_data->amount / $rent_data->Duration) * BOOKING_MONTH_RECURSION_INITPAYMENT);
+				$amount = round(($rent_data->amount / $rent_data->Duration) * BOOKING_MONTH_RECURSION_INITPAYMENT);
 			else
 				$amount = $rent_data->amount;
 			
@@ -2752,7 +2752,7 @@ class User2Controller extends Controller
 			
 			$PROFILESTARTDATE = $oStartDate->format('Y-m-d').'T'.$oStartDate->format('H:i:s').'Z';
 			
-			$monthly_payment = ceil($rent_data->amount / $rent_data->Duration);
+			$monthly_payment = round($rent_data->amount / $rent_data->Duration);
 			$profile_description = trans('common.recurring_paypal_description', ['monthly_price' => priceConvert($monthly_payment, true)]);
 			
 			$CRPPFields = array(

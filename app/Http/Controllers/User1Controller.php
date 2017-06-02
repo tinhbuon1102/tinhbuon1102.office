@@ -2080,7 +2080,7 @@ class User1Controller extends Controller
 		
 		$aFlexiblePrice = Rentbookingsave::getInvoiceBookingPayment($booking);
 		$prices = $aFlexiblePrice['prices'];
-		$refundamount = priceConvert(ceil($booking->refund_amount));
+		$refundamount = priceConvert(round($booking->refund_amount));
 		$totalPrice = priceConvert($aFlexiblePrice['totalPrice'], true);
 		$remaining_amont = abs($aFlexiblePrice['totalPrice'] - $booking->refund_amount);
 		
@@ -2096,7 +2096,7 @@ class User1Controller extends Controller
 		
 		if ( $rent_data == null ) return redirect('/ShareUser/Dashboard/BookList?msb=booking+not+exist');
 		
-		$refundamount = priceConvert(ceil($rent_data['refund_amount']));
+		$refundamount = priceConvert(round($rent_data['refund_amount']));
 		$rent_data->isArchive = true;
 // 		$aFlexiblePrice = getFlexiblePrice($rent_data, new \App\Bookedspaceslot());
 		$aFlexiblePrice = Rentbookingsave::getInvoiceBookingPayment($rent_data);

@@ -14,8 +14,10 @@
 <h4>3.予約受付処理を行う</h4>
 <div class="help_body_content">
 <h5>支払受取を行う(予約受付処理)</h5>
-<p>予約を受け付ける場合は、以下の操作方法で支払受取の処理をして下さい。</p>
-<p><strong>[支払情報]</strong>の項目にいき、<strong>[仮売上]</strong>をクリックしてください。</p>
+<p>予約を受け付ける場合は、以下のどちらかの操作方法で支払受取の処理をして下さい。</p>
+<p>A.画面右上にある、緑ボタンの<strong>[予約受付処理]</strong>をクリックしてください。</p>
+<div class="help-shot"><img src="/images/help/booking/share/6-1.jpg" /></div>
+<p>B.<strong>[支払情報]</strong>の項目にいき、<strong>[仮売上]</strong>をクリックしてください。</p>
 <div class="help-shot"><img src="/images/help/booking/share/6.jpg" /></div>
 <p>クリックすると、再度確認のメッセージがでてきますので、<strong>[OK]</strong>ボタンをクリックしてください。</p>
 <div class="help-shot"><img src="/images/help/booking/share/8.jpg" /></div>

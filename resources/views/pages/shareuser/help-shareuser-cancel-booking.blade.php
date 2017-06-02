@@ -17,8 +17,10 @@
 <div class="mgb-30">
 <h5 id="acMenu">a.予約ステータスが<span class="btn btn-pending-alt btn-h5">処理中</span>の予約キャンセル方法</h5>
 <div class="ac-content">
-<p>処理中の予約を受け付けず、キャンセルする場合は、以下の操作方法で支払受取の受取拒否をし、キャンセル処理を行って下さい。</p>
-<p><strong>[支払情報]</strong>の項目にいき、[仮売上]の右側にある<strong>[<span class="ns_blue-arrow ns_down caret"></span>]</strong>をクリックしてください。<br/>
+<p>処理中の予約を受け付けず、キャンセルする場合は、以下のどちらかの操作方法で予約の受取拒否をし、キャンセル処理を行って下さい。</p>
+<p>A.<strong>画面右上の、赤ボタンの<strong>[予約受付拒否]</strong>をクリックしてください。</p>
+<div class="help-shot"><img src="/images/help/booking/share/7-1.jpg" /></div>
+<p>B.<strong>[支払情報]</strong>の項目にいき、[仮売上]の右側にある<strong>[<span class="ns_blue-arrow ns_down caret"></span>]</strong>をクリックしてください。<br/>
 クリックすると<strong>[受取拒否]</strong>というオプションがでてきますので、それをクリックして下さい。</p>
 <div class="help-shot"><img src="/images/help/booking/share/7.jpg" /></div>
 <p>クリックすると、再度確認のメッセージがでてきます。、<br/><strong>キャンセル料</strong>についての確認が表示されますので、よく確認してから<strong>[続ける]</strong>ボタンをクリックしてください。</p>

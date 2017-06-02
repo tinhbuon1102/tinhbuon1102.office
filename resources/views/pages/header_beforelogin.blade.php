@@ -9,16 +9,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <meta name="robots" content="noindex">
 <meta name="csrf-token" content="{{ csrf_token() }}" />
-<title>hOur Office | アワーオフィス</title>
+<?php if (isset($space)) {?>
+<title>{{getSpaceTitle($space)}} | hOur Office | アワーオフィス</title>
 <meta name="description" content="{{getSpaceDescription($space, 160)}}"/>
 <meta property="og:url" content="{{getSpaceUrl($space->HashID)}}"/>
-<meta property="og:type" content="company"/>
+<meta property="og:type" content="website"/>
 <meta property="og:title" content="{{getSpaceTitle($space)}}"/>
 <meta property="og:description" content="{{getSpaceDescription($space)}}"/>
 <meta property="og:image" content="{{url(getSpacePhoto($space))}}"/>
 <meta property="og:image:width" content="450"/>
 <meta property="og:image:height" content="298"/>
 <meta property="fb:app_id" content="315767042137325">
+<?php }else {?>
+<title>hOur Office | アワーオフィス</title>
+<meta name="description" content="hOur Office | アワーオフィス"/>
+<meta property="og:url" content="{{url(Route::getCurrentRoute()->getPath())}}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="hOur Office | アワーオフィス"/>
+<meta property="og:description" content="offispoであなたのオフィススペースを収益化しませんか？好きな時間、価格で、フリーデスク、会議室から個室まで、様々な種類のオフィスが掲載できるマッチングサイト。"/>
+<meta property="og:image" content="{{url(images/fb-thum.jpg)}}"/>
+<meta property="og:image:width" content="450"/>
+<meta property="og:image:height" content="298"/>
+<meta property="fb:app_id" content="315767042137325">
+<?php	}?>
 <link rel="apple-touch-icon" sizes="57x57" href="{{url('/')}}/lpnew/images/favicon/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="{{url('/')}}/lpnew/images/favicon/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="{{url('/')}}/lpnew/images/favicon/apple-icon-72x72.png">

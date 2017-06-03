@@ -128,7 +128,7 @@ $total_include_tax = $total_tax = $total_charge_fee = 0;
 								<!--loop-->
 								<tr>
 									<td class="pdl18"><a target="_blank" href="/MyAdmin/ShareUser/Dashboard/EditBook/{{$rent_data->id}}">#{{$rent_data->id}}</a></td>
-									<td class="pdl18">{{renderJapaneseDate($rent_data->created_at)}}</td>
+									<td class="pdl18">{{renderJapaneseDate($rent_data->charge_start_date)}}</td>
 									<td class="pdl18">{{getSpaceTypeText($rent_data->bookedSpace)}}</td>
 									<td class="pdl18"><a target="_blank" href="/MyAdmin/ShareUser/{{$rent_data->shareUser->HashCode}}/EditSpace/{{$rent_data->bookedSpace->HashID}}">{{getSpaceTitle($rent_data->bookedSpace, 50)}}</a></td>
 									<td class="flright">

@@ -768,6 +768,7 @@ function renderBookingFor6Months($sub_total_months,$rent_data,$start_date,$count
 			<td>
 			<?php 
 			$endDate = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $rent_data->charge_end_date);
+			$endDate->subMonths(1);
 			?>
 				<div class="lead text-right">
 					<small>

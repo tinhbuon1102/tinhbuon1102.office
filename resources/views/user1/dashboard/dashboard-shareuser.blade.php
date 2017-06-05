@@ -133,7 +133,7 @@ $rentBooking = new \App\Rentbookingsave();
 						<section class="feed-event recent-follow feed-box">
 							<div class="dashboard-section-heading-container">
 								<h3 class="dashboard-section-heading">
-									<a href="#">あなたへのお知らせ</a>
+									あなたへのお知らせ
 								</h3>
 							</div>
 							<ul id="news-feed-list" class="transitions-enabled infinite-scroll">

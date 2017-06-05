@@ -2905,8 +2905,8 @@ body.home footer {
 body.mypage.searchpage footer {
 	position: absolute;
 }
-body.mypage .fixed-container .right_side, body.dashboard .main-container, body.review  .main-container {
-	padding-bottom: 226px;
+body.mypage .fixed-container .right_side, body.dashboard .main-container, body.review .main-container {
+	padding-bottom: 0px;
 }
 body.mypage.searchpage .main-container {
 	padding-bottom: 261px;
@@ -4422,8 +4422,12 @@ body.mypage.shareuser .PageDashboard-avatar {
 	font-size: 19px;
 	font-size: 1.1875rem;
 	line-height: 1.47;
+	font-weight: bold;
 }
-
+.alert-identity-message a {
+    color: #00a0b2;
+    text-decoration: underline;
+}
 .dashboard-section-heading a {
 	color: rgb(64, 63, 69);
 	font-weight: bold;

@@ -120,7 +120,7 @@ $user = Auth::guard('user2')->user();
                                             <li>必須のアカウント情報を設定</li>
                                             @endif
                                             @if(empty($user->card_name) && empty($paypalStatus) )
-                                            <li>支払方法を設定</li>
+                                            <li><a href="#addPayment">支払方法を設定</a></li>
                                             @endif
                                             </ul>
                                             </div>
@@ -461,16 +461,16 @@ echo Form::select('Prefecture', getPrefectures(), $user->Prefecture, [
 													</div>
 												</fieldset>
 												<!--<div class="hr"></div>-->
-												<fieldset>
+												<fieldset id="addPayment">
 													<div class="Signup-sectionHeader">
 														<div class="row">
-															<div class="col-xs-6 col-md-6 col-sm-8">
+															<div class="col-xs-5 col-md-6 col-sm-8">
 																<legend class="signup-sectionTitle"><?=trans("common.My Payment Method")?>
 																	<!--支払情報-->
 																</legend>
 															</div>
 															@if(empty($user->card_name) || $paypalStatus == false )
-															<div class="col-xs-6 col-md-6 col-sm-4 clearfix pb15 text-right">
+															<div class="col-xs-7 col-md-6 col-sm-4 clearfix pb15 text-right">
 																<a href="#modal5" class="btn btn-default mt15 dblk-button mgt-0">
 																	<i class="fa fa-plus-circle" aria-hidden="true"></i>
                                                  <?=trans("common.Add New Payment Method")?></a>

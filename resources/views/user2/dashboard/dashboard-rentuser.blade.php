@@ -29,19 +29,19 @@ $rentBooking = new \App\Rentbookingsave();
 							<li class="steps-banner-item">
 								<span class="steps-banner-item-image"></span>
 								<span class="steps-banner-item-text">
-									<a href="{{url('ShareUser/Dashboard/HostSetting')}}">アカウントをセットアップ</a>
+									<a href="{{url('RentUser/Dashboard/BasicInfo/Edit')}}">アカウントをセットアップ</a>
 								</span>
 							</li>
 							<li class="steps-banner-item">
 								<span class="steps-banner-item-image step-2"></span>
 								<span class="steps-banner-item-text">
-									<a href="{{url('ShareUser/Dashboard/MySpace/List1')}}">プロフィールページ作成</a>
+									<a href="{{url('RentUser/Dashboard/MyProfile')}}">プロフィールページ作成</a>
 								</span>
 							</li>
 							<li class="steps-banner-item">
 								<span class="steps-banner-item-image  step-3"></span>
 								<span class="steps-banner-item-text">
-									<a href="{{url('ShareUser/Dashboard/MySpace/Calendar')}}">オフィススペースを探す</a>
+									<a href="{{url('RentUser/Dashboard/SearchSpaces')}}">オフィススペースを探す</a>
 								</span>
 							</li>
 						</ul>
@@ -51,7 +51,7 @@ $rentBooking = new \App\Rentbookingsave();
 					<section class="recent-matched-space feed-box">
 						<div class="dashboard-section-heading-container">
 							<h3 class="dashboard-section-heading">
-								<a href="#">あなたにオススメのオフィス</a>
+								あなたにオススメのオフィス
 							</h3>
 							<!--<a href="#" class="recommend-office-cta-link">全て見る</a>-->
 						</div>
@@ -94,7 +94,7 @@ $rentBooking = new \App\Rentbookingsave();
 					<section class="feed-event recent-follow feed-box">
 						<div class="dashboard-section-heading-container">
 							<h3 class="dashboard-section-heading">
-								<a href="#">あなたへのお知らせ</a>
+								あなたへのお知らせ
 							</h3>
 						</div>
 						<ul id="news-feed-list" class="transitions-enabled infinite-scroll">
@@ -110,7 +110,7 @@ $rentBooking = new \App\Rentbookingsave();
 <?php if (!\App\User2::isProfileFullFill($user)){?>
         <li><strong>アカウント情報の設定</strong><br/><span>必須のアカウント情報の項目が未設定です。</span><a href="{{url('RentUser/Dashboard/BasicInfo/Edit')}}" class="btn-info btn">アカウント情報設定</a></li><?php }?>
 	@if(empty($user->card_name) && empty($paypalStatus) )
-		<li><strong>支払い方法の登録</strong><br/><span>予約時の決済に使用する支払い方法を登録してください。</span><a href="{{url('RentUser/Dashboard/BasicInfo/Edit')}}" class="btn-info btn">支払方法登録</a></li>@endif
+		<li><strong>支払い方法の登録</strong><br/><span>予約時の決済に使用する支払い方法を登録してください。</span><a href="{{url('RentUser/Dashboard/BasicInfo/Edit#addPayment')}}" class="btn-info btn">支払方法登録</a></li>@endif
 	@if( !count($user->certificates) || !$user->SentToAdmin)
 		<li><strong>本人確認書類の提出</strong><br/><span>サービス利用の不正を防ぐため、組織・個人証明書の提出が必須です。提出後、2~3営業日にて審査が完了します。</span><a href="{{url('RentUser/Dashboard/Identify/Upload')}}" class="btn-info btn">証明書の提出</a></li>
 	@endif

@@ -71,7 +71,7 @@ return [
 	'Search' => '検索',
 	'In-Use' => '利用中',
 	
-	'My Payment Method' => '決済方法',
+	'My Payment Method' => '支払方法',
 	'Add New Payment Method' => '支払い方法を追加',
 	'Authenticated' => '検証済み',
 	'Credit Card' => 'クレジットカード',

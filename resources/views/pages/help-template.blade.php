@@ -59,7 +59,7 @@
 						<div class="col-md-3 left-menu">
 							<div class="scroll-leftbar">@if(Request::is('help/shareuser') || Request::is('help/shareuser/*')) @include('pages.shareuser.help-shareuser-leftbar') @elseif(Request::is('help/rentuser') || Request::is('help/rentuser/*')) @include('pages.rentuser.help-rentuser-leftbar') @elseif(Request::is('help/guest') || Request::is('help/guest/*')) @include('pages.guest.help-guest-leftbar') @endif</div>
 						</div>
-						<div class="col-md-8 help-content">
+						<div class="col-md-9 help-content">
 							<!--main content here-->
 <?php echo isset($subView) ? $subView : ''?>
 </div>

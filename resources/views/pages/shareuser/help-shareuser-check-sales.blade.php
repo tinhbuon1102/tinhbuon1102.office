@@ -1,6 +1,46 @@
 <div class="help_header">
 <h1>売上確認方法</h1>
 </div>
+<h4>売上計上基準・締め日について</h4>
+<div class="help_body_content check-sales">
+<div class="wrap-border">
+<strong>時間毎・日毎・週毎タイプスペースの場合</strong>
+<p class="mb10">予約された<span class="underline bold">利用日</span>の月末を売上計上の締め日とし、翌月末払いとなります。</p>
+<p>例）利用日が6/1の場合、6月分の売り上げとして月末締めで売上計上となり、翌月の7月末に支払われる。<br/>※予約された日が2ヶ月前の4月だとしても4月分としては計上されません。</p>
+</div><!--/wrap-border-->
+<div class="wrap-border">
+<strong>月毎タイプスペースの場合</strong>
+<p class="mb10"><span class="underline bold">予約日から28日後の日付</span>の月末を売上計上の締め日とし、翌月末払いとなります。</p>
+<p>例）予約日が6/4の場合、28日後の7/2が売り上げ計上日となるので、7月分の売り上げとして月末締めで売上計上となり、翌月の8月末に支払われる。</p>
+</div><!--/wrap-border-->
+<table class="sales-checksheet">
+	<thead>
+	<tr>
+	<th>スペースタイプ</th>
+	<th>売上計上基準</th>
+	<th>売上計上日</th>
+	<th>締め日</th>
+	<th>売上支払日</th>
+	</tr>
+	</thead>
+	<tbody>
+		<tr>
+		<td class="type">時間毎・日毎・週毎タイプ</td>
+		<td class="cavg"><span class="bold">利用日</span>基準</td>
+		<td class="checkdate">スペースの<span class="bold">利用日</span></td>
+		<td class="checkend">月末</td>
+		<td class="paydate">翌月末</td>
+		</tr>
+		<tr>
+		<td class="type">月毎タイプ</td>
+		<td class="cavg"><span class="bold">予約日</span>基準</td>
+		<td class="checkdate">スペースの<span class="bold">予約日から28日後</span></td>
+		<td class="checkend">月末</td>
+		<td class="paydate">翌月末</td>
+		</tr>
+	</tbody>
+</table>
+</div>
 <h4>支払通知書とは</h4>
 <div class="help_body_content">
 <p>支払通知書とはスペース提供料金の売上として、hOur Officeからあなたに支払われる金額が確認できる通知書となります。</p>

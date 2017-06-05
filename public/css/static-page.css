@@ -615,6 +615,12 @@ button.btn .fa {
 .mb20 {
     margin-bottom: 20px !important;
 }
+.mb10 {
+    margin-bottom: 10px !important;
+}
+.mb5 {
+    margin-bottom: 5px !important;
+}
 .mb0 {
     margin-bottom: 0 !important;
 }
@@ -1076,7 +1082,84 @@ body.profilepage button.mfp-close {
 	font-size: 13px;
 	line-height: 1.6;
 }
+table.sales-checksheet {
+    width: 100%;
+}
+table.sales-checksheet th {
+	color: #D5DDE5;
+    background: #1b1e24;
+}
+table.sales-checksheet td {
+	background: #f5f5f5;
+}
+table.sales-checksheet tbody tr {
+	border-top: 1px solid #C1C3D1;
+}
+table.sales-checksheet th, table.sales-checksheet td {
+    padding: 15px 20px;
+    text-align: left;
+	border-right: 1px solid #C1C3D1;
+}
+table.sales-checksheet th:last-child, table.sales-checksheet td:last-child {
+	border-right: none;
+}
+.check-sales > .wrap-border > strong {
+    font-size: 1.15em;
+    line-height: 2.05em;
+	margin-bottom: 10px;
+    border-bottom: 1px solid #CCC;
+    display: block;
+}
+.wrap-border {
+    margin-bottom: 25px;
+}
 @media (max-width: 768px) {
+	table.sales-checksheet th, table.sales-checksheet td {
+		border-right: none;
+	}
+	table.sales-checksheet tbody tr {
+		border-top: none;
+	}
+	table.sales-checksheet tbody tr td {
+		position: relative;
+		padding-left: 50%; 
+	}
+	table.sales-checksheet td.type {
+    color: #D5DDE5;
+    background: #1b1e24;
+	padding: 15px 20px;
+	}
+	.sales-checksheet td:before {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 45%;
+    padding: 15px 20px;
+    white-space: nowrap;
+	background: rgba(224,224,224,1);
+	height: 100%;
+	}
+	.sales-checksheet td.cavg:before {
+    content: "売上計上基準";
+	}
+	.sales-checksheet td.checkdate:before {
+    content: "売上計上日";
+	}
+	.sales-checksheet td.checkend:before {
+    content: "締め日";
+	}
+	.sales-checksheet td.paydate:before {
+    content: "売上支払日";
+	}
+table.sales-checksheet, table.sales-checksheet thead, table.sales-checksheet tbody, table.sales-checksheet th, table.sales-checksheet td, table.sales-checksheet tr { 
+		display: block; 
+}
+.help-content h4 {
+    font-size: 20px;
+}
+.check-sales > .wrap-border > strong {
+    font-size: 1.05em;
+}
 .btn.btn-large {
     padding: 13px 5px;
     font-size: 14px;

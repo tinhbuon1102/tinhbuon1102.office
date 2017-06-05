@@ -66,7 +66,7 @@
 												<thead>
 													<tr role="row">
 														<th class="sorting_asc th01 mb-none">支払番号</th>
-														<th class="sorting th02">予約日</th>
+														<th class="sorting th02">利用日</th>
 														<th class="sorting th03">顧客名</th>
 														<th class="sorting th04 mb-none">予約番号</th>
 														<th class="sorting th05 mb-none">スペース名</th>

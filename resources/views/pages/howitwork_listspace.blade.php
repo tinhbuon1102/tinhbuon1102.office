@@ -70,7 +70,7 @@
 <div class="hiwp-option">
   <div class="col-left-120"><div class="hiwp-option-icon hiwp-option-icon-4"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div></div>
   <div class="col-right-disc">
-  <div class="hiwp-option-header h4">オフィススペース提供開始・終了</div>
+  <div class="hiwp-option-header h4">オフィススペース<br class="show-sp">提供開始・終了</div>
   <div class="hiwp-option-copy">
 予約受付どおり、あなたのオフィススペースを提供しましょう。
 利用期間が終了しましたら、双方レビューを投稿しましょう。

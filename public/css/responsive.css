@@ -446,6 +446,35 @@ div#datepicker .datepicker-inline {
 }
 
 @media (max-width: 768px) {
+.first-notice .no-space-show {
+    padding: 30px 10px;
+    text-align: center;
+    display: block;
+}
+.first-notice .alert.alert-no-space {
+    margin: 0;
+}
+.first-notice .no-space-show h1 {
+    font-size: 0.9rem;
+}
+.no-space-show .fa {
+    font-size: 60px;
+	line-height: 60px;
+    display: block;
+    margin: 0;
+}
+.first-notice .no-space-show .side-icon, .first-notice .no-space-show .left-disc {
+    display: block;
+    padding: 0;
+    margin: 0 auto;
+}
+.first-notice .no-space-show .side-icon {
+    margin: 0 auto;
+	text-align: center;
+}
+	.first-notice .no-space-show .left-disc {
+		
+	}
 #Checkout {
     width: 100%;
 }
@@ -1209,6 +1238,19 @@ and (orientation : portrait) {
 }
 }
 @media (max-width: 768px) {
+fieldset {
+    min-width: inherit;
+    margin: 0;
+    word-wrap: break-word;
+}
+form#Certificate .form-field .input-container2 label .btn-file {
+    display: block;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+#certificate .input-group {
+    display: block;
+}
 .yellow-button-small {
     margin-left: 0;
 	padding: 13px 15px;
@@ -1554,10 +1596,13 @@ div#cboxLoadedContent, #cboxContent, #cboxWrapper, #colorbox {
     border: 0px;
 }
 body.mypage .fixed-container .right_side {
-    padding-bottom: 390px;
+    padding-bottom: 0px;
 }
 body.mypage.searchpage .fixed-container .right_side {
     padding-bottom: 0px;
+}
+#page-wrapper.nofix .page-header.header-fixed .container-fluid {
+    padding-left: 15px;
 }
 .subsubsub {
     font-size: 16px;
@@ -1702,7 +1747,7 @@ ul.dash-sp-dt.second {
     margin-left: -90px;
 }
 body.dashboard .main-container, body.review .main-container {
-    padding-bottom: 414px;
+    padding-bottom: 0;
 }
 .modal.in .modal-dialog {
     margin: 10px auto;
@@ -2347,6 +2392,17 @@ form#Certificate .input-container2 input, form#Certificate .input-container2 inp
     display: inline-block;
     width: 100%;
 }
+	form#Certificate .input-container2 select {
+		background: #FFF url(../images/select-down.png) no-repeat 100% center;
+		background-size: 30px 28px;
+	}
+form#Certificate .input-container2 select {
+	line-height: 40px;
+    height: 40px;
+}
+form#Certificate .input-container2 input {
+    height: 40px;
+}
 form#Certificate .input-container2.pdl20 {
     padding-left: 0;
 }
@@ -2645,6 +2701,15 @@ a.profile-job-btn.job-desc-edit-btn.mb-editbtn .fa, a.profile-job-btn.job-skill-
 ul#fav-feed-list {
     margin-top: 0px;
 }
+.btn.btn-large.contact-btn-large {
+    padding: 13px 15px;
+}
+.portfolio-add-item-btn.non-feature.btn {
+    margin-bottom: 20px;
+}
+table.require-list.style_basic th {
+    width: 105px;
+}
 }
 @media (max-width: 736px) {
 .iconbutton {
@@ -2653,7 +2718,71 @@ ul#fav-feed-list {
 	min-width: 0;
 }
 }
+.show-sp {
+		display: none;
+	}
 @media (max-width: 690px) {
+	
+	section#howitworks {
+    padding-top: 60px;
+	}
+	.offer-grid .grd3-flex-cell p {
+    max-width: 240px;
+    margin: 0 auto;
+	}
+	.show-sp {
+		display: block;
+	}
+	h3.story-title {
+    margin: 0px 0px 20px;
+    font-size: 1.4rem;
+    line-height: 1.45;
+}
+.contact-btn-large {
+    width: 100%;
+}
+a.link-to {
+    display: block;
+    width: auto;
+    color: #FFF;
+    background: #2a2a2a;
+    margin-top: 15px;
+    text-decoration: none;
+    line-height: 35px;
+}
+a.link-to.cplink {
+    display: inline-block;
+    width: auto;
+    color: #2a2a2a;
+    background: none;
+    margin-top: 0px;
+    text-decoration: underline;
+    line-height: inherit;
+}
+.no-space-show h1 {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 10px auto;
+}
+div#MyPageBoard .panel-primary>.panel-heading {
+    min-height: auto;
+}
+#MyPageBoard .panel h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.huge {
+    font-size: 35px;
+    line-height: 1;
+}
+div#MyPageBoard .panel .fa {
+    margin: 0;
+    font-size: 30px;
+    line-height: 35px;
+    vertical-align: bottom;
+}
 .workspace-details-row table.style_gywt, .workspace-details-row table.style_gywt tbody, .workspace-details-row table.style_gywt tr, .workspace-details-row table.style_gywt th, .workspace-details-row table.style_gywt td {
     display: block;
 }
@@ -2668,6 +2797,9 @@ table.style_gywt th {
 }
 table.workspace-usetime-list tr:nth-child(odd) td {
     border-right: 1px solid #e9e9e9;
+}
+.dataTables_length {
+    padding: 0 0 11px;
 }
 }
 @media screen and (max-width: 600px) {

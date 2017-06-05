@@ -219,14 +219,19 @@ $rentBooking = new \App\Rentbookingsave();
 											</div>
 											<?php if (!IsAdminApprovedUser($user)) {?>
 											<p class="caution"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                                            @if( !count($user->certificates) OR empty($bank['BankName']) OR !\App\User1::isProfileFullFill($user) )
-                                            <span>以下の項目を設定していない為、現在アカウントは制限されています。</span>
-                                            @endif
                                             <?php if($user->SentToAdmin) {?>
                                             <span>審査中の為、現在アカウントは制限されています。</span>
                                             <?php }?>
                                             </p>
 											<?php }?>
+											<?php if (!IsAdminApprovedUser($user)) {?>
+											<p class="caution"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                                            @if( !count($user->certificates) OR empty($bank['BankName']) OR !\App\User1::isProfileFullFill($user) )
+                                            <span>以下の項目を設定していない為、現在アカウントは制限されています。</span>
+                                            @endif
+                                            </p>
+											<?php }?>
+											
 											<!--start alert for some setting-->
 											<!--show if email validation is not done-->
                                             

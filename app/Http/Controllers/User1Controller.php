@@ -340,7 +340,7 @@ class User1Controller extends Controller
 			'Newsletter' => $request->Newsletter,
 			'sendTo' => $from['address'],
 			'template' => 'user1.emails.admin',
-			'subject' => 'OFFISPOでシェアユーザーが新規登録されました'
+			'subject' => 'hOurOfficeでシェアユーザーが新規登録されました'
 		]);
 		
 		// Send email to user

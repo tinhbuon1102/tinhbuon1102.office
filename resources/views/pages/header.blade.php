@@ -50,6 +50,7 @@
 <meta name="msapplication-TileImage" content="{{url('/')}}/lpnew/images/favicon/ms-icon-144x144.png">
 <!-- <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> -->
 <!-- <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notosansjapanese.css') }}"> -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
 <link rel="stylesheet" href="{{ URL::asset('css/font-awesome/css/font-awesome.min.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/font-icon.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('js/swipe-slider/slider-templates/assets/css/bootstrap.min.css') }}" />

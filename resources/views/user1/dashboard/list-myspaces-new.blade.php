@@ -39,7 +39,7 @@
 							@if( $spaces->count() < 1 )
                             <div class="no-space-show">
                             <i class="fa fa-building" aria-hidden="true"></i>
-                            <h1>{{ trans('user1list.NO SPACE ADDED') }}</h1>
+                            <h1>まだスペースが<br class="show-sp">登録されてません</h1>
                             <a href="{{url('ShareUser/Dashboard/ShareInfo')}}" class="yellow-button btn add-space-btn">{{ trans('user1list.add_space_now') }}</a>
                             </div>
 							@endif

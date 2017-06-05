@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:url" content="{{url('/')}}/" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="offispo | アワーオフィス" />
+<meta property="og:title" content="hOur Office | アワーオフィス" />
 <meta property="og:image" content="{{url('/')}}/lpnew/images/office-spot.jpg" />
 <meta property="og:image:width" content="600" />
 <meta property="og:image:height" content="315" />
 <meta property="fb:app_id" content="315767042137325" />
-<meta property="og:description" content="offispoであなたのオフィススペースを収益化しませんか？好きな時間、価格で、フリーデスク、会議室から個室まで、様々な種類のオフィスが掲載できるマッチングサイト。" />
-<meta name="Keywords" content="offispo,アワーオフィス,オフィススペース,レンタルオフィス,短期,オフィス" />
-<meta name="description" content="offispoであなたのオフィススペースを収益化しませんか？好きな時間、価格で、フリーデスク、会議室から個室まで、様々な種類のオフィスが掲載できるマッチングサイト。" />
-<title>offispo | アワーオフィス</title>
+<meta property="og:description" content="hOur Officeであなたのオフィススペースを収益化しませんか？好きな時間、価格で、フリーデスク、会議室から個室まで、様々な種類のオフィスが掲載できるマッチングサイト。" />
+<meta name="Keywords" content="hOur Office,アワーオフィス,オフィススペース,レンタルオフィス,短期,オフィス" />
+<meta name="description" content="hOur Officeであなたのオフィススペースを収益化しませんか？好きな時間、価格で、フリーデスク、会議室から個室まで、様々な種類のオフィスが掲載できるマッチングサイト。" />
+<title>hOur Office | アワーオフィス</title>
 <link rel="apple-touch-icon" sizes="57x57" href="{{url('/')}}/lpnew/images/favicon/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="{{url('/')}}/lpnew/images/favicon/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="{{url('/')}}/lpnew/images/favicon/apple-icon-72x72.png">

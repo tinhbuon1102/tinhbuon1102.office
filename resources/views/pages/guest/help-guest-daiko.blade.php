@@ -1,9 +1,13 @@
 <div class="help_header">
-<h1>掲載代行サービスについて</h1>
+<h1>写真撮影代行サービスについて</h1>
 </div>
 <div class="help_body_content">
-<p class="mgb-30">掲載代行サービスとは、hOur Office運営会社があなたに代わり、セットアップからスペースの掲載まで代行で行うサービスです。</p>
-<ul class="list-daiko">
+<div class="texticon">
+<i class="icon-add-service-icons-camera"></i><!--
+--><div class="text-daiko">写真撮影代行サービスとは、hOur Office運営会社があなたに代わり、 <br class="sp-none">より魅力的なオフィススペースを掲載するために<br class="sp-none">スペースの撮影を代行で行うサービスです。</div>
+</div>
+
+<!--<ul class="list-daiko">
 <li>
 <div class="hiwn-benefit-icon hiwn-benefit-icon-connect"><span class="icon-add-service-icons-setup"></span></div>
 <div class="disc-right">
@@ -32,6 +36,6 @@
 <div class="hiwn-benefit-copy">スペース掲載のため、スケジュール設定を行います。</div>
 </div>
 </li>
-</ul>
-<a href="{{url('/list-service#daiko-form')}}" class="btn btn-large signup-btn btn-primary">掲載代行お申込みはこちら</a>
+</ul>-->
+<a href="{{url('/list-service#daiko-form')}}" class="btn btn-large signup-btn btn-primary">写真撮影代行お申込みはこちら</a>
 </div>

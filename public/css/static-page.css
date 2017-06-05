@@ -520,7 +520,7 @@ i.help-icons.icon-review {
 }
 ul.sidenav-list.navtree-list li {
     margin: 0 0 1em;
-    font-size: 1.2em;
+    font-size: 1.15em;
 	padding-top: 1em;
     border-top: 1px solid #CCC;
 }
@@ -1050,6 +1050,25 @@ body.profilepage button.mfp-close {
 .list-daiko li {
 	 margin-bottom: 40px;
 }
+.texticon {
+    display: table;
+    width: 100%;
+    margin-bottom: 25px;
+}
+.texticon i, .texticon > div {
+	display: table-cell;
+    vertical-align: middle;
+}
+.texticon i {
+    width: 60px;
+    height: auto;
+    font-size: 60px;
+    text-align: center;
+}
+.texticon > div {
+    padding-left: 20px;
+    line-height: 1.7;
+}
 .help_body_content .services-grid.fst {
     margin: 0 0 30px;
 }
@@ -1058,6 +1077,22 @@ body.profilepage button.mfp-close {
 	line-height: 1.6;
 }
 @media (max-width: 768px) {
+.btn.btn-large {
+    padding: 13px 5px;
+    font-size: 14px;
+    font-size: 1rem;
+}
+.texticon i, .texticon > div {
+    display: block;
+}
+.texticon i {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.texticon > div {
+    padding-left: 0px;
+    line-height: 1.7;
+}
 .hiwp-option .col-left-120 {
     width: 100%;
     display: block;

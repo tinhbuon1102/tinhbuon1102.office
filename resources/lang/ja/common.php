@@ -120,4 +120,5 @@ return [
 	'How to exit' => '退室方法',
 	'Chat' => 'メッセージ',
 	'Error Occurred during making payment Card declined' => 'クレジットカード情報に誤りがあります。正しい情報を入力してください。',
+	'all_year' => 'すべての年度',
  ];

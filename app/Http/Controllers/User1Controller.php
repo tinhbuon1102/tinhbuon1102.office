@@ -2096,9 +2096,18 @@ class User1Controller extends Controller
 		
 		if ( $rent_data == null ) return redirect('/ShareUser/Dashboard/BookList?msb=booking+not+exist');
 		
+		if ( $rent_data->recur_id && in_array($rent_data->status, array(
+			BOOKING_STATUS_RESERVED,
+			BOOKING_STATUS_PENDING
+		)) )
+		{
+			$rentBooking->storeRecursionHistory(array(
+				$rent_data
+			));
+		}
+		
 		$refundamount = priceConvert(round($rent_data['refund_amount']));
 		$rent_data->isArchive = true;
-// 		$aFlexiblePrice = getFlexiblePrice($rent_data, new \App\Bookedspaceslot());
 		$aFlexiblePrice = Rentbookingsave::getInvoiceBookingPayment($rent_data);
 		
 		$subTotal = priceConvert($aFlexiblePrice['subTotal'], true);
@@ -2113,16 +2122,21 @@ class User1Controller extends Controller
 		$bookingHistories = \App\Bookinghistory::where('BookedID', $rent_data->id)->orderBy('updated_at', 'DESC')->get();
 		$finalCancling = $rent_data->finalCancel;
 		
-		if ( $rent_data->recur_id && in_array($rent_data->status, array(
-			BOOKING_STATUS_RESERVED,
-			BOOKING_STATUS_PENDING
-		)) )
-		{
-			$rentBooking->storeRecursionHistory(array(
-				$rent_data
-			));
-		}
-		return view('user1.dashboard.edit-booking-shareuser', compact('user', 'rent_data', 'usershares', 'spaceslots', 'prices', 'subTotal', 'subTotalIncludeTax', 'subTotalIncludeChargeFee', 'totalPrice', 'refundamount', 'remaining_amont', 'bookingHistories', 'finalCancling'));
+		return view('user1.dashboard.edit-booking-shareuser', compact(
+				'user', 
+				'rent_data', 
+				'usershares', 
+				'spaceslots', 
+				'prices', 
+				'subTotal', 
+				'subTotalIncludeTax', 
+				'subTotalIncludeChargeFee', 
+				'totalPrice', 
+				'refundamount', 
+				'remaining_amont', 
+				'bookingHistories', 
+				'finalCancling'
+		));
 	}
 	public function EditBookSave ( Request $request, $id )
 	{}
@@ -2404,6 +2418,11 @@ class User1Controller extends Controller
 	public function Certificate ( Request $request )
 	{
 		$user = Auth::user();
+		
+		$user->certificates = $user->certificates()
+			->orderBy('updated_at', 'DESC')
+			->get();
+		
 		if ( $request->isMethod('post') )
 		{
 			if ( $request->hasFile('certificate') )
@@ -2447,6 +2466,12 @@ class User1Controller extends Controller
 		}
 		elseif ( $request->sendAdmin )
 		{
+			if (!count($user->certificates))
+			{
+				Session::flash('error', trans('common.You have not uploaded any certificates yet !'));
+				return redirect('/ShareUser/Dashboard/HostSetting/Certificate');
+			}
+			
 			$from = Config::get('mail.from');
 			User1certificate::where('User1ID', $user->id)->update([
 				'SentToAdmin' => 1
@@ -2463,7 +2488,6 @@ class User1Controller extends Controller
 			
 			Session::flash('success', trans('common.file_send_to_admin_successfully'));
 			return redirect('/ShareUser/Dashboard/HostSetting/Certificate');
-			;
 		}
 		elseif ( $request->removeID )
 		{
@@ -2474,9 +2498,7 @@ class User1Controller extends Controller
 				Session::flash('success', trans('common.file_deleted_successfully'));
 			}
 		}
-		$user->certificates = $user->certificates()
-			->orderBy('updated_at', 'DESC')
-			->get();
+		
 		return view('user1.dashboard.hostsetting-upload-certificate', compact('user'));
 	}
 	public function HostSettingDesiredPerson ()

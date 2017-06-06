@@ -343,8 +343,8 @@ $count = count($rent_data->bookedSlots);
 																		<tbody>
 																			<?php if (isRecurring($rent_data)) {
 																				$firstPayment = round($rent_data->SubTotal + $rent_data->Tax - $rent_data->ChargeFee); 
-																				$monthlyTotal = round(($firstPayment / 2) * ($rent_data->Duration - BOOKING_MONTH_RECURSION_INITPAYMENT)); 
-																				$totalChargeFee = $rent_data->getOriginal('ChargeFee');
+																				$monthlyTotal = round(($firstPayment / BOOKING_MONTH_RECURSION_INITPAYMENT) * ($rent_data->Duration - BOOKING_MONTH_RECURSION_INITPAYMENT)); 
+																				$totalChargeFee = ($rent_data->ChargeFee / BOOKING_MONTH_RECURSION_INITPAYMENT) * $rent_data->Duration;
 																				$totalPayment = $firstPayment + $monthlyTotal;
 																			?>
 																			<tr class="total-amount-value ver-top pad-top20 no-btm-pad">

@@ -522,7 +522,7 @@ class User2Controller extends Controller
 				'Email'
 			]));
 			$user->save();
-			Session::flash('success', 'You have successfully updated profile info.');
+			Session::flash('success', 'アカウント情報が更新されました。');
 			return redirect('/RentUser/Dashboard/BasicInfo/Edit');
 		}
 	}
@@ -536,7 +536,7 @@ class User2Controller extends Controller
 
             $user->fill($request->except(['_token','oldpassword','password','cpassword','UserName','Email']));
             $user->save();
-		    Session::flash('success', 'You have successfully updated profile info.');
+		    Session::flash('success', 'アカウント情報が更新されました。');
             return redirect('/RentUser/Dashboard/BasicInfo/Edit');
         
 
@@ -2171,7 +2171,7 @@ class User2Controller extends Controller
 			$Rentbookingsave->save();
 			Session::put('rent_id', $Rentbookingsave->id);
 
-			Session::flash('success', 'You have successfully selected date.');
+			Session::flash('success', '日付の変更を更新しました。');
 			return redirect('ShareUser/Dashboard/BookingDetails');
 		}
 
@@ -3188,7 +3188,7 @@ class User2Controller extends Controller
 					throw new \Exception(trans('common.booking_time_not_available') . ' OR ' . trans('common.Error occured, Please try again'));
 				}
 
-				Session::flash('success', 'You have successfully completed your booking.');
+				Session::flash('success', '予約が完了しました。');
 				return redirect('BookingCompleted');
 
 			} catch (\Exception $e) {

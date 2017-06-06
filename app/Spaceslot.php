@@ -660,7 +660,10 @@ class Spaceslot extends Model
 		{
 			if (!$request->ajax())
 			{
-				session()->flash('error', $message);
+				if (request()->is('ShareUser/ShareInfo/View/*'))
+				{
+					session()->flash('error', $message);
+				}
 				return false;
 			}
 		}

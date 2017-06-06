@@ -110,7 +110,7 @@ class Rentbookingsave extends Model
 			// Initial
 			for ( $i = 0; $i < $recurNum; $i ++ )
 			{
-				$initSlots[] = $spaceslots[$i]->id;
+				$initSlots[] = $spaceslots[$i]->SlotID;
 			}
 			
 			$booking->recurSlotIds = $initSlots;

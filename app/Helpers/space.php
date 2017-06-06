@@ -240,7 +240,7 @@ function getFlexiblePrice(&$rent_data, $oSlot,$count=0){
 	//$spaceslots = $spaceslots->where('Status', '<>', -1);   /* Moved inside else to solve bug number 67 */
 	$spaceslots = $spaceslots->orderBy('StartDate', 'ASC');
 	$spaceslots = $spaceslots->get();
-
+	
 	foreach ($spaceslots as $indexSlot => $spaceSlot)
 	{
 		$prices[$indexSlot]['duration'] = $rent_data->spaceID->FeeType == SPACE_FEE_TYPE_HOURLY ? $rent_data->Duration : 1;

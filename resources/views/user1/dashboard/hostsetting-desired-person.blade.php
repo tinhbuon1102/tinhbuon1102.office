@@ -16,13 +16,13 @@
 							<div class="page-header header-fixed">
 								<div class="container-fluid mb_half">
 									<div class="row">
-										<div class="col-xs-6 col-md-6 col-sm-8 clearfix">
+										<div class="col-xs-8 col-md-6 col-sm-8 clearfix">
 											<h1 class="pull-left">
 												<i class="fa fa-heart" aria-hidden="true"></i>
 												出会いたい人材
 											</h1>
 										</div>
-										<div class="col-xs-6 col-md-6 col-sm-4 clearfix pb15 text-right">
+										<div class="col-xs-4 col-md-6 col-sm-4 clearfix pb15 text-right">
 											<button id="saveSettingInfo" type="submit" class="btn btn-default mt15 dblk-button" data-bind="jqButton: { disabled: !isDirty() }, click: save" role="button">
 												<i class="fa fa-floppy-o"></i>
 												<span class=""> 保存</span>

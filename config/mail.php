@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'info@aventures.jp', 'name' => 'Office Spot'],
+    'from' => ['address' => 'info@aventures.jp', 'name' => 'hOur Office'],
 
     /*
     |--------------------------------------------------------------------------

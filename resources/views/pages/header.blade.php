@@ -26,7 +26,7 @@
 <meta property="og:url" content="{{url(Route::getCurrentRoute()->getPath())}}"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="hOur Office | アワーオフィス"/>
-<meta property="og:description" content="offispoであなたのオフィススペースを収益化しませんか？好きな時間、価格で、フリーデスク、会議室から個室まで、様々な種類のオフィスが掲載できるマッチングサイト。"/>
+<meta property="og:description" content="hOur Officeであなたのオフィススペースを収益化しませんか？好きな時間、価格で、フリーデスク、会議室から個室まで、様々な種類のオフィスが掲載できるマッチングサイト。"/>
 <meta property="og:image" content="{{url('images/fb-thum.jpg')}}"/>
 <meta property="og:image:width" content="450"/>
 <meta property="og:image:height" content="298"/>
@@ -50,6 +50,7 @@
 <meta name="msapplication-TileImage" content="{{url('/')}}/lpnew/images/favicon/ms-icon-144x144.png">
 <!-- <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> -->
 <!-- <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notosansjapanese.css') }}"> -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
 <link rel="stylesheet" href="{{ URL::asset('css/font-awesome/css/font-awesome.min.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/font-icon.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('js/swipe-slider/slider-templates/assets/css/bootstrap.min.css') }}" />

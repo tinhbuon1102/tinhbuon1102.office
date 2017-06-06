@@ -96,7 +96,7 @@
 <br/><br/>
 <h6>他にもご質問はありますか？</h6>
 <hr>
-<a class="btn btn--positive btn-primary btn-large" href="{{url('contact-us')}}">お問い合わせ</a>
+<a class="btn btn--positive btn-primary btn-large contact-btn-large" href="{{url('contact-us')}}">お問い合わせ</a>
 </div>
 </div>
 </div><!--/container-->

@@ -53,11 +53,11 @@
 									<div class="panel panel-primary">
 										<div class="panel-heading">
 											<div class="row">
-												<div class="col-xs-3">
+												<div class="col-lg-3 col-xs-4">
 													<h3>予約</h3>
 												</div>
 												<!--/col-xs-3-->
-												<div class="col-xs-9 text-right">
+												<div class="col-lg-9 col-xs-8 text-right">
 													<div class="huge">
 														<i class="fa fa-list-alt" aria-hidden="true"></i>
 														<?php echo (int)$totalCountStatus?>

@@ -33,7 +33,7 @@
 <div class="hiwp-option">
   <div class="col-left-120"><div class="hiwp-option-icon hiwp-option-icon-1"><i class="fa fa-check-square-o" aria-hidden="true"></i></div></div>
   <div class="col-right-disc">
-  <div class="hiwp-option-header h4">予約申込みの確認と支払いの承認</div>
+  <div class="hiwp-option-header h4">予約申込みの確認と<br class="show-sp">支払いの承認</div>
   <div class="hiwp-option-copy">
   提供オフィススペースの予約は予約一覧ページにて確認できます。
   もちろん、予約が申し込まれた時点で、登録されたメールアドレス宛にお知らせメールも送信されます。

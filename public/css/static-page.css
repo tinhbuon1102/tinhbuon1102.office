@@ -1193,9 +1193,47 @@ table.sales-checksheet, table.sales-checksheet thead, table.sales-checksheet tbo
     font-size: 20px;
     margin-bottom: 20px;
 }
+.backGray {
+    font-size: 1.2em;
+    line-height: 2;
+}
 }
 @media (max-width: 690px) {
 .signup-view .hr .inner {
     background: rgb(255, 221, 0);
+}
+.help_header h1 {
+    font-size: 24px;
+    line-height: 32px;
+    padding-bottom: 24px;
+}
+.help-content h4 {
+    font-size: 18px;
+}
+h3.story-title {
+    margin: 0px 0px 20px;
+    font-size: 1.4rem;
+    line-height: 1.45;
+}
+section#howitwork {
+    padding-bottom: 3.15rem;
+}
+.gutter {
+    padding: 1.25rem 0;
+}
+.hiw-list-block .hiwp-option {
+    max-width: 290px;
+    margin: 0 auto 45px;
+}
+.hiwp-option-copy br {
+    display: none;
+}
+}
+@media (max-width: 340px) {
+.gutter {
+    font-size: .95em;
+}
+.panel-body {
+    padding: 15px 5px 25px;
 }
 }

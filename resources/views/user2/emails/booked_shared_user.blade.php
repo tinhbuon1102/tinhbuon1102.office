@@ -527,7 +527,7 @@ h1,h3,a,a span,.text-secondary,.column_cell .text-secondary,.content_cell h2 .te
 											<tr>
 												<td class="column_cell font_default" align="center" valign="top" style="padding: 16px; font-family: Helvetica, Arial, sans-serif; font-size: 20px; text-align: left; vertical-align: top; color: #ffffff; font-weight: bold; padding-bottom: 0; padding-top: 16px;">
 													<a href="<?php echo url('/')?>" style="display: inline-block; text-decoration: none; font-family: Helvetica, Arial, sans-serif; color: #ffffff;">
-														<img src="<?php echo url('/')?>/images/email_logo.png" width="156" height="42" alt="SimpleApp" style="line-height: 1; outline: none; border: 0; text-decoration: none; -ms-interpolation-mode: bicubic; mso-line-height-rule: exactly; max-width: 156px; height: auto;">
+														<img src="<?php echo url('/')?>/images/email_logo.png" width="156" height="42" alt="hOurOffice" style="line-height: 1; outline: none; border: 0; text-decoration: none; -ms-interpolation-mode: bicubic; mso-line-height-rule: exactly; max-width: 156px; height: auto;">
 													</a>
 												</td>
 												<!-- /.column_cell -->

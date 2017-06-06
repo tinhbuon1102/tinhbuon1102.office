@@ -84,7 +84,7 @@
 オフィススペースを利用できる準備はできましたか？<br/>
 hOur Officeでの予約は利用したい日にちや時間を選択し、"予約する"をクリック。
 その後は、予約の詳細、料金を確認し、あなたの登録済みの決済方法にて決済するだけ。<br/>
-<a href="{{url('/cancel-policy/')}}" class="link-to">キャンセルポリシー</a>に基づき、キャンセル可能な期間内なら、キャンセルもワンクリックで完了できます。
+<a href="{{url('/cancel-policy/')}}" class="link-to cplink">キャンセルポリシー</a>に基づき、キャンセル可能な期間内なら、キャンセルもワンクリックで完了できます。
 <br/><a href="{{url('help/rentuser/booking')}}" class="link-to"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 操作方法はこちら</a> 
                  
                </div>

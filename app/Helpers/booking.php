@@ -863,3 +863,8 @@ function getRecursionbooking($rent_data){
 	}
 }
 
+
+function isRecurring($rent_data)
+{
+	return $rent_data->recur_id;
+}

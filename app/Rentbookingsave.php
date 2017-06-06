@@ -101,14 +101,16 @@ class Rentbookingsave extends Model
 	public static function getInvoiceBookingPayment ( &$booking )
 	{
 		$slotIds = explode(';', $booking->spaceslots_id);
-		if ( $booking->recur_id && count($slotIds) && count($booking->bookingRecursion) )
+		$spaceslots = \App\Bookedspaceslot::whereIn('SlotID', $slotIds)->groupBy(array('SlotID'))->orderBy('StartDate', 'ASC')->get();
+		
+		if ( $booking->recur_id && count($spaceslots) && count($booking->bookingRecursion) )
 		{
 			$initSlots = array();
 			$recurNum = count($booking->bookingRecursion) == 1 ? BOOKING_MONTH_RECURSION_INITPAYMENT : 1;
 			// Initial
 			for ( $i = 0; $i < $recurNum; $i ++ )
 			{
-				$initSlots[] = $slotIds[$i];
+				$initSlots[] = $spaceslots[$i]->id;
 			}
 			
 			$booking->recurSlotIds = $initSlots;

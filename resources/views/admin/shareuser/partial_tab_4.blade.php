@@ -61,7 +61,7 @@
 								<td class="sorting_1 mb-none">
 									<a href="{{url('/MyAdmin/ShareUser/' .$invoice->shareUser->HashCode . '/Invoice/')}}/{{$invoice->InvoiceID}}">{{$invoice->InvoiceID}}</a>
 								</td>
-								<td>{{$invoice->charge_start_date}}</td>
+								<td class="mb-none">{{renderJapaneseDate($invoice->charge_start_date)}}</td>
 								<td>
 									<a href="{{getUser2ProfileUrl($invoice->rentUser)}}">{{getUserName($invoice->rentUser)}}</a>
 								</td>

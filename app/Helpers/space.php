@@ -234,11 +234,11 @@ function getFlexiblePrice(&$rent_data, $oSlot,$count=0){
 	}
 	else {
 		$spaceslots = $oSlot->where('SpaceID', $rent_data->user1sharespaces_id)->whereIn('id', array_filter(array_unique($slots_id)));
-	$spaceslots = $spaceslots->where('Status', '<>', -1);
-
-		}
+		$spaceslots = $spaceslots->where('Status', '<>', -1);
+	}
 
 	//$spaceslots = $spaceslots->where('Status', '<>', -1);   /* Moved inside else to solve bug number 67 */
+	$spaceslots = $spaceslots->orderBy('StartDate', 'ASC');
 	$spaceslots = $spaceslots->get();
 
 	foreach ($spaceslots as $indexSlot => $spaceSlot)

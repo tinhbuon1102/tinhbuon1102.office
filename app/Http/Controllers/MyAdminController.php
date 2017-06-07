@@ -383,8 +383,6 @@ class MyAdminController extends Controller
 		$rent_data->hourly_date=$input['ReservationDayDisplay'];
 		$rent_data->hourly_time=$input['hourly_time'];
 		endif;
-		// 		$rent_data->amount=trim($input['total-price']*0.08+$input['total-price']+(($input['total-price']*0.08)+($input['total-price']))*0.10);
-		// 		$rent_data->price=trim($input['unit-price']);
 		$rent_data->status=$input['status'];
 		$rent_data->save();
 

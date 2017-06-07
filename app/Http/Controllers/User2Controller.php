@@ -2398,7 +2398,7 @@ class User2Controller extends Controller
 
 			$spaceslots=SpaceSlot::where('SpaceID', $rent_data['user1sharespaces_id'])->get();
 
-// 			Session::forget('rent_id');
+			Session::forget('rent_id');
 			return view('public.bookingcompleted',compact('rent_data', 'spaceslots','user', 'prices', 'subTotal', 'subTotalIncludeTax', 'subTotalIncludeChargeFee', 'totalPrice'));
 		}
 

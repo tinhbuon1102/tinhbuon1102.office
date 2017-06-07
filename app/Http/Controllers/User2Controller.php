@@ -2796,7 +2796,14 @@ class User2Controller extends Controller
 				$responseData = $PayPal->CreateRecurringPaymentsProfile( $PayPalRequestData );
 				if (isset($responseData['ACK']) && $responseData['ACK'] == PAYPAL_RESPONSE_STATUS_SUCCESS)
 				{
+					// Reduce end date 2 months
+					$oEndDate = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $rent_data->charge_end_date);
+					$oEndDate->subMonths(2);
+					
 					$rent_data->recur_id = $responseData['PROFILEID'];
+					$rent_data->charge_end_date = $oEndDate->format('Y-m-d');
+					$rent_data->save();
+					
 					$rent_data->save();
 					$rentbooking = new Rentbookingsave();
 					$success = $rentbooking->storeRecursionHistory(array($rent_data));

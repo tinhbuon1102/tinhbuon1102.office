@@ -54,4 +54,6 @@ return [
 	'space_summary' => '利用スペース概要',
 	'accept_booking' => '予約受付処理',
 	'deny_booking' => '予約受付拒否',
+	'Monthly Total Payment' => '月額払い合計',
+	'First Payment' => '初回支払い',
 ];

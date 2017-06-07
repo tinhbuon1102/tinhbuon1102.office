@@ -1041,7 +1041,7 @@ class Rentbookingsave extends Model
 					'slots_data' => $slots_data,
 					'aFlexiblePrice' => $aFlexiblePrice,
 					'template' => 'user2.emails.accepted_rent_user',
-					'subject' => '予約の申込みがありました | hOurOffice'
+					'subject' => 'ご予約の受け付けが完了しました。 | hOurOffice'
 					));
 					break;
 					

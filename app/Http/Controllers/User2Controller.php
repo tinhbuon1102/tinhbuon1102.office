@@ -2388,7 +2388,7 @@ class User2Controller extends Controller
 			$user=User2::find(Auth::guard('user2')->user()->id);
 			$rent_data=Rentbookingsave::Where('id', Session::get('rent_id'))->first();
 
-			$aFlexiblePrice = getFlexiblePrice($rent_data, new Spaceslot());
+			$aFlexiblePrice = Rentbookingsave::getInvoiceBookingPayment($rent_data);
 
 			$subTotal = priceConvert($aFlexiblePrice['subTotal'], true);
 			$subTotalIncludeTax = priceConvert($aFlexiblePrice['subTotalIncludeTax'], true);

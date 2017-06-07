@@ -235,6 +235,10 @@ function getFlexiblePrice(&$rent_data, $oSlot,$count=0){
 	else {
 		$spaceslots = $oSlot->where('SpaceID', $rent_data->user1sharespaces_id)->whereIn('id', array_filter(array_unique($slots_id)));
 		$spaceslots = $spaceslots->where('Status', '<>', -1);
+		if (isMonthlySpace($rent_data->spaceID) && $rent_data->Duration >= 6)
+		{
+// 			$spaceslots = $spaceslots->take(2);
+		}
 	}
 
 	//$spaceslots = $spaceslots->where('Status', '<>', -1);   /* Moved inside else to solve bug number 67 */

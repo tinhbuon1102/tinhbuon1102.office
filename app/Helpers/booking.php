@@ -537,8 +537,26 @@ function getRefundChargedPrice($rent_data, $html = true, $isAbs = false)
 	return $price;
 }
 
-function renderBookingFor6Months($sub_total_months,$rent_data,$start_date,$count,$edit_booking=false){
+function renderBookingFor6Months($sub_total_months, $rent_data,$start_date,$count,$edit_booking=false){
 	$sub_total_one=$rent_data->bookedSpace->MonthFee;
+	
+	if (isRecurring($rent_data))
+	{
+		$chargeFee = (Auth::guard('user1')->check() ? - $rent_data->ChargeFee : $rent_data->ChargeFee);
+		$firstPayment = round($rent_data->SubTotal + $rent_data->Tax + $chargeFee);
+		$monthlySubTotal = round($rent_data->SubTotal/2);
+		$monthlyFee = round($rent_data->SubTotal/2 + ($rent_data->Tax + $chargeFee)/ 2);
+	}
+	else {
+		$rent_data->ChargeFee = $rent_data->ChargeFee / $rent_data->Duration;
+		$rent_data->Tax = $rent_data->Tax / $rent_data->Duration;
+		$rent_data->SubTotal = $rent_data->SubTotal / $rent_data->Duration;
+		
+		$chargeFee = (Auth::guard('user1')->check() ? - $rent_data->ChargeFee : $rent_data->ChargeFee);
+		$firstPayment = round(($rent_data->SubTotal + $rent_data->Tax + $chargeFee) * 2);
+		$monthlySubTotal = round($rent_data->SubTotal);
+		$monthlyFee = round($rent_data->SubTotal + ($rent_data->Tax + $chargeFee));
+	}
 	?>
 <table class="book-details book-table calc-table no-border-table">
 	<tbody>
@@ -554,7 +572,7 @@ function renderBookingFor6Months($sub_total_months,$rent_data,$start_date,$count
 				<div class="lead text-right">
 					<span id="total_booking" class="<?php if(isAllowShowRefund($rent_data)): ?> strike <?php endif; ?>">
 						¥
-						<?php echo priceConvert(($sub_total_months*0.08)+(($sub_total_months*0.08)+($sub_total_months))*0.10+$sub_total_months);?>
+						<?php echo priceConvert($firstPayment);?>
 					</span>
 					<?php if(isAllowShowRefund($rent_data)): ?>
 					<span id="total_booking" class="current_amount">
@@ -619,8 +637,8 @@ function renderBookingFor6Months($sub_total_months,$rent_data,$start_date,$count
 				<div class="lead text-right">
 					<span id="margin_fee">
 						<small>
-							¥
-							<?php echo priceConvert((($sub_total_months*0.08)+($sub_total_months))*0.10);?>
+							<?php echo $chargeFee < 0 ? '-' : ''?>¥
+							<?php echo priceConvert(abs($chargeFee));?>
 						</small>
 					</span>
 				</div>
@@ -641,7 +659,7 @@ function renderBookingFor6Months($sub_total_months,$rent_data,$start_date,$count
 						<small>
 							- ¥
 							<?php if($rent_data->refund_amount==0):?>
-							<?php echo priceConvert(($sub_total_months*0.08)+(($sub_total_months*0.08)+($sub_total_months))*0.10+$sub_total_months);?>
+							<?php echo priceConvert($firstPayment);?>
 							<?php else: ?>
 							<?php echo priceConvert($rent_data->refund_amount);?>
 							<?php endif;?>
@@ -666,7 +684,7 @@ function renderBookingFor6Months($sub_total_months,$rent_data,$start_date,$count
 				<div class="lead text-right">
 					<span id="total_booking">
 						¥
-						<?php echo priceConvert(($sub_total_one*0.08)+(($sub_total_one*0.08)+($sub_total_one))*0.10+$sub_total_one);?>
+						<?php echo priceConvert($monthlyFee);?>
 					</span>
 				</div>
 			</td>
@@ -682,7 +700,7 @@ function renderBookingFor6Months($sub_total_months,$rent_data,$start_date,$count
 					ヶ月間、
 					<span class="unit-price">
 						¥
-						<?php echo priceConvert(($sub_total_one*0.08)+(($sub_total_one*0.08)+($sub_total_one))*0.10+$sub_total_one);?>
+						<?php echo priceConvert($monthlyFee);?>
 					</span>
 					/月 が引き落とされます。
 					<!--月末から-->
@@ -704,7 +722,7 @@ function renderBookingFor6Months($sub_total_months,$rent_data,$start_date,$count
 					<span id="unit_total" class="price-value" style='float: right'>
 						<small>
 							¥
-							<?php echo priceConvert($sub_total_one);?>
+							<?php echo priceConvert($monthlySubTotal);?>
 						</small>
 					</span>
 				</div>
@@ -740,8 +758,8 @@ function renderBookingFor6Months($sub_total_months,$rent_data,$start_date,$count
 				<div class="lead text-right">
 					<span id="margin_fee">
 						<small>
-							¥
-							<?php echo  priceConvert((($sub_total_one*0.08)+($sub_total_one))*0.10);?>
+							<?php echo $chargeFee < 0 ? '-' : ''?>¥
+							<?php echo  priceConvert(abs($chargeFee) / BOOKING_MONTH_RECURSION_INITPAYMENT);?>
 						</small>
 					</span>
 				</div>

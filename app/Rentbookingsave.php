@@ -101,7 +101,7 @@ class Rentbookingsave extends Model
 	public static function getInvoiceBookingPayment ( &$booking )
 	{
 		$slotIds = explode(';', $booking->spaceslots_id);
-		$spaceslots = \App\Bookedspaceslot::whereIn('SlotID', $slotIds)->groupBy(array('SlotID'))->orderBy('StartDate', 'ASC')->get();
+		$spaceslots = \App\Bookedspaceslot::whereIn('SlotID', $slotIds)->where('BookedID', $booking->id)->groupBy(array('SlotID'))->orderBy('StartDate', 'ASC')->get();
 		
 		if ( $booking->recur_id && count($spaceslots) && count($booking->bookingRecursion) )
 		{
@@ -117,10 +117,11 @@ class Rentbookingsave extends Model
 		}
 		
 		// Don't move Flexible price line, keep it here
-		$booking->isArchive = true;
-		$aFlexiblePrice = getFlexiblePrice($booking, new \App\Bookedspaceslot());
+		$booking->isArchive = count($spaceslots) ? true : false;
+		$oSlot = count($spaceslots) ? new \App\Bookedspaceslot() : new Spaceslot();
+		$aFlexiblePrice = getFlexiblePrice($booking, $oSlot);
 		
-		if ( $booking->recur_id && $aFlexiblePrice && count($aFlexiblePrice) )
+		if ( (isRecurring($booking) || $booking->Duration >= 6) && $aFlexiblePrice && count($aFlexiblePrice) )
 		{
 			$booking->amount = $aFlexiblePrice['totalPrice'];
 			$booking->SubTotal = $aFlexiblePrice['subTotal'];

@@ -549,16 +549,16 @@ function renderBookingFor6Months($sub_total_months, $rent_data,$start_date,$coun
 	}
 	else {
 		$aFlexiblePrice = getFlexiblePrice($rent_data, new \App\Spaceslot());
-		$rent_data->ChargeFee = $aFlexiblePrice['subTotalIncludeChargeFee'] / $rent_data->Duration;
-		$rent_data->Tax = $aFlexiblePrice['subTotalIncludeTax'] / $rent_data->Duration;
-		$rent_data->SubTotal = $aFlexiblePrice['subTotal'] / $rent_data->Duration;
+		$rent_data->ChargeFee = $aFlexiblePrice['subTotalIncludeChargeFee'];
+		$rent_data->Tax = $aFlexiblePrice['subTotalIncludeTax'];
+		$rent_data->SubTotal = $aFlexiblePrice['subTotal'];
 		
 		$chargeFee = (Auth::guard('user1')->check() ? - $rent_data->ChargeFee : $rent_data->ChargeFee);
-		$firstPayment = round(($rent_data->SubTotal + $rent_data->Tax + $chargeFee) * 2);
-		$monthlySubTotal = round($rent_data->SubTotal);
-		$monthlyFee = round($rent_data->SubTotal + ($rent_data->Tax + $chargeFee));
+		$firstPayment = round((($rent_data->SubTotal + $rent_data->Tax + $chargeFee) / $rent_data->Duration) * 2);
+		$monthlySubTotal = round($rent_data->SubTotal / $rent_data->Duration);
+		$monthlyFee = round(($rent_data->SubTotal + ($rent_data->Tax + $chargeFee)) / $rent_data->Duration );
 		
-		$chargeFee = round($chargeFee * 2);
+		$chargeFee = round(($chargeFee / $rent_data->Duration) * 2);
 	}
 	?>
 <table class="book-details book-table calc-table no-border-table">

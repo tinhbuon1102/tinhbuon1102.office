@@ -557,6 +557,8 @@ function renderBookingFor6Months($sub_total_months, $rent_data,$start_date,$coun
 		$firstPayment = round(($rent_data->SubTotal + $rent_data->Tax + $chargeFee) * 2);
 		$monthlySubTotal = round($rent_data->SubTotal);
 		$monthlyFee = round($rent_data->SubTotal + ($rent_data->Tax + $chargeFee));
+		
+		$chargeFee = round($chargeFee * 2);
 	}
 	?>
 <table class="book-details book-table calc-table no-border-table">

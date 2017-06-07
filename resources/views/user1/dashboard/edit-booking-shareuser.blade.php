@@ -403,7 +403,7 @@ $count = count($rent_data->bookedSlots);
 																					</div>
 																				</td>
 																			</tr>
-																			</tr>
+																			<?php if (!isRecurring($rent_data)) {?>
 																			<tr class="no-pad">
 																				<th>
 																					<p class="other-fee">
@@ -422,6 +422,7 @@ $count = count($rent_data->bookedSlots);
 																					</div>
 																				</td>
 																			</tr>
+																			<?php }?>
 																			<?php } else {?>
 																			<tr class="total-amount-value ver-top pad-top20 no-btm-pad">
 																				<th>

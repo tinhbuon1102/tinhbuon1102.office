@@ -259,9 +259,22 @@ function getFlexiblePrice(&$rent_data, $oSlot,$count=0){
 
 	$aReturn = array();
 	$aReturn['subTotal'] = round($subTotal);
-	$aReturn['subTotalIncludeTax'] = round($subTotalIncludeTax = $subTotal * BOOKING_TAX_PERCENT / 100);
-	$aReturn['subTotalIncludeChargeFee'] = round($subTotalIncludeChargeFee = ($subTotal + $subTotalIncludeTax) * BOOKING_CHARGE_FEE_PERCENT / 100);
-	$aReturn['totalPrice'] = round($subTotal + $subTotalIncludeTax + $subTotalIncludeChargeFee);
+	if (isMonthlySpace($rent_data->spaceID) && (isRecurring($rent_data) || $rent_data->Duration >= 6))
+	{
+		$oneItemTotal = round(($aReturn['subTotal'] / count($prices)));
+		$oneItemTax = round($oneItemTotal * BOOKING_TAX_PERCENT / 100);
+		$oneItemCharge = round(($oneItemTotal + $oneItemTax) * BOOKING_CHARGE_FEE_PERCENT / 100);
+		
+		$aReturn['subTotalIncludeTax'] = $oneItemTax * count($prices);
+		$aReturn['subTotalIncludeChargeFee'] = $oneItemCharge * count($prices);
+	}
+	else {
+		$aReturn['subTotalIncludeTax'] = round($subTotalIncludeTax = $subTotal * BOOKING_TAX_PERCENT / 100);
+		$aReturn['subTotalIncludeChargeFee'] = round($subTotalIncludeChargeFee = ($subTotal + $subTotalIncludeTax) * BOOKING_CHARGE_FEE_PERCENT / 100);
+	}
+	
+	$aReturn['totalPrice'] = round($aReturn['subTotal'] + $aReturn['subTotalIncludeTax'] + $aReturn['subTotalIncludeChargeFee']);
+	
 	$aReturn['prices'] = $prices;
 
 	return $aReturn;

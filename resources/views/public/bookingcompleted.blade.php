@@ -191,36 +191,7 @@ echo renderBookingFor6Months($sub_total_months, $rent_data,$start_date,$count)?>
 <table class="book-details book-table calc-table no-border-table">
 <tbody>
 
-<tr class="total-amount-value ver-top pad-top20 no-btm-pad"><th>
-<h3>合計金額</h3>
-</th>
-<td><div class="lead text-right"><span id="total_booking"><?php echo $totalPrice?></span></div></td>
-</tr>
-<?php echo renderBookingSummary($rent_data->spaceID, $prices,$count)?>
-
-<tr class="no-pad">
-	<th>
-		<p class="total-calc">
-			<span class="subtotal">小計</span>
-		</p>
-	</th>
-	<td>
-		<div class="lead text-right">
-			<span id="unit_total" class="price-value" style="float: right">
-				<small>  <?php echo $subTotal;?></small>
-			</span>
-		</div>
-	</td>
-</tr>
-<tr class="no-pad">
-	<th><p class="other-fee">消費税</p></th>
-	<td><div class="lead text-right"><span id="tax_fee"><small><?php echo $subTotalIncludeTax?></small></span></div></td>
-</tr>
-</tr> 
-<tr class="no-pad">
-<th><p class="other-fee">手数料(10%)</p></th>
-<td><div class="lead text-right"><span id="margin_fee"><small><?php echo $subTotalIncludeChargeFee?></small></span></div></td>
-</tr>
+@include('public.booking-total-table')
 
 </tbody>
 </table>

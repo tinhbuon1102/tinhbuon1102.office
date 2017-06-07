@@ -2092,7 +2092,7 @@ class User1Controller extends Controller
 		$user = User1::find(Auth::user()->id);
 		$rentBooking = new Rentbookingsave();
 		
-		$rent_data = Rentbookingsave::Where('id', $id)->first();
+		$rent_data = Rentbookingsave::Where('id', $id)->where('User1ID', $user->id)->first();
 		
 		if ( $rent_data == null ) return redirect('/ShareUser/Dashboard/BookList?msb=booking+not+exist');
 		

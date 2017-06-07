@@ -1906,7 +1906,7 @@ class User2Controller extends Controller
 			$user1Obj = User1::where('id',$user1Id)->first();
 
 			$rent_data->isArchive = true;
-			$aFlexiblePrice = getFlexiblePrice($rent_data, new \App\Bookedspaceslot());
+			$aFlexiblePrice = Rentbookingsave::getInvoiceBookingPayment($rent_data);
 			$refundamount = priceConvert(round($rent_data['refund_amount']));
 
 			$subTotal = priceConvert($aFlexiblePrice['subTotal'], true);

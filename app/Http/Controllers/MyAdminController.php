@@ -869,7 +869,7 @@ class MyAdminController extends Controller
 		$user=User2::where('HashCode', $userHash)->firstOrFail();
 		$booking = Rentbookingsave::where('InvoiceID', $invoiceID)->first();
 		$booking->isArchive = true;
-		$aFlexiblePrice = getFlexiblePrice($booking, new \App\Bookedspaceslot());
+		$aFlexiblePrice = Rentbookingsave::getInvoiceBookingPayment($booking);
 		$prices = $aFlexiblePrice['prices'];
 		$refundamount = priceConvert(round($booking->refund_amount));
 		$totalPrice = priceConvert($aFlexiblePrice['totalPrice'], true);
@@ -892,7 +892,7 @@ class MyAdminController extends Controller
 		$user1Obj = User1::where('id',$user1Id)->first();
 
 		$rent_data->isArchive = true;
-		$aFlexiblePrice = getFlexiblePrice($rent_data, new \App\Bookedspaceslot());
+		$aFlexiblePrice = Rentbookingsave::getInvoiceBookingPayment($rent_data);
 		$refundamount = priceConvert(round($rent_data['refund_amount']));
 
 		$subTotal = priceConvert($aFlexiblePrice['subTotal'], true);

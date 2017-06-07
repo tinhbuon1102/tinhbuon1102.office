@@ -1,8 +1,17 @@
 <?php if (isMonthlySpace($rent_data->spaceID) && (isRecurring($rent_data) || $rent_data->Duration >= 6)) {
-	$firstPayment = round((($rent_data->SubTotal + $rent_data->Tax + $rent_data->ChargeFee) / $rent_data->Duration) * BOOKING_MONTH_RECURSION_INITPAYMENT); 
-	$monthlyTotal = round(($firstPayment / BOOKING_MONTH_RECURSION_INITPAYMENT) * ($rent_data->Duration - BOOKING_MONTH_RECURSION_INITPAYMENT)); 
-	$totalChargeFee = $rent_data->ChargeFee;
-	$totalPayment = $firstPayment + $monthlyTotal;
+	if (isRecurring($rent_data))
+	{
+		$firstPayment = round($rent_data->SubTotal + $rent_data->Tax - $rent_data->ChargeFee); 
+		$monthlyTotal = round(($firstPayment / BOOKING_MONTH_RECURSION_INITPAYMENT) * ($rent_data->Duration - BOOKING_MONTH_RECURSION_INITPAYMENT)); 
+		$totalChargeFee = ($rent_data->ChargeFee / BOOKING_MONTH_RECURSION_INITPAYMENT) * $rent_data->Duration;
+		$totalPayment = $firstPayment + $monthlyTotal;
+	}
+	else {
+		$firstPayment = round((($rent_data->SubTotal + $rent_data->Tax + $rent_data->ChargeFee) / $rent_data->Duration) * BOOKING_MONTH_RECURSION_INITPAYMENT);
+		$monthlyTotal = round(($firstPayment / BOOKING_MONTH_RECURSION_INITPAYMENT) * ($rent_data->Duration - BOOKING_MONTH_RECURSION_INITPAYMENT));
+		$totalChargeFee = $rent_data->ChargeFee;
+		$totalPayment = $firstPayment + $monthlyTotal;
+	}
 ?>
 <tr class="total-amount-value ver-top pad-top20 no-btm-pad">
 	<th>

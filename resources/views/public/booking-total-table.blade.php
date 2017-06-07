@@ -1,7 +1,7 @@
 <?php if (isMonthlySpace($rent_data->spaceID) && (isRecurring($rent_data) || $rent_data->Duration >= 6)) {
 	if (isRecurring($rent_data))
 	{
-		$firstPayment = round($rent_data->SubTotal + $rent_data->Tax - $rent_data->ChargeFee); 
+		$firstPayment = round($rent_data->SubTotal + $rent_data->Tax + $rent_data->ChargeFee); 
 		$monthlyTotal = round(($firstPayment / BOOKING_MONTH_RECURSION_INITPAYMENT) * ($rent_data->Duration - BOOKING_MONTH_RECURSION_INITPAYMENT)); 
 		$totalChargeFee = ($rent_data->ChargeFee / BOOKING_MONTH_RECURSION_INITPAYMENT) * $rent_data->Duration;
 		$totalPayment = $firstPayment + $monthlyTotal;
@@ -23,7 +23,7 @@
 	<td>
 		<div class="lead text-right right-amount-1">
 			<span id="total_booking" class='total_booking-charged @if(isAllowShowRefund($rent_data)) strike @endif'>
-				<?php echo $totalPrice?>
+				<?php echo $totalPayment?>
 			</span>
 		</div>
 	</td>

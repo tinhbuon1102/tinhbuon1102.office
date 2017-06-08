@@ -121,4 +121,6 @@ return [
 	'Chat' => 'メッセージ',
 	'Error Occurred during making payment Card declined' => 'クレジットカード情報に誤りがあります。正しい情報を入力してください。',
 	'all_year' => 'すべての年度',
+	'Your Session is expired, please try again.' => 'セッションが切れました。再度やり直してください。',
+	'Contact Confirmation | hOurOffice' => 'お問い合わせ内容のご確認 | hOurOffice',
  ];

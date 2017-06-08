@@ -165,6 +165,15 @@ use App\Spaceslot;
 												@foreach($rent_datas as $rent) 
 												<?php 
 												$aFlexiblePrice = \App\Rentbookingsave::getInvoiceBookingPayment($rent);
+												
+												if (isRecurring($rent)) {
+													$firstPayment = round($rent->SubTotal + $rent->Tax - $rent->ChargeFee);
+													$monthlyTotal = round(($firstPayment / BOOKING_MONTH_RECURSION_INITPAYMENT) * ($rent->Duration - BOOKING_MONTH_RECURSION_INITPAYMENT));
+													$totalChargeFee = ($rent->ChargeFee / BOOKING_MONTH_RECURSION_INITPAYMENT) * $rent->Duration;
+													$totalPayment = $firstPayment + $monthlyTotal;
+													$rent->amount = $totalPayment;
+												}
+												
 												?>
 												<tr role="row">
 													<td class="sorting_1">{!!$rent->id!!}</td>
@@ -176,7 +185,7 @@ use App\Spaceslot;
 													<td class="mb-none">
 														<?php 
 														$isDisplayTime = in_array($rent->SpaceType, array(SPACE_FEE_TYPE_HOURLY, SPACE_FEE_TYPE_DAYLY)) ? true  : false;
-														echo renderJapaneseDate($rent->charge_start_date, $isDisplayTime)?></td>
+														echo renderJapaneseDate($rent->charge_start_date, $isDisplayTime)?>
 													</td>
 													<td class="mb-none">
 														{{$rent->DurationText}}

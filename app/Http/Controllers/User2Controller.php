@@ -2178,7 +2178,7 @@ class User2Controller extends Controller
 		public function bookingDetails(Request $request)
 		{
 			if(!Session::get('rent_id')):
-				Session::flash('error', 'common.Your Session is expired, please try again.');
+				Session::flash('error', trans('common.Your Session is expired, please try again.'));
 				return redirectToDashBoard();
 			endif;
 
@@ -2198,7 +2198,7 @@ class User2Controller extends Controller
 
 			if (!count($slots_data))
 			{
-				Session::flash('error', 'common.booking_time_not_available');
+				Session::flash('error', trans('common.booking_time_not_available'));
 				return redirectToDashBoard();
 			}
 
@@ -2272,7 +2272,7 @@ class User2Controller extends Controller
 		public function bookingSummary(Request $request)
 		{
 			if(!Session::get('rent_id')):
-				Session::flash('error', 'common.Your Session is expired, please try again.');
+				Session::flash('error', trans('common.Your Session is expired, please try again.'));
 				return redirectToDashBoard();
 			endif;
 
@@ -2370,7 +2370,7 @@ class User2Controller extends Controller
 
 
 			if(!Session::get('rent_id')):
-				Session::flash('error', 'common.Your Session is expired, please try again.');
+				Session::flash('error', trans('common.Your Session is expired, please try again.'));
 				return redirectToDashBoard();
 			endif;
 
@@ -2381,7 +2381,7 @@ class User2Controller extends Controller
 		public function BookingCompleted()
 		{
 			if(!Session::get('rent_id')):
-				Session::flash('error', 'common.Your Session is expired, please try again.');
+				Session::flash('error', trans('common.Your Session is expired, please try again.'));
 				return redirectToDashBoard();
 			endif;
 
@@ -2863,7 +2863,7 @@ class User2Controller extends Controller
 		public function creditPayment(Request $request)
 		{
 			if(!Session::get('rent_id')):
-				Session::flash('error', 'common.Your Session is expired, please try again.');
+				Session::flash('error', trans('common.Your Session is expired, please try again.'));
 				return redirectToDashBoard();
 			endif;
 
@@ -3243,7 +3243,7 @@ class User2Controller extends Controller
 				$redirect_to = isset($input['redirect_to']) ? $input['redirect_to'] : '/RentUser/Dashboard/Reservation';
 				if (!$rent_data)
 				{
-					Session::flash('error', 'booking_list.Error Occured, Please try again');
+					Session::flash('error', trans('booking_list.Error Occured, Please try again'));
 					return redirect($redirect_to);
 				}
 				
@@ -3263,7 +3263,7 @@ class User2Controller extends Controller
 						return redirect($redirect_to);
 					}
 					else {
-						Session::flash('error', 'booking_list.Error Occured, Please try again');
+						Session::flash('error', trans('booking_list.Error Occured, Please try again'));
 						return redirect($redirect_to);
 					}
 				}

@@ -12771,3 +12771,8 @@ section#memberonly h2.sec-title, section#memberonly .sec-subtitle {
 
 .wrapper_dataTables .tablenav {float: left;}
 .wrapper_dataTables .tablenav #filter_by_year{margin-right: 10px;}
+
+.price_strike {
+	text-decoration: line-through;
+    color: #CCC;
+}

@@ -130,6 +130,20 @@ use App\Spaceslot;
 													</thead>
 													<tbody>
 														@foreach($rent_datas as $rent) 
+														<?php 
+														$aFlexiblePrice = \App\Rentbookingsave::getInvoiceBookingPayment($rent);
+														
+														if (isRecurring($rent)) {
+															$firstPayment = round($rent->SubTotal + $rent->Tax + $rent->ChargeFee);
+															$monthlyFee = round($firstPayment / 2);
+															$monthlyTotal = round(($firstPayment / BOOKING_MONTH_RECURSION_INITPAYMENT) * ($rent->Duration - BOOKING_MONTH_RECURSION_INITPAYMENT));
+															$totalChargeFee = ($rent->ChargeFee / BOOKING_MONTH_RECURSION_INITPAYMENT) * $rent->Duration;
+															$totalPayment = $firstPayment + $monthlyTotal;
+															$rent->amount = $firstPayment;
+															
+														}
+														
+														?>
 														<tr role="row" class="odd">
 															<td tabindex="0">{!!$rent->id!!}</td>
 															<td>{!!$rent->bookedSpace->Title!!}</td>
@@ -139,18 +153,33 @@ use App\Spaceslot;
 																$isDisplayTime = in_array($rent->SpaceType, array(SPACE_FEE_TYPE_HOURLY, SPACE_FEE_TYPE_DAYLY)) ? true  : false;
 																echo renderJapaneseDate($rent->charge_start_date, $isDisplayTime)?>
 															</td>
-															</td>
 															<td class="mb-none">{{$rent->DurationText}}</td>
 															<td class="mb-none">
-																<span>
-																	@if($rent->Duration>5 && $rent->bookedSpace->FeeType==4) ¥{!!priceConvert(($rent['bookedSpace']['MonthFee']*2*0.08)+(($rent['bookedSpace']['MonthFee']*2*0.08)+($rent['bookedSpace']['MonthFee']*2))*0.10+$rent['bookedSpace']['MonthFee']*2)!!}
-																	<br />
-																	月額 ¥{!! priceConvert(($rent['bookedSpace']['MonthFee']*0.08)+(($rent['bookedSpace']['MonthFee']*0.08)+($rent['bookedSpace']['MonthFee']))*0.10+$rent['bookedSpace']['MonthFee'])!!} @else
-																	<span class="@if ($rent->status==BOOKING_STATUS_REFUNDED) refund-fee @endif default-fee">
-																		<b>¥{!!priceConvert(ceil($rent->amount))!!}</b>
-																	</span>
+																@if($rent->status==BOOKING_STATUS_REFUNDED)
+																<p class="refund-fee default-fee">
+																	<label><?php echo getRefundTypeText($rent)?></label>
+																	<br>
+																</p>
+																@endif
+																
+																<p class='@if($rent->status==BOOKING_STATUS_REFUNDED) price_strike @endif'>
+																	@if(isBookingRecursion($rent)) 
+																		¥{{priceConvert($firstPayment)}}
+																		<br />
+																		月額 ¥{{$monthlyFee}} 
+																	@else 
+																		<span class="default-fee">
+																			<b>¥{!!priceConvert(ceil($rent->amount))!!}</b> 
+																		</span>
 																	@endif
-																</span>
+																</p>
+																
+																@if($rent->status==BOOKING_STATUS_REFUNDED)
+																<p class="refund-fee default-fee">
+																	<b> <?php echo getRefundPrice($rent, true, true)?></b>
+																</p>
+																@endif
+																
 															</td>
 															<td class="mb-none">
 																<?php echo getBookingPaymentStatus($rent, true)?>

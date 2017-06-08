@@ -168,10 +168,16 @@ use App\Spaceslot;
 												
 												if (isRecurring($rent)) {
 													$firstPayment = round($rent->SubTotal + $rent->Tax - $rent->ChargeFee);
+													$monthlyFee = round($firstPayment / 2);
 													$monthlyTotal = round(($firstPayment / BOOKING_MONTH_RECURSION_INITPAYMENT) * ($rent->Duration - BOOKING_MONTH_RECURSION_INITPAYMENT));
 													$totalChargeFee = ($rent->ChargeFee / BOOKING_MONTH_RECURSION_INITPAYMENT) * $rent->Duration;
 													$totalPayment = $firstPayment + $monthlyTotal;
 													$rent->amount = $totalPayment;
+													
+													if ($rent->refund_status == BOOKING_REFUND_CHARGE_100)
+														$rent->refund_amount = round($rent->refund_amount - $rent->ChargeFee * BOOKING_MONTH_RECURSION_INITPAYMENT);
+													elseif ($rent->refund_status == BOOKING_REFUND_CHARGE_50)
+														$rent->refund_amount = round($rent->refund_amount - $rent->ChargeFee);
 												}
 												
 												?>
@@ -192,28 +198,43 @@ use App\Spaceslot;
 														<!--{{ trans('booking_list.'.$rent->DurationText) }}-->
 													</td>
 													<td class="rent-booking-blade mb-none">
-														@if($rent->status==BOOKING_STATUS_REFUNDED && $rent->refund_status != BOOKING_REFUND_CHARGE_100)
-														<span class="refund-fee default-fee">
-															<label><?php echo getRefundTypeText($rent)?></label>
-															<br>
-															<b> <?php echo getRefundPrice($rent)?></b>
-														</span>
-														@else
+														<p class="booking_total_amount @if($rent->status==BOOKING_STATUS_REFUNDED) price_strike @endif">
 															<?php echo priceConvert($rent->amount, true);?>
+														</p>
+														
+														@if($rent->status==BOOKING_STATUS_REFUNDED)
+														<p class="refund-fee default-fee">
+															<b> <?php echo getRefundChargedPrice($rent, true, true)?></b>
+														</p>
 														@endif
+														
 													</td>
 													<td class="mb-none">
-														<span class='@if($rent->status==BOOKING_STATUS_REFUNDED) strike @endif'>
+														@if($rent->status==BOOKING_STATUS_REFUNDED)
+														<p class="refund-fee default-fee">
+															<label><?php echo getRefundTypeText($rent)?></label>
+															<br>
+														</p>
+														@endif
+														
+														<p class='@if($rent->status==BOOKING_STATUS_REFUNDED) price_strike @endif'>
 															@if(isBookingRecursion($rent)) 
-																¥{!!priceConvert(($rent['bookedSpace']['MonthFee']*2*0.08)+(($rent['bookedSpace']['MonthFee']*2*0.08)+($rent['bookedSpace']['MonthFee']*2))*0.10+$rent['bookedSpace']['MonthFee']*2)!!}
+																¥{{priceConvert($firstPayment)}}
 																<br />
-																月額 ¥{!! priceConvert(($rent['bookedSpace']['MonthFee']*0.08)+(($rent['bookedSpace']['MonthFee']*0.08)+($rent['bookedSpace']['MonthFee']))*0.10+$rent['bookedSpace']['MonthFee'])!!} 
+																月額 ¥{{$monthlyFee}} 
 															@else 
-																<span class="@if ($rent->status==BOOKING_STATUS_REFUNDED) refund-fee @endif default-fee">
+																<span class="default-fee">
 																	<b>¥{!!priceConvert(ceil($rent->amount))!!}</b> 
 																</span>
 															@endif
-														</span>
+														</p>
+														
+														@if($rent->status==BOOKING_STATUS_REFUNDED)
+														<p class="refund-fee default-fee">
+															<b> <?php echo getRefundChargedPrice($rent, true, true)?></b>
+														</p>
+														@endif
+														
 													</td>
 													<td class="mb-none">
 														<div class="invoice-view-bt action-wrapper ns_action-wrap btn-group">

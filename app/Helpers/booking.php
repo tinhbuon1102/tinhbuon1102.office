@@ -892,5 +892,7 @@ function getRecursionbooking($rent_data){
 
 function isRecurring($rent_data)
 {
-	return $rent_data->recur_id;
+	if (!$rent_data) return false;
+	
+	return $rent_data['spaceID']['FeeType'] == SPACE_FEE_TYPE_MONTHLY && $rent_data['Duration'] >= 6;
 }

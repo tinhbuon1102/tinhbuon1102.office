@@ -5,6 +5,7 @@ use App\Spaceslot;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use app\Models\Paypal;
+use Illuminate\Support\Facades\Auth;
 
 class Rentbookingsave extends Model
 {
@@ -139,7 +140,11 @@ class Rentbookingsave extends Model
 		}
 		
 		// User 1 amount will be sub to charge fee (user1 + user2)
-		$booking->amount = $booking->amount - $booking->ChargeFee * 2;
+		global $glob_user;
+		if ((!Auth::guard('useradmin')->check() && Auth::guard('user1')->check()) || (Auth::guard('useradmin')->check() && $glob_user && $glob_user->isUser1))
+		{
+			$booking->amount = $booking->amount - $booking->ChargeFee * 2;
+		}
 		
 		return $aFlexiblePrice;
 	}

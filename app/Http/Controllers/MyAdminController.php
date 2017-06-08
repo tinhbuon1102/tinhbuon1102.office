@@ -227,7 +227,8 @@ class MyAdminController extends Controller
 
 	public function shareUser(Request $request, $id)
 	{
-		$user=User1::where('HashCode', $id)->firstOrFail();
+		global $glob_user;
+		$glob_user = $user=User1::where('HashCode', $id)->firstOrFail();
 
 		$user->Skills = explode("," , $user->Skills);
 		$bank= User1paymentinfo::firstOrNew(array('User1ID' => $user->id));;
@@ -716,7 +717,8 @@ class MyAdminController extends Controller
 	}
 	public function rentUser(Request $request, $id)
 	{
-		$user=User2::where('HashCode', $id)->firstOrFail();
+		global $glob_user;
+		$glob_user = $user=User2::where('HashCode', $id)->firstOrFail();
 		$userIde=User2identitie::where('User2ID',$user->id)->where('SentToAdmin','Yes')->get();
 
 		$rent_datas = Rentbookingsave::select('rentbookingsaves.*')

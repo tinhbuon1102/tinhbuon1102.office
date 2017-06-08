@@ -176,7 +176,7 @@ use App\Spaceslot;
 																
 																@if($rent->status==BOOKING_STATUS_REFUNDED)
 																<p class="refund-fee default-fee">
-																	<b> <?php echo getRefundPrice($rent, true, true)?></b>
+																	<b> <?php echo getRefundChargedPrice($rent, true, true)?></b>
 																</p>
 																@endif
 																

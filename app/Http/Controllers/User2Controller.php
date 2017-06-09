@@ -2187,6 +2187,11 @@ class User2Controller extends Controller
 			$rent_data=Rentbookingsave::Where('id', Session::get('rent_id'))->first();
 			$space = $rent_data->spaceID;
 			$aFlexiblePrice = getFlexiblePrice($rent_data, new Spaceslot());
+			
+			$rent_data->SubTotal = $aFlexiblePrice['subTotal'];
+			$rent_data->Tax = $aFlexiblePrice['subTotalIncludeTax'];
+			$rent_data->ChargeFee = $aFlexiblePrice['subTotalIncludeChargeFee'];
+			$rent_data->amount = $aFlexiblePrice['totalPrice'];
 
 			$subTotal = priceConvert($aFlexiblePrice['subTotal'], true);
 			$subTotalIncludeTax = priceConvert($aFlexiblePrice['subTotalIncludeTax'], true);
@@ -3184,6 +3189,12 @@ class User2Controller extends Controller
 						}
 					}
 
+					// Store booking sale amount 
+// 					$paidPayment = isBookingRecursion($rent_data_save) ? round($rent_data_save->amount * 2 / $rent_data_save->Duration) : $rent_data_save->amount;
+// 					$rent_data_save->amount_user1_sale = $paidPayment - ($rent_data_save->ChargeFee * 2);
+// 					$rent_data_save->amount_user2_sale = $paidPayment->ChargeFee;
+// 					$rent_data_save->save();
+					
 					// Trigger booking
 					$rentbooking = new Rentbookingsave();
 					$rentbooking->bookingSaveCallBack($rent_data_save);

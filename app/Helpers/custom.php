@@ -1050,3 +1050,9 @@ function getYahooAddressApi()
 	}
 	return '{}';
 }
+
+function isUser1()
+{
+	global $glob_user;
+	return (Auth::guard('user1')->check() || (Auth::guard('useradmin')->check() && $glob_user && $glob_user->isUser1));
+}

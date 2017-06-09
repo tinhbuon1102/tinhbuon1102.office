@@ -401,7 +401,8 @@ class MyAdminController extends Controller
 		$rentBooking = new \App\Rentbookingsave;
 
 		$rent_data = Rentbookingsave::Where('id', $id)->first();
-		$user=User1::find($rent_data['spaceID']['shareUser']['id']);
+		global $glob_user;
+		$glob_user =$user=User1::find($rent_data['spaceID']['shareUser']['id']);
 		
 		if($rent_data == null)
 			return redirect::back();
@@ -453,7 +454,8 @@ class MyAdminController extends Controller
 				'AccountNumber' =>  $formFields[ 'AccountNumber'],
 		);
 
-		$user=User1::where('HashCode', $id)->firstOrFail();
+		global $glob_user;
+		$glob_user =$user=User1::where('HashCode', $id)->firstOrFail();
 		$payinfo= User1paymentinfo::firstOrNew(array('User1ID' => $user->id));;
 		$payinfo->fill($userData);
 
@@ -497,7 +499,8 @@ class MyAdminController extends Controller
 					'HostPhoto' =>  $formFields[ 'HostPhoto'],
 					'HashID' => uniqid(),
 			);
-			$user=User1::where('HashCode', $id)->firstOrFail();
+			global $glob_user;
+			$glob_user =$user=User1::where('HashCode', $id)->firstOrFail();
 			$host= new User1hostmember();
 			$host->fill($userData);
 			$user->host()->save($host);
@@ -511,7 +514,8 @@ class MyAdminController extends Controller
 
 	public function hostSettingSubmit(Request $request,$id)
 	{
-		$user=User1::where('HashCode', $id)->firstOrFail();
+		global $glob_user;
+		$glob_user =$user=User1::where('HashCode', $id)->firstOrFail();
 		//return ($request->all());
 		if ($request->hasFile('CompanyCertificate')) {
 			//return("YEs");
@@ -656,7 +660,8 @@ class MyAdminController extends Controller
 
 	public function editspace($id)
 	{
-		$user=User1::where('HashCode', $id)->firstOrFail();
+		global $glob_user;
+		$glob_user =$user=User1::where('HashCode', $id)->firstOrFail();
 		//User1sharespace::where('HashID', $id)->firstOrFail();
 		return view("admin/shareuser/edit-space",compact('user'));
 
@@ -664,7 +669,8 @@ class MyAdminController extends Controller
 	}
 	public function shareUserSpaceList($id)
 	{
-		$user=User1::where('HashCode', $id)->firstOrFail();
+		global $glob_user;
+		$glob_user =$user=User1::where('HashCode', $id)->firstOrFail();
 		$spaces=$user->spaces;
 		return view("admin/shareuser/partial_tab_2",compact('user','spaces'));
 
@@ -678,7 +684,8 @@ class MyAdminController extends Controller
 
 		$space=new User1sharespace();
 
-		$user=User1::where('HashCode', $id)->firstOrFail();
+		global $glob_user;
+		$glob_user =$user=User1::where('HashCode', $id)->firstOrFail();
 		// Check this space has slot or not
 		$isThisSpaceHasSlot = Spaceslot::isthisSpaceHasSlot($space);
 
@@ -690,7 +697,8 @@ class MyAdminController extends Controller
 	{
 		$IsEdit='True';
 		$IsDuplicate='False';
-		$user=User1::where('HashCode', $id)->firstOrFail();
+		global $glob_user;
+		$glob_user =$user=User1::where('HashCode', $id)->firstOrFail();
 		$space=User1sharespace::where('HashID', $spaceID)->firstOrFail();
 		$tags = $space->tags;
 		$aTagName = array();
@@ -870,7 +878,8 @@ class MyAdminController extends Controller
 
 	public function rentUserInvoiceDetail($userHash, $invoiceID)
 	{
-		$user=User2::where('HashCode', $userHash)->firstOrFail();
+		global $glob_user;
+		$glob_user = $user=User2::where('HashCode', $userHash)->firstOrFail();
 		$booking = Rentbookingsave::where('InvoiceID', $invoiceID)->first();
 		$booking->isArchive = true;
 		$aFlexiblePrice = Rentbookingsave::getInvoiceBookingPayment($booking);
@@ -885,7 +894,8 @@ class MyAdminController extends Controller
 
 	public function rentUserReservationDetail($userHash, $bookingID)
 	{
-		$user=User2::where('HashCode', $userHash)->firstOrFail();
+		global $glob_user;
+		$glob_user = $user=User2::where('HashCode', $userHash)->firstOrFail();
 		$rent_data=Rentbookingsave::Where('user_id', $user->id)->where('id',$bookingID)->first();
 		$rentBooking = new \App\Rentbookingsave;
 		
@@ -933,7 +943,8 @@ class MyAdminController extends Controller
 
 	public function rentUserSubmit(Request $request,$id)
 	{
-		$user=User2::where('HashCode', $id)->firstOrFail();
+		global $glob_user;
+		$glob_user =$user=User2::where('HashCode', $id)->firstOrFail();
 
 		$user->fill($request->except(['_token','UserName']));
 		$user->save();
@@ -1172,7 +1183,8 @@ class MyAdminController extends Controller
 					]);
 		}
 		$request->merge(array('HashID' => uniqid()));
-		$user=User1::where('HashCode', $id)->firstOrFail();
+		global $glob_user;
+		$glob_user = $user=User1::where('HashCode', $id)->firstOrFail();
 		$request->merge(array('User1ID' => $user->id));
 		/*if (Auth::check())
 		 {

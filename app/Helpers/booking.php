@@ -542,7 +542,7 @@ function renderBookingFor6Months($sub_total_months, $rent_data,$start_date,$coun
 	
 	if (isRecurring($rent_data))
 	{
-		$chargeFee = (Auth::guard('user1')->check() ? - $rent_data->ChargeFee : $rent_data->ChargeFee);
+		$chargeFee = (isUser1() ? - $rent_data->ChargeFee : $rent_data->ChargeFee);
 		$firstPayment = round($rent_data->SubTotal + $rent_data->Tax + $chargeFee);
 		$monthlySubTotal = round($rent_data->SubTotal/2);
 		$monthlyFee = round($rent_data->SubTotal/2 + ($rent_data->Tax + $chargeFee)/ 2);
@@ -553,7 +553,7 @@ function renderBookingFor6Months($sub_total_months, $rent_data,$start_date,$coun
 		$rent_data->Tax = $aFlexiblePrice['subTotalIncludeTax'];
 		$rent_data->SubTotal = $aFlexiblePrice['subTotal'];
 		
-		$chargeFee = (Auth::guard('user1')->check() ? - $rent_data->ChargeFee : $rent_data->ChargeFee);
+		$chargeFee = (isUser1() ? - $rent_data->ChargeFee : $rent_data->ChargeFee);
 		$firstPayment = round((($rent_data->SubTotal + $rent_data->Tax + $chargeFee) / $rent_data->Duration) * 2);
 		$monthlySubTotal = round($rent_data->SubTotal / $rent_data->Duration);
 		$monthlyFee = round(($rent_data->SubTotal + ($rent_data->Tax + $chargeFee)) / $rent_data->Duration );

@@ -140,8 +140,7 @@ class Rentbookingsave extends Model
 		}
 		
 		// User 1 amount will be sub to charge fee (user1 + user2)
-		global $glob_user;
-		if ((!Auth::guard('useradmin')->check() && Auth::guard('user1')->check()) || (Auth::guard('useradmin')->check() && $glob_user && $glob_user->isUser1))
+		if (isUser1())
 		{
 			$booking->amount = $booking->amount - $booking->ChargeFee * 2;
 		}

@@ -540,7 +540,7 @@ function getRefundChargedPrice($rent_data, $html = true, $isAbs = false)
 function renderBookingFor6Months($sub_total_months, $rent_data,$start_date,$count,$edit_booking=false){
 	$sub_total_one=$rent_data->bookedSpace->MonthFee;
 	
-	if (isRecurring($rent_data))
+	if (isRecurring($rent_data) && $rent_data->recur_id)
 	{
 		$chargeFee = (isUser1() ? - $rent_data->ChargeFee : $rent_data->ChargeFee);
 		$firstPayment = round($rent_data->SubTotal + $rent_data->Tax + $chargeFee);

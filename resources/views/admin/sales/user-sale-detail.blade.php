@@ -106,7 +106,7 @@ $total_include_tax = $total_tax = $total_charge_fee = 0;
 									$groupPrices = array();
 									$space = $rent_data->bookedSpace;
 									
-									if (isMonthlySpace($space))
+									if (isBookingRecursion($rent_data))
 									{
 										$aFlexiblePrice = \App\Rentbookingsave::getInvoiceBookingPayment($rent_data);
 										$rent_data->DurationText = '2ヶ月';

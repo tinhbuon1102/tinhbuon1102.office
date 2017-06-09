@@ -2187,11 +2187,6 @@ class User2Controller extends Controller
 			$rent_data=Rentbookingsave::Where('id', Session::get('rent_id'))->first();
 			$space = $rent_data->spaceID;
 			$aFlexiblePrice = getFlexiblePrice($rent_data, new Spaceslot());
-			
-			$rent_data->SubTotal = $aFlexiblePrice['subTotal'];
-			$rent_data->Tax = $aFlexiblePrice['subTotalIncludeTax'];
-			$rent_data->ChargeFee = $aFlexiblePrice['subTotalIncludeChargeFee'];
-			$rent_data->amount = $aFlexiblePrice['totalPrice'];
 
 			$subTotal = priceConvert($aFlexiblePrice['subTotal'], true);
 			$subTotalIncludeTax = priceConvert($aFlexiblePrice['subTotalIncludeTax'], true);

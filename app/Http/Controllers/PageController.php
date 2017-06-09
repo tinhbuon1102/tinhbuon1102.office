@@ -150,6 +150,9 @@ class PageController extends Controller
 			else {
 				if($auth->attempt(['Email' => $formFields['username'], 'password' => $formFields['password']]) || $auth->attempt(['UserName' => $formFields['username'], 'password' => $formFields['password']]))
 				{
+					Auth::guard('user2')->logout();
+					Auth::guard('useradmin')->logout();
+					
 					return Response::json(array(
 							'success' => true,
 							'next' => url('ShareUser/Dashboard')
@@ -182,6 +185,9 @@ class PageController extends Controller
 			else {
 				if($auth->attempt(['Email' => $formFields['username'], 'password' => $formFields['password']]) || $auth->attempt(['UserName' => $formFields['username'], 'password' => $formFields['password']]))
 				{
+					Auth::guard('user1')->logout();
+					Auth::guard('useradmin')->logout();
+					
 					return Response::json(array(
 							'success' => true,
 							'next' => url('RentUser/Dashboard')

@@ -287,6 +287,8 @@ class User2Controller extends Controller
 			if($auth->attempt(['Email' => $request->Email, 'password' => $request->password]) || $auth->attempt(['UserName' => $request->Email, 'password' => $request->password]))
 			{
 				Auth::guard('user1')->logout();
+				Auth::guard('useradmin')->logout();
+				
 				if (Session::get('user2.url.intended'))
 				{
 					$redirect = Session::get('user2.url.intended');

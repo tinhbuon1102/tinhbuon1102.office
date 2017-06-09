@@ -151,6 +151,8 @@ class User1Controller extends Controller
 			]) )
 			{
 				Auth::guard('user2')->logout();
+				Auth::guard('useradmin')->logout();
+				
 				// if (Session::get('url.intended') &&
 				// Session::get('url.intended') != URL::to('/') &&
 				// strpos(Session::get('url.intended'), 'User1/Login') ===

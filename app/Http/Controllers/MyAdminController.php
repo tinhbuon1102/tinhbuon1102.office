@@ -208,6 +208,9 @@ class MyAdminController extends Controller
 		$auth = auth()->guard('useradmin');
 		if($auth->attempt($request->only('UserName', 'password')))
 		{
+			Auth::guard('user1')->logout();
+			Auth::guard('user2')->logout();
+			
 			return redirect('/MyAdmin/Dashboard');
 		}
 		else{
@@ -853,7 +856,8 @@ class MyAdminController extends Controller
 
 	public function shareUserInvoiceDetail($userHash, $invoiceID)
 	{
-		$user=User1::where('HashCode', $userHash)->firstOrFail();
+		global $glob_user;
+		$glob_user = $user=User1::where('HashCode', $userHash)->firstOrFail();
 		$booking = Rentbookingsave::where('InvoiceID', $invoiceID)->first();
 		$aFlexiblePrice = Rentbookingsave::getInvoiceBookingPayment($booking);
 		$prices = $aFlexiblePrice['prices'];

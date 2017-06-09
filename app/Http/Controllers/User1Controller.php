@@ -3115,8 +3115,10 @@ class User1Controller extends Controller
 	}
 	public function processBookingPaymentAuto ( Request $request )
 	{
+		$rentbooking = new Rentbookingsave();
+		
 		// @TODO REmove when done BEGIN
-		if (isset($_GET['import_town'])) {
+		if ($request->import_town) {
 			$allSpaces = User1sharespace::all();
 			foreach ($allSpaces as $space)
 			{
@@ -3127,18 +3129,28 @@ class User1Controller extends Controller
 			pr(count($allSpaces));
 			die('done');
 		}
-		// END
-		
-		
-		$rentbooking = new Rentbookingsave();
-		if ( $request->reSaveTime )
+		elseif ( $request->calculate_amount ){
+			$rent_datas = Rentbookingsave::where('InvoiceID', '<>', '')->get();
+			foreach ($rent_datas as $rent_data_save)
+			{
+				$paidPayment = isBookingRecursion($rent_data_save) ? round($rent_data_save->amount * 2 / $rent_data_save->Duration) : $rent_data_save->amount;
+				$chargeFee = isBookingRecursion($rent_data_save) ? round($rent_data_save->ChargeFee * 2 / $rent_data_save->Duration) : $rent_data_save->ChargeFee;
+				$rent_data_save->amount_user1_sale = $paidPayment - $chargeFee * 2;
+				$rent_data_save->amount_user2_sale = $paidPayment;
+				$rent_data_save->save();
+			}
+			die('done calculate_amount');
+		}
+		elseif ( $request->reSaveTime )
 		{
 			$rentbooking->reSaveStartEndBookingTime();
 		}
-		if ( $request->storeRecursion )
+		elseif ( $request->storeRecursion )
 		{
 			$rentbooking->storeRecursionHistory();
 		}
+		// END TODO
+		
 		// mail("quocthang.2001@gmail.com", "IPN RECEVING DATA test for
 		// recurring payment", 'Is it ok?', "processBookingPaymentAuto");
 		return $rentbooking->processBookingPaymentAuto();

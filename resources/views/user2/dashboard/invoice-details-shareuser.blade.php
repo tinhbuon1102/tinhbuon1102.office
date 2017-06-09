@@ -294,12 +294,12 @@
 													<span class="tl-tag align-right">{{ trans('booking_details.total_amount') }}</span>
 													<!--hide this code if 50% refund-->
 													@if($booking->status!=3 || ($booking->status==3 && $booking->refund_status == BOOKING_REFUND_CHARGE_100))
-													<p class="tl-amount big">{{priceConvert($booking->amount + $booking->ChargeFee * 2, true)}}</p>
+													<p class="tl-amount big">{{priceConvert($booking->amount, true)}}</p>
 													<!--hide this code if 50% refund-->
 													<!--start if 50% refund-->
 													@elseif($booking->status==3)
 													<p class="tl-amount small strike">
-														<span class="strike">{{priceConvert($booking->amount + $booking->ChargeFee, true)}}</span>
+														<span class="strike">{{priceConvert($booking->amount, true)}}</span>
 													</p>
 													<p class="tl-amount big refunded-amount">
 														<?php 

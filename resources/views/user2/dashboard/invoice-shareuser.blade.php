@@ -102,12 +102,12 @@
 																<br>
 																<b>
 													<?php
-											if ( $invoice->refund_status == BOOKING_REFUND_CHARGE_50 ) echo priceConvert($invoice->amount + $invoice->ChargeFee - getRefundChargedPrice($invoice, $html = false, true), true);
+											if ( $invoice->refund_status == BOOKING_REFUND_CHARGE_50 ) echo priceConvert($invoice->amount - getRefundChargedPrice($invoice, $html = false, true), true);
 											else echo priceConvert($invoice->amount - getRefundChargedPrice($invoice, $html = false, true), true)?>
 													</b>
 															</span>
 												@else
-													<?php echo priceConvert($invoice->amount + $invoice->ChargeFee * 2, true);?>
+													<?php echo priceConvert($invoice->amount, true);?>
 												@endif
 											</td>
 														<td class="mb-none">

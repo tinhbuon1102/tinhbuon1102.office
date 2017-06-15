@@ -3185,10 +3185,11 @@ class User2Controller extends Controller
 					}
 
 					// Store booking sale amount 
-// 					$paidPayment = isBookingRecursion($rent_data_save) ? round($rent_data_save->amount * 2 / $rent_data_save->Duration) : $rent_data_save->amount;
-// 					$rent_data_save->amount_user1_sale = $paidPayment - ($rent_data_save->ChargeFee * 2);
-// 					$rent_data_save->amount_user2_sale = $paidPayment->ChargeFee;
-// 					$rent_data_save->save();
+					$paidPayment = isBookingRecursion($rent_data_save) ? round($rent_data_save->amount * 2 / $rent_data_save->Duration) : $rent_data_save->amount;
+					$chargeFee = isBookingRecursion($rent_data_save) ? round($rent_data_save->ChargeFee * 2 / $rent_data_save->Duration) : $rent_data_save->ChargeFee;
+					$rent_data_save->amount_user1_sale = $paidPayment - $chargeFee * 2;
+					$rent_data_save->amount_user2_sale = $paidPayment;
+					$rent_data_save->save();
 					
 					// Trigger booking
 					$rentbooking = new Rentbookingsave();

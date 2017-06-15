@@ -3153,6 +3153,7 @@ class User1Controller extends Controller
 		
 		// mail("quocthang.2001@gmail.com", "IPN RECEVING DATA test for
 		// recurring payment", 'Is it ok?', "processBookingPaymentAuto");
-		return $rentbooking->processBookingPaymentAuto();
+		$rentbooking->processBookingPaymentAuto(array(), BOOKING_STATUS_PENDING);
+		return $rentbooking->processBookingPaymentAuto(array(), BOOKING_STATUS_RESERVED);
 	}
 }

@@ -1039,7 +1039,7 @@ class MyAdminController extends Controller
 			$rent_datas = $rent_datas->whereIn('rentbookingsaves.status', array(BOOKING_STATUS_PENDING, BOOKING_STATUS_RESERVED, BOOKING_STATUS_COMPLETED, BOOKING_STATUS_REFUNDED));
 		}
 		else {
-			$rent_datas=Rentbookingsave::select(DB::raw('*, SUM(amount) as total_amount, SUM(ChargeFee) as total_charge_fee'))
+			$rent_datas=Rentbookingsave::select(DB::raw('*, SUM(amount_user1_sale) as total_amount, SUM(ChargeFee) as total_charge_fee'))
 			->GroupBy(array('User1ID'))
 			->OrderBy('id','desc');
 			$rent_datas = $rent_datas->whereIn('rentbookingsaves.status', array(BOOKING_STATUS_RESERVED, BOOKING_STATUS_COMPLETED));

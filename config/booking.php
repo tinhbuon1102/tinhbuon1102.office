@@ -45,7 +45,7 @@ return [
 		'LESS_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_100' => 7, // 100% will be charged- less than 7 days before start date
 	],
 	'Monthly' => [
-		'DAY_AUTOMATIC_CANCELLED' => 28,
+		'DAY_AUTOMATIC_CANCELLED' => 20,
 		'MONTHS_BEFORE_START_DATE_CAN_BE_CANCELLED_CHARGE_0' => 21, // can be cancelled- more than 1month before start date
 		'MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50' => 28, // 50% of 1 month will be charged- 21 days before start dated
 		'LESS_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_100' => 28, // 100% of 1 month will be charged- less than 21 days before start date

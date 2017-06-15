@@ -392,6 +392,7 @@ class Rentbookingsave extends Model
 					{
 						$aTransaction['amount'] = $refund_amount;
 					}
+					
 					$info = $webpay->charge->refund($aTransaction);
 					
 					if ( $refund_status == BOOKING_REFUND_CHARGE_50 )
@@ -422,8 +423,11 @@ class Rentbookingsave extends Model
 			}
 			catch ( \Exception $e )
 			{
-				$info = $webpay->charge->retrieve($rent_data->transaction_id);
-				if ( $info && ($info->refunded || $info->amount_refunded) )
+				if ($refund_amount)
+				{
+					$info = $webpay->charge->retrieve($rent_data->transaction_id);
+				}
+				if ( !$refund_amount || (isset($info) && $info && ($info->refunded || $info->amount_refunded)))
 				{
 					// pr($rent_data->charge_start_date .' -- Refunded ');
 					$rent_data->status = BOOKING_STATUS_REFUNDED;
@@ -666,12 +670,15 @@ class Rentbookingsave extends Model
 		try
 		{
 			$oTimeNow = \Carbon\Carbon::now();
-			$oUsedTime = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $rent_data->charge_start_date);
+// 			$oUsedTime = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $rent_data->charge_start_date);
 			
-			if (isMonthlySpace($rent_data->spaceID)){
-				$oUsedTime = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $rent_data->created_at);
-				$oUsedTime = $oUsedTime->addDays((int)config('booking.Monthly.DAY_AUTOMATIC_CANCELLED'));
-			}
+// 			if (isMonthlySpace($rent_data->spaceID)){
+// 				$oUsedTime = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $rent_data->created_at);
+// 				$oUsedTime = $oUsedTime->addDays((int)config('booking.Monthly.DAY_AUTOMATIC_CANCELLED'));
+// 			}
+			
+			$oUsedTime = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $rent_data->created_at);
+			$oUsedTime = $oUsedTime->addDays((int)config('booking.Monthly.DAY_AUTOMATIC_CANCELLED'));
 			
 			// Future will be Relative
 			// Past will be Nagative
@@ -853,20 +860,30 @@ class Rentbookingsave extends Model
 	 * time
 	 * - RESERVED should be changed to COMPLETED after end time has passed
 	 */
-	public function processBookingPaymentAuto ( $rent_datas = array() )
+	public function processBookingPaymentAuto ( $rent_datas = array(), $status )
 	{
-		// @TODO remove test function
-		// $this->testApi();
-		$processStatus = array(
-			BOOKING_STATUS_PENDING,
-			BOOKING_STATUS_RESERVED
-		);
 		$sTimeNow = date(DATE_TIME_DEFAULT_FORMAT);
-		if ( ! count($rent_datas) )
+		
+		if ($status == BOOKING_STATUS_PENDING)
 		{
-			$rent_datas = self::whereIn('status', $processStatus)->where('charge_start_date', '<=', $sTimeNow)
+			
+			$dayAutoCancelled = (int)config('booking.Monthly.DAY_AUTOMATIC_CANCELLED');
+			if ( ! count($rent_datas) )
+			{
+				$rent_datas = self::whereIn('status', array($status))->where(\DB::Raw('DATE_ADD(created_at, INTERVAL '.$dayAutoCancelled.' DAY) '), '<=', $sTimeNow)
 				->take(20)
+				->inRandomOrder()
 				->get();
+			}
+		}
+		else {
+			if ( ! count($rent_datas) )
+			{
+				$rent_datas = self::whereIn('status', array($status))->where('charge_start_date', '<=', $sTimeNow)
+					->take(20)
+					->inRandomOrder()
+					->get();
+			}
 		}
 		
 		foreach ( $rent_datas as $rent_data )

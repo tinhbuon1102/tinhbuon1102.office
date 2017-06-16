@@ -28,8 +28,8 @@
 		<table class="table table-striped table-bordered table-hover dataTable no-footer" id="dataTables_payment_sales" role="grid" aria-describedby="dataTables-example_info">
 			<thead>
 				<tr role="row">
-                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="日付: activate to sort column ascending" style="width: 167px;">Date</th>
 					<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="会社名: activate to sort column ascending" style="width: auto;">会社名<!--company name--></th>
+					<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="予約数: activate to sort column ascending" style="width: 150px;">予約数</th>
 					<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="売上額: activate to sort column ascending" style="width: 139px;">売上<!--Sales--></th>
 					<th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 67px;">アクション</th>
 				</tr>

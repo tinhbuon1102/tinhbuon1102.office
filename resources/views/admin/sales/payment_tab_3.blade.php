@@ -26,7 +26,8 @@
 			<thead>
 				<tr role="row">
 				<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="会社名: activate to sort column ascending" style="width: 239px;">ユーザーID #</th>
-					<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="会社名: activate to sort column ascending" style="width: 239px;">銀行名</th>
+				<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="予約数: activate to sort column ascending" style="width: 100px;">予約数</th>
+					<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="会社名: activate to sort column ascending" style="width: 139px;">銀行名</th>
 					<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="売上額: activate to sort column ascending" style="width: 139px;">売上金額</th>
 					<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="売上額: activate to sort column ascending" style="width: 139px;">ネット売上</th>
 					<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="売上額: activate to sort column ascending" style="width: 139px;">手数料売上</th>

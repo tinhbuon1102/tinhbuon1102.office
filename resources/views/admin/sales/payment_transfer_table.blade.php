@@ -15,7 +15,8 @@ if (isset($_REQUEST['start_date']) && $_REQUEST['start_date'])
 }
 ?>
 	<tr class="gradeX odd" role="row">
-		<td>#{{$rent->shareUser->id}}</td>
+		<td><a target="_blank" href="{{getUser1ProfileUrl($rent->shareUser)}}">#{{$rent->shareUser->id}} - {{getUserName($rent->shareUser)}}</a></td>
+		<td>{{$rent->count_booking}}</td>
 		<td>{{$bankName}}</td>
 		<td>{{priceConvert($rent->total_amount, true)}}</td>
 		<td>{{priceConvert($rent->total_amount - $rent->total_charge_fee, true)}}</td>

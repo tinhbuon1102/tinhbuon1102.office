@@ -1,7 +1,7 @@
 @foreach($rent_datas as $rent)
 <tr class="gradeX odd" role="row">
-	<td><?php echo renderJapaneseDate($rent->charge_start_date)?></td>
 	<td><a target="_blank" href="<?php echo getUser1ProfileUrl($rent->shareUser)?>">{{getUserName($rent->shareUser)}}</a></td>
+	<td>{{$rent->count_booking}}</td>
 	<td>
 		<?php echo priceConvert($rent->total_amount, true)?>
 	</td>

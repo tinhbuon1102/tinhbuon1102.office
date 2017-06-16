@@ -288,7 +288,7 @@ class MyAdminController extends Controller
 		{
 			$allAvailDatas = $allAvailDatas->where('rentbookingsaves.charge_start_date','>=', $request->filter_month . '-01')->where('rentbookingsaves.charge_start_date','<=', $request->filter_month . '-31');
 		}
-		// 		pr(getSqlQuery($allAvailDatas));die;
+		
 		$allDatas = $allDatas->get();
 		$allAvailDatas = $allAvailDatas->get();
 		
@@ -459,12 +459,7 @@ class MyAdminController extends Controller
 		$payinfo= User1paymentinfo::firstOrNew(array('User1ID' => $user->id));;
 		$payinfo->fill($userData);
 
-		//echo Auth::user()->id;
-		//print_r($payinfo->all());
-		//die;
-		//$user->bank->fill($request->except(['_token']));
 		$user->bank()->save($payinfo);
-		//return ($request->all());
 		return Response::json(array(
 				'success' => true,
 				'resp' => 'Inserted'
@@ -551,7 +546,6 @@ class MyAdminController extends Controller
 			$user->CompanyCertificate="/certificate/".$fileName;
 			$user->save();
 		}
-		//die;
 		if ($request->has('Logo')) {
 			$user->Logo=$request->Logo;
 			$user->save();
@@ -981,16 +975,78 @@ class MyAdminController extends Controller
 					break;
 			}
 				
-			$rent_datas = $rent_datas->where('charge_start_date', '>=', $startDate);
-			$rent_datas = $rent_datas->where('charge_start_date', '<=', $endDate);
+			$rent_datas = $rent_datas->where(function ( $query ) use ( $startDate,  $endDate)
+			{
+				$query = $query->orWhere(function ( $query ) use ( $startDate,  $endDate)
+				{
+					$oStartDate = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $startDate);
+					$oEndDate = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $endDate);
+					
+					$oStartDate = $oStartDate->addDays((int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'));
+					$oEndDate = $oEndDate->addDays((int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'));
+					
+					$query = $query->where('created_at', '>', $oStartDate->format('Y-m-d 23:59:59'));
+					$query = $query->where('created_at', '<', $oEndDate->format('Y-m-d 00:00:00'));
+					$query = $query->where('SpaceType', '=', SPACE_FEE_TYPE_MONTHLY);
+				});
+				
+				$query = $query->orWhere(function ( $query ) use ( $startDate,  $endDate)
+				{
+					$query = $query->where('charge_start_date', '>=', $startDate);
+					$query = $query->where('charge_start_date', '<=', $endDate);
+					$query = $query->where('SpaceType', '!=', SPACE_FEE_TYPE_MONTHLY);
+				});
+				
+			});
+			
 		}
 		elseif ($request->start_date || $request->end_date) {
+			$startDate = $request->start_date;
+			$endDate = $request->end_date;
+			
+			$rent_datas = $rent_datas->where(function ( $query ) use ( $startDate,  $endDate)
+			{
+				$query = $query->orWhere(function ( $query ) use ( $startDate,  $endDate)
+				{
+					if (trim($startDate))
+					{
+						$oStartDate = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $startDate . ' 00:00:00');
+						$oStartDate = $oStartDate->addDays((int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'));
+						
+						$query = $query->where('created_at', '>', $oStartDate->format(DATE_TIME_DEFAULT_FORMAT));
+					}
 				
-			if (trim($request->start_date))
-				$rent_datas = $rent_datas->where('charge_start_date', '>=', date('Y-m-d 00:00:00', strtotime($request->start_date)));
+					if (trim($endDate))
+					{
+						$oEndDate = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $endDate . ' 00:00:00');
+						$oEndDate = $oEndDate->addDays((int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'));
+						
+						$query = $query->where('created_at', '<', $oEndDate->format(DATE_TIME_DEFAULT_FORMAT));
+					}
+					$query = $query->where('SpaceType', '=', SPACE_FEE_TYPE_MONTHLY);
+				});
 					
-			if (trim($request->end_date))
-				$rent_datas = $rent_datas->where('charge_start_date', '<=', date('Y-m-d 23:59:59', strtotime($request->end_date)));
+				$query = $query->orWhere(function ( $query ) use ( $startDate,  $endDate)
+				{
+					if (trim($startDate))
+					{
+						$oStartDate = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $startDate . ' 00:00:00');
+						$oStartDate = $oStartDate->addDays((int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'));
+						
+						$query = $query->where('charge_start_date', '>=', date(DATE_TIME_DEFAULT_FORMAT, strtotime($startDate)));
+					}
+				
+					if (trim($endDate))
+					{
+						$oEndDate = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $endDate . ' 00:00:00');
+						$oEndDate = $oEndDate->addDays((int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'));
+						
+						$query = $query->where('charge_start_date', '<=', date('Y-m-d 23:59:59', strtotime($endDate)));
+					}
+			
+					$query = $query->where('SpaceType', '!=', SPACE_FEE_TYPE_MONTHLY);
+				});
+			});
 		}
 		
 		return $rent_datas;
@@ -1046,7 +1102,6 @@ class MyAdminController extends Controller
 		}
 
 		$rent_datas = $this->getSaleConditionByRequest($request, $rent_datas);
-		
 		$rent_datas = $rent_datas->get();
 
 		if ($request->ajax())

@@ -982,8 +982,8 @@ class MyAdminController extends Controller
 					$oStartDate = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $startDate);
 					$oEndDate = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $endDate);
 					
-					$oStartDate = $oStartDate->addDays((int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'));
-					$oEndDate = $oEndDate->addDays((int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'));
+					$oStartDate = $oStartDate->subDays((int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'));
+					$oEndDate = $oEndDate->subDays((int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'));
 					
 					$query = $query->where('created_at', '>', $oStartDate->format('Y-m-d 23:59:59'));
 					$query = $query->where('created_at', '<', $oEndDate->format('Y-m-d 00:00:00'));
@@ -1011,7 +1011,7 @@ class MyAdminController extends Controller
 					if (trim($startDate))
 					{
 						$oStartDate = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $startDate . ' 00:00:00');
-						$oStartDate = $oStartDate->addDays((int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'));
+						$oStartDate = $oStartDate->subDays((int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'));
 						
 						$query = $query->where('created_at', '>', $oStartDate->format(DATE_TIME_DEFAULT_FORMAT));
 					}
@@ -1019,7 +1019,7 @@ class MyAdminController extends Controller
 					if (trim($endDate))
 					{
 						$oEndDate = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $endDate . ' 00:00:00');
-						$oEndDate = $oEndDate->addDays((int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'));
+						$oEndDate = $oEndDate->subDays((int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'));
 						
 						$query = $query->where('created_at', '<', $oEndDate->format(DATE_TIME_DEFAULT_FORMAT));
 					}
@@ -1031,7 +1031,7 @@ class MyAdminController extends Controller
 					if (trim($startDate))
 					{
 						$oStartDate = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $startDate . ' 00:00:00');
-						$oStartDate = $oStartDate->addDays((int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'));
+						$oStartDate = $oStartDate->subDays((int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'));
 						
 						$query = $query->where('charge_start_date', '>=', date(DATE_TIME_DEFAULT_FORMAT, strtotime($startDate)));
 					}
@@ -1039,7 +1039,7 @@ class MyAdminController extends Controller
 					if (trim($endDate))
 					{
 						$oEndDate = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $endDate . ' 00:00:00');
-						$oEndDate = $oEndDate->addDays((int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'));
+						$oEndDate = $oEndDate->subDays((int)config('booking.Monthly.MORE_THAN_DAYS_BEFORE_START_DATE_CANCELLED_CHARGE_50'));
 						
 						$query = $query->where('charge_start_date', '<=', date('Y-m-d 23:59:59', strtotime($endDate)));
 					}

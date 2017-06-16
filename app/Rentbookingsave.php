@@ -670,20 +670,17 @@ class Rentbookingsave extends Model
 		try
 		{
 			$oTimeNow = \Carbon\Carbon::now();
-// 			$oUsedTime = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $rent_data->charge_start_date);
+			$oUsedTime = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $rent_data->charge_start_date);
 			
-// 			if (isMonthlySpace($rent_data->spaceID)){
-// 				$oUsedTime = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $rent_data->created_at);
-// 				$oUsedTime = $oUsedTime->addDays((int)config('booking.Monthly.DAY_AUTOMATIC_CANCELLED'));
-// 			}
-			
-			$oUsedTime = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $rent_data->created_at);
-			$oUsedTime = $oUsedTime->addDays((int)config('booking.Monthly.DAY_AUTOMATIC_CANCELLED'));
+			$oCreatedTime = \Carbon\Carbon::createFromFormat(DATE_TIME_DEFAULT_FORMAT, $rent_data->created_at);
+			$oCreatedTime = $oCreatedTime->addDays((int)config('booking.Monthly.DAY_AUTOMATIC_CANCELLED'));
 			
 			// Future will be Relative
 			// Past will be Nagative
 			$iUsedInSeconds = $oTimeNow->diffInSeconds($oUsedTime, false);
-			if ( $iUsedInSeconds <= 0 && $rent_data->status == BOOKING_STATUS_PENDING )
+			$iCreatedInSeconds = $oTimeNow->diffInSeconds($oCreatedTime, false);
+			
+			if ( ($iCreatedInSeconds <= 0 || $iUsedInSeconds <= 0) && $rent_data->status == BOOKING_STATUS_PENDING )
 			{
 				// - PEDING should be changed to CANCELLED if start date has
 				// passed as pending
@@ -867,10 +864,18 @@ class Rentbookingsave extends Model
 		if ($status == BOOKING_STATUS_PENDING)
 		{
 			
-			$dayAutoCancelled = (int)config('booking.Monthly.DAY_AUTOMATIC_CANCELLED');
 			if ( ! count($rent_datas) )
 			{
-				$rent_datas = self::whereIn('status', array($status))->where(\DB::Raw('DATE_ADD(created_at, INTERVAL '.$dayAutoCancelled.' DAY) '), '<=', $sTimeNow)
+				// Get all pending booing if passed start date or passed created_add + 20 days
+				$rent_datas = self::whereIn('status', array($status))
+				->where(function ( $query ) use ( $sTimeNow )
+				{
+					$dayAutoCancelled = (int)config('booking.Monthly.DAY_AUTOMATIC_CANCELLED');
+					
+					$query->orWhere(\DB::Raw('DATE_ADD(created_at, INTERVAL '.$dayAutoCancelled.' DAY) '), '<=', $sTimeNow);
+					$query->orWhere('charge_start_date', '<=', $sTimeNow);
+				})
+				
 				->take(20)
 				->inRandomOrder()
 				->get();

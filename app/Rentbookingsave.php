@@ -365,12 +365,15 @@ class Rentbookingsave extends Model
 		{
 			case BOOKING_REFUND_NO_CHARGE:
 				$refund_amount = 0;
+				$sale_amount = 0;
 				break;
 			case BOOKING_REFUND_CHARGE_50:
 				$refund_amount = round($bookingAmount / 2);
+				$sale_amount = round($rent_data->charge_fee_unit / 2);
 				break;
 			case BOOKING_REFUND_CHARGE_100:
 				$refund_amount = $bookingAmount;
+				$sale_amount = $rent_data->charge_fee_unit;
 				break;
 		}
 		
@@ -412,6 +415,7 @@ class Rentbookingsave extends Model
 					$rent_data->status = BOOKING_STATUS_REFUNDED;
 					$rent_data->refund_amount = $refund_amount;
 					$rent_data->refund_status = $refund_status;
+					$rent_data->amount_sale = $sale_amount;
 					$rent_data->save();
 					$this->bookingSaveCallBack($rent_data);
 					
@@ -433,6 +437,7 @@ class Rentbookingsave extends Model
 					$rent_data->status = BOOKING_STATUS_REFUNDED;
 					$rent_data->refund_amount = $refund_amount;
 					$rent_data->refund_status = $refund_status;
+					$rent_data->amount_sale = $sale_amount;
 					$rent_data->save();
 					$this->bookingSaveCallBack($rent_data);
 					
@@ -505,6 +510,7 @@ class Rentbookingsave extends Model
 				$rent_data->status = BOOKING_STATUS_REFUNDED;
 				$rent_data->refund_amount = $refund_amount;
 				$rent_data->refund_status = $refund_status;
+				$rent_data->amount_sale = $sale_amount;
 				$rent_data->save();
 				$this->bookingSaveCallBack($rent_data);
 				
@@ -541,7 +547,7 @@ class Rentbookingsave extends Model
 				));
 				if ( $info->captured )
 				{
-					// pr($rent_data->charge_start_date .' -- Capture ');
+					$rent_data->amount_sale = $rent_data->charge_fee_unit * 2;
 					$rent_data->save();
 					$this->bookingSaveCallBack($rent_data);
 					
@@ -563,7 +569,7 @@ class Rentbookingsave extends Model
 				}
 				elseif ( $info->captured )
 				{
-					// pr($rent_data->charge_start_date .' -- Captured ');
+					$rent_data->amount_sale = $rent_data->charge_fee_unit * 2;
 					$rent_data->save();
 					$this->bookingSaveCallBack($rent_data);
 				}
@@ -605,6 +611,7 @@ class Rentbookingsave extends Model
 				);
 				$response = $PayPal->DoCapture($PayPalRequestData);
 				$rent_data->transaction_id = isset($response['TRANSACTIONID']) ? $response['TRANSACTIONID'] : $rent_data->transaction_id;
+				$rent_data->amount_sale = $rent_data->charge_fee_unit * 2;
 				$rent_data->save();
 				$this->bookingSaveCallBack($rent_data);
 				
@@ -836,6 +843,7 @@ class Rentbookingsave extends Model
 		{
 			if ( $allowCapture )
 			{
+				$rent_data->save();
 				return $this->captureBookingPayment($rent_data);
 			}
 		}
@@ -914,7 +922,6 @@ class Rentbookingsave extends Model
 					break;
 			}
 		}
-		die('done import');
 	}
 	public function deleterecPayment ()
 	{}

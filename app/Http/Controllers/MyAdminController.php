@@ -1087,10 +1087,10 @@ class MyAdminController extends Controller
 					SUM(if(`status` = '.BOOKING_STATUS_REFUNDED.', 1, 0)) AS cancelled,
 					SUM(if('.$purchasedCondition.', 1, 0)) AS purchased,
 						
-					SUM(if('.$purchasedCondition.', amount_user1_sale - ChargeFee , 0)) as total_gross_sale,
-					SUM(if('.$purchasedCondition.', (ChargeFee * 2) , 0)) as total_net_sale ,
-					AVG(if('.$purchasedCondition.', amount_user1_sale - ChargeFee , 0)) as avarage_gross_sale,
-					AVG(if('.$purchasedCondition.', (ChargeFee * 2) , 0)) as avarage_net_sale'
+					SUM(if('.$purchasedCondition.', amount_user1_sale + charge_fee_unit, 0)) as total_gross_sale,
+					SUM(if('.$purchasedCondition.', (charge_fee_unit * 2), 0)) as total_net_sale ,
+					AVG(if('.$purchasedCondition.', amount_user1_sale + charge_fee_unit, 0)) as avarage_gross_sale,
+					AVG(if('.$purchasedCondition.', (charge_fee_unit * 2), 0)) as avarage_net_sale'
 			));
 			$rent_datas = $rent_datas->whereIn('rentbookingsaves.status', array(BOOKING_STATUS_PENDING, BOOKING_STATUS_RESERVED, BOOKING_STATUS_COMPLETED, BOOKING_STATUS_REFUNDED));
 		}

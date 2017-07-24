@@ -3189,6 +3189,7 @@ class User2Controller extends Controller
 					$chargeFee = isBookingRecursion($rent_data_save) ? round($rent_data_save->ChargeFee * 2 / $rent_data_save->Duration) : $rent_data_save->ChargeFee;
 					$rent_data_save->amount_user1_sale = $paidPayment - $chargeFee * 2;
 					$rent_data_save->amount_user2_sale = $paidPayment;
+					$rent_data_save->charge_fee_unit = $chargeFee;
 					$rent_data_save->save();
 					
 					// Trigger booking

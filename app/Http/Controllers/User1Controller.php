@@ -3137,7 +3137,32 @@ class User1Controller extends Controller
 				$chargeFee = isBookingRecursion($rent_data_save) ? round($rent_data_save->ChargeFee * 2 / $rent_data_save->Duration) : $rent_data_save->ChargeFee;
 				$rent_data_save->amount_user1_sale = $paidPayment - $chargeFee * 2;
 				$rent_data_save->amount_user2_sale = $paidPayment;
+				$rent_data_save->charge_fee_unit = $chargeFee;
+				switch ( $rent_data_save->refund_status )
+				{
+					case BOOKING_REFUND_NO_CHARGE:
+						$sale_amount = 0;
+						break;
+					case BOOKING_REFUND_CHARGE_50:
+						$sale_amount = round($rent_data_save->charge_fee_unit);
+						break;
+					case BOOKING_REFUND_CHARGE_100:
+						$sale_amount = $rent_data_save->charge_fee_unit * 2;
+						break;
+				}
+				$rent_data_save->amount_sale = $sale_amount;
+				
 				$rent_data_save->save();
+				
+				$rent_datas_booked = \App\Bookinghistory::where('BookedID', $rent_data_save->id)->get();
+				foreach ($rent_datas_booked as $rent_data_save_booked)
+				{
+					$rent_data_save_booked->amount_user1_sale = $rent_data_save->amount_user1_sale;
+					$rent_data_save_booked->amount_user2_sale = $rent_data_save->amount_user2_sale;
+					$rent_data_save_booked->charge_fee_unit = $rent_data_save->charge_fee_unit;
+					$rent_data_save_booked->amount_sale = $rent_data_save->amount_sale;
+					$rent_data_save_booked->save();
+				}
 			}
 			die('done calculate_amount');
 		}
@@ -3154,6 +3179,7 @@ class User1Controller extends Controller
 		// mail("quocthang.2001@gmail.com", "IPN RECEVING DATA test for
 		// recurring payment", 'Is it ok?', "processBookingPaymentAuto");
 		$rentbooking->processBookingPaymentAuto(array(), BOOKING_STATUS_PENDING);
-		return $rentbooking->processBookingPaymentAuto(array(), BOOKING_STATUS_RESERVED);
+		$rentbooking->processBookingPaymentAuto(array(), BOOKING_STATUS_RESERVED);
+		die('done import');
 	}
 }

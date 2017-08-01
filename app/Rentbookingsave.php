@@ -427,23 +427,17 @@ class Rentbookingsave extends Model
 			}
 			catch ( \Exception $e )
 			{
-				if ($refund_amount)
-				{
-					$info = $webpay->charge->retrieve($rent_data->transaction_id);
-				}
-				if ( !$refund_amount || (isset($info) && $info && ($info->refunded || $info->amount_refunded)))
-				{
-					// pr($rent_data->charge_start_date .' -- Refunded ');
-					$rent_data->status = BOOKING_STATUS_REFUNDED;
-					$rent_data->refund_amount = $refund_amount;
-					$rent_data->refund_status = $refund_status;
-					$rent_data->amount_sale = $sale_amount;
-					$rent_data->save();
-					$this->bookingSaveCallBack($rent_data);
-					
-					// Delete Recursion
-					$this->deleteRecursion($rent_data);
-				}
+				// pr($rent_data->charge_start_date .' -- Refunded ');
+				$rent_data->status = BOOKING_STATUS_REFUNDED;
+				$rent_data->refund_amount = $refund_amount;
+				$rent_data->refund_status = $refund_status;
+				$rent_data->amount_sale = $sale_amount;
+				$rent_data->save();
+				$this->bookingSaveCallBack($rent_data);
+				
+				// Delete Recursion
+				$this->deleteRecursion($rent_data);
+				
 				return $this->processException(array(
 					'error' => 1,
 					'function' => 'cancelBookingPayment',
@@ -562,17 +556,9 @@ class Rentbookingsave extends Model
 			}
 			catch ( \Exception $e )
 			{
-				$info = $webpay->charge->retrieve($rent_data->transaction_id);
-				if ( $info->refunded )
-				{
-					$this->processCancelPayment($rent_data, false);
-				}
-				elseif ( $info->captured )
-				{
-					$rent_data->amount_sale = $rent_data->charge_fee_unit * 2;
-					$rent_data->save();
-					$this->bookingSaveCallBack($rent_data);
-				}
+				$rent_data->amount_sale = $rent_data->charge_fee_unit * 2;
+				$rent_data->save();
+				$this->bookingSaveCallBack($rent_data);
 				
 				if ( $rent_data->status == BOOKING_STATUS_COMPLETED )
 				{

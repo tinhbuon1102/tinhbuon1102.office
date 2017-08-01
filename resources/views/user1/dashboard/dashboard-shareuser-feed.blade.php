@@ -22,6 +22,9 @@
 					$notifTitle = 'からスペースを予約を受付ました。<br/><span class="red bold" id="booking_place_'.$notifications[0]['TypeID'].'">予約申し込みはまだ承認されていませんので、承認してください。</span>予約番号: #' . $notifications[0]['TypeID'];
 					break;
 				}
+				elseif ($notifications[0]['booking']['status'] == BOOKING_STATUS_COMPLETED) {
+					$notifTitle = "からの予約利用が完了しました。";
+				}
 			case NOTIFICATION_BOOKING_CHANGE_STATUS :
 				if ($notifications[0]['booking']['status'] == BOOKING_STATUS_RESERVED)
 				{

@@ -472,3 +472,7 @@ Route::any('/curlIndex/curlStoreProductUrl', "CurlController@storeProductUrl");
 Route::any('/curlIndex/curlStoreProductHtml', "CurlController@storeProductHtml");
 Route::any('/curlIndex/curlStoreProduct', "CurlController@storeProduct");
 Route::any('/curlIndex/curlExportCSV', "CurlController@exportCSV");
+
+Route::get('sitemap', 'SitemapsController@index');
+Route::get('sitemap-pages', 'SitemapsController@pages')->name('sitemaps.pages');
+Route::get('sitemap-flush', 'SitemapsController@clearSiteMapCache');

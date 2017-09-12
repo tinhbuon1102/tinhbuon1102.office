@@ -35,6 +35,7 @@ class ComposerStaticInit0997d0a31e979b45e67ac313e8593d15
         'W' => 
         array (
             'Webmozart\\Assert\\' => 17,
+            'Watson\\' => 7,
         ),
         'S' => 
         array (
@@ -133,6 +134,10 @@ class ComposerStaticInit0997d0a31e979b45e67ac313e8593d15
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'Watson\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/watson/sitemap/src/Watson',
         ),
         'Symfony\\Polyfill\\Util\\' => 
         array (

@@ -163,6 +163,7 @@ return [
     	Illuminate\Auth\AuthServiceProvider::class,
     	/*Kbwebs\MultiAuth\AuthServiceProvider::class,*/
     	Laravel\Socialite\SocialiteServiceProvider::class,
+    	Watson\Sitemap\SitemapServiceProvider::class,
     ],
 
     /*
@@ -216,8 +217,7 @@ return [
     	'Image' => Intervention\Image\Facades\Image::class,
     	'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
     	'Debugbar' => Barryvdh\Debugbar\Facade::class,
-    	 
-    		
+    	'Sitemap' => Watson\Sitemap\Facades\Sitemap::class,
     ],
 
 ];

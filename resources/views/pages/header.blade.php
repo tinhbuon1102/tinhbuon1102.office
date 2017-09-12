@@ -22,7 +22,7 @@
 <meta property="fb:app_id" content="315767042137325">
 <?php }else {?>
 <title>hOur Office | アワーオフィス</title>
-<meta name="description" content="hOur Office | アワーオフィス"/>
+<meta name="description" content="フリーデスクから会議室、プライベートオフィスまで、あなたにぴったりのワークスペース探しマッチングサイトhOur Office。 もちろん、敷金、礼金、年単位での契約期間も無く、ワンクリックで、すぐにあなたのワークスペースが見つかる。"/>
 <meta property="og:url" content="{{url(Route::getCurrentRoute()->getPath())}}"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="hOur Office | アワーオフィス"/>

@@ -13,7 +13,7 @@
 <meta property="fb:app_id" content="315767042137325" />
 <meta property="og:description" content="hOur Officeであなたのオフィススペースを収益化しませんか？好きな時間、価格で、フリーデスク、会議室から個室まで、様々な種類のオフィスが掲載できるマッチングサイト。" />
 <meta name="Keywords" content="hOur Office,アワーオフィス,オフィススペース,レンタルオフィス,短期,オフィス" />
-<meta name="description" content="hOur Officeであなたのオフィススペースを収益化しませんか？好きな時間、価格で、フリーデスク、会議室から個室まで、様々な種類のオフィスが掲載できるマッチングサイト。" />
+<meta name="description" content="フリーデスクから会議室、プライベートオフィスまで、あなたにぴったりのワークスペース探しマッチングサイトhOur Office。 もちろん、敷金、礼金、年単位での契約期間も無く、ワンクリックで、すぐにあなたのワークスペースが見つかる。" />
 <title>hOur Office | アワーオフィス</title>
 <link rel="apple-touch-icon" sizes="57x57" href="{{url('/')}}/lpnew/images/favicon/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="{{url('/')}}/lpnew/images/favicon/apple-icon-60x60.png">

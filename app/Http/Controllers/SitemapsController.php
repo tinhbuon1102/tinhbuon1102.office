@@ -10,8 +10,8 @@ class SitemapsController extends Controller
 	{
 		// You can use the route helpers too.
 		Sitemap::addSitemap(route('sitemaps.pages'));
-	
 		// Return the sitemap to the client.
+		file_put_contents(public_path() . '/sitemap.xml', Sitemap::xml());
 		return Sitemap::index();
 	}
 	

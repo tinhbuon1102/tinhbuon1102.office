@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex">
+<meta name="robots" content="index, follow">
 <title>offispo | アワーオフィス</title>
 <link rel="stylesheet" href="<?php echo SITE_URL?>css/font-awesome/css/font-awesome.min.css">
 
